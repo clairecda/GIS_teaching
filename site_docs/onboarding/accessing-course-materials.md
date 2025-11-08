@@ -5,7 +5,6 @@ This guide explains how to access course materials and download the notebooks yo
 ## What you need
 
 **For Weeks 1-6 (QGIS):**
-- Access to the course website (your instructor will provide the URL)
 - QGIS installed on your computer
 - Datasets downloaded following weekly guides
 
