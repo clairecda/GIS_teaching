@@ -7,7 +7,7 @@ Follow these steps to prepare a stable QGIS workspace before Week 1.
 - **Recommended:** QGIS Long-Term Release (LTR) 3.34.x for stability across the entire course.
 - Download links:
   - **macOS (Apple silicon & Intel):** [.dmg installer](https://qgis.org/en/site/forusers/download.html#mac)
-  - **Windows:** Standalone installer (64-bit) — select the LTR option.
+  - **Windows:** Standalone installer (64-bit) — select the LTR option. [.installer] (https://qgis.org/downloads/QGIS-OSGeo4W-3.40.12-1.msi)
   - **Linux:** Use the distribution-specific repositories listed on the QGIS site; stick with the LTR channel.
 - Avoid unofficial package managers (Homebrew, OSGeo4W) unless you are comfortable troubleshooting.
 
