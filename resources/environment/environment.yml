@@ -1,0 +1,38 @@
+name: intro-gis
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - geopandas
+  - shapely
+  - pyproj
+  - fiona
+  - gdal
+  - rasterio
+  - rioxarray
+  - xarray
+  - rasterstats
+  - numpy
+  - pandas
+  - scipy
+  - matplotlib
+  - seaborn
+  - contextily
+  - folium
+  - ipykernel
+  - jupyterlab
+  - notebook
+  - pip
+  - pytest
+  - black
+  - pre-commit
+  - osmnx
+  - networkx
+  - pysal
+  - statsmodels
+  - rich
+  - requests
+  - click
+  - tqdm
+  - pip:
+      - descartes

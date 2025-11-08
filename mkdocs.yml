@@ -1,0 +1,86 @@
+site_name: Introduction to GIS
+site_description: QGIS-first, Python-powered GIS course
+site_author: Claire Boulange (and contributors)
+
+docs_dir: site_docs
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: teal
+      accent: light blue
+  features:
+    - navigation.expand
+    - navigation.sections
+    - navigation.top
+    - toc.follow
+    - content.code.copy
+
+nav:
+  - Welcome:
+      - Overview: index.md
+      - How to use this course: guide/how-to-use.md
+  - Getting Ready:
+      - Accessing Course Materials: onboarding/accessing-course-materials.md
+      - Install QGIS: onboarding/qgis-install.md
+      - Anaconda Setup (Week 7+): onboarding/anaconda-setup.md
+      - Downloading datasets: onboarding/data-downloads.md
+      - Understanding CRS: readings/understanding-crs.md
+      - Understanding boundaries: readings/week03-admin-boundaries.md
+      - GIS primer (Esri + video): readings/week01-what-is-gis.md
+  - Lectures & Theory:
+      - Week 1 · Foundations of GIS: lectures/week01-fundamentals.md
+      - Week 2 · Cartographic Conventions & Colour: lectures/week02-cartography.md
+      - Week 3 · Boundary Systems & Data Joins: lectures/week03-boundaries.md
+      - Week 4 · Elevation & Surface Modelling: lectures/week04-raster-theory.md
+      - Week 5 · Ethics of Crime Mapping: lectures/week05-crime-ethics.md
+      - Week 6 · Health Equity & Accessibility: lectures/week06-health-theory.md
+      - Week 7 · Reproducibility & Environments: lectures/week07-reproducibility.md
+      - Week 8 · Vector Automation Concepts: lectures/week08-vector-theory.md
+      - Week 9 · Remote Sensing Change Detection: lectures/week09-remote-sensing.md
+      - Week 10 · Network Theory for Mobility: lectures/week10-network-theory.md
+      - Week 11 · Narrative Map Design: lectures/week11-storytelling.md
+      - Week 12 · Capstone Synthesis & Reflection: lectures/week12-capstone-theory.md
+  - Weekly Labs:
+      - Week 1 · QGIS Orientation: weeks/week01.md
+      - Week 2 · Symbology & Layouts: weeks/week02.md
+      - Week 3 · Vector Analysis & Joins: weeks/week03.md
+      - Week 4 · Raster & Terrain: weeks/week04.md
+      - Week 5 · Crime & Hotspots: weeks/week05.md
+      - Week 6 · Public Health & Accessibility: weeks/week06.md
+      - Week 7 · Bridge to Python: weeks/week07.md
+      - Week 8 · Python Vector Workflows: weeks/week08.md
+      - Week 9 · Raster & Remote Sensing: weeks/week09.md
+      - Week 10 · Transport Networks: weeks/week10.md
+      - Week 11 · Design & Storytelling: weeks/week11.md
+      - Week 12 · Capstone: weeks/week12.md
+  - Reference:
+      - Dataset inventory: reference/data-inventory.md
+      - Data download checklist: reference/data-download-checklist.md
+      - Quickstart cheat sheet: reference/qgis-quickstart.md
+      - Toolbar reference: reference/toolbar.md
+      - Layout template: reference/layout-template.md
+      - Reflection prompts: reference/reflections.md
+      - Environment verification: reference/environment.md
+      - Project checklist: reference/project-checklist.md
+  - Appendices:
+      - Course roadmap: reference/roadmap.md
+      - Licensing: reference/licensing.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/
+      name: Source repository
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - codehilite
+  - pymdownx.details
+  - pymdownx.tasklist
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true

@@ -1,0 +1,6 @@
+.DS_Store
+.Ulysses-Settings.plist
+.claude
+site/
+__pycache__/
+*.pyc
