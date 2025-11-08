@@ -77,7 +77,7 @@ mkdocs build
 
 Students need access to **two things:**
 
-1. **Course website** (deployed MkDocs site) - For weekly instructions
+1. **Course website** (deployed MkDocs site) - For weekly instructions. Latest deployment: https://clairecda.github.io/GIS_teaching/
 2. **GitHub repository** (cloned or downloaded) - For notebooks and environment files
 
 See `site_docs/onboarding/accessing-course-materials.md` for the student-facing guide that explains this.
@@ -217,7 +217,7 @@ Students emerge with both technical skills and critical thinking about when and 
 
 ## Quick Start for Students
 
-1. **Access the course website:** [DEPLOYED_SITE_URL] ← Instructor: Add your deployed URL here
+1. **Access the course website:** https://clairecda.github.io/GIS_teaching/
 2. **Read the getting started guide:** [Accessing Course Materials](site_docs/onboarding/accessing-course-materials.md)
 3. **Install QGIS:** Follow [QGIS Installation Guide](site_docs/onboarding/qgis-install.md)
 4. **Download Week 1 data:** See [Data Downloads Guide](site_docs/onboarding/data-downloads.md)
