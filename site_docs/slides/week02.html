@@ -421,12 +421,13 @@
         <li>Accessibility Matters</li>
         <li>Labelling Best Practices</li>
         <li>The Print Layout</li>
+        <li>Lab Exercise: Renewable Energy Map</li>
         <li>Lab Step 1: Load Renewable Energy Data</li>
         <li>Lab Step 2: Style with Graduated Colours</li>
         <li>Lab Step 3: Choose an Accessible Colour Ramp</li>
         <li>Lab Step 4: Add Labels to Major Sites</li>
         <li>Lab Step 5: Build Your Layout</li>
-        <li>Reflection</li>
+        <li>Reflection & Next Week</li>
       </ol>
       <div class="slide-footer">Week 02 | Intro to GIS | © 2025</div>
     </div>
@@ -497,6 +498,12 @@
       <div class="slide-footer">Week 02 | Intro to GIS | © 2025</div>
     </div>
 
+    <div class="slide content-slide" role="region" aria-label="Lab Exercise: Renewable Energy Map">
+      <h2>Lab Exercise: Renewable Energy Map</h2>
+      <p style="font-size: 1.3rem; color: var(--text-secondary); max-width: 900px; line-height: 1.8;">Now let's apply these concepts. You'll load point data, experiment with classification methods, test accessibility, and build a polished layout.</p>
+      <div class="slide-footer">Week 02 | Intro to GIS | © 2025</div>
+    </div>
+
     <div class="slide content-slide" role="region" aria-label="Lab Step 1: Load Renewable Energy Data">
       <h2>Lab Step 1: Load Renewable Energy Data</h2>
       <ul>
@@ -549,7 +556,7 @@
       <h2>Lab Step 5: Build Your Layout</h2>
       <ul>
         <li>Create new Print Layout → add map, legend, title</li>
-        <li>Title: 'Global Renewable Energy Capacity, 2024'</li>
+        <li>Title: 'Global Renewable Energy Capacity, 2025'</li>
         <li>Legend: remove unneeded items, rename 'capacity' to 'Capacity (MW)'</li>
         <li>Add scale bar, north arrow, and data source</li>
         <li>Export as PDF at 300 DPI for printing</li>
@@ -557,12 +564,12 @@
       <div class="slide-footer">Week 02 | Intro to GIS | © 2025</div>
     </div>
 
-    <div class="slide content-slide" role="region" aria-label="Reflection">
-      <h2>Reflection</h2>
+    <div class="slide content-slide" role="region" aria-label="Reflection & Next Week">
+      <h2>Reflection & Next Week</h2>
       <ul>
         <li>What single design change most improved your map's clarity?</li>
         <li>How might your colour choices mislead or exclude certain audiences?</li>
-        <li>What's one element you'll pay more attention to in future maps?</li>
+        <li>Next week: Vector analysis and attribute joins with census data</li>
       </ul>
       <div class="slide-footer">Week 02 | Intro to GIS | © 2025</div>
     </div>
@@ -708,6 +715,12 @@
           }
         }
       }
+    });
+
+    // Make all links open in new tab
+    document.querySelectorAll('a[href^="http"]').forEach(function(link) {
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener noreferrer');
     });
   </script>
 </body>

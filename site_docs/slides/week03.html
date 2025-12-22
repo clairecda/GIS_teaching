@@ -644,6 +644,12 @@
         }
       }
     });
+
+    // Make all links open in new tab
+    document.querySelectorAll('a[href^="http"]').forEach(function(link) {
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener noreferrer');
+    });
   </script>
 </body>
 </html>

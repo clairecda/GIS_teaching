@@ -421,12 +421,13 @@
         <li>Why Metadata Matters</li>
         <li>A Simple GIS Workflow</li>
         <li>Meet QGIS</li>
+        <li>Discussion Prompts</li>
+        <li>Lab Exercise: Your First Map</li>
         <li>Lab Step 1: Set Up Your Workspace</li>
         <li>Lab Step 2: Load and Inspect Data</li>
         <li>Lab Step 3: Apply Symbology</li>
         <li>Lab Step 4: Create Print Layout</li>
         <li>Lab Step 5: Export Your Map</li>
-        <li>Discussion Prompts</li>
         <li>Before Next Week</li>
       </ol>
       <div class="slide-footer">Week 01 | Intro to GIS | © 2025</div>
@@ -499,6 +500,22 @@
       <div class="slide-footer">Week 01 | Intro to GIS | © 2025</div>
     </div>
 
+    <div class="slide content-slide" role="region" aria-label="Discussion Prompts">
+      <h2>Discussion Prompts</h2>
+      <ul>
+        <li>When was the last time you used a map app (Google Maps, transit planner, weather radar)? What questions did it answer?</li>
+        <li>Think of a dataset in your field—how might adding location reveal new insights?</li>
+        <li>What's one skill you hope to leave this course with?</li>
+      </ul>
+      <div class="slide-footer">Week 01 | Intro to GIS | © 2025</div>
+    </div>
+
+    <div class="slide content-slide" role="region" aria-label="Lab Exercise: Your First Map">
+      <h2>Lab Exercise: Your First Map</h2>
+      <p style="font-size: 1.3rem; color: var(--text-secondary); max-width: 900px; line-height: 1.8;">Now let's put theory into practice. You'll set up your workspace, load Natural Earth data, apply symbology, and export your first map.</p>
+      <div class="slide-footer">Week 01 | Intro to GIS | © 2025</div>
+    </div>
+
     <div class="slide content-slide" role="region" aria-label="Lab Step 1: Set Up Your Workspace">
       <h2>Lab Step 1: Set Up Your Workspace</h2>
       <ul>
@@ -550,21 +567,11 @@
     <div class="slide content-slide" role="region" aria-label="Lab Step 5: Export Your Map">
       <h2>Lab Step 5: Export Your Map</h2>
       <ul>
-        <li>Add source credit: 'Data: Natural Earth, 2024'</li>
+        <li>Add source credit: 'Data: Natural Earth, 2025'</li>
         <li>Add your name and date</li>
         <li>Layout → Export as Image → save to exports/week01_world_map.png</li>
         <li>Choose 300 DPI for high quality</li>
         <li>Congratulations — your first GIS map!</li>
-      </ul>
-      <div class="slide-footer">Week 01 | Intro to GIS | © 2025</div>
-    </div>
-
-    <div class="slide content-slide" role="region" aria-label="Discussion Prompts">
-      <h2>Discussion Prompts</h2>
-      <ul>
-        <li>When was the last time you used a map app (Google Maps, transit planner, weather radar)? What questions did it answer?</li>
-        <li>Think of a dataset in your field—how might adding location reveal new insights?</li>
-        <li>What's one skill you hope to leave this course with?</li>
       </ul>
       <div class="slide-footer">Week 01 | Intro to GIS | © 2025</div>
     </div>
@@ -574,7 +581,7 @@
       <ul>
         <li>Complete the Week 01 reflection prompt in your notes folder.</li>
         <li>Download renewable energy and world cities datasets (see Data Download Checklist).</li>
-        <li>Explore QGIS: Help → Sketcher to try drawing, or browse plugins in the Plugin Manager.</li>
+        <li>Explore QGIS: try the Sketcher in Help menu, or browse plugins.</li>
       </ul>
       <div class="slide-footer">Week 01 | Intro to GIS | © 2025</div>
     </div>
@@ -720,6 +727,12 @@
           }
         }
       }
+    });
+
+    // Make all links open in new tab
+    document.querySelectorAll('a[href^="http"]').forEach(function(link) {
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener noreferrer');
     });
   </script>
 </body>

@@ -85,6 +85,18 @@ SLIDES = {
                 ],
             ),
             (
+                "Discussion Prompts",
+                [
+                    "When was the last time you used a map app (Google Maps, transit planner, weather radar)? What questions did it answer?",
+                    "Think of a dataset in your field—how might adding location reveal new insights?",
+                    "What's one skill you hope to leave this course with?",
+                ],
+            ),
+            (
+                "Lab Exercise: Your First Map",
+                "Now let's put theory into practice. You'll set up your workspace, load Natural Earth data, apply symbology, and export your first map.",
+            ),
+            (
                 "Lab Step 1: Set Up Your Workspace",
                 [
                     "Create folder: intro-gis-course/ on your Desktop or Documents",
@@ -127,7 +139,7 @@ SLIDES = {
             (
                 "Lab Step 5: Export Your Map",
                 [
-                    "Add source credit: 'Data: Natural Earth, 2024'",
+                    "Add source credit: 'Data: Natural Earth, 2025'",
                     "Add your name and date",
                     "Layout → Export as Image → save to exports/week01_world_map.png",
                     "Choose 300 DPI for high quality",
@@ -135,19 +147,11 @@ SLIDES = {
                 ],
             ),
             (
-                "Discussion Prompts",
-                [
-                    "When was the last time you used a map app (Google Maps, transit planner, weather radar)? What questions did it answer?",
-                    "Think of a dataset in your field—how might adding location reveal new insights?",
-                    "What's one skill you hope to leave this course with?",
-                ],
-            ),
-            (
                 "Before Next Week",
                 [
                     "Complete the Week 01 reflection prompt in your notes folder.",
                     "Download renewable energy and world cities datasets (see Data Download Checklist).",
-                    "Explore QGIS: Help → Sketcher to try drawing, or browse plugins in the Plugin Manager.",
+                    "Explore QGIS: try the Sketcher in Help menu, or browse plugins.",
                 ],
             ),
         ],
@@ -214,6 +218,10 @@ SLIDES = {
                 ],
             ),
             (
+                "Lab Exercise: Renewable Energy Map",
+                "Now let's apply these concepts. You'll load point data, experiment with classification methods, test accessibility, and build a polished layout.",
+            ),
+            (
                 "Lab Step 1: Load Renewable Energy Data",
                 [
                     "Download renewable energy CSV from course data checklist",
@@ -257,18 +265,18 @@ SLIDES = {
                 "Lab Step 5: Build Your Layout",
                 [
                     "Create new Print Layout → add map, legend, title",
-                    "Title: 'Global Renewable Energy Capacity, 2024'",
+                    "Title: 'Global Renewable Energy Capacity, 2025'",
                     "Legend: remove unneeded items, rename 'capacity' to 'Capacity (MW)'",
                     "Add scale bar, north arrow, and data source",
                     "Export as PDF at 300 DPI for printing",
                 ],
             ),
             (
-                "Reflection",
+                "Reflection & Next Week",
                 [
                     "What single design change most improved your map's clarity?",
                     "How might your colour choices mislead or exclude certain audiences?",
-                    "What's one element you'll pay more attention to in future maps?",
+                    "Next week: Vector analysis and attribute joins with census data",
                 ],
             ),
         ],
@@ -1543,6 +1551,12 @@ HTML_TEMPLATE = """<!DOCTYPE html>
           }}
         }}
       }}
+    }});
+
+    // Make all links open in new tab
+    document.querySelectorAll('a[href^="http"]').forEach(function(link) {{
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener noreferrer');
     }});
   </script>
 </body>
