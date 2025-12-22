@@ -29,15 +29,3 @@ Remote sensing · spectral bands · spatial resolution · temporal resolution ·
 ## Connected lab
 This week's lab notebook guides you through the full remote sensing workflow: loading multi-band imagery, clipping to your area of interest, computing NDVI and other indices, detecting change between two time periods, and using zonal statistics to report change by administrative boundaries.
 
-## Further Reading
-
-**Essential:**
-- [Rasterio Documentation](https://rasterio.readthedocs.io/) - Official guide to reading, writing, and processing geospatial raster data in Python with comprehensive examples
-- [Rioxarray User Guide](https://corteva.github.io/rioxarray/stable/) - Extends xarray with geospatial raster capabilities, ideal for working with multi-dimensional satellite imagery
-- [USGS Landsat Missions](https://www.usgs.gov/landsat-missions) - Comprehensive resource on Landsat satellite missions, band descriptions, data access, and processing levels
-- [ESA Sentinel-2 User Handbook](https://sentinels.copernicus.eu/web/sentinel/user-guides/sentinel-2-msi) - Official guide to Sentinel-2 spectral bands, resolution specifications, and data products
-
-**Optional but recommended:**
-- [EarthPy Documentation](https://earthpy.readthedocs.io/) - Python package for plotting and working with spatial raster and vector data, particularly useful for multi-band imagery visualization
-- [Google Earth Engine Guides](https://developers.google.com/earth-engine/guides) - Cloud-based platform for planetary-scale geospatial analysis, useful for understanding large-scale remote sensing workflows even if not using GEE directly
-- [NDVI: Foundation for Remote Sensing Phenology (USGS)](https://www.usgs.gov/special-topics/remote-sensing-phenology/science/ndvi-foundation-remote-sensing-phenology) - Explains the theory, applications, and interpretation of NDVI for vegetation monitoring

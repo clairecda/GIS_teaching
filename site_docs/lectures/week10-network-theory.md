@@ -27,16 +27,3 @@ Graph theory · nodes · edges · directed/undirected graphs · weighted network
 ## Connected lab
 The [Week 10 lab](../weeks/week10.md) guides learners through downloading networks with OSMnx, computing isochrones, and overlaying results with population data to assess service accessibility.
 
-## Further Reading
-
-**Essential:**
-- [OSMnx Documentation](https://osmnx.readthedocs.io/en/stable/) - Official documentation for downloading, analyzing, and visualizing street networks from OpenStreetMap
-- [NetworkX Tutorial](https://networkx.org/documentation/stable/tutorial.html) - Comprehensive guide to graph theory fundamentals and network analysis in Python
-- [Introduction to Network Analysis - Geographic Data Science Book](https://geographicdata.science/book/notebooks/08_point_pattern_analysis.html) - Academic introduction to spatial network concepts with Python examples
-- [OpenStreetMap Wiki: Routing](https://wiki.openstreetmap.org/wiki/Routing) - Guide to OSM data structure, tags, and routing considerations
-
-**Optional but recommended:**
-- [GTFS Static Overview - Google Transit](https://developers.google.com/transit/gtfs) - Specification for public transit data including stops, routes, and schedules
-- [Urban Street Networks Analysis with OSMnx - Boeing 2017](https://journals.sagepub.com/doi/full/10.1177/2399808317715537) - Academic paper introducing OSMnx and its applications in urban analytics
-- [Isochrone Maps with OSMnx + Python](https://geoffboeing.com/2017/08/isochrone-maps-osmnx-python/) - Tutorial by OSMnx creator on creating isochrone maps for accessibility analysis
-- [Transport Geography - The Geography of Transport Systems](https://transportgeography.org/contents/chapter4/) - Conceptual overview of network structure and accessibility concepts

@@ -27,15 +27,3 @@ Capstone presentation · peer feedback · portfolio · reproducible research · 
 ## Connected lab
 The [Week 12 lab](../weeks/week12.md) focuses on polishing project documentation, creating portfolio-ready materials, and completing your final reflection.
 
-## Further Reading
-
-**Essential:**
-- [How to Build a GIS Portfolio - Esri](https://www.esri.com/arcgis-blog/products/arcgis-online/careers/how-to-build-a-gis-portfolio/) - Practical guide to showcasing GIS projects for job applications and professional development
-- [GISP Certification - GIS Certification Institute](https://www.gisci.org/) - Information on professional GIS certification, requirements, and career benefits
-- [Creating Reproducible Research - QGIS Documentation](https://docs.qgis.org/3.34/en/docs/user_manual/processing/modeler.html) - Guide to documenting workflows and ensuring reproducibility in QGIS projects
-- [Writing Effective README Files - GitHub](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes) - Best practices for documenting spatial data projects and repositories
-
-**Optional but recommended:**
-- [GIS Career Resources - URISA](https://www.urisa.org/careers/) - Job board, salary surveys, and professional development resources from the Urban and Regional Information Systems Association
-- [Awesome GIS - GitHub](https://github.com/sshuair/awesome-gis) - Curated list of GIS tools, datasets, tutorials, and resources for continued learning
-- [Open Source Geospatial Foundation (OSGeo)](https://www.osgeo.org/) - Community hub for QGIS and other open-source GIS projects, events, and education

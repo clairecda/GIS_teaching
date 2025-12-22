@@ -27,15 +27,3 @@ Visual hierarchy · narrative structure · accessibility · WCAG · color contra
 ## Connected lab
 The [Week 11 lab](../weeks/week11.md) guides learners through design critique workshops, accessibility audits, narrative framing exercises, and capstone project scoping.
 
-## Further Reading
-
-**Essential:**
-- [Cartography Guide - Axis Maps](https://www.axismaps.com/guide) - Professional guide to thematic mapping, visual hierarchy, and storytelling through design
-- [ColorBrewer 2.0](https://colorbrewer2.org/) - Interactive tool for selecting accessible, colorblind-safe palettes with guidance on sequential, diverging, and qualitative schemes
-- [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/) - Test color contrast ratios against WCAG AA and AAA standards for accessible text
-- [Accessible Complex Images - W3C](https://www.w3.org/WAI/tutorials/images/complex/) - W3C guidelines for writing alternative text and making maps accessible to screen readers
-
-**Optional but recommended:**
-- [Storytelling with Data - Cole Nussbaumer Knaflic Blog](https://www.storytellingwithdata.com/blog) - Practical tips on narrative structure, visual hierarchy, and effective communication with data
-- [Color Oracle Documentation](https://colororacle.org/) - Free color blindness simulator for testing Deuteranopia, Protanopia, and Tritanopia compatibility
-- [Design Principles for Cartography - Esri](https://www.esri.com/arcgis-blog/products/arcgis-pro/mapping/please-label-responsibly/) - Typography, label placement, and visual balance in professional map design

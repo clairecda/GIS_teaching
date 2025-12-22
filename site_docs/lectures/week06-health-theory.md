@@ -27,15 +27,3 @@ Health equity · accessibility · isochrone · service area · catchment · two-
 ## Connected lab
 In the Week 6 lab, you'll generate service areas using QNEAT3, overlay them with SEIFA or other vulnerability data, and create maps that tell an equity-focused accessibility story.
 
-## Further Reading
-
-**Essential:**
-- [SEIFA - Socio-Economic Indexes for Areas (ABS)](https://www.abs.gov.au/statistics/people/people-and-communities/socio-economic-indexes-areas-seifa-australia) - Official Australian Bureau of Statistics documentation on SEIFA disadvantage indices and how to interpret them
-- [CDC/ATSDR Social Vulnerability Index (SVI)](https://www.atsdr.cdc.gov/placeandhealth/svi/index.html) - US vulnerability mapping tool with data downloads, methodology, and applications for public health planning
-- [QNEAT3 Plugin Documentation](https://root676.github.io/) - Official guide to network analysis in QGIS, covering isochrone creation, service area analysis, and routing
-- [WHO Handbook on Health Inequality Monitoring (Chapter 7)](https://www.who.int/publications/i/item/9789241548632) - Framework for measuring geographic accessibility and health service distribution globally
-
-**Optional but recommended:**
-- [Accessibility and Remoteness Index of Australia (ARIA+)](https://www.health.gov.au/topics/rural-health-workforce/classifications/aria) - Australian Department of Health classification system for measuring remoteness and service access
-- [Two-Step Floating Catchment Area Method Explained](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1389236/) - Academic paper introducing 2SFCA methodology for measuring spatial accessibility to healthcare (Luo & Wang, 2003)
-- [Malaria Atlas Project](https://malariaatlas.org/) - Global health GIS platform demonstrating spatial modeling, data integration, and disease risk prediction at scale

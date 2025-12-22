@@ -27,15 +27,3 @@ Anaconda · Conda environment · GeoPandas · Jupyter Notebook · reproducibilit
 ## Connected lab
 This week's lab guides you through creating the `intro-gis` environment, verifying package installations, and running your first spatial analysis in Jupyter—loading Natural Earth data, creating a simple map, and exporting it programmatically.
 
-## Further Reading
-
-**Essential:**
-- [GeoPandas Getting Started Guide](https://geopandas.org/en/stable/getting_started.html) - Introduction to spatial data analysis in Python, with clear examples of reading, plotting, and analyzing vector data
-- [Anaconda User Guide: Managing Environments](https://docs.anaconda.com/navigator/tutorials/manage-environments/) - Official tutorial on creating, activating, and managing conda environments
-- [The Turing Way: Guide to Reproducible Research](https://book.the-turing-way.org/reproducible-research/reproducible-research) - Comprehensive introduction to reproducibility principles, project structure, and documentation practices
-- [Jupyter Notebook Documentation](https://jupyter-notebook.readthedocs.io/en/stable/) - Learn how notebooks combine code, output, and narrative for reproducible analysis
-
-**Optional but recommended:**
-- [Good Enough Practices in Scientific Computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510) - Practical recommendations for project organization, data management, and collaboration
-- [GeoPandas User Guide](https://geopandas.org/en/stable/docs/user_guide.html) - In-depth tutorials on spatial operations, coordinate systems, plotting, and more
-- [Conda Cheat Sheet](https://docs.conda.io/projects/conda/en/latest/user-guide/cheatsheet.html) - Quick reference for common conda commands

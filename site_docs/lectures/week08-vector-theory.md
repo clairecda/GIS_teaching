@@ -27,15 +27,3 @@ GeoPandas · GeoDataFrame · spatial join · sjoin · overlay · dissolve · CRS
 ## Connected lab
 The [Week 8 lab](../weeks/week08.md) guides learners through automating vector workflows, performing spatial joins, and creating reproducible analysis scripts.
 
-## Further Reading
-
-**Essential:**
-- [GeoPandas User Guide](https://geopandas.org/en/stable/getting_started.html) - Official getting started guide covering GeoDataFrames, reading/writing data, and basic operations
-- [GeoPandas Spatial Joins](https://geopandas.org/en/stable/docs/user_guide/mergingdata.html) - Documentation on sjoin, overlay, and dissolve with practical examples
-- [GeoPandas Mapping Guide](https://geopandas.org/en/stable/docs/user_guide/mapping.html) - Creating maps with plot() and choropleth styling techniques
-- [Introduction to GeoPandas - Earth Lab](https://www.earthdatascience.org/courses/use-data-open-source-python/intro-vector-data-python/spatial-data-vector-shapefiles/) - Step-by-step tutorial on working with vector data in Python
-
-**Optional but recommended:**
-- [GeoPandas Gallery of Examples](https://geopandas.org/en/stable/gallery/index.html) - Code snippets demonstrating common spatial analysis patterns
-- [Contextily Documentation](https://contextily.readthedocs.io/en/latest/) - Adding web basemaps to GeoPandas plots
-- [Shapely User Manual](https://shapely.readthedocs.io/en/stable/manual.html) - Understanding the geometry objects underlying GeoPandas

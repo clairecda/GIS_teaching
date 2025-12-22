@@ -26,15 +26,3 @@ GIS · spatial data · attribute table · vector (point, line, polygon) · raste
 ## Connected lab
 See [Week 1 lab](../weeks/week01.md) for guided activities and deliverables.
 
-## Further Reading
-
-**Essential:**
-- [QGIS Training Manual](https://docs.qgis.org/3.34/en/docs/training_manual/) - Official step-by-step tutorials covering QGIS interface, basic operations, and data management
-- [What is GIS? - Esri Overview](https://www.esri.com/en-us/what-is-gis/overview) - Comprehensive introduction to GIS concepts, applications, and core principles
-- [Introduction to Coordinate Reference Systems](https://docs.qgis.org/3.34/en/docs/gentle_gis_introduction/coordinate_reference_systems.html) - QGIS Gentle Introduction explaining projections, datums, and why CRS matters
-- [A Gentle Introduction to GIS - Vector Data](https://docs.qgis.org/3.34/en/docs/gentle_gis_introduction/vector_data.html) - Official QGIS guide covering points, lines, and polygons with clear examples
-
-**Optional but recommended:**
-- [The Geographic Information Science & Technology Body of Knowledge](https://gistbok.ucgis.org/) - Academic reference for GIS concepts, regularly updated by university consortium
-- [Natural Earth Data Documentation](https://www.naturalearthdata.com/about/) - Learn about the free dataset used in labs and its metadata structure
-- [Introduction to GIS - Spatial Thoughts](https://courses.spatialthoughts.com/introduction-to-qgis.html) - Free course covering spatial data fundamentals

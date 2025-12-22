@@ -27,15 +27,3 @@ DEM · DSM · DTM · resolution · vertical accuracy · hillshade · slope · as
 ## Connected lab
 The [Week 4 lab](../weeks/week04.md) guides learners through clipping DEMs, creating hillshade/slope products, and overlaying results with SA2/LGA boundaries for interpretation.
 
-## Further Reading
-
-**Essential:**
-- [QGIS Raster Analysis Tutorial](https://docs.qgis.org/3.34/en/docs/training_manual/rasters/index.html) - Official QGIS documentation on working with raster data, terrain analysis, and surface modelling
-- [ELVIS - Elevation Information System](https://elevation.fsdf.org.au/) - Australian national elevation data portal with DEMs, DSMs, and LiDAR products
-- [SRTM Data - USGS](https://www.usgs.gov/centers/eros/science/usgs-eros-archive-digital-elevation-shuttle-radar-topography-mission-srtm-1) - Global elevation data at 30m and 90m resolution with documentation
-- [Understanding DEMs - GIS Geography](https://gisgeography.com/dem-dsm-dtm-differences/) - Clear explanation of DEM vs DSM vs DTM and when to use each
-
-**Optional but recommended:**
-- [Terrain Analysis in QGIS](https://docs.qgis.org/3.34/en/docs/user_manual/processing_algs/qgis/rasterterrain.html) - Documentation on hillshade, slope, aspect, and other terrain derivatives
-- [Zonal Statistics Tutorial](https://www.qgistutorials.com/en/docs/3/raster_zonal_stats.html) - Step-by-step guide to summarising raster values by polygon boundaries
-- [LiDAR Data Basics - NOAA](https://coast.noaa.gov/digitalcoast/data/home.html) - Introduction to LiDAR technology and applications
