@@ -38,7 +38,7 @@ Tick off each item after you download and stage the files inside `intro-to-gis-c
 ## Week 7 — Bridge to Python
 
 - [ ] Confirm all QGIS datasets above are organised under `data/`
-- [ ] Verify managed environment access (dev container or conda)
+- [ ] Verify Anaconda environment is set up (see [Anaconda Setup Guide](../onboarding/anaconda-setup.md))
 
 ## Week 8 — Python Vector Workflows
 

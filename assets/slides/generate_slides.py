@@ -85,13 +85,53 @@ SLIDES = {
                 ],
             ),
             (
-                "Today's Lab: First Map",
+                "Lab Step 1: Set Up Your Workspace",
                 [
-                    "Set up your course workspace (folders: data/raw, data/processed, projects, exports).",
-                    "Open Natural Earth Admin-0 Countries and inspect fields: NAME, POP_EST, CONTINENT.",
-                    "Apply categorical symbology by continent, then switch to graduated colours by population.",
-                    "Create a Print Layout with title, legend, scale bar, and source credit.",
-                    "Export as PNG — your first GIS deliverable!",
+                    "Create folder: intro-gis-course/ on your Desktop or Documents",
+                    "Inside it, create: data/raw/, data/processed/, projects/, exports/",
+                    "Download Natural Earth countries from naturalearthdata.com (Admin 0 - Countries)",
+                    "Unzip to: data/raw/natural_earth/",
+                    "Keep raw data untouched — we'll never edit files in data/raw/",
+                ],
+            ),
+            (
+                "Lab Step 2: Load and Inspect Data",
+                [
+                    "Open QGIS → Project → New",
+                    "Browser panel → navigate to your data/raw/natural_earth/ folder",
+                    "Drag ne_110m_admin_0_countries.shp onto the map canvas",
+                    "Right-click layer → Open Attribute Table — explore the fields",
+                    "Key fields: NAME (country name), POP_EST (population), CONTINENT",
+                ],
+            ),
+            (
+                "Lab Step 3: Apply Symbology",
+                [
+                    "Right-click layer → Properties → Symbology tab",
+                    "Change 'Single Symbol' dropdown to 'Categorized'",
+                    "Value: select CONTINENT → click 'Classify' → Apply",
+                    "Each continent now has a different colour!",
+                    "Try 'Graduated' with POP_EST to see population variation",
+                ],
+            ),
+            (
+                "Lab Step 4: Create Print Layout",
+                [
+                    "Project → New Print Layout → name it 'Week01_Map'",
+                    "Add Item → Add Map → draw rectangle on the page",
+                    "Add Item → Add Legend (position bottom-left)",
+                    "Add Item → Add Scale Bar (position bottom-right)",
+                    "Add Item → Add Label → type your title at the top",
+                ],
+            ),
+            (
+                "Lab Step 5: Export Your Map",
+                [
+                    "Add source credit: 'Data: Natural Earth, 2024'",
+                    "Add your name and date",
+                    "Layout → Export as Image → save to exports/week01_world_map.png",
+                    "Choose 300 DPI for high quality",
+                    "Congratulations — your first GIS map!",
                 ],
             ),
             (
@@ -174,12 +214,53 @@ SLIDES = {
                 ],
             ),
             (
-                "Today's Lab: Renewable Energy Map",
+                "Lab Step 1: Load Renewable Energy Data",
                 [
-                    "Load world renewable energy data and apply graduated symbology by capacity.",
-                    "Experiment: compare equal interval vs quantile classification—which tells a clearer story?",
-                    "Test your colour ramp with Color Oracle for accessibility.",
-                    "Build a Print Layout and export as PNG. Critique a peer's map using the design rubric.",
+                    "Download renewable energy CSV from course data checklist",
+                    "Layer → Add Layer → Add Delimited Text Layer",
+                    "Select your CSV file, set X=longitude, Y=latitude",
+                    "CRS: WGS 84 (EPSG:4326) — the standard for lat/long",
+                    "You should see points scattered across the world map",
+                ],
+            ),
+            (
+                "Lab Step 2: Style with Graduated Colours",
+                [
+                    "Right-click layer → Properties → Symbology",
+                    "Change to 'Graduated', select capacity field",
+                    "Try 'Equal Interval' with 5 classes → Apply",
+                    "Now try 'Quantiles' — notice how the map changes",
+                    "Which classification tells the story better?",
+                ],
+            ),
+            (
+                "Lab Step 3: Choose an Accessible Colour Ramp",
+                [
+                    "In Symbology, click the colour ramp dropdown",
+                    "Choose a sequential ramp (light → dark) like 'YlOrRd'",
+                    "Install Color Oracle (colororacle.org) → run it",
+                    "Does your map still make sense in grayscale?",
+                    "Adjust if needed — accessibility matters!",
+                ],
+            ),
+            (
+                "Lab Step 4: Add Labels to Major Sites",
+                [
+                    "Right-click layer → Properties → Labels tab",
+                    "Single Labels → Value: site_name field",
+                    "Problem: too many labels! Let's filter them",
+                    "Use expression: \"capacity\" > 500 (only show large sites)",
+                    "Add buffer/halo: 1mm white to improve readability",
+                ],
+            ),
+            (
+                "Lab Step 5: Build Your Layout",
+                [
+                    "Create new Print Layout → add map, legend, title",
+                    "Title: 'Global Renewable Energy Capacity, 2024'",
+                    "Legend: remove unneeded items, rename 'capacity' to 'Capacity (MW)'",
+                    "Add scale bar, north arrow, and data source",
+                    "Export as PDF at 300 DPI for printing",
                 ],
             ),
             (

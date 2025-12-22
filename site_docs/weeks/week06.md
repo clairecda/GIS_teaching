@@ -187,4 +187,4 @@ Take 10-15 minutes to answer these questions in your [Week 6 reflection](../refe
 
 ## Coming up next week
 
-Week 7 is the bridge to Python. You'll set up your development environment (VS Code + dev container or conda), learn about reproducibility best practices, and see how the QGIS workflows you've mastered can be automated with Python code. Make sure you have disk space available (~2-3 GB) and review the [Environment setup guide](../reference/environment.md) before next session.
+Week 7 is the bridge to Python. You'll install Anaconda, set up your Python environment, and see how the QGIS workflows you've mastered can be automated with code. Make sure you have disk space available (~5 GB) and review the [Anaconda Setup Guide](../onboarding/anaconda-setup.md) before next session.

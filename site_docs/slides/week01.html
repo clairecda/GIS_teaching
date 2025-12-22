@@ -421,7 +421,11 @@
         <li>Why Metadata Matters</li>
         <li>A Simple GIS Workflow</li>
         <li>Meet QGIS</li>
-        <li>Today's Lab: First Map</li>
+        <li>Lab Step 1: Set Up Your Workspace</li>
+        <li>Lab Step 2: Load and Inspect Data</li>
+        <li>Lab Step 3: Apply Symbology</li>
+        <li>Lab Step 4: Create Print Layout</li>
+        <li>Lab Step 5: Export Your Map</li>
         <li>Discussion Prompts</li>
         <li>Before Next Week</li>
       </ol>
@@ -495,14 +499,62 @@
       <div class="slide-footer">Week 01 | Intro to GIS | © 2025</div>
     </div>
 
-    <div class="slide content-slide" role="region" aria-label="Today's Lab: First Map">
-      <h2>Today's Lab: First Map</h2>
+    <div class="slide content-slide" role="region" aria-label="Lab Step 1: Set Up Your Workspace">
+      <h2>Lab Step 1: Set Up Your Workspace</h2>
       <ul>
-        <li>Set up your course workspace (folders: data/raw, data/processed, projects, exports).</li>
-        <li>Open Natural Earth Admin-0 Countries and inspect fields: NAME, POP_EST, CONTINENT.</li>
-        <li>Apply categorical symbology by continent, then switch to graduated colours by population.</li>
-        <li>Create a Print Layout with title, legend, scale bar, and source credit.</li>
-        <li>Export as PNG — your first GIS deliverable!</li>
+        <li>Create folder: intro-gis-course/ on your Desktop or Documents</li>
+        <li>Inside it, create: data/raw/, data/processed/, projects/, exports/</li>
+        <li>Download Natural Earth countries from naturalearthdata.com (Admin 0 - Countries)</li>
+        <li>Unzip to: data/raw/natural_earth/</li>
+        <li>Keep raw data untouched — we'll never edit files in data/raw/</li>
+      </ul>
+      <div class="slide-footer">Week 01 | Intro to GIS | © 2025</div>
+    </div>
+
+    <div class="slide content-slide" role="region" aria-label="Lab Step 2: Load and Inspect Data">
+      <h2>Lab Step 2: Load and Inspect Data</h2>
+      <ul>
+        <li>Open QGIS → Project → New</li>
+        <li>Browser panel → navigate to your data/raw/natural_earth/ folder</li>
+        <li>Drag ne_110m_admin_0_countries.shp onto the map canvas</li>
+        <li>Right-click layer → Open Attribute Table — explore the fields</li>
+        <li>Key fields: NAME (country name), POP_EST (population), CONTINENT</li>
+      </ul>
+      <div class="slide-footer">Week 01 | Intro to GIS | © 2025</div>
+    </div>
+
+    <div class="slide content-slide" role="region" aria-label="Lab Step 3: Apply Symbology">
+      <h2>Lab Step 3: Apply Symbology</h2>
+      <ul>
+        <li>Right-click layer → Properties → Symbology tab</li>
+        <li>Change 'Single Symbol' dropdown to 'Categorized'</li>
+        <li>Value: select CONTINENT → click 'Classify' → Apply</li>
+        <li>Each continent now has a different colour!</li>
+        <li>Try 'Graduated' with POP_EST to see population variation</li>
+      </ul>
+      <div class="slide-footer">Week 01 | Intro to GIS | © 2025</div>
+    </div>
+
+    <div class="slide content-slide" role="region" aria-label="Lab Step 4: Create Print Layout">
+      <h2>Lab Step 4: Create Print Layout</h2>
+      <ul>
+        <li>Project → New Print Layout → name it 'Week01_Map'</li>
+        <li>Add Item → Add Map → draw rectangle on the page</li>
+        <li>Add Item → Add Legend (position bottom-left)</li>
+        <li>Add Item → Add Scale Bar (position bottom-right)</li>
+        <li>Add Item → Add Label → type your title at the top</li>
+      </ul>
+      <div class="slide-footer">Week 01 | Intro to GIS | © 2025</div>
+    </div>
+
+    <div class="slide content-slide" role="region" aria-label="Lab Step 5: Export Your Map">
+      <h2>Lab Step 5: Export Your Map</h2>
+      <ul>
+        <li>Add source credit: 'Data: Natural Earth, 2024'</li>
+        <li>Add your name and date</li>
+        <li>Layout → Export as Image → save to exports/week01_world_map.png</li>
+        <li>Choose 300 DPI for high quality</li>
+        <li>Congratulations — your first GIS map!</li>
       </ul>
       <div class="slide-footer">Week 01 | Intro to GIS | © 2025</div>
     </div>

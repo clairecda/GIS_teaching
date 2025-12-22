@@ -1,36 +1,42 @@
-# Week 7 Lecture · Reproducibility & Environments
+# Week 7 Lecture · Reproducibility & Python Setup
 
 ## Objectives
 
 - Explain why reproducibility matters in spatial analysis (collaboration, auditing, publishing).
-- Compare environment management options (dev containers, conda, virtualenv, Colab).
-- Introduce best practices for organising projects, documenting dependencies, and versioning data.
+- Set up Anaconda and create a Python environment for spatial analysis.
+- Introduce best practices for organising projects and documenting your work.
 
 ## Topics
 
-1. **Reproducibility principles**  
-   - Version control (Git), environment capture, data provenance.  
-   - Re-running analysis after datasets or boundaries update.
-2. **Environment comparison**  
-   - Dev containers vs conda vs poetry vs Colab.  
-   - Pros/cons, hardware considerations, when to choose each.
-3. **Project structure**  
-   - Recommended folder layout (mirrors this course).  
-   - Naming conventions for raw vs processed data.  
-   - `.gitignore` essentials (large rasters, credentials).
-4. **Documentation**  
-   - README, notebooks with narrative, script comments, automated verification.
-5. **Publishing**  
-   - Exporting environment specs (`environment.yml`), using `requirements.txt`, Docker images.
+1. **Why Python?**
+   - Automate repetitive QGIS workflows with scripts.
+   - Share reproducible analyses that anyone can re-run.
+   - Combine GIS with statistics, machine learning, and web dashboards.
+
+2. **Setting Up Anaconda**
+   - Installing Anaconda on Windows, Mac, or Linux.
+   - Creating and activating the `intro-gis` environment.
+   - Verifying packages installed correctly.
+
+3. **Project structure**
+   - Recommended folder layout: `data/raw`, `data/processed`, `notebooks`, `exports`.
+   - Why relative paths matter for portability.
+   - Naming conventions for files and versions.
+
+4. **Documentation practices**
+   - Jupyter notebooks combine code, output, and narrative.
+   - Recording data sources, parameters, and assumptions.
+   - Making your work understandable to future-you.
 
 ## Activities
 
-- Walk through the repository structure highlighting where each artifact lives.  
-- Demo `python resources/environment/verify_setup.py` and explain how to extend it.  
-- Discuss real-world reproducibility horror stories and prevention strategies.
+- Follow the [Anaconda Setup Guide](../onboarding/anaconda-setup.md) step by step.
+- Run the verification script to confirm all packages work.
+- Create a test notebook and run `import geopandas`.
+- Compare QGIS operations to their Python equivalents.
 
 ## Resources
 
-- The Turing Way: *Guide to Reproducible Research*.  
-- GitHub docs on Codespaces/devcontainer best practices.
-- Course [Environment strategy](../onboarding/environment-options.md) page.
+- [Anaconda Setup Guide](../onboarding/anaconda-setup.md) — detailed installation instructions
+- The Turing Way: *Guide to Reproducible Research*
+- GeoPandas documentation: [geopandas.org](https://geopandas.org/)

@@ -65,9 +65,9 @@ Python 3.11.x
 
 **Troubleshooting:**
 
-- If you see `ModuleNotFoundError`, ensure you're running the notebook inside the dev container or conda environment (check Week 7 setup)
+- If you see `ModuleNotFoundError`, make sure your conda environment is activated: `conda activate intro-gis`
 - If package versions differ slightly, that's usually fine—major version mismatches (e.g., GeoPandas 0.12 vs 0.14) may require updating
-- Still stuck? Check the [environment troubleshooting guide](../reference/environment.md#troubleshooting)
+- Still stuck? Check the [Anaconda Setup Guide](../onboarding/anaconda-setup.md) troubleshooting section
 
 ### Activity 2: Load and inspect datasets
 

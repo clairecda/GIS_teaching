@@ -32,7 +32,7 @@ This MkDocs site gathers all course materials—weekly plans, readings, dataset 
 ## Need help?
 
 - QGIS install issues: revisit **Getting Ready ▸ Install QGIS** and the troubleshooting notes.
-- Environment setup: follow the dev container or conda instructions in **Environment strategy** and run the verification script.
+- Environment setup: follow the [Anaconda Setup Guide](../onboarding/anaconda-setup.md) to install Python and required packages.
 - Data sourcing: the **Dataset inventory** includes licensing, update cadence, and tips for each source.
 - Still stuck? Collect screenshots/logs and bring them to office hours or the course support channel.
 

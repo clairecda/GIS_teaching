@@ -421,7 +421,11 @@
         <li>Accessibility Matters</li>
         <li>Labelling Best Practices</li>
         <li>The Print Layout</li>
-        <li>Today's Lab: Renewable Energy Map</li>
+        <li>Lab Step 1: Load Renewable Energy Data</li>
+        <li>Lab Step 2: Style with Graduated Colours</li>
+        <li>Lab Step 3: Choose an Accessible Colour Ramp</li>
+        <li>Lab Step 4: Add Labels to Major Sites</li>
+        <li>Lab Step 5: Build Your Layout</li>
         <li>Reflection</li>
       </ol>
       <div class="slide-footer">Week 02 | Intro to GIS | © 2025</div>
@@ -493,13 +497,62 @@
       <div class="slide-footer">Week 02 | Intro to GIS | © 2025</div>
     </div>
 
-    <div class="slide content-slide" role="region" aria-label="Today's Lab: Renewable Energy Map">
-      <h2>Today's Lab: Renewable Energy Map</h2>
+    <div class="slide content-slide" role="region" aria-label="Lab Step 1: Load Renewable Energy Data">
+      <h2>Lab Step 1: Load Renewable Energy Data</h2>
       <ul>
-        <li>Load world renewable energy data and apply graduated symbology by capacity.</li>
-        <li>Experiment: compare equal interval vs quantile classification—which tells a clearer story?</li>
-        <li>Test your colour ramp with Color Oracle for accessibility.</li>
-        <li>Build a Print Layout and export as PNG. Critique a peer's map using the design rubric.</li>
+        <li>Download renewable energy CSV from course data checklist</li>
+        <li>Layer → Add Layer → Add Delimited Text Layer</li>
+        <li>Select your CSV file, set X=longitude, Y=latitude</li>
+        <li>CRS: WGS 84 (EPSG:4326) — the standard for lat/long</li>
+        <li>You should see points scattered across the world map</li>
+      </ul>
+      <div class="slide-footer">Week 02 | Intro to GIS | © 2025</div>
+    </div>
+
+    <div class="slide content-slide" role="region" aria-label="Lab Step 2: Style with Graduated Colours">
+      <h2>Lab Step 2: Style with Graduated Colours</h2>
+      <ul>
+        <li>Right-click layer → Properties → Symbology</li>
+        <li>Change to 'Graduated', select capacity field</li>
+        <li>Try 'Equal Interval' with 5 classes → Apply</li>
+        <li>Now try 'Quantiles' — notice how the map changes</li>
+        <li>Which classification tells the story better?</li>
+      </ul>
+      <div class="slide-footer">Week 02 | Intro to GIS | © 2025</div>
+    </div>
+
+    <div class="slide content-slide" role="region" aria-label="Lab Step 3: Choose an Accessible Colour Ramp">
+      <h2>Lab Step 3: Choose an Accessible Colour Ramp</h2>
+      <ul>
+        <li>In Symbology, click the colour ramp dropdown</li>
+        <li>Choose a sequential ramp (light → dark) like 'YlOrRd'</li>
+        <li>Install Color Oracle (colororacle.org) → run it</li>
+        <li>Does your map still make sense in grayscale?</li>
+        <li>Adjust if needed — accessibility matters!</li>
+      </ul>
+      <div class="slide-footer">Week 02 | Intro to GIS | © 2025</div>
+    </div>
+
+    <div class="slide content-slide" role="region" aria-label="Lab Step 4: Add Labels to Major Sites">
+      <h2>Lab Step 4: Add Labels to Major Sites</h2>
+      <ul>
+        <li>Right-click layer → Properties → Labels tab</li>
+        <li>Single Labels → Value: site_name field</li>
+        <li>Problem: too many labels! Let's filter them</li>
+        <li>Use expression: "capacity" > 500 (only show large sites)</li>
+        <li>Add buffer/halo: 1mm white to improve readability</li>
+      </ul>
+      <div class="slide-footer">Week 02 | Intro to GIS | © 2025</div>
+    </div>
+
+    <div class="slide content-slide" role="region" aria-label="Lab Step 5: Build Your Layout">
+      <h2>Lab Step 5: Build Your Layout</h2>
+      <ul>
+        <li>Create new Print Layout → add map, legend, title</li>
+        <li>Title: 'Global Renewable Energy Capacity, 2024'</li>
+        <li>Legend: remove unneeded items, rename 'capacity' to 'Capacity (MW)'</li>
+        <li>Add scale bar, north arrow, and data source</li>
+        <li>Export as PDF at 300 DPI for printing</li>
       </ul>
       <div class="slide-footer">Week 02 | Intro to GIS | © 2025</div>
     </div>
