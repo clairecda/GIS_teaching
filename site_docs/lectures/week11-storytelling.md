@@ -39,7 +39,3 @@ The [Week 11 lab](../weeks/week11.md) guides learners through design critique wo
 - [Storytelling with Data - Cole Nussbaumer Knaflic Blog](https://www.storytellingwithdata.com/blog) - Practical tips on narrative structure, visual hierarchy, and effective communication with data
 - [Color Oracle Documentation](https://colororacle.org/) - Free color blindness simulator for testing Deuteranopia, Protanopia, and Tritanopia compatibility
 - [Design Principles for Cartography - Esri](https://www.esri.com/arcgis-blog/products/arcgis-pro/mapping/please-label-responsibly/) - Typography, label placement, and visual balance in professional map design
-
-**Videos:**
-- [Storytelling with Maps](https://www.youtube.com/results?search_query=storytelling+with+maps+data+visualization+narrative) - Search for videos on narrative mapping and story map techniques
-- [Map Design and Visual Hierarchy](https://www.youtube.com/results?search_query=map+design+visual+hierarchy+cartography+principles) - Search for guides on visual hierarchy, balance, and effective map layouts

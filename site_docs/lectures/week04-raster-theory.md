@@ -39,7 +39,3 @@ The [Week 4 lab](../weeks/week04.md) guides learners through clipping DEMs, crea
 - [Terrain Analysis in QGIS](https://docs.qgis.org/3.34/en/docs/user_manual/processing_algs/qgis/rasterterrain.html) - Documentation on hillshade, slope, aspect, and other terrain derivatives
 - [Zonal Statistics Tutorial](https://www.qgistutorials.com/en/docs/3/raster_zonal_stats.html) - Step-by-step guide to summarising raster values by polygon boundaries
 - [LiDAR Data Basics - NOAA](https://coast.noaa.gov/digitalcoast/data/home.html) - Introduction to LiDAR technology and applications
-
-**Videos:**
-- [DEM and Terrain Analysis in QGIS](https://www.youtube.com/results?search_query=QGIS+DEM+terrain+analysis+hillshade+slope) - Search for tutorials on creating terrain derivatives
-- [Understanding Raster Data](https://www.youtube.com/results?search_query=raster+data+GIS+tutorial+introduction) - Search for introductory videos on raster concepts

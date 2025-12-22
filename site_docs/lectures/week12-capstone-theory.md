@@ -39,7 +39,3 @@ The [Week 12 lab](../weeks/week12.md) focuses on polishing project documentation
 - [GIS Career Resources - URISA](https://www.urisa.org/careers/) - Job board, salary surveys, and professional development resources from the Urban and Regional Information Systems Association
 - [Awesome GIS - GitHub](https://github.com/sshuair/awesome-gis) - Curated list of GIS tools, datasets, tutorials, and resources for continued learning
 - [Open Source Geospatial Foundation (OSGeo)](https://www.osgeo.org/) - Community hub for QGIS and other open-source GIS projects, events, and education
-
-**Videos:**
-- [Presenting Spatial Data](https://www.youtube.com/results?search_query=presenting+spatial+data+GIS+communication+visualization) - Search for guides on communicating GIS analysis results effectively
-- [GIS Career Pathways](https://www.youtube.com/results?search_query=GIS+career+advice+getting+started+geospatial) - Search for career advice and pathways into GIS professions

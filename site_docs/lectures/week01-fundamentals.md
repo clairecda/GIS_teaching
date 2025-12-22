@@ -38,7 +38,3 @@ See [Week 1 lab](../weeks/week01.md) for guided activities and deliverables.
 - [The Geographic Information Science & Technology Body of Knowledge](https://gistbok.ucgis.org/) - Academic reference for GIS concepts, regularly updated by university consortium
 - [Natural Earth Data Documentation](https://www.naturalearthdata.com/about/) - Learn about the free dataset used in labs and its metadata structure
 - [Introduction to GIS - Spatial Thoughts](https://courses.spatialthoughts.com/introduction-to-qgis.html) - Free course covering spatial data fundamentals
-
-**Videos:**
-- [What is GIS?](https://www.youtube.com/results?search_query=what+is+GIS+geographic+information+systems+introduction) - Search for introductory videos explaining GIS concepts and applications
-- [QGIS Beginner Tutorial](https://www.youtube.com/results?search_query=QGIS+beginner+tutorial+introduction) - Search for walkthrough videos of the QGIS interface and basic operations

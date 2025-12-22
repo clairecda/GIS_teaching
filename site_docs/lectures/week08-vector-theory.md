@@ -39,7 +39,3 @@ The [Week 8 lab](../weeks/week08.md) guides learners through automating vector w
 - [GeoPandas Gallery of Examples](https://geopandas.org/en/stable/gallery/index.html) - Code snippets demonstrating common spatial analysis patterns
 - [Contextily Documentation](https://contextily.readthedocs.io/en/latest/) - Adding web basemaps to GeoPandas plots
 - [Shapely User Manual](https://shapely.readthedocs.io/en/stable/manual.html) - Understanding the geometry objects underlying GeoPandas
-
-**Videos:**
-- [GeoPandas Tutorial](https://www.youtube.com/results?search_query=geopandas+tutorial+geodataframe+python) - Search for introductions to GeoDataFrames, spatial operations, and mapping
-- [Spatial Joins in Python](https://www.youtube.com/results?search_query=geopandas+spatial+join+sjoin+tutorial) - Search for walkthroughs of spatial join operations and use cases

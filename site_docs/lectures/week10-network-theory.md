@@ -40,7 +40,3 @@ The [Week 10 lab](../weeks/week10.md) guides learners through downloading networ
 - [Urban Street Networks Analysis with OSMnx - Boeing 2017](https://journals.sagepub.com/doi/full/10.1177/2399808317715537) - Academic paper introducing OSMnx and its applications in urban analytics
 - [Isochrone Maps with OSMnx + Python](https://geoffboeing.com/2017/08/isochrone-maps-osmnx-python/) - Tutorial by OSMnx creator on creating isochrone maps for accessibility analysis
 - [Transport Geography - The Geography of Transport Systems](https://transportgeography.org/contents/chapter4/) - Conceptual overview of network structure and accessibility concepts
-
-**Videos:**
-- [OSMnx Street Network Tutorial](https://www.youtube.com/results?search_query=osmnx+python+tutorial+street+network+openstreetmap) - Search for tutorials on downloading and analyzing networks with OSMnx
-- [NetworkX Graph Tutorial](https://www.youtube.com/results?search_query=networkx+python+tutorial+graph+analysis+beginner) - Search for introductions to graph theory and network analysis in Python

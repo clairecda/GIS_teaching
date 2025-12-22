@@ -37,7 +37,3 @@ Learners apply symbology, labelling, and layout techniques in the Week 2 lab exe
 - [The Visual Display of Quantitative Information - Edward Tufte](https://www.edwardtufte.com/tufte/books_vdqi) - Classic reference on data visualization principles (book, excerpts available online)
 - [Accessible Complex Images - W3C](https://www.w3.org/WAI/tutorials/images/complex/) - W3C guidelines for making maps and complex graphics accessible
 - [Typography in Cartography](https://www.esri.com/arcgis-blog/products/arcgis-pro/mapping/please-label-responsibly/) - Esri blog on effective label placement and font selection
-
-**Videos:**
-- [Cartographic Design Principles](https://www.youtube.com/results?search_query=cartographic+design+principles+map+visual+hierarchy) - Search for videos on visual hierarchy, balance, and contrast in maps
-- [Color Theory for Maps](https://www.youtube.com/results?search_query=map+color+theory+cartography+color+schemes) - Search for guides on choosing effective color schemes for maps

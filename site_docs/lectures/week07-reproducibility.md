@@ -39,7 +39,3 @@ This week's lab guides you through creating the `intro-gis` environment, verifyi
 - [Good Enough Practices in Scientific Computing](https://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510) - Practical recommendations for project organization, data management, and collaboration
 - [GeoPandas User Guide](https://geopandas.org/en/stable/docs/user_guide.html) - In-depth tutorials on spatial operations, coordinate systems, plotting, and more
 - [Conda Cheat Sheet](https://docs.conda.io/projects/conda/en/latest/user-guide/cheatsheet.html) - Quick reference for common conda commands
-
-**Videos:**
-- [Anaconda Installation Tutorial](https://www.youtube.com/results?search_query=anaconda+python+installation+tutorial+beginner) - Search for walkthroughs of installing Anaconda, creating environments, and launching Jupyter
-- [GeoPandas Introduction](https://www.youtube.com/results?search_query=geopandas+python+tutorial+beginner+introduction) - Search for introductions to reading shapefiles and creating maps with Python

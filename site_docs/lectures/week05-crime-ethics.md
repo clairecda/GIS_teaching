@@ -39,7 +39,3 @@ The [Week 5 lab](../weeks/week05.md) applies KDE hotspot analysis to crime data 
 - [Jerry Ratcliffe - Crime Mapping Research](https://scholar.google.com/citations?user=BOJIm0QAAAAJ&hl=en) - Google Scholar profile with academic papers on spatial analysis of crime and policing strategies
 - [Police Data Initiative - Ethical Framework](https://www.policedatainitiative.org/) - Open data guidelines and best practices for publishing law enforcement data
 - [Visualising Information for Advocacy - Tactical Tech](https://tacticaltech.org/projects/visualising-information-for-advocacy/) - Guide to ethical considerations when visualising sensitive social data
-
-**Videos:**
-- [Kernel Density Estimation Explained](https://www.youtube.com/results?search_query=kernel+density+estimation+explained+KDE+statistics) - Search for visual explanations of how KDE works and parameter selection
-- [QGIS Heatmap Tutorial](https://www.youtube.com/results?search_query=QGIS+heatmap+kernel+density+hotspot+analysis) - Search for tutorials on creating hotspot maps with kernel density analysis

@@ -37,7 +37,3 @@ The [Week 3 lab](../weeks/week03.md) walks through join workflows, derived metri
 - [SEIFA Documentation - ABS](https://www.abs.gov.au/statistics/people/people-and-communities/socio-economic-indexes-areas-seifa-australia/latest-release) - Technical details on Index of Relative Socio-economic Advantage and Disadvantage
 - [Correspondence Files Guide - ABS](https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/latest-release#correspondences) - How to convert data between different boundary vintages
 - [Global Administrative Areas (GADM)](https://gadm.org/data.html) - Free worldwide administrative boundary data with documentation
-
-**Videos:**
-- [Census Geography Explained](https://www.youtube.com/results?search_query=census+geography+statistical+boundaries+explained) - Search for videos on how statistical boundaries work
-- [Table Joins in QGIS](https://www.youtube.com/results?search_query=QGIS+table+join+tutorial+attribute+join) - Search for walkthroughs of join operations and troubleshooting

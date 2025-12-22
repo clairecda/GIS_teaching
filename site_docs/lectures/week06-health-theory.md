@@ -39,7 +39,3 @@ In the Week 6 lab, you'll generate service areas using QNEAT3, overlay them with
 - [Accessibility and Remoteness Index of Australia (ARIA+)](https://www.health.gov.au/topics/rural-health-workforce/classifications/aria) - Australian Department of Health classification system for measuring remoteness and service access
 - [Two-Step Floating Catchment Area Method Explained](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1389236/) - Academic paper introducing 2SFCA methodology for measuring spatial accessibility to healthcare (Luo & Wang, 2003)
 - [Malaria Atlas Project](https://malariaatlas.org/) - Global health GIS platform demonstrating spatial modeling, data integration, and disease risk prediction at scale
-
-**Videos:**
-- [QGIS Network Analysis and Isochrones](https://www.youtube.com/results?search_query=QGIS+network+analysis+isochrone+service+area) - Search for tutorials on creating service areas and isochrones
-- [Health Equity and Social Determinants](https://www.youtube.com/results?search_query=health+equity+social+determinants+of+health+explained) - Search for videos on how place and opportunity shape health outcomes

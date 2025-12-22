@@ -41,8 +41,3 @@ This week's lab notebook guides you through the full remote sensing workflow: lo
 - [EarthPy Documentation](https://earthpy.readthedocs.io/) - Python package for plotting and working with spatial raster and vector data, particularly useful for multi-band imagery visualization
 - [Google Earth Engine Guides](https://developers.google.com/earth-engine/guides) - Cloud-based platform for planetary-scale geospatial analysis, useful for understanding large-scale remote sensing workflows even if not using GEE directly
 - [NDVI: Foundation for Remote Sensing Phenology (USGS)](https://www.usgs.gov/special-topics/remote-sensing-phenology/science/ndvi-foundation-remote-sensing-phenology) - Explains the theory, applications, and interpretation of NDVI for vegetation monitoring
-
-**Videos:**
-- [Rasterio Python Tutorial](https://www.youtube.com/results?search_query=rasterio+python+satellite+imagery+tutorial) - Search for tutorials on processing satellite imagery with rasterio
-- [NDVI Calculation Tutorial](https://www.youtube.com/results?search_query=NDVI+calculation+python+remote+sensing+tutorial) - Search for guides on calculating vegetation indices from satellite data
-- [Remote Sensing Spectral Signatures](https://www.youtube.com/results?search_query=remote+sensing+spectral+signatures+introduction) - Search for explainers on how surfaces reflect electromagnetic radiation
