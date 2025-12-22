@@ -1,6 +1,6 @@
 # Background Reading
 
-These readings provide foundational knowledge for the course. Complete them before the indicated week to get the most out of class.
+These readings provide foundational knowledge for the course. Complete them before the indicated week.
 
 ---
 
@@ -14,7 +14,17 @@ Your first introduction to Geographic Information Systems. Learn what GIS is, wh
 
 ---
 
-## 2. Understanding Coordinate Reference Systems
+## 2. Your Capstone Project
+
+**Read in:** Week 1 | **Time:** 10 minutes
+
+The capstone isn't a Week 12 task — you'll build it throughout the course. This reading explains what the capstone involves, how each week connects to it, and what to start doing now.
+
+[Read: Your Capstone Project](week01-capstone-introduction.md)
+
+---
+
+## 3. Understanding Coordinate Reference Systems
 
 **Read before:** Week 1 (skim) / Week 3 (detail) | **Time:** 30 minutes
 
@@ -24,7 +34,7 @@ The most confusing topic for GIS beginners — explained clearly. Covers why lay
 
 ---
 
-## 3. Administrative Boundaries
+## 4. Administrative Boundaries
 
 **Read before:** Week 3 | **Time:** 20 minutes
 
@@ -34,7 +44,7 @@ What are SA2s, LGAs, and census tracts? This reading explains boundary hierarchi
 
 ---
 
-## 4. Raster Data Basics
+## 5. Raster Data Basics
 
 **Read before:** Week 4 | **Time:** 15 minutes
 
@@ -44,7 +54,7 @@ Introduction to grid-based spatial data. Covers DEM vs DSM vs DTM, satellite ima
 
 ---
 
-## 5. Ethics in Spatial Analysis
+## 6. Ethics in Spatial Analysis
 
 **Read before:** Week 5 | **Time:** 20 minutes
 
@@ -54,11 +64,11 @@ Maps have power — they can help or harm communities. This reading covers priva
 
 ---
 
-## 6. Python for GIS
+## 7. Python for GIS
 
 **Read before:** Week 7 | **Time:** 15 minutes
 
-Why learn to code? This reading introduces the Python GIS ecosystem (GeoPandas, Rasterio, OSMnx), shows what Python code looks like, and explains Jupyter notebooks. Prepares you for the transition from clicking to coding.
+Why learn to code? This reading introduces the Python GIS ecosystem (GeoPandas, Rasterio, OSMnx), shows what Python code looks like, and explains Jupyter notebooks.
 
 [Read: Python for GIS](week07-python-for-gis.md)
 
@@ -66,13 +76,14 @@ Why learn to code? This reading introduces the Python GIS ecosystem (GeoPandas, 
 
 ## Summary
 
-| # | Reading | When | Time | Key topics |
-|---|---------|------|------|------------|
-| 1 | What is GIS? | Before Week 1 | 15 min | GIS basics, vector vs raster |
-| 2 | Understanding CRS | Week 1 + 3 | 30 min | Projections, EPSG codes |
-| 3 | Administrative Boundaries | Before Week 3 | 20 min | SA2, LGA, MAUP, joins |
-| 4 | Raster Data Basics | Before Week 4 | 15 min | DEM, imagery, resolution |
-| 5 | Ethics in Spatial Analysis | Before Week 5 | 20 min | Privacy, bias, framing |
-| 6 | Python for GIS | Before Week 7 | 15 min | GeoPandas, notebooks |
+| # | Reading | When | Time |
+|---|---------|------|------|
+| 1 | What is GIS? | Week 1 | 15 min |
+| 2 | Your Capstone Project | Week 1 | 10 min |
+| 3 | Understanding CRS | Week 1 + 3 | 30 min |
+| 4 | Administrative Boundaries | Week 3 | 20 min |
+| 5 | Raster Data Basics | Week 4 | 15 min |
+| 6 | Ethics in Spatial Analysis | Week 5 | 20 min |
+| 7 | Python for GIS | Week 7 | 15 min |
 
-**Total reading time:** ~2 hours (spread across 7 weeks)
+**Total reading time:** ~2 hours (spread across first 7 weeks)
