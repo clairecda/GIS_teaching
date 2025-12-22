@@ -41,5 +41,5 @@ This week's lab guides you through creating the `intro-gis` environment, verifyi
 - [Conda Cheat Sheet](https://docs.conda.io/projects/conda/en/latest/user-guide/cheatsheet.html) - Quick reference for common conda commands
 
 **Videos:**
-- [Anaconda Basics Tutorial](https://www.youtube.com/watch?v=YJC6ldI3hWk) - 15-minute visual walkthrough of installing Anaconda, creating environments, and launching Jupyter notebooks
-- [Introduction to GeoPandas](https://www.youtube.com/watch?v=fsp30qZgJ0c) - 20-minute practical introduction to reading shapefiles, performing spatial operations, and creating maps with Python
+- [Anaconda Installation Tutorial](https://www.youtube.com/results?search_query=anaconda+python+installation+tutorial+beginner) - Search for walkthroughs of installing Anaconda, creating environments, and launching Jupyter
+- [GeoPandas Introduction](https://www.youtube.com/results?search_query=geopandas+python+tutorial+beginner+introduction) - Search for introductions to reading shapefiles and creating maps with Python

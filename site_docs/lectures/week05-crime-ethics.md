@@ -36,10 +36,10 @@ The [Week 5 lab](../weeks/week05.md) applies KDE hotspot analysis to crime data 
 - [The Dangers of Crime Mapping - Urban Institute](https://www.urban.org/features/where-crime-mapping-how-use-data-responsibly) - Practical guide on responsible use of crime data including aggregation and context
 
 **Optional but recommended:**
-- [Jerry Ratcliffe - Crime Mapping Research](https://www.jratcliffe.net/papers/) - Academic papers on spatial analysis of crime and policing strategies by a leading crime mapping researcher
+- [Jerry Ratcliffe - Crime Mapping Research](https://scholar.google.com/citations?user=BOJIm0QAAAAJ&hl=en) - Google Scholar profile with academic papers on spatial analysis of crime and policing strategies
 - [Police Data Initiative - Ethical Framework](https://www.policedatainitiative.org/) - Open data guidelines and best practices for publishing law enforcement data
-- [Mapping for Social Justice - Tactical Technology Collective](https://visualisingadvocacy.org/) - Guide to ethical considerations when visualising sensitive social data
+- [Visualising Information for Advocacy - Tactical Tech](https://tacticaltech.org/projects/visualising-information-for-advocacy/) - Guide to ethical considerations when visualising sensitive social data
 
 **Videos:**
-- [Kernel Density Estimation Explained](https://www.youtube.com/watch?v=x5zLaWT5KPs) - 10-minute visual explanation of how KDE works and parameter selection
-- [Crime Mapping with QGIS Tutorial](https://www.youtube.com/watch?v=IxRJ8vNjM3M) - 20-minute walkthrough of creating crime hotspot maps with kernel density analysis
+- [Kernel Density Estimation Explained](https://www.youtube.com/results?search_query=kernel+density+estimation+explained+KDE+statistics) - Search for visual explanations of how KDE works and parameter selection
+- [QGIS Heatmap Tutorial](https://www.youtube.com/results?search_query=QGIS+heatmap+kernel+density+hotspot+analysis) - Search for tutorials on creating hotspot maps with kernel density analysis

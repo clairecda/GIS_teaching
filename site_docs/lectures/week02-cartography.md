@@ -39,5 +39,5 @@ Learners apply symbology, labelling, and layout techniques in the Week 2 lab exe
 - [Typography in Cartography](https://www.esri.com/arcgis-blog/products/arcgis-pro/mapping/please-label-responsibly/) - Esri blog on effective label placement and font selection
 
 **Videos:**
-- [Cartographic Design Principles](https://www.youtube.com/watch?v=HYJgQs-9dgU) - 18-minute overview of visual hierarchy, balance, and contrast in maps
-- [Color Theory for Maps](https://www.youtube.com/watch?v=A9NLZJj3iMk) - 12-minute guide to choosing effective color schemes
+- [Cartographic Design Principles](https://www.youtube.com/results?search_query=cartographic+design+principles+map+visual+hierarchy) - Search for videos on visual hierarchy, balance, and contrast in maps
+- [Color Theory for Maps](https://www.youtube.com/results?search_query=map+color+theory+cartography+color+schemes) - Search for guides on choosing effective color schemes for maps

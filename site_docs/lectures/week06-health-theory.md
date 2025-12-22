@@ -41,5 +41,5 @@ In the Week 6 lab, you'll generate service areas using QNEAT3, overlay them with
 - [Malaria Atlas Project](https://malariaatlas.org/) - Global health GIS platform demonstrating spatial modeling, data integration, and disease risk prediction at scale
 
 **Videos:**
-- [Introduction to Network Analysis in QGIS](https://www.youtube.com/watch?v=4nQxl7q5l6s) - 22-minute tutorial on creating service areas and isochrones using QNEAT3
-- [Health Equity and Social Determinants](https://www.youtube.com/watch?v=Wmvt2e6T33s) - 8-minute overview from Robert Wood Johnson Foundation on how place and opportunity shape health outcomes
+- [QGIS Network Analysis and Isochrones](https://www.youtube.com/results?search_query=QGIS+network+analysis+isochrone+service+area) - Search for tutorials on creating service areas and isochrones
+- [Health Equity and Social Determinants](https://www.youtube.com/results?search_query=health+equity+social+determinants+of+health+explained) - Search for videos on how place and opportunity shape health outcomes

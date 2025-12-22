@@ -38,9 +38,9 @@ The [Week 10 lab](../weeks/week10.md) guides learners through downloading networ
 **Optional but recommended:**
 - [GTFS Static Overview - Google Transit](https://developers.google.com/transit/gtfs) - Specification for public transit data including stops, routes, and schedules
 - [Urban Street Networks Analysis with OSMnx - Boeing 2017](https://journals.sagepub.com/doi/full/10.1177/2399808317715537) - Academic paper introducing OSMnx and its applications in urban analytics
-- [Measuring Accessibility - Spatial Thoughts](https://courses.spatialthoughts.com/python-dataviz.html#accessibility-analysis) - Tutorial on computing service area coverage and equity metrics
+- [Isochrone Maps with OSMnx + Python](https://geoffboeing.com/2017/08/isochrone-maps-osmnx-python/) - Tutorial by OSMnx creator on creating isochrone maps for accessibility analysis
 - [Transport Geography - The Geography of Transport Systems](https://transportgeography.org/contents/chapter4/) - Conceptual overview of network structure and accessibility concepts
 
 **Videos:**
-- [OSMnx: Street Networks from OpenStreetMap](https://www.youtube.com/watch?v=NvNeq56uLG0) - 20-minute tutorial on downloading and analyzing networks with OSMnx
-- [Network Analysis in Python with NetworkX](https://www.youtube.com/watch?v=E4VKzFmByhE) - 15-minute introduction to graph theory fundamentals and basic network metrics
+- [OSMnx Street Network Tutorial](https://www.youtube.com/results?search_query=osmnx+python+tutorial+street+network+openstreetmap) - Search for tutorials on downloading and analyzing networks with OSMnx
+- [NetworkX Graph Tutorial](https://www.youtube.com/results?search_query=networkx+python+tutorial+graph+analysis+beginner) - Search for introductions to graph theory and network analysis in Python

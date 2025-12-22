@@ -41,5 +41,5 @@ The [Week 8 lab](../weeks/week08.md) guides learners through automating vector w
 - [Shapely User Manual](https://shapely.readthedocs.io/en/stable/manual.html) - Understanding the geometry objects underlying GeoPandas
 
 **Videos:**
-- [GeoPandas Tutorial for Beginners](https://www.youtube.com/watch?v=k7hSD_-gWMw) - 20-minute introduction to GeoDataFrames, spatial operations, and mapping
-- [Spatial Joins with GeoPandas](https://www.youtube.com/watch?v=tnn1SCQB6BU) - 15-minute walkthrough of sjoin predicates and real-world use cases
+- [GeoPandas Tutorial](https://www.youtube.com/results?search_query=geopandas+tutorial+geodataframe+python) - Search for introductions to GeoDataFrames, spatial operations, and mapping
+- [Spatial Joins in Python](https://www.youtube.com/results?search_query=geopandas+spatial+join+sjoin+tutorial) - Search for walkthroughs of spatial join operations and use cases

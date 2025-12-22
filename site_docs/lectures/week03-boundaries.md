@@ -39,5 +39,5 @@ The [Week 3 lab](../weeks/week03.md) walks through join workflows, derived metri
 - [Global Administrative Areas (GADM)](https://gadm.org/data.html) - Free worldwide administrative boundary data with documentation
 
 **Videos:**
-- [Census Geography Explained](https://www.youtube.com/watch?v=VQu-1GCzP2A) - 10-minute overview of how statistical boundaries work
-- [Table Joins in QGIS Tutorial](https://www.youtube.com/watch?v=6rCOY2XEGPE) - 15-minute walkthrough of join operations and troubleshooting
+- [Census Geography Explained](https://www.youtube.com/results?search_query=census+geography+statistical+boundaries+explained) - Search for videos on how statistical boundaries work
+- [Table Joins in QGIS](https://www.youtube.com/results?search_query=QGIS+table+join+tutorial+attribute+join) - Search for walkthroughs of join operations and troubleshooting

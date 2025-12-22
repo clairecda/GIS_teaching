@@ -40,5 +40,5 @@ See [Week 1 lab](../weeks/week01.md) for guided activities and deliverables.
 - [Introduction to GIS - Spatial Thoughts](https://courses.spatialthoughts.com/introduction-to-qgis.html) - Free course covering spatial data fundamentals
 
 **Videos:**
-- [What is GIS? - National Geographic](https://www.youtube.com/watch?v=lGaFo_1hP5s) - 4-minute overview of spatial thinking and GIS applications
-- [QGIS Quickstart Tutorial](https://www.youtube.com/watch?v=kCnNWyl9qSE) - 15-minute walkthrough of the QGIS interface and basic operations
+- [What is GIS?](https://www.youtube.com/results?search_query=what+is+GIS+geographic+information+systems+introduction) - Search for introductory videos explaining GIS concepts and applications
+- [QGIS Beginner Tutorial](https://www.youtube.com/results?search_query=QGIS+beginner+tutorial+introduction) - Search for walkthrough videos of the QGIS interface and basic operations

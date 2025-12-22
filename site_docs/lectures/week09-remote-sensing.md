@@ -43,5 +43,6 @@ This week's lab notebook guides you through the full remote sensing workflow: lo
 - [NDVI: Foundation for Remote Sensing Phenology (USGS)](https://www.usgs.gov/special-topics/remote-sensing-phenology/science/ndvi-foundation-remote-sensing-phenology) - Explains the theory, applications, and interpretation of NDVI for vegetation monitoring
 
 **Videos:**
-- [Satellite Imagery Analysis in Python with Rasterio](https://www.youtube.com/results?search_query=rasterio+python+tutorial) - Various tutorials (15-30 min) demonstrating multi-band satellite imagery processing workflows
-- [Introduction to Remote Sensing: Spectral Signatures](https://www.youtube.com/results?search_query=spectral+signatures+remote+sensing) - 10-15 minute explainer on how different surfaces reflect electromagnetic radiation and how we use this to classify land cover
+- [Rasterio Python Tutorial](https://www.youtube.com/results?search_query=rasterio+python+satellite+imagery+tutorial) - Search for tutorials on processing satellite imagery with rasterio
+- [NDVI Calculation Tutorial](https://www.youtube.com/results?search_query=NDVI+calculation+python+remote+sensing+tutorial) - Search for guides on calculating vegetation indices from satellite data
+- [Remote Sensing Spectral Signatures](https://www.youtube.com/results?search_query=remote+sensing+spectral+signatures+introduction) - Search for explainers on how surfaces reflect electromagnetic radiation
