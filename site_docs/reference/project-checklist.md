@@ -1,46 +1,79 @@
-# Course Build Checklist
+# Project Checklist
 
-Use this running list to track what has been completed and what still needs attention. Update it as you develop the course.
+Use this checklist to ensure your GIS projects are complete and professional.
 
-## Content structure
+## Data Management
 
-- [x] Clean root folder structure (`assets/`, `resources/`, `site_docs/`).
-- [x] Build MkDocs configuration (`mkdocs.yml`) and base navigation.
-- [x] Create lecture pages for Weeks 1–12 (placeholders in 5–12 still need detail).
-- [x] Create lab pages for Weeks 1–12 (Weeks 5–12 currently scaffolds).
-- [ ] Flesh out Weeks 5–12 lecture pages with full outlines, references, and visuals.
-- [ ] Expand Weeks 5–12 lab chapters with detailed instructions, dataset links, and callouts.
+- [ ] All data files organized in a clear folder structure
+- [ ] Raw data stored separately from processed data
+- [ ] Data sources documented with URLs and download dates
+- [ ] File names are descriptive and consistent
+- [ ] No spaces or special characters in file/folder names
 
-## Datasets & resources
+## QGIS Project
 
-- [ ] Populate `resources/docs/data-inventory.md` with confirmed datasets, download dates, and licensing notes.
-- [ ] Collect and document Australian sample datasets (crime, health, transport, environmental).
-- [ ] Add troubleshooting FAQs for dataset downloads (per week) where needed.
+- [ ] Project file (.qgz) saved with relative paths
+- [ ] All layers load without errors
+- [ ] Coordinate reference system appropriate for study area
+- [ ] Layer names are clear and descriptive
+- [ ] Unused layers removed from project
 
-## Visual assets
+## Map Design
 
-- [ ] Capture screenshots for Week 1 (interface, project setup) and store under `assets/images/week01/`.
-- [ ] Capture symbology/layout examples for Week 2 (`assets/images/week02/`).
-- [ ] Gather boundary and join visuals for Week 3 (`assets/images/week03/`).
-- [ ] Add terrain analysis outputs for Week 4 (`assets/images/week04/`).
-- [ ] Plan visuals for Weeks 5–12 as content is finalised.
+- [ ] Clear, descriptive title
+- [ ] Legend with all symbols explained
+- [ ] Scale bar with appropriate units
+- [ ] North arrow (if needed)
+- [ ] Data sources credited
+- [ ] Your name and date included
 
-## Environment & tooling
+## Accessibility
 
-- [x] Move environment files to `resources/environment/` and update references.
-- [ ] Add troubleshooting FAQ for dev container/conda setup (disk space, SSL issues) in `site_docs/onboarding/environment-options.md`.
-- [ ] Record short screen captures for dev container + conda workflows and link them in the onboarding chapter (optional).
+- [ ] Color contrast meets WCAG AA standards (4.5:1 for text)
+- [ ] Colors distinguishable for colorblind viewers
+- [ ] Font sizes readable (minimum 9pt print, 12pt digital)
+- [ ] Labels don't overlap or obscure important features
+- [ ] Alt text prepared for digital distribution
 
-## Assessment & capstone
+## Analysis Quality
 
-- [ ] Draft Week 11 critique rubric and add to the lecture/lab pages.
-- [ ] Write Week 12 capstone brief, deliverables list, and evaluation rubric; link from Week 12 lecture/lab.
-- [ ] Add reflection prompts specific to assessments if required.
+- [ ] Methods appropriate for the research question
+- [ ] Data limitations acknowledged
+- [ ] Results clearly interpreted
+- [ ] Conclusions supported by evidence
+- [ ] Uncertainty or caveats noted
 
-## Deployment & publishing
+## Export & Submission
 
-- [ ] Decide on hosting (GitHub Pages or other) and add deployment instructions to `README.md`.
-- [ ] Verify MkDocs build (`mkdocs build`) for production; ensure no broken links.
-- [ ] Consider including a `CONTRIBUTING.md` if other instructors will collaborate.
+- [ ] Maps exported at appropriate resolution (300 DPI for print)
+- [ ] File format matches requirements (PDF, PNG, etc.)
+- [ ] File size reasonable for submission method
+- [ ] All required files included
+- [ ] Submission named according to guidelines
 
-Refer back to this checklist regularly and mark items off as you complete them. Feel free to add new sections as the course evolves.
+## Documentation
+
+- [ ] Research question clearly stated
+- [ ] Methods described step-by-step
+- [ ] Data sources fully cited
+- [ ] Key findings summarized
+- [ ] Reflection completed
+
+## Before You Submit
+
+Final checks:
+
+1. Open your project file fresh and verify everything loads
+2. View your exported maps at 100% zoom - are they readable?
+3. Check spelling in all titles, labels, and text
+4. Verify all required components are included
+5. Test any links or file paths
+
+## Common Issues to Avoid
+
+- Missing scale bar or north arrow
+- Legend items that don't match map symbology
+- Unreadable text (too small or poor contrast)
+- Data sources not credited
+- Files with broken layer paths
+- Submitting the wrong file version

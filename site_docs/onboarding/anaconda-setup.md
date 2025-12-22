@@ -130,7 +130,7 @@ You need the `environment.yml` file from the course repository.
 
 **Option 1: Download directly from GitHub**
 
-1. Go to the course repository (your instructor will provide the URL)
+1. Go to the course repository on GitHub
 2. Navigate to `resources/environment/environment.yml`
 3. Click **Raw** button
 4. Right-click → **Save As...** → Save to your **Downloads** folder

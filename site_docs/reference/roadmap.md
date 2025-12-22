@@ -1,33 +1,66 @@
 # Course Roadmap
 
-Use this roadmap to plan development and delivery milestones as you build out the course.
+This 12-week course takes you from GIS fundamentals through to independent spatial analysis. Here's what to expect.
 
-## Development milestones
+## Course Structure
 
-1. **Finalize syllabus:** lock the 12-week outline, learning goals, assessments, and reflection prompts.
-2. **Author QGIS guides (Weeks 1–6):** include screenshots, dataset links, and troubleshooting sections.
-3. **Publish onboarding materials:** QGIS install guide, data download instructions, environment strategy, boundary explainer.
-4. **Build managed environment assets:** dev container, `environment.yml`, verification script, Colab fallback notebooks.
-5. **Draft Python module guides (Weeks 7–10):** align with notebooks and dataset structure.
-6. **Design studio & capstone materials:** layout critique checklist, capstone brief, evaluation rubric.
-7. **Collect datasets:** download, clean, and document sources in the data inventory; store staged copies where licensing allows.
-8. **Pilot test:** run through selected weeks with learners or colleagues to gather feedback and refine pacing.
-9. **Publish site:** deploy MkDocs site (e.g., GitHub Pages) and update README with deployment instructions.
-10. **Iterate:** track feedback/issues, update documentation, and maintain dependencies.
+### Weeks 1-6: QGIS Foundations
 
-## Suggested weekly cadence
+| Week | Focus | Key Skills |
+|------|-------|------------|
+| 1 | QGIS Orientation | Interface navigation, loading data, basic styling |
+| 2 | Symbology & Layouts | Thematic mapping, print layouts, map design |
+| 3 | Vector Analysis & Joins | Attribute queries, spatial joins, selections |
+| 4 | Raster & Terrain | DEM analysis, hillshades, raster calculations |
+| 5 | Crime Mapping | Hotspot analysis, kernel density, temporal patterns |
+| 6 | Public Health & Accessibility | Network analysis, service areas, equity metrics |
 
-- **Week 0 (orientation):** ensure all learners have the course book, QGIS installed, datasets downloaded, and reflections ready.
-- **Weekly cycle:** release readings and data instructions mid-week, host synchronous session or lab, assign optional practice/reflection.
-- **Checkpoints:** Weeks 4, 8, and 11 can serve as internal check-ins or mini-assessments leading up to the capstone.
+### Weeks 7-10: Python for Spatial Analysis
 
-## Publishing checklist
+| Week | Focus | Key Skills |
+|------|-------|------------|
+| 7 | Bridge to Python | Environment setup, Jupyter notebooks, pandas basics |
+| 8 | Python Vector Workflows | GeoPandas, spatial joins, automated processing |
+| 9 | Raster & Remote Sensing | Rasterio, band math, zonal statistics |
+| 10 | Transport Networks | OSMnx, NetworkX, isochrone analysis |
 
-- [ ] MkDocs site builds locally (`mkdocs serve`) without warnings.
-- [ ] All internal links resolve (datasets, reflections, notebooks).
-- [ ] `mkdocs.yml` navigation reflects the final structure.
-- [ ] LICENSE files added and referenced in the course book.
-- [ ] GitHub Pages (or preferred host) configured, and base URL tested.
-- [ ] README updated with instructions to build the docs (`mkdocs build`) and preview (`mkdocs serve`).
+### Weeks 11-12: Synthesis & Capstone
 
-Keep this roadmap up to date as you expand the course or onboard additional instructors.
+| Week | Focus | Key Skills |
+|------|-------|------------|
+| 11 | Design & Storytelling | Critique, accessibility, narrative framing |
+| 12 | Capstone Showcase | Project presentation, peer feedback, next steps |
+
+## Weekly Rhythm
+
+Each week follows a consistent pattern:
+
+1. **Before class:** Complete readings and download required datasets
+2. **During class:** Hands-on lab activities with instructor support
+3. **After class:** Practice exercises and weekly reflection
+
+## Checkpoints
+
+Use these milestones to track your progress:
+
+- **Week 4:** You should be comfortable creating styled maps and basic spatial queries
+- **Week 6:** You can perform network analysis and export professional layouts
+- **Week 8:** You can replicate QGIS workflows in Python
+- **Week 10:** You can conduct independent spatial analysis with minimal guidance
+- **Week 12:** You can present a complete spatial analysis project
+
+## Getting Help
+
+- Review lecture notes and reference materials first
+- Check the troubleshooting sections in each week's guide
+- Ask questions during class or office hours
+- Use the course discussion forum for peer support
+
+## What You'll Build
+
+By the end of this course, you'll have:
+
+- A portfolio of 6+ polished maps
+- Working Python notebooks for spatial analysis
+- A capstone project demonstrating your skills
+- The foundation for continued GIS learning

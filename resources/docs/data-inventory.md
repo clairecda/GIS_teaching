@@ -14,20 +14,19 @@ Working list of candidate datasets for weekly case studies. Capture licensing no
 | Crime analytics | NYC NYPD Complaint Data | https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Map/ | Open Data Commons | Use for comparative analysis or network hotspot mapping. |
 | Crime analytics | UK Police street-level crime | https://data.police.uk/data/ | Open Government Licence | Small CSV extracts suitable for in-class practice. |
 | Crime analytics | NSW Recorded Crime Offences by LGA | https://bocsar.nsw.gov.au/statistics-dashboards/open-datasets/criminal-offences-data.html | CC BY 4.0 | Download "Local Government Area" Excel under Monthly counts; pair with ASGS LGA boundaries. |
-| Public health | CDC Social Vulnerability Index | https://www.atsdr.cdc.gov/placeandhealth/svi/index.html | Public domain | Includes tract-level indices; pair with health facility locations. |
+| Public health | CDC Social Vulnerability Index | https://www.atsdr.cdc.gov/place-health/php/svi/ | Public domain | Includes tract-level indices; pair with health facility locations. |
 | Public health | Health Resources & Services Admin (HRSA) Health Center data | https://data.hrsa.gov | Public domain | Point locations + services metadata; useful for catchment analysis. |
-| Public health | OpenStreetMap healthcare amenities | https://download.geofabrik.de/ | ODbL | Extract clinics/hospitals for accessibility analysis; document filters used. |
-| Public health | National Health Services Directory (Australia) | https://data.gov.au/dataset/ds-dga-4b10c443-4906-4d30-b3c6-a2ad99b04051/details | CC BY 4.0 | National facility list; filter by service type before sharing. |
+| Public health | OpenStreetMap healthcare amenities | https://download.geofabrik.de/ | ODbL | Extract hospitals/clinics from OSM; or use state health data portals. |
 | Environmental resilience | FEMA National Flood Hazard Layer | https://www.fema.gov/flood-maps | Public domain | Download subsets via FEMA GeoPlatform; requires preprocessing. |
 | Environmental resilience | NOAA Sea Level Rise Raster | https://coast.noaa.gov/slrdata/ | Public domain | GeoTIFF rasters for sea-level scenarios; large files, clip to AOI. |
-| Environmental resilience | NASA SRTM 30m DEM | https://e4ftl01.cr.usgs.gov/MEASURES/SRTMGL1.003/ | Public domain | Use for terrain analysis and hillshade generation in Week 4. |
+| Environmental resilience | NASA SRTM 30m DEM | https://earthexplorer.usgs.gov/ | Public domain | Search "SRTM 1 Arc-Second Global" for terrain analysis in Week 4. |
 | Environmental resilience | Geoscience Australia ELVIS DEM | https://elevation.fsdf.org.au/ | CC BY 4.0 | Provides 1-second SRTM-derived DEM tiles across Australia. |
-| Transport mobility | GTFS feeds (e.g., MBTA, WMATA) | https://transitfeeds.com/ | Varies | Document license per agency; convert to network for accessibility metrics. |
+| Transport mobility | GTFS feeds (e.g., MBTA, WMATA) | https://mobilitydatabase.org/ | Varies | Document license per agency; convert to network for accessibility metrics. |
 | Transport mobility | OpenStreetMap extracts | https://download.geofabrik.de/ | ODbL | Use for street networks, micromobility infrastructure. |
 | Transport mobility | US DOT National Transit Map | https://data.transportation.gov/Transit/National-Transit-Map-NTM-Spring-2023/dxav-78z2 | Public domain | Alternate source for stop locations; useful when GTFS access is limited. |
 | Spatial statistics | American Community Survey (ACS) 5-year estimates | https://www.census.gov/data/developers/data-sets/acs-5year.html | Public domain | Access via Census API; document year and variables used. |
 | Spatial statistics | LA Times neighborhood boundaries | https://github.com/datadesk/california-neighborhoods | CC BY 4.0 | Use for polygon boundaries in vector join labs (Week 3 & Week 8). |
-| Remote sensing | Landsat 8/9 Collection 2 | https://landsat.gsfc.nasa.gov/landsat-data-access/ | Public domain | Retrieve via USGS EarthExplorer or AWS; note acquisition dates. |
+| Remote sensing | Landsat 8/9 Collection 2 | https://earthexplorer.usgs.gov/ | Public domain | Search for Landsat Collection 2; also available via AWS Open Data. |
 | Remote sensing | Sentinel-2 Level-2A | https://developers.google.com/earth-engine/datasets/catalog/COPERNICUS_S2_SR | Copernicus | Accessible via Earth Engine; log scripts for reproducibility. |
 | Remote sensing | NOAA VIIRS Nighttime Lights | https://eogdata.mines.edu/products/vnl/#annual_v20 | Public domain | Useful for change detection storylines in Week 9. |
 | Map design | ColorBrewer palettes | https://colorbrewer2.org/ | Public domain | Reference for accessible colour schemes in design week. |

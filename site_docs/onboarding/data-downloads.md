@@ -101,7 +101,7 @@ Repeat these steps for every dataset so anyone (including your future self) can 
 ### Option B (Global) — NASA SRTM
 
 1. Ensure you have a NASA Earthdata login (<https://urs.earthdata.nasa.gov/>).
-2. Download the relevant tile from <https://e4ftl01.cr.usgs.gov/MEASURES/SRTMGL1.003/> (e.g., `S34E151.SRTMGL1.hgt.zip`) to `data/raw/week04/srtm/` and extract.
+2. Go to USGS EarthExplorer (<https://earthexplorer.usgs.gov/>), search for your area, and download SRTM 1 Arc-Second Global tiles. Save the `.hgt` file (e.g., `S34E151.hgt`) to `data/raw/week04/srtm/`.
 3. Convert to GeoTIFF and clip to your AOI as in the ELVIS workflow.
 
 ## Week 5 — Crime case study
@@ -124,7 +124,7 @@ Repeat these steps for every dataset so anyone (including your future self) can 
 **Goal:** Combine vulnerability scores with health facility locations.**
 
 1. Use SEIFA (from Week 3) or download ARIA+ (Australian remoteness index) from the ABS; store under `data/raw/week06/seifa/` or `data/raw/week06/aria/`.
-2. Download the National Health Services Directory dataset from <https://data.gov.au/dataset/ds-dga-4b10c443-4906-4d30-b3c6-a2ad99b04051/details> to `data/raw/week06/nhsd/health_services.csv`.
+2. For Australian health facility locations, download hospital data from your state's open data portal (e.g., NSW Health facilities from data.nsw.gov.au) or extract healthcare amenities from OpenStreetMap via Geofabrik. Save to `data/raw/week06/health/`.
 3. Filter to relevant service categories and save to `data/processed/week06/health_services_filtered.csv`.
 4. Optionally download an OpenStreetMap extract for your region from <https://download.geofabrik.de/> and store under `data/raw/week06/osm/` for network analysis.
 

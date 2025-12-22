@@ -83,7 +83,7 @@ Learners are responsible for fetching the open datasets used in weekly QGIS acti
 ### Option B (Global) — NASA SRTM
 
 1. Ensure you have a NASA Earthdata login: https://urs.earthdata.nasa.gov/.
-2. Browse the SRTMGL1.003 collection (https://e4ftl01.cr.usgs.gov/MEASURES/SRTMGL1.003/), download the tile covering your area (e.g., `S34E151.SRTMGL1.hgt.zip`), and save to `data/raw/week04/srtm/`.
+2. Go to USGS EarthExplorer (https://earthexplorer.usgs.gov/), search for your area, select "SRTM 1 Arc-Second Global" from Digital Elevation, and download the tile covering your area. Save to `data/raw/week04/srtm/`.
 3. Extract the `.hgt` file, convert it to GeoTIFF in QGIS (`Raster ▶ Conversion ▶ Translate`), and clip to your AOI. Note tile names and processing steps in the inventory.
 
 ## Week 5 — Crime case study
@@ -109,7 +109,7 @@ Learners are responsible for fetching the open datasets used in weekly QGIS acti
 ### Option A (Australia)
 
 1. **Vulnerability index:** Reuse the SEIFA SA2 CSV from Week 3 or download the Australian Remoteness Area (ARIA+) dataset from the ABS. Store under `data/raw/week06/seifa/` or `data/raw/week06/aria/`.
-2. **Health services:** Download the National Health Services Directory (NHSD) public dataset from https://data.gov.au/dataset/ds-dga-4b10c443-4906-4d30-b3c6-a2ad99b04051/details. Save the CSV to `data/raw/week06/nhsd/health_services.csv`.
+2. **Health services:** Download hospital/clinic data from your state's open data portal (e.g., NSW Health facilities from data.nsw.gov.au) or extract healthcare amenities from OpenStreetMap via Geofabrik. Save to `data/raw/week06/health/`.
 3. Filter the services to the categories you need (e.g., hospitals, GPs) and save the cleaned file to `data/processed/week06/health_services_filtered.csv`.
 4. For road networks, download the relevant OpenStreetMap extract from https://download.geofabrik.de/ (e.g., `australia-oceania/australia-latest.osm.pbf`) and store under `data/raw/week06/osm/`.
 5. Document filters, service categories, and any geocoding adjustments in `resources/docs/data-inventory.md`.
