@@ -23,13 +23,14 @@ nav:
       - How to use this course: guide/how-to-use.md
   - Slides: slides/index.md
   - Getting Ready:
-      - Accessing Course Materials: onboarding/accessing-course-materials.md
-      - Install QGIS: onboarding/qgis-install.md
-      - Anaconda Setup (Week 7+): onboarding/anaconda-setup.md
-      - Downloading datasets: onboarding/data-downloads.md
+      - 1. Install QGIS: onboarding/01-install-qgis.md
+      - 2. Set up your workspace: onboarding/02-workspace-setup.md
+      - 3. Download datasets: onboarding/03-download-data.md
+      - 4. Python setup (Week 7+): onboarding/04-python-setup.md
+  - Background Reading:
+      - What is GIS?: readings/week01-what-is-gis.md
       - Understanding CRS: readings/understanding-crs.md
-      - Understanding boundaries: readings/week03-admin-boundaries.md
-      - GIS primer (Esri + video): readings/week01-what-is-gis.md
+      - Administrative boundaries: readings/week03-admin-boundaries.md
   - Lectures & Theory:
       - Week 1 · Foundations of GIS: lectures/week01-fundamentals.md
       - Week 2 · Cartographic Conventions & Colour: lectures/week02-cartography.md

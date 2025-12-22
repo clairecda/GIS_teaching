@@ -1,8 +1,10 @@
-# Setting Up Python with Anaconda
+# 4. Python Setup (Week 7+)
 
-This guide walks you through installing Anaconda and the Python packages you need for Weeks 7-10.
+This guide walks you through installing Anaconda and the Python packages you need for Weeks 7-12.
 
 **Time required:** 30-45 minutes (including download time)
+
+**When to do this:** Before Week 7. Skip this for Weeks 1-6.
 
 ---
 
@@ -11,9 +13,9 @@ This guide walks you through installing Anaconda and the Python packages you nee
 1. Go to [anaconda.com/download](https://www.anaconda.com/download)
 2. Download the installer for your operating system:
    - **Windows:** Click the Windows download button
-   - **Mac:** Click the Mac download button (works for both Intel and M1/M2/M3)
+   - **Mac:** Click the Mac download button (works for Intel and Apple Silicon)
    - **Linux:** Click the Linux download button
-3. The file is about 600 MB—wait for the download to complete
+3. The file is about 600 MB — wait for download to complete
 
 ---
 
@@ -26,8 +28,8 @@ This guide walks you through installing Anaconda and the Python packages you nee
 3. Accept the license agreement
 4. Choose "Just Me" for installation type
 5. **Important:** Check both boxes:
-   - ✅ "Add Anaconda to my PATH environment variable"
-   - ✅ "Register Anaconda as my default Python"
+   - "Add Anaconda to my PATH environment variable"
+   - "Register Anaconda as my default Python"
 6. Click **Install** (takes 10-15 minutes)
 7. Click **Finish**
 
@@ -51,9 +53,7 @@ This guide walks you through installing Anaconda and the Python packages you nee
 
 ---
 
-## Step 3: Create Your GIS Environment
-
-Now you'll install the spatial analysis packages (GeoPandas, Rasterio, OSMnx).
+## Step 3: Create your GIS environment
 
 ### Open your terminal
 
@@ -82,21 +82,21 @@ Now install the packages:
 conda install -c conda-forge geopandas rasterio rioxarray osmnx networkx rasterstats contextily folium jupyter jupyterlab matplotlib seaborn -y
 ```
 
-This downloads about 500 MB and takes 5-15 minutes. Go grab a coffee!
+This downloads about 500 MB and takes 5-15 minutes.
 
 ---
 
-## Step 4: Test Your Setup
+## Step 4: Test your setup
 
 With your environment still activated, run:
 
 ```bash
-python -c "import geopandas; import rasterio; import osmnx; print('✅ All packages installed!')"
+python -c "import geopandas; import rasterio; import osmnx; print('All packages installed!')"
 ```
 
-You should see: `✅ All packages installed!`
+You should see: `All packages installed!`
 
-If you see an error, try reinstalling (see Troubleshooting below).
+If you see an error, check Troubleshooting below.
 
 ---
 
@@ -124,7 +124,7 @@ If you see an error, try reinstalling (see Troubleshooting below).
 
 ---
 
-## Daily Workflow
+## Daily workflow (Weeks 7-12)
 
 Every time you work on Python labs:
 
@@ -167,8 +167,6 @@ conda activate intro-gis
 jupyter lab
 ```
 
-In Jupyter, go to **Kernel → Change Kernel → Python (intro-gis)** if available.
-
 ### Start over completely
 
 If nothing works, remove everything and try again:
@@ -180,11 +178,11 @@ Then go back to Step 3.
 
 ---
 
-## Quick Reference
+## Quick reference
 
 | Command | What it does |
 |---------|-------------|
-| `conda activate intro-gis` | Activate the environment (do this first!) |
+| `conda activate intro-gis` | Activate the environment |
 | `conda deactivate` | Deactivate the environment |
 | `jupyter lab` | Launch Jupyter |
 | `conda env list` | Show all environments |
@@ -192,5 +190,3 @@ Then go back to Step 3.
 ---
 
 **You're ready for Week 7!** If you can run `import geopandas` in a Jupyter notebook, everything is working.
-
-*Last updated: December 2025*
