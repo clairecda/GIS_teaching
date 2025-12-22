@@ -1,46 +1,45 @@
 # Week 6 Lecture · Health Equity & Accessibility
 
-## Objectives
+## This week
+We explore how geographic access to healthcare shapes health equity outcomes. You'll learn to measure accessibility using network analysis and isochrones, then overlay this with vulnerability indices to identify communities facing barriers to essential services.
 
-- Explore how spatial access to health services influences equity outcomes.
-- Introduce common accessibility metrics (catchments, drive-time, two-step floating catchment area).
-- Discuss limitations of open health datasets and ways to contextualise them.
+## By the end of the week you will
+- Explain how spatial access to health services influences health equity and social determinants of health.
+- Compare accessibility metrics (buffers, isochrones, gravity models) and understand when to apply each.
+- Use vulnerability indices (SEIFA, SVI, ARIA+) to identify populations at highest risk of poor access.
+- Communicate accessibility findings with appropriate language that centers action and avoids deficit framing.
 
-## Outline
+## Key vocabulary
+Health equity · accessibility · isochrone · service area · catchment · two-step floating catchment area (2SFCA) · SEIFA · social vulnerability index (SVI) · ARIA+ · drive-time analysis · network analysis.
 
-1. **Health equity framing**  
-   - Social determinants of health; why location matters.  
-   - Examples from Australian context (rural vs metropolitan service availability).
-2. **Accessibility metrics**  
-   - Simple buffers, drive-time/isochrones, gravity models.  
-   - Pros/cons of each, data requirements, and assumptions.
-3. **Data considerations**  
-   - Facility types (primary care vs hospitals), service capacity, hours of operation.  
-   - Using vulnerability indices (SEIFA, SVI) as weighting factors.
-4. **Communication**  
-   - Appropriate language; avoid blaming communities.  
-   - Present findings with action-oriented recommendations.
+## What happens in class
+- Frame health equity through social determinants of health and discuss why location matters, using Australian rural/metropolitan examples.
+- Compare accessibility metrics side-by-side: simple buffers vs. drive-time zones vs. gravity models, noting data requirements and assumptions.
+- Explore the Malaria Atlas Project as a case study in global health GIS and discuss data integration, uncertainty visualization, and policy impact.
+- Work through a live comparison of two accessibility maps (buffer vs. isochrone) to identify how method choice changes findings.
+- Brainstorm equity-focused policy interventions based on observed accessibility gaps.
 
-## Readings & resources
+## Prepare beforehand
+- Review the [Week 6 lab](../weeks/week06.md) to understand the workflow you'll be implementing.
+- Install the QNEAT3 plugin in QGIS ahead of class (see lab instructions).
+- Download OpenStreetMap road network data for your study area using the data checklist.
 
-- WHO: *Handbook on Health Inequality Monitoring*.
-   - Highlight chapters on geographic accessibility.
-- Australian Institute of Health and Welfare reports on service distribution.
-- Example research using 2SFCA or network analysis for health planning.
-- **[Malaria Atlas Project](https://malariaatlas.org/)** — Exemplary global health GIS platform
-   - Interactive maps showing malaria risk, intervention coverage, and disease burden across 100+ countries.
-   - Demonstrates how spatial modeling combines environmental data (temperature, rainfall), vector distribution, and health surveillance to predict disease risk.
-   - Case study for discussing data integration, uncertainty visualization, and how GIS informs global health policy and resource allocation.
+## Connected lab
+In the Week 6 lab, you'll generate service areas using QNEAT3, overlay them with SEIFA or other vulnerability data, and create maps that tell an equity-focused accessibility story.
 
-## Classroom activities
+## Further Reading
 
-- Compare two accessibility maps (buffer vs drive-time) and discuss differences.
-- Brainstorm policy interventions based on observed gaps.
-- Explore the [Malaria Atlas Project](https://malariaatlas.org/) as a group:
-   - Navigate to a country of interest and examine risk prediction maps.
-   - Discuss: What data sources do they integrate? How is uncertainty communicated?
-   - Consider: How could similar approaches apply to local health equity analysis (e.g., diabetes risk, vaccination coverage)?
+**Essential:**
+- [SEIFA - Socio-Economic Indexes for Areas (ABS)](https://www.abs.gov.au/statistics/people/people-and-communities/socio-economic-indexes-areas-seifa-australia) - Official Australian Bureau of Statistics documentation on SEIFA disadvantage indices and how to interpret them
+- [CDC/ATSDR Social Vulnerability Index (SVI)](https://www.atsdr.cdc.gov/placeandhealth/svi/index.html) - US vulnerability mapping tool with data downloads, methodology, and applications for public health planning
+- [QNEAT3 Plugin Documentation](https://root676.github.io/) - Official guide to network analysis in QGIS, covering isochrone creation, service area analysis, and routing
+- [WHO Handbook on Health Inequality Monitoring (Chapter 7)](https://www.who.int/publications/i/item/9789241548632) - Framework for measuring geographic accessibility and health service distribution globally
 
-## Link to lab
+**Optional but recommended:**
+- [Accessibility and Remoteness Index of Australia (ARIA+)](https://www.health.gov.au/topics/rural-health-workforce/classifications/aria) - Australian Department of Health classification system for measuring remoteness and service access
+- [Two-Step Floating Catchment Area Method Explained](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1389236/) - Academic paper introducing 2SFCA methodology for measuring spatial accessibility to healthcare (Luo & Wang, 2003)
+- [Malaria Atlas Project](https://malariaatlas.org/) - Global health GIS platform demonstrating spatial modeling, data integration, and disease risk prediction at scale
 
-- Prepares learners for service area generation, overlay with vulnerability indices, and equity-focused storytelling in Week 6.
+**Videos:**
+- [Introduction to Network Analysis in QGIS](https://www.youtube.com/watch?v=4nQxl7q5l6s) - 22-minute tutorial on creating service areas and isochrones using QNEAT3
+- [Health Equity and Social Determinants](https://www.youtube.com/watch?v=Wmvt2e6T33s) - 8-minute overview from Robert Wood Johnson Foundation on how place and opportunity shape health outcomes

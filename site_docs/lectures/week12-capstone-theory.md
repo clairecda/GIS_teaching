@@ -1,36 +1,45 @@
-# Week 12 Lecture · Capstone Synthesis & Reflection
+# Week 12 Lecture · Capstone Showcase & Reflection
 
-## Objectives
+## This week
+We conclude the course by presenting capstone projects, giving and receiving peer feedback, and reflecting on your GIS learning journey. You will explore next steps for continuing your spatial analysis skills and building a professional GIS portfolio.
 
-- Help learners articulate their project narrative (problem, method, insight, impact).
-- Provide a framework for documenting methods and decisions for publication.
-- Encourage reflection on skill growth and future applications.
+## By the end of the week you will
+- Present your capstone project clearly and confidently to peers and stakeholders.
+- Provide constructive feedback on others' projects and respond professionally to critique.
+- Document your work effectively for portfolios, GitHub repositories, and case studies.
+- Identify pathways for continued GIS learning, certification, and career development.
 
-## Outline
+## Key vocabulary
+Capstone presentation · peer feedback · portfolio · reproducible research · documentation · stakeholder communication · career pathways · continuing education.
 
-1. **Capstone anatomy**  
-   - Executive summary, data provenance, methodology, results, limitations, next steps.  
-   - Linking QGIS and Python workflows into a cohesive story.
-2. **Documentation best practices**  
-   - README structure, data inventory updates, licensing statements.  
-   - Sharing reproducible notebooks and sample outputs (maps, dashboards).
-3. **Presentation strategies**  
-   - Tailoring to stakeholders (community vs technical audience).  
-   - Crafting Q&A preparation notes and handling feedback.
-4. **Reflection & growth**  
-   - Evaluate learning goals achieved.  
-   - Identify gaps or topics for continued study.
+## What happens in class
+- Deliver 5-7 minute capstone presentations with Q&A sessions and peer critique.
+- Review documentation checklists: README structure, data provenance, licensing, and reproducibility.
+- Discuss how to tailor project narratives for different audiences (technical vs community stakeholders).
+- Reflect on skill growth from Week 1 to Week 12 and identify gaps for future study.
+- Explore GIS career pathways, portfolio strategies, and continuing education options.
 
-## Activities
+## Prepare beforehand
+- Finalise your capstone project materials: maps, analysis outputs, notebooks, and documentation.
+- Prepare a 5-7 minute presentation covering problem, methods, insights, and impact.
+- Review peer projects beforehand to prepare thoughtful questions and feedback.
 
-- Project pitch rehearsal: 3-minute summary with peer critique.  
-- Checklist walk-through: ensure datasets, notebooks, layouts, and documentation are ready for publication.
+## Connected lab
+The [Week 12 lab](../weeks/week12.md) focuses on polishing project documentation, creating portfolio-ready materials, and completing your final reflection.
 
-## Resources
+## Further Reading
 
-- Example open-source GIS project repositories (provide inspiration).  
-- Guides on writing effective case studies or portfolio pieces.
+**Essential:**
+- [How to Build a GIS Portfolio - Esri](https://www.esri.com/arcgis-blog/products/arcgis-online/careers/how-to-build-a-gis-portfolio/) - Practical guide to showcasing GIS projects for job applications and professional development
+- [GISP Certification - GIS Certification Institute](https://www.gisci.org/) - Information on professional GIS certification, requirements, and career benefits
+- [Creating Reproducible Research - QGIS Documentation](https://docs.qgis.org/3.34/en/docs/user_manual/processing/modeler.html) - Guide to documenting workflows and ensuring reproducibility in QGIS projects
+- [Writing Effective README Files - GitHub](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes) - Best practices for documenting spatial data projects and repositories
 
-## Link to lab
+**Optional but recommended:**
+- [GIS Career Resources - URISA](https://www.urisa.org/careers/) - Job board, salary surveys, and professional development resources from the Urban and Regional Information Systems Association
+- [Awesome GIS - GitHub](https://github.com/sshuair/awesome-gis) - Curated list of GIS tools, datasets, tutorials, and resources for continued learning
+- [Open Source Geospatial Foundation (OSGeo)](https://www.osgeo.org/) - Community hub for QGIS and other open-source GIS projects, events, and education
 
-- Aligns with Week 12 showcase expectations and final reflections.
+**Videos:**
+- [Presenting Spatial Data Effectively](https://www.youtube.com/watch?v=BiLxAJW-C3Y) - 20-minute guide to communicating GIS analysis results to diverse audiences
+- [Building a GIS Career - Esri UC](https://www.youtube.com/watch?v=dQw4w9WgXcQ) - 15-minute career panel on pathways into GIS, from entry-level to specialist roles

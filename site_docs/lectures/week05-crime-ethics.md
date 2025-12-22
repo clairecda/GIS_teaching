@@ -1,38 +1,45 @@
-# Week 5 Lecture · Ethics of Crime Mapping
+# Week 5 Lecture · Crime Hotspots & Storytelling
 
-## Objectives
+## This week
+We explore the ethics of crime mapping and learn kernel density estimation (KDE) techniques to identify hotspots. Learners consider the social impact of crime visualisation and develop responsible communication practices.
 
-- Discuss ethical considerations when visualising crime data.
-- Highlight the impact of boundary choice, temporal aggregation, and context on public perception.
-- Provide frameworks for responsible storytelling (language, disclaimers, community engagement).
+## By the end of the week you will
+- Apply kernel density estimation to identify crime hotspots and explain how KDE parameters affect results.
+- Evaluate the ethical implications of crime mapping including privacy, bias, and community stigma.
+- Communicate crime data responsibly using neutral language, context, and appropriate disclaimers.
+- Understand how boundary choice, temporal aggregation, and data provenance shape public perception.
 
-## Key discussion points
+## Key vocabulary
+Kernel density estimation (KDE) · hotspot · bandwidth · search radius · crime mapping ethics · data bias · privacy aggregation · jittering · hex bins · narrative framing · community impact.
 
-1. **Data provenance & bias**  
-   - Crime data reflects reporting practices, policing priorities, and socio-economic factors.  
-   - Missing context (e.g., victimisation surveys) and potential for reinforcing stereotypes.
-2. **Privacy & aggregation**  
-   - Why many datasets aggregate to LGA, precinct, or anonymised coordinates.  
-   - Balancing detail with privacy; use of jittering or hex bins.
-3. **Narrative framing**  
-   - Use neutral language; avoid “crime hotspots” without describing contributing factors.  
-   - Include socio-economic context and community assets (lighting, youth programs).
-4. **Community impact**  
-   - Maps influence policy, property values, and stigma.  
-   - Encourage learner empathy and stakeholder interviews where possible.
+## What happens in class
+- Discuss ethical considerations in crime mapping: data provenance, privacy, bias in policing data, and community impact.
+- Demonstrate KDE hotspot analysis in QGIS with various bandwidth settings and compare outputs.
+- Critique sample crime maps with differing framing and discuss potential social impacts.
+- Workshop responsible storytelling: choosing neutral language, adding socio-economic context, and documenting limitations.
+- Review privacy-preserving techniques such as coordinate jittering and hex bin aggregation.
 
-## Suggested readings
+## Prepare beforehand
+- Download the crime dataset for Week 5 from the [data download guide](../onboarding/data-downloads.md).
+- Read [Crime Mapping Ethics](../readings/week05-crime-ethics.md) and note discussion questions.
+- Review the [Week 5 lab](../weeks/week05.md) to understand the KDE workflow.
 
-- Jerry Ratcliffe, *Crime Mapping and Spatial Analysis* (ethics chapter).  
-- Articles on policing bias / open data guidelines (e.g., U.S. DOJ Analytic Toolkit).  
-- Any local government data sharing policies.
+## Connected lab
+The [Week 5 lab](../weeks/week05.md) applies KDE hotspot analysis to crime data with careful attention to boundary selection, temporal filtering, and responsible annotation of outputs.
 
-## Activities
+## Further Reading
 
-- Case study review: examine two crime maps with differing framing; debate potential impacts.  
-- Scenario planning: how would you brief a community meeting before presenting a map?
+**Essential:**
+- [Heatmap (Kernel Density Estimation) - QGIS Documentation](https://docs.qgis.org/3.34/en/docs/user_manual/processing_algs/qgis/interpolation.html#heatmap-kernel-density-estimation) - Official QGIS guide to KDE parameters, bandwidth selection, and hotspot analysis
+- [Crime Mapping and Analysis - National Institute of Justice](https://nij.ojp.gov/topics/articles/crime-mapping-and-analysis) - Overview of crime mapping principles, applications, and ethical considerations from the US Department of Justice
+- [Ethical Issues in Crime Mapping - GIS Lounge](https://www.gislounge.com/ethical-issues-crime-mapping/) - Discussion of privacy, bias, and community impact in crime visualisation
+- [The Dangers of Crime Mapping - Urban Institute](https://www.urban.org/features/where-crime-mapping-how-use-data-responsibly) - Practical guide on responsible use of crime data including aggregation and context
 
-## Link to lab
+**Optional but recommended:**
+- [Jerry Ratcliffe - Crime Mapping Research](https://www.jratcliffe.net/papers/) - Academic papers on spatial analysis of crime and policing strategies by a leading crime mapping researcher
+- [Police Data Initiative - Ethical Framework](https://www.policedatainitiative.org/) - Open data guidelines and best practices for publishing law enforcement data
+- [Mapping for Social Justice - Tactical Technology Collective](https://visualisingadvocacy.org/) - Guide to ethical considerations when visualising sensitive social data
 
-- Reinforces careful filtering, boundary selection, and annotation choices in Week 5’s hotspot exercise.  
-- Encourage learners to document assumptions and limitations in their outputs.
+**Videos:**
+- [Kernel Density Estimation Explained](https://www.youtube.com/watch?v=x5zLaWT5KPs) - 10-minute visual explanation of how KDE works and parameter selection
+- [Crime Mapping with QGIS Tutorial](https://www.youtube.com/watch?v=IxRJ8vNjM3M) - 20-minute walkthrough of creating crime hotspot maps with kernel density analysis

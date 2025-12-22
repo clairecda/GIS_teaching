@@ -1,39 +1,46 @@
-# Week 10 Lecture · Network Theory for Mobility
+# Week 10 Lecture · Transport Networks & Accessibility
 
-## Objectives
+## This week
+We explore how spatial networks represent mobility systems and how graph theory helps measure accessibility. Learners work with OpenStreetMap data, compute isochrones, and apply network analysis to understand service coverage and transport equity.
 
-- Explain fundamental graph concepts used in transport analysis (nodes, edges, weights).
-- Introduce accessibility metrics (isochrones, betweenness, coverage, catchment ratios).
-- Discuss data sources (OpenStreetMap, GTFS) and preprocessing considerations.
+## By the end of the week you will
+- Explain fundamental graph concepts (nodes, edges, weights) and how they represent transport networks.
+- Use OSMnx to download and analyze street networks from OpenStreetMap.
+- Generate isochrones to measure accessibility and service catchment areas.
+- Integrate network analysis with demographic data to evaluate transport equity and planning scenarios.
 
-## Outline
+## Key vocabulary
+Graph theory · nodes · edges · directed/undirected graphs · weighted networks · OSMnx · NetworkX · isochrones · accessibility · service area · betweenness centrality · catchment · GTFS · primal/dual graphs.
 
-1. **Graph fundamentals**  
-   - Directed vs undirected graphs, weighted edges (distance, time).  
-   - Simplification levels (primal vs dual graphs) and implications for analysis.
-2. **Accessibility measures**  
-   - Isochrones (reach in X minutes) and coverage metrics (population within catchment).  
-   - Betweenness/closeness centrality for identifying critical links.  
-   - Two-step floating catchment for transit/health service overlap.
-3. **Data integration**  
-   - Working with OpenStreetMap (coverage, tagging quirks).  
-   - GTFS feed components (stops, trips, stop_times) and conversion to networks.  
-   - Handling coordinate reference systems and projections for network calculations.
-4. **Equity & policy context**  
-   - Using demographic overlays to interpret accessibility, aligning with Week 6 themes.  
-   - Presenting limitations (schedule granularity, assumed speeds).
+## What happens in class
+- Introduce graph fundamentals: directed vs undirected networks, weighted edges (distance, time, elevation), and how they model different transport modes.
+- Demonstrate OSMnx workflows: downloading street networks, visualizing road hierarchies, and computing basic network statistics.
+- Generate isochrones showing areas reachable within 5/10/15 minutes by walking, cycling, or driving.
+- Discuss accessibility metrics (betweenness centrality, coverage ratios, two-step floating catchment) and their applications in equity analysis.
+- Review case studies linking accessibility to demographic data, connecting back to Week 3 boundaries and Week 6 health/equity themes.
 
-## Activities
+## Prepare beforehand
+- Install OSMnx and NetworkX libraries following the [Python setup guide](../reference/python-setup.md).
+- Review graph theory basics in the [Week 10 pre-reading](../readings/week10-network-basics.md).
+- Download or bookmark OpenStreetMap data for your study area using the [data download guide](../onboarding/data-downloads.md).
 
-- Visualise a simple network diagram and compute sample metrics manually.  
-- Review case studies (e.g., Melbourne tram accessibility, Sydney bus coverage).
+## Connected lab
+The [Week 10 lab](../weeks/week10.md) guides learners through downloading networks with OSMnx, computing isochrones, and overlaying results with population data to assess service accessibility.
 
-## Resources
+## Further Reading
 
-- OSMnx documentation: <https://osmnx.readthedocs.io/>  
-- Transitland / GTFS resources.  
-- Academic references on accessibility modelling.
+**Essential:**
+- [OSMnx Documentation](https://osmnx.readthedocs.io/en/stable/) - Official documentation for downloading, analyzing, and visualizing street networks from OpenStreetMap
+- [NetworkX Tutorial](https://networkx.org/documentation/stable/tutorial.html) - Comprehensive guide to graph theory fundamentals and network analysis in Python
+- [Introduction to Network Analysis - Geographic Data Science Book](https://geographicdata.science/book/notebooks/08_point_pattern_analysis.html) - Academic introduction to spatial network concepts with Python examples
+- [OpenStreetMap Wiki: Routing](https://wiki.openstreetmap.org/wiki/Routing) - Guide to OSM data structure, tags, and routing considerations
 
-## Lab connection
+**Optional but recommended:**
+- [GTFS Static Overview - Google Transit](https://developers.google.com/transit/gtfs) - Specification for public transit data including stops, routes, and schedules
+- [Urban Street Networks Analysis with OSMnx - Boeing 2017](https://journals.sagepub.com/doi/full/10.1177/2399808317715537) - Academic paper introducing OSMnx and its applications in urban analytics
+- [Measuring Accessibility - Spatial Thoughts](https://courses.spatialthoughts.com/python-dataviz.html#accessibility-analysis) - Tutorial on computing service area coverage and equity metrics
+- [Transport Geography - The Geography of Transport Systems](https://transportgeography.org/contents/chapter4/) - Conceptual overview of network structure and accessibility concepts
 
-- Supports Week 10 notebook tasks (downloading network graphs, computing isochrones, intersecting with population polygons).
+**Videos:**
+- [OSMnx: Street Networks from OpenStreetMap](https://www.youtube.com/watch?v=NvNeq56uLG0) - 20-minute tutorial on downloading and analyzing networks with OSMnx
+- [Network Analysis in Python with NetworkX](https://www.youtube.com/watch?v=E4VKzFmByhE) - 15-minute introduction to graph theory fundamentals and basic network metrics
