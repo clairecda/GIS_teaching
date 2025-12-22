@@ -92,10 +92,10 @@ Learners are responsible for fetching the open datasets used in weekly QGIS acti
 
 ### Option A (Australia) — NSW Recorded Crime (BOCSAR)
 
-1. Open https://data.nsw.gov.au/data/dataset/nsw-recorded-crime-statistics.
-2. Download the **“Recorded Crime Offences by Local Government Area (CSV)”** resource and save to `data/raw/week05/nsw-crime/offences_by_lga.csv`.
-3. Filter the CSV to the offences and time period you need (e.g., assault offences for 2022) in a spreadsheet, saving the result to `data/processed/week05/nsw-crime-filtered.csv`.
-4. Download NSW LGA boundaries from the same dataset (ESRI shapefile resource) or from the ASGS LGA shapefile and store under `data/raw/week05/nsw-lga/`.
+1. Go to the BOCSAR Open Datasets page: <https://bocsar.nsw.gov.au/statistics-dashboards/open-datasets/criminal-offences-data.html>.
+2. Under **"Monthly counts of criminal incidents"**, find the row for **"Local Government Area"** and download the Excel file. Save to `data/raw/week05/nsw-crime/offences_by_lga.xlsx`.
+3. Filter the data to the offences and time period you need (e.g., assault offences for 2022) in a spreadsheet, saving the result to `data/processed/week05/nsw-crime-filtered.csv`.
+4. Download NSW LGA boundaries from the ABS ASGS shapefile and store under `data/raw/week05/nsw-lga/`.
 5. Join the filtered CSV to the LGA layer in QGIS using the LGA code. Export to `data/processed/week05/nsw-crime.gpkg` and record filters in the inventory.
 
 ### Option B (Other regions)

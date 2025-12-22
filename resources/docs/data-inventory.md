@@ -13,7 +13,7 @@ Working list of candidate datasets for weekly case studies. Capture licensing no
 | Crime analytics | City of Chicago Crime | https://data.cityofchicago.org/Public-Safety/Crimes-2001-to-Present/ijzp-q8t2 | Open Data Commons | Daily updates; filter by year to reduce size. |
 | Crime analytics | NYC NYPD Complaint Data | https://data.cityofnewyork.us/Public-Safety/NYPD-Complaint-Map/ | Open Data Commons | Use for comparative analysis or network hotspot mapping. |
 | Crime analytics | UK Police street-level crime | https://data.police.uk/data/ | Open Government Licence | Small CSV extracts suitable for in-class practice. |
-| Crime analytics | NSW Recorded Crime Offences by LGA | https://data.nsw.gov.au/data/dataset/nsw-recorded-crime-statistics | CC BY 4.0 | Includes statewide offence counts; pair with ASGS LGA boundaries. |
+| Crime analytics | NSW Recorded Crime Offences by LGA | https://bocsar.nsw.gov.au/statistics-dashboards/open-datasets/criminal-offences-data.html | CC BY 4.0 | Download "Local Government Area" Excel under Monthly counts; pair with ASGS LGA boundaries. |
 | Public health | CDC Social Vulnerability Index | https://www.atsdr.cdc.gov/placeandhealth/svi/index.html | Public domain | Includes tract-level indices; pair with health facility locations. |
 | Public health | Health Resources & Services Admin (HRSA) Health Center data | https://data.hrsa.gov | Public domain | Point locations + services metadata; useful for catchment analysis. |
 | Public health | OpenStreetMap healthcare amenities | https://download.geofabrik.de/ | ODbL | Extract clinics/hospitals for accessibility analysis; document filters used. |

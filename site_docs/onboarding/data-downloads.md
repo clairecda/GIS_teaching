@@ -110,7 +110,7 @@ Repeat these steps for every dataset so anyone (including your future self) can 
 
 ### Option A (Australia) — NSW Recorded Crime (BOCSAR)
 
-1. Download the “Recorded Crime Offences by Local Government Area (CSV)” from <https://data.nsw.gov.au/data/dataset/nsw-recorded-crime-statistics> to `data/raw/week05/nsw-crime/offences_by_lga.csv`.
+1. Go to the BOCSAR Open Datasets page: <https://bocsar.nsw.gov.au/statistics-dashboards/open-datasets/criminal-offences-data.html>. Under "Monthly counts of criminal incidents", download the Excel file for "Local Government Area" and save to `data/raw/week05/nsw-crime/offences_by_lga.xlsx`.
 2. Filter to relevant offences/time periods, saving the cleaned file to `data/processed/week05/nsw-crime-filtered.csv`.
 3. Download NSW LGA boundaries (same resource or ASGS LGA shapefile) to `data/raw/week05/nsw-lga/` and extract.
 4. Join the CSV to the LGA layer in QGIS on the LGA code and export to `data/processed/week05/nsw-crime.gpkg`.
