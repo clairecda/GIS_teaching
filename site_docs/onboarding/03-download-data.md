@@ -4,14 +4,12 @@ Download the data you need before each week's lab. Start with Week 1.
 
 ---
 
-## General workflow
-
-For every dataset:
+## How to organise downloads
 
 1. **Create a week folder** in `data/raw/` (e.g., `data/raw/week01/`)
-2. **Download** the file from the link below
-3. **Extract** if it's a ZIP file
-4. **Keep the original** — make copies when you need to edit
+2. **Download** files into that folder
+3. **Extract** ZIP files in place
+4. **Keep originals** — work from copies in `data/processed/` when editing
 
 ---
 
