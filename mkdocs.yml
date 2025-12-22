@@ -32,6 +32,9 @@ nav:
       - 1. What is GIS?: readings/week01-what-is-gis.md
       - 2. Understanding CRS: readings/understanding-crs.md
       - 3. Administrative Boundaries: readings/week03-admin-boundaries.md
+      - 4. Raster Data Basics: readings/week04-raster-basics.md
+      - 5. Ethics in Spatial Analysis: readings/week05-ethics-in-mapping.md
+      - 6. Python for GIS: readings/week07-python-for-gis.md
   - Lectures & Theory:
       - Week 1 · Foundations of GIS: lectures/week01-fundamentals.md
       - Week 2 · Cartographic Conventions & Colour: lectures/week02-cartography.md
