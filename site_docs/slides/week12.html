@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Week 12 – Capstone Showcase - Introduction to GIS Course">
+  <meta name="author" content="Intro to GIS">
+  <title>Week 12 – Capstone Showcase</title>
+  <style>
+    /* ========== FONTS & RESET ========== */
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* ========== ROOT VARIABLES ========== */
+    :root {
+      --primary: #00897b;        /* Teal - main brand color */
+      --primary-dark: #00695c;   /* Dark teal */
+      --primary-light: #4db6ac;  /* Light teal */
+      --secondary: #0277bd;      /* Blue */
+      --accent: #ff6f00;         /* Orange accent */
+      --bg-main: #ffffff;
+      --bg-alt: #f5f7fa;
+      --text-primary: #1a202c;
+      --text-secondary: #4a5568;
+      --text-light: #718096;
+      --border: #cbd5e0;
+      --shadow: rgba(0, 0, 0, 0.1);
+      --shadow-lg: rgba(0, 0, 0, 0.15);
+    }
+
+    /* ========== BASE STYLES ========== */
+    html {
+      font-size: 16px;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      color: var(--text-primary);
+      background: var(--bg-alt);
+      overflow-x: hidden;
+    }
+
+    /* ========== SLIDE CONTAINER ========== */
+    #slides-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* ========== INDIVIDUAL SLIDES ========== */
+    .slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 4rem 6rem;
+      background: var(--bg-main);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      overflow-y: auto;
+    }
+
+    .slide.active {
+      opacity: 1;
+      visibility: visible;
+      z-index: 1;
+    }
+
+    /* Title slide styling with topographic contour pattern */
+    .slide.title-slide {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+      text-align: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Topographic contour pattern overlay */
+    .slide.title-slide::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0.12;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Cpath fill='none' stroke='white' stroke-width='1.5' d='M-50 300 Q100 200 200 280 T400 260 T600 300 T850 280'/%3E%3Cpath fill='none' stroke='white' stroke-width='1.5' d='M-50 350 Q150 280 250 340 T450 320 T650 360 T850 340'/%3E%3Cpath fill='none' stroke='white' stroke-width='1.5' d='M-50 400 Q120 340 220 390 T420 370 T620 410 T850 390'/%3E%3Cpath fill='none' stroke='white' stroke-width='1.5' d='M-50 250 Q80 180 180 230 T380 210 T580 250 T850 230'/%3E%3Cpath fill='none' stroke='white' stroke-width='1.5' d='M-50 200 Q100 140 200 180 T400 160 T600 200 T850 180'/%3E%3Cpath fill='none' stroke='white' stroke-width='1.5' d='M-50 150 Q120 100 220 130 T420 110 T620 150 T850 130'/%3E%3Cpath fill='none' stroke='white' stroke-width='1.5' d='M-50 450 Q130 400 230 440 T430 420 T630 460 T850 440'/%3E%3Cpath fill='none' stroke='white' stroke-width='1.5' d='M-50 500 Q140 460 240 490 T440 470 T640 510 T850 490'/%3E%3Cellipse cx='400' cy='300' rx='150' ry='80' fill='none' stroke='white' stroke-width='1.5'/%3E%3Cellipse cx='400' cy='300' rx='100' ry='50' fill='none' stroke='white' stroke-width='1.5'/%3E%3Cellipse cx='400' cy='300' rx='50' ry='25' fill='none' stroke='white' stroke-width='1.5'/%3E%3Cellipse cx='600' cy='450' rx='120' ry='60' fill='none' stroke='white' stroke-width='1.5'/%3E%3Cellipse cx='600' cy='450' rx='70' ry='35' fill='none' stroke='white' stroke-width='1.5'/%3E%3Cellipse cx='200' cy='180' rx='100' ry='50' fill='none' stroke='white' stroke-width='1.5'/%3E%3Cellipse cx='200' cy='180' rx='50' ry='25' fill='none' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E");
+      background-size: cover;
+      background-position: center;
+      pointer-events: none;
+    }
+
+    .slide.title-slide h1 {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      line-height: 1.2;
+    }
+
+    .slide.title-slide p {
+      font-size: 1.4rem;
+      opacity: 0.95;
+      max-width: 800px;
+      margin: 0 auto;
+      font-weight: 400;
+    }
+
+    /* Table of Contents slide */
+    .slide.toc-slide {
+      background: var(--bg-alt);
+    }
+
+    .slide.toc-slide h2 {
+      color: var(--primary);
+      border-bottom: 3px solid var(--primary);
+      padding-bottom: 0.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .slide.toc-slide ol {
+      list-style: none;
+      counter-reset: toc-counter;
+      max-width: 900px;
+    }
+
+    .slide.toc-slide li {
+      counter-increment: toc-counter;
+      padding: 0.8rem 0;
+      padding-left: 3rem;
+      position: relative;
+      font-size: 1.1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .slide.toc-slide li:before {
+      content: counter(toc-counter);
+      position: absolute;
+      left: 0;
+      top: 0.8rem;
+      width: 2rem;
+      height: 2rem;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    /* Content slides */
+    .slide.content-slide h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 2rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 3px solid var(--primary-light);
+    }
+
+    .slide.content-slide ul {
+      list-style: none;
+      padding-left: 0;
+      max-width: 1000px;
+    }
+
+    .slide.content-slide li {
+      padding: 0.75rem 0 0.75rem 2.5rem;
+      position: relative;
+      font-size: 1.15rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+    }
+
+    .slide.content-slide li:before {
+      content: '▸';
+      position: absolute;
+      left: 0.5rem;
+      color: var(--primary);
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+
+    /* ========== NAVIGATION CONTROLS ========== */
+    #nav-controls {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      display: flex;
+      gap: 1rem;
+      z-index: 1000;
+    }
+
+    .nav-btn {
+      width: 3rem;
+      height: 3rem;
+      border: none;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px var(--shadow);
+    }
+
+    .nav-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 12px var(--shadow-lg);
+    }
+
+    .nav-btn:active {
+      transform: translateY(0);
+    }
+
+    .nav-btn:disabled {
+      background: var(--border);
+      cursor: not-allowed;
+      opacity: 0.5;
+      transform: none;
+    }
+
+    /* ========== SLIDE COUNTER ========== */
+    #slide-counter {
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      background: var(--primary);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 2rem;
+      font-weight: 600;
+      font-size: 1rem;
+      box-shadow: 0 4px 6px var(--shadow);
+      z-index: 1000;
+    }
+
+    /* ========== FOOTER ========== */
+    .slide-footer {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.85rem;
+      color: var(--text-light);
+      text-align: center;
+    }
+
+    .title-slide .slide-footer {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* ========== KEYBOARD HINT ========== */
+    #keyboard-hint {
+      position: fixed;
+      top: 2rem;
+      right: 2rem;
+      background: var(--bg-alt);
+      padding: 0.75rem 1.25rem;
+      border-radius: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      border: 1px solid var(--border);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 1000;
+    }
+
+    #keyboard-hint.show {
+      opacity: 1;
+    }
+
+    #keyboard-hint kbd {
+      background: white;
+      padding: 0.2rem 0.5rem;
+      border-radius: 0.25rem;
+      border: 1px solid var(--border);
+      font-family: 'Fira Code', monospace;
+      font-size: 0.8rem;
+    }
+
+    /* ========== RESPONSIVE DESIGN ========== */
+    @media (max-width: 1200px) {
+      .slide {
+        padding: 3rem 4rem;
+      }
+
+      .slide.title-slide h1 {
+        font-size: 3rem;
+      }
+
+      .slide.content-slide h2 {
+        font-size: 2.2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .slide {
+        padding: 2rem;
+      }
+
+      .slide.title-slide h1 {
+        font-size: 2rem;
+      }
+
+      .slide.title-slide p {
+        font-size: 1.1rem;
+      }
+
+      .slide.content-slide h2 {
+        font-size: 1.8rem;
+      }
+
+      .slide.content-slide li {
+        font-size: 1rem;
+        padding-left: 2rem;
+      }
+
+      #nav-controls {
+        bottom: 1rem;
+        right: 1rem;
+        gap: 0.5rem;
+      }
+
+      .nav-btn {
+        width: 2.5rem;
+        height: 2.5rem;
+        font-size: 1rem;
+      }
+
+      #slide-counter {
+        bottom: 1rem;
+        left: 1rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+      }
+
+      #keyboard-hint {
+        display: none;
+      }
+    }
+
+    /* ========== PRINT STYLES ========== */
+    @media print {
+      body {
+        background: white;
+      }
+
+      #slides-container {
+        height: auto;
+        overflow: visible;
+      }
+
+      .slide {
+        position: relative;
+        opacity: 1 !important;
+        visibility: visible !important;
+        page-break-after: always;
+        height: auto;
+        min-height: 100vh;
+        padding: 2cm;
+      }
+
+      .slide.active {
+        page-break-after: always;
+      }
+
+      #nav-controls,
+      #slide-counter,
+      #keyboard-hint {
+        display: none !important;
+      }
+
+      .slide.title-slide {
+        background: var(--primary) !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
+      .slide-footer {
+        position: absolute;
+        bottom: 1cm;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="slides-container">
+    <div class="slide title-slide active" role="region" aria-label="Title slide">
+      <h1>Week 12 · Capstone Showcase & Reflection</h1>
+      <p>Twelve weeks of learning, culminating in your own spatial story. Today you present, reflect, and celebrate—then look ahead to where GIS takes you next.</p>
+      <div class="slide-footer">Week 12 | Intro to GIS | © 2025</div>
+    </div>
+
+    <div class="slide toc-slide" role="region" aria-label="Table of contents">
+      <h2>Overview</h2>
+      <ol>
+        <li>Capstone Deliverables</li>
+        <li>Presentation Format</li>
+        <li>Peer Feedback</li>
+        <li>Course Reflection</li>
+        <li>What's Next?</li>
+        <li>Today's Showcase</li>
+        <li>Thank You</li>
+      </ol>
+      <div class="slide-footer">Week 12 | Intro to GIS | © 2025</div>
+    </div>
+
+    <div class="slide content-slide" role="region" aria-label="Capstone Deliverables">
+      <h2>Capstone Deliverables</h2>
+      <ul>
+        <li>PROBLEM: What spatial question did you investigate? Why does it matter?</li>
+        <li>DATA: What sources did you use? How did you clean/process them?</li>
+        <li>ANALYSIS: What methods did you apply (joins, overlays, KDE, network)?</li>
+        <li>FINDINGS: What did you discover? Show it in a polished map or dashboard.</li>
+        <li>REFLECTION: What worked, what didn't, what would you do differently?</li>
+      </ul>
+      <div class="slide-footer">Week 12 | Intro to GIS | © 2025</div>
+    </div>
+
+    <div class="slide content-slide" role="region" aria-label="Presentation Format">
+      <h2>Presentation Format</h2>
+      <ul>
+        <li>5 minutes per project (strict—practice your timing).</li>
+        <li>Structure: 30 sec problem, 1 min data/methods, 2 min findings/map, 1 min reflection.</li>
+        <li>Lead with the insight: 'We found that...' not 'First we downloaded...'.</li>
+        <li>Anticipate questions: data limitations, alternative interpretations.</li>
+      </ul>
+      <div class="slide-footer">Week 12 | Intro to GIS | © 2025</div>
+    </div>
+
+    <div class="slide content-slide" role="region" aria-label="Peer Feedback">
+      <h2>Peer Feedback</h2>
+      <ul>
+        <li>CLARITY: Could you understand the story without prior context?</li>
+        <li>EVIDENCE: Were methods transparent and reproducible?</li>
+        <li>DESIGN: Did the map effectively communicate the finding?</li>
+        <li>IMPACT: What decision or action could this analysis support?</li>
+        <li>Frame feedback constructively: 'This was strong because... This could improve by...'</li>
+      </ul>
+      <div class="slide-footer">Week 12 | Intro to GIS | © 2025</div>
+    </div>
+
+    <div class="slide content-slide" role="region" aria-label="Course Reflection">
+      <h2>Course Reflection</h2>
+      <ul>
+        <li>Which skill surprised you with its usefulness?</li>
+        <li>What concept still feels challenging?</li>
+        <li>How has your view of 'data' or 'maps' changed?</li>
+        <li>What would you tell a student starting this course?</li>
+      </ul>
+      <div class="slide-footer">Week 12 | Intro to GIS | © 2025</div>
+    </div>
+
+    <div class="slide content-slide" role="region" aria-label="What's Next?">
+      <h2>What's Next?</h2>
+      <ul>
+        <li>SHARE: Publish your project on GitHub, LinkedIn, or a personal portfolio.</li>
+        <li>DEEPEN: Take advanced courses in remote sensing, spatial statistics, or web mapping.</li>
+        <li>APPLY: Use these skills in research, work, or community projects.</li>
+        <li>CONNECT: Join QGIS user groups, GIS subreddits, local meetups.</li>
+      </ul>
+      <div class="slide-footer">Week 12 | Intro to GIS | © 2025</div>
+    </div>
+
+    <div class="slide content-slide" role="region" aria-label="Today's Showcase">
+      <h2>Today's Showcase</h2>
+      <ul>
+        <li>Present your capstone project to the class.</li>
+        <li>Give constructive feedback to at least 2 peers.</li>
+        <li>Submit final project files and reflection to course portal.</li>
+        <li>Celebrate 12 weeks of growth!</li>
+      </ul>
+      <div class="slide-footer">Week 12 | Intro to GIS | © 2025</div>
+    </div>
+
+    <div class="slide content-slide" role="region" aria-label="Thank You">
+      <h2>Thank You</h2>
+      <ul>
+        <li>You've learned to ask spatial questions, find and clean data, analyse patterns, and communicate findings.</li>
+        <li>That's a powerful skillset—applicable across planning, health, environment, justice, and more.</li>
+        <li>Keep mapping. Keep questioning. Keep learning.</li>
+        <li>Good luck on your spatial journey!</li>
+      </ul>
+      <div class="slide-footer">Week 12 | Intro to GIS | © 2025</div>
+    </div>
+
+  </div>
+
+  <div id="slide-counter">
+    <span id="current-slide">1</span> / <span id="total-slides">0</span>
+  </div>
+
+  <div id="nav-controls">
+    <button id="prev-btn" class="nav-btn" aria-label="Previous slide" title="Previous (←)">←</button>
+    <button id="next-btn" class="nav-btn" aria-label="Next slide" title="Next (→)">→</button>
+  </div>
+
+  <div id="keyboard-hint">
+    Use <kbd>←</kbd> <kbd>→</kbd> <kbd>Space</kbd> to navigate | <kbd>Home</kbd> <kbd>End</kbd> to jump
+  </div>
+
+  <script>
+    // Slide navigation system
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const totalSlides = slides.length;
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const currentSlideSpan = document.getElementById('current-slide');
+    const totalSlidesSpan = document.getElementById('total-slides');
+    const keyboardHint = document.getElementById('keyboard-hint');
+
+    // Initialize
+    totalSlidesSpan.textContent = totalSlides;
+    showSlide(0);
+
+    // Show keyboard hint briefly on load
+    setTimeout(() => {
+      keyboardHint.classList.add('show');
+      setTimeout(() => keyboardHint.classList.remove('show'), 3000);
+    }, 500);
+
+    function showSlide(index) {
+      // Bounds checking
+      if (index < 0) index = 0;
+      if (index >= totalSlides) index = totalSlides - 1;
+
+      // Update active slide
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+
+      currentSlide = index;
+      currentSlideSpan.textContent = index + 1;
+
+      // Update button states
+      prevBtn.disabled = index === 0;
+      nextBtn.disabled = index === totalSlides - 1;
+
+      // Update URL hash without scrolling
+      history.replaceState(null, null, `#slide-${index + 1}`);
+    }
+
+    function nextSlide() {
+      if (currentSlide < totalSlides - 1) {
+        showSlide(currentSlide + 1);
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        showSlide(currentSlide - 1);
+      }
+    }
+
+    function firstSlide() {
+      showSlide(0);
+    }
+
+    function lastSlide() {
+      showSlide(totalSlides - 1);
+    }
+
+    // Event listeners
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      switch(e.key) {
+        case 'ArrowRight':
+        case ' ':
+        case 'PageDown':
+          e.preventDefault();
+          nextSlide();
+          break;
+        case 'ArrowLeft':
+        case 'PageUp':
+          e.preventDefault();
+          prevSlide();
+          break;
+        case 'Home':
+          e.preventDefault();
+          firstSlide();
+          break;
+        case 'End':
+          e.preventDefault();
+          lastSlide();
+          break;
+      }
+    });
+
+    // Touch/swipe support for mobile
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    document.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, false);
+
+    document.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    }, false);
+
+    function handleSwipe() {
+      const swipeThreshold = 50;
+      if (touchEndX < touchStartX - swipeThreshold) {
+        nextSlide();
+      }
+      if (touchEndX > touchStartX + swipeThreshold) {
+        prevSlide();
+      }
+    }
+
+    // Handle initial hash navigation
+    window.addEventListener('load', () => {
+      const hash = window.location.hash;
+      if (hash) {
+        const match = hash.match(/slide-(\d+)/);
+        if (match) {
+          const slideNum = parseInt(match[1]) - 1;
+          if (slideNum >= 0 && slideNum < totalSlides) {
+            showSlide(slideNum);
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

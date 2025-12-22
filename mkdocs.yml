@@ -21,6 +21,7 @@ nav:
   - Welcome:
       - Overview: index.md
       - How to use this course: guide/how-to-use.md
+  - Slides: slides/index.md
   - Getting Ready:
       - Accessing Course Materials: onboarding/accessing-course-materials.md
       - Install QGIS: onboarding/qgis-install.md
@@ -62,7 +63,6 @@ nav:
       - Toolbar reference: reference/toolbar.md
       - Layout template: reference/layout-template.md
       - Reflection prompts: reference/reflections.md
-      - Environment verification: reference/environment.md
       - Project checklist: reference/project-checklist.md
   - Appendices:
       - Course roadmap: reference/roadmap.md
@@ -73,6 +73,9 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/
       name: Source repository
+
+extra_javascript:
+  - javascripts/external-links.js
 
 markdown_extensions:
   - admonition

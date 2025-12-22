@@ -27,90 +27,87 @@ SLIDES = {
         "sections": [
             (
                 "Week 01 · Foundations of GIS",
-                "Introduce GIS as the blend of location and attribute data, emphasising spatial thinking and how the course will move from QGIS hands-on work to scripted automation.",
+                "Where are things? Why are they there? What patterns emerge? GIS helps us answer these questions by connecting location to data—and this course will take you from first maps to scripted analysis.",
             ),
             (
-                "What is GIS?",
+                "The Power of 'Where'",
                 [
-                    "Integration of spatial data (location) with attribute data (what/who/when).",
-                    "Enables analysis, visualisation, and decision-making rooted in geography.",
-                    "Combines software, hardware, data, people, and workflows.",
-                    "Use cases: transport planning, emergency response, environmental monitoring, public health.",
-                    "GIS is more than software—it's a process for asking and answering 'where' questions.",
+                    "Every dataset becomes richer when you add location: a crime report becomes a hotspot, a hospital address becomes an access gap.",
+                    "GIS integrates WHERE (coordinates) with WHAT (attributes like population, temperature, or price).",
+                    "Real-world examples: ride-share apps predicting demand, councils planning new parks, epidemiologists tracking outbreaks.",
+                    "By the end of this course, you'll create maps that inform decisions, automate repetitive tasks, and tell compelling stories with data.",
                 ],
             ),
             (
-                "Spatial vs Tabular Thinking",
+                "Thinking Spatially",
                 [
-                    "Traditional tables list records; spatial thinking reveals patterns when mapped.",
-                    "Questions shift with scale: global vs regional vs local decisions.",
-                    "Key spatial relationships: proximity, adjacency, containment, connectivity.",
-                    "Embrace context: the same metric can tell a new story when mapped.",
-                    "Spatial thinking encourages learners to consider neighbours, networks, and geographic context alongside raw counts.",
+                    "A spreadsheet shows \"50 burglaries in Sydney\" — a map reveals they cluster near transit stations at night.",
+                    "Scale matters: national policy vs neighbourhood intervention require different geographic units.",
+                    "Core spatial concepts: proximity (how close?), adjacency (what's next door?), containment (what's inside?), connectivity (what's linked?).",
+                    "Same metric, new story: unemployment rate feels different mapped by suburb than listed in a table.",
                 ],
             ),
             (
-                "Data Models",
+                "Vector vs Raster Data",
                 [
-                    "Vector: point (bus stop), line (river), polygon (LGA) with attribute tables.",
-                    "Raster: grid of pixels (imagery, elevation, density) storing continuous values.",
-                    "Choose the model that matches the phenomenon and question.",
-                    "Bridge to Week 02 reading on spatial data models.",
-                    "Highlight common vector formats (Shapefile, GeoPackage, GeoJSON) and raster formats (GeoTIFF).",
+                    "VECTOR = discrete features: a point (bus stop), line (river), polygon (council boundary) plus attributes in a table.",
+                    "RASTER = continuous surfaces: a grid of cells (pixels) storing values like elevation, temperature, or satellite reflectance.",
+                    "Rule of thumb: use vector for 'things', raster for 'fields' that vary continuously across space.",
+                    "Common formats: Shapefile, GeoPackage, GeoJSON (vector); GeoTIFF, NetCDF (raster).",
                 ],
             ),
             (
-                "Metadata Essentials",
+                "Why Metadata Matters",
                 [
-                    "Coordinate Reference System (CRS) — ensures layers align correctly.",
-                    "Extent and resolution define the spatial coverage and detail.",
-                    "Vintage (time) and licensing impact suitability for analysis.",
-                    "QGIS layer properties expose metadata — check before analysis.",
-                    "Demonstrate mismatched CRS causing misaligned layers and how to fix with `Set Project CRS`.",
+                    "CRS (Coordinate Reference System): ensures your layers line up. Mix GDA2020 with WGS84 and points shift 1–2 metres!",
+                    "Extent: what geographic area does the dataset cover? A national dataset won't give you suburb-level detail.",
+                    "Vintage: data from 2016 may not reflect today's reality. Always record download date and source version.",
+                    "In QGIS: right-click a layer → Properties → Information tab to view metadata.",
                 ],
             ),
             (
-                "Starter GIS Workflow",
+                "A Simple GIS Workflow",
                 [
-                    "Acquire data → Inspect metadata → Clean/format → Analyse → Communicate.",
-                    "Week 01 lab: set up project workspace, explore Natural Earth datasets, export a quick map.",
-                    "Goal: build comfort with the QGIS interface, not perfection.",
-                    "Encourage note-taking on data sources, transformations, and export locations to support reproducibility.",
+                    "1. ACQUIRE — download from authoritative sources (ABS, Natural Earth, OpenStreetMap).",
+                    "2. INSPECT — check CRS, extent, attribute fields before trusting the data.",
+                    "3. CLEAN — fix missing values, reproject to a common CRS, rename confusing columns.",
+                    "4. ANALYSE — spatial queries, overlays, statistics, modelling.",
+                    "5. COMMUNICATE — export a well-designed map or dashboard for your audience.",
                 ],
             ),
             (
-                "QGIS Interface Tour",
+                "Meet QGIS",
                 [
-                    "Browser panel loads local folders and online services; drag layers directly into the map.",
-                    "Layers panel controls draw order, visibility, and styling for each dataset.",
-                    "Processing Toolbox exposes hundreds of analysis tools—flag this for future weeks.",
-                    "Identify tool and Attribute Table demonstrate the link between geometry and attributes.",
+                    "Browser panel: connect folders, databases, web services; drag layers onto the map canvas.",
+                    "Layers panel: control draw order, visibility, symbology—top layers draw on top.",
+                    "Map canvas: your visual workspace; pan, zoom, identify features.",
+                    "Processing Toolbox: 400+ analysis tools—we'll unlock these progressively.",
                 ],
             ),
             (
-                "Hands-on Lab Preview",
+                "Today's Lab: First Map",
                 [
-                    "Create project in `projects/week01_orientation.qgz` with relative paths enabled.",
-                    "Add Natural Earth Admin-0 countries; inspect fields such as `NAME`, `POP_EST`, `CONTINENT`.",
-                    "Apply categorical symbology by continent, then graduated by population.",
-                    "Open Print Layout, add title/legend/scale, export PNG to `exports/week01_quickmap.png`.",
+                    "Set up your course workspace (folders: data/raw, data/processed, projects, exports).",
+                    "Open Natural Earth Admin-0 Countries and inspect fields: NAME, POP_EST, CONTINENT.",
+                    "Apply categorical symbology by continent, then switch to graduated colours by population.",
+                    "Create a Print Layout with title, legend, scale bar, and source credit.",
+                    "Export as PNG — your first GIS deliverable!",
                 ],
             ),
             (
-                "Discussion & Reflection",
+                "Discussion Prompts",
                 [
-                    "Where have you encountered GIS outputs in everyday life?",
-                    "What problems in your domain could benefit from spatial context?",
-                    "List one skill you hope to gain from the course.",
-                    "How will organising your workspace now make later automation (Week 8+) easier?",
+                    "When was the last time you used a map app (Google Maps, transit planner, weather radar)? What questions did it answer?",
+                    "Think of a dataset in your field—how might adding location reveal new insights?",
+                    "What's one skill you hope to leave this course with?",
                 ],
             ),
             (
-                "Next steps & Prep",
+                "Before Next Week",
                 [
-                    "Complete Week 01 reflection prompt; note installation or interface questions.",
-                    "Ensure renewable energy and world cities datasets are downloaded for Week 02.",
-                    "Optional: explore `Help ▶ Keyboard Shortcuts Reference` to speed up navigation.",
+                    "Complete the Week 01 reflection prompt in your notes folder.",
+                    "Download renewable energy and world cities datasets (see Data Download Checklist).",
+                    "Explore QGIS: Help → Sketcher to try drawing, or browse plugins in the Plugin Manager.",
                 ],
             ),
         ],
@@ -120,66 +117,77 @@ SLIDES = {
         "sections": [
             (
                 "Week 02 · Symbology, Labelling & Layouts",
-                "Teach learners how to communicate data effectively through cartographic conventions, colour choices, and layout design.",
+                "A map is a visual argument. Today we learn the cartographic grammar that transforms raw data into clear, accessible, and persuasive communication.",
             ),
             (
-                "Map Purpose & Audience",
+                "Design with Purpose",
                 [
-                    "Clarify the story: comparison, pattern discovery, or persuasion.",
-                    "Audience drives level of detail and terminology.",
-                    "Every map needs title, legend, source, scale (when relevant), and credits.",
+                    "Before touching colour: What story does this map tell? Who will read it? What action should they take?",
+                    "Comparison maps: 'Which regions are growing?' — use consistent scale and symbology.",
+                    "Pattern maps: 'Where are the hotspots?' — graduated colours or density shading.",
+                    "Persuasion maps: 'Why invest here?' — highlight key features, de-emphasise distractions.",
                 ],
             ),
             (
-                "Symbology Fundamentals",
+                "Choosing Colour Ramps",
                 [
-                    "Match data type to symbology: sequential, diverging, or qualitative scale.",
-                    "Limit to 5–7 classes; use intuitive ordering.",
-                    "Avoid misleading classifications—experiment with quantile vs natural breaks.",
-                    "Use transparency, outlines, and blending to manage overlapping features.",
+                    "SEQUENTIAL: light-to-dark for ordered data (low→high population). One hue, varying intensity.",
+                    "DIVERGING: two hues from a neutral midpoint (above/below average, temperature anomalies).",
+                    "QUALITATIVE: distinct hues for unordered categories (land use types, states). No implied ranking.",
+                    "Resource: colorbrewer2.org — pick a ramp, check 'colorblind safe', export to QGIS.",
                 ],
             ),
             (
-                "Colour & Accessibility",
+                "Classification Methods",
                 [
-                    "Colour has cultural connotations—choose palettes intentionally.",
-                    "Check contrast ratios (≥ 4.5:1) for text and key map elements.",
-                    "Use colour-blind safe palettes (e.g., ColorBrewer).",
-                    "Support readability with patterns or redundant encoding when possible.",
+                    "EQUAL INTERVAL: same-size bins. Good for evenly spread data; misleading when skewed.",
+                    "QUANTILES: same number of features per bin. Great for rankings; can hide outliers.",
+                    "NATURAL BREAKS (Jenks): minimises variance within classes. Good default; less intuitive bin edges.",
+                    "Tip: always inspect histogram before choosing method—know your data's distribution.",
                 ],
             ),
             (
-                "Labelling Principles",
+                "Accessibility Matters",
                 [
-                    "Keep labels concise; avoid duplication in legend and map.",
-                    "Use data-driven styling for font size, placement, and visibility by scale.",
-                    "Declutter: remove unnecessary labels or leverage inset maps.",
+                    "8% of men, 0.5% of women have colour vision deficiency—never rely on colour alone.",
+                    "Use Color Oracle (free) to simulate how your map appears to colourblind viewers.",
+                    "Text contrast: 4.5:1 ratio minimum. Small grey labels on white fail this test.",
+                    "Redundant encoding: pair colour with pattern, size, or labels so information survives print/photocopy.",
                 ],
             ),
             (
-                "Layout Design",
+                "Labelling Best Practices",
                 [
-                    "Establish visual hierarchy using size, colour, and spacing.",
-                    "Use a grid to align map frame, legend, title, and supplemental graphics.",
-                    "Balance white space and content to guide the reader’s eye.",
-                    "Include narrative elements (subtitle, callouts) to provide context.",
+                    "Less is more: only label features your reader needs to locate.",
+                    "Use halos or buffers so text pops from busy backgrounds.",
+                    "Curved labels follow coastlines/rivers; straight labels for grids and urban streets.",
+                    "Expression-based labelling: show city names only above 1M population to reduce clutter.",
                 ],
             ),
             (
-                "Workshop Flow",
+                "The Print Layout",
                 [
-                    "Review example maps (good & poor) and critique with the class.",
-                    "Style renewable energy data in QGIS with graduated symbology.",
-                    "Label major world cities using expression-based rules.",
-                    "Export a layout and discuss accessibility checklist outcomes.",
+                    "Every finished map needs: Title, Legend, Scale bar, North arrow, Data sources, Author/date.",
+                    "Hierarchy: title largest, legend readable, sources smallest but present.",
+                    "Alignment: use guides and grids in QGIS Layout View for pixel-perfect placement.",
+                    "Export at 300 DPI for print, 150 DPI for web/presentations.",
                 ],
             ),
             (
-                "Reflection Prompts",
+                "Today's Lab: Renewable Energy Map",
                 [
-                    "Which design decision most improved your map?",
-                    "How will you communicate data provenance and uncertainty?",
-                    "What element will you iterate on before Week 3?",
+                    "Load world renewable energy data and apply graduated symbology by capacity.",
+                    "Experiment: compare equal interval vs quantile classification—which tells a clearer story?",
+                    "Test your colour ramp with Color Oracle for accessibility.",
+                    "Build a Print Layout and export as PNG. Critique a peer's map using the design rubric.",
+                ],
+            ),
+            (
+                "Reflection",
+                [
+                    "What single design change most improved your map's clarity?",
+                    "How might your colour choices mislead or exclude certain audiences?",
+                    "What's one element you'll pay more attention to in future maps?",
                 ],
             ),
         ],
@@ -189,55 +197,68 @@ SLIDES = {
         "sections": [
             (
                 "Week 03 · Vector Analysis & Attribute Joins",
-                "Explore administrative/statistical boundaries, join tabular data, and prepare for socio-economic mapping.",
+                "Boundaries shape how we see data. Today we connect tabular statistics to spatial units—turning spreadsheets into maps that reveal inequality, opportunity, and change.",
             ),
             (
-                "Boundary Ecosystem",
+                "The Boundary Hierarchy",
                 [
-                    "Administrative vs statistical boundaries (ADM0–ADM2, SA2, LGA).",
-                    "Stewardship: ABS, census bureaus, local councils; update cycles.",
-                    "Boundary purpose dictates appropriate use (governance, service delivery, statistics).",
+                    "ADMINISTRATIVE: political/governance units (countries → states → councils). Boundaries change with legislation.",
+                    "STATISTICAL: census-defined for data collection (SA1 → SA2 → SA3 → SA4 in Australia; tract → county in US).",
+                    "KEY INSIGHT: SA2 ≈ 'community' (3,000-25,000 people), ideal for socio-economic analysis. LGAs better for policy/service planning.",
+                    "Always ask: Which boundary aligns with the decision being made?",
                 ],
             ),
             (
-                "Boundary Change Implications",
+                "Vintage Matters",
                 [
-                    "Releases (e.g., ASGS 2016 vs 2021) add splits/merges — impacts longitudinal analysis.",
-                    "Use correspondence files or area-weighted interpolation to align vintages.",
-                    "Document the version used in metadata and map footers.",
+                    "Boundaries change! Australia's ASGS had major revisions in 2011, 2016, 2021.",
+                    "Comparing 2016 SEIFA scores on 2021 boundaries = mismatch. Use correspondence tables or note limitations.",
+                    "Best practice: record boundary version in metadata AND map footer (e.g., 'SA2 (ASGS 2021)').",
                 ],
             ),
             (
-                "Join Fundamentals",
+                "Attribute Joins Explained",
                 [
-                    "Unique keys must match in datatype and formatting (pad FIPS codes, trim whitespace).",
-                    "Inspect attribute tables before joining; validate record counts afterwards.",
-                    "Keep original columns, add derived metrics, and note assumptions.",
+                    "A join links a table (CSV, Excel) to spatial features via a common key (e.g., SA2_CODE21).",
+                    "Key challenges: data types must match (string vs integer), leading zeros get dropped, whitespace sneaks in.",
+                    "Before joining: inspect both tables—how many records? Any duplicates? Any missing keys?",
+                    "After joining: check for NULLs—unmatched records disappear unless you do a LEFT join.",
                 ],
             ),
             (
-                "Practical Workflow",
+                "Step-by-Step Join Workflow",
                 [
-                    "Load SA2 shapefile + SEIFA table (or local equivalents).",
-                    "Join on SA2 code, check for nulls/mismatches.",
-                    "Create decile/percentile metrics via Field Calculator.",
-                    "Filter to region of interest before visualisation.",
+                    "1. Add boundary shapefile and CSV to QGIS.",
+                    "2. Open boundary Properties → Joins → Add (+).",
+                    "3. Select CSV, choose join field and target field, optionally prefix columns.",
+                    "4. Verify in Attribute Table: do values appear? Any NULLs?",
+                    "5. Export to GeoPackage to make join permanent.",
                 ],
             ),
             (
-                "Storytelling Considerations",
+                "Creating Derived Metrics",
                 [
-                    "Explain why you chose a specific boundary (SA2 vs LGA vs postcode).",
-                    "Clarify limitations: boundary changes, disclosure control, missing data.",
-                    "Pair quantitative outputs with qualitative context from local knowledge.",
+                    "Raw counts mislead: 500 crimes in CBD ≠ 500 crimes in rural town (populations differ).",
+                    "Normalise by area, population, or households (crimes per 1,000 residents, GP clinics per km²).",
+                    "Field Calculator: \"crime_rate\" = (crimes / population) * 1000",
+                    "Rank or categorise: percentiles, deciles, z-scores for comparison across regions.",
                 ],
             ),
             (
-                "Reflection Prompts",
+                "Today's Lab: Mapping Socio-Economic Advantage",
                 [
-                    "Which join challenges did you face and how did you resolve them?",
-                    "How do boundary choices influence the narrative of your map?",
-                    "What additional data would enrich the socio-economic story?",
+                    "Load SA2 boundaries and SEIFA 2021 index of advantage/disadvantage.",
+                    "Join on SA2 code; check for NULLs in regional areas.",
+                    "Create choropleth using diverging colour ramp centred on the median score.",
+                    "Add context layers (hospitals, schools) and discuss what patterns emerge.",
+                ],
+            ),
+            (
+                "Reflection",
+                [
+                    "What join issues did you encounter? How did you fix them?",
+                    "How does your choice of boundary (SA2 vs LGA) change the story?",
+                    "What ethical considerations arise when mapping disadvantage?",
                 ],
             ),
         ],
@@ -247,56 +268,69 @@ SLIDES = {
         "sections": [
             (
                 "Week 04 · Raster & Terrain Analysis",
-                "Introduce DEMs, derived surfaces, and how to integrate raster insights with boundary data.",
+                "The Earth's surface shapes where we build, farm, and live. Today we work with elevation data to reveal flood risk, suitable slopes, and the hidden topography beneath our feet.",
             ),
             (
-                "DEM Fundamentals",
+                "Understanding Elevation Models",
                 [
-                    "Digital Elevation Models (DEM) vs Digital Surface Models (DSM) vs DTMs.",
-                    "Resolution & accuracy considerations (ELVIS 1\" vs SRTM 30m).",
-                    "Importance of CRS for distance/area calculations (project to metres).",
+                    "DEM (Digital Elevation Model): bare earth surface—ground level without trees or buildings.",
+                    "DSM (Digital Surface Model): includes canopy, buildings—first reflected surface.",
+                    "DTM (Digital Terrain Model): often DEM + breaklines (ridges, streams) for higher accuracy.",
+                    "For most planning tasks, you want a DEM. For visibility/solar analysis, DSM may be better.",
                 ],
             ),
             (
-                "Data Sources",
+                "Resolution & Accuracy",
                 [
-                    "Australia: ELVIS portal (Geoscience Australia), state LiDAR datasets.",
-                    "Global: SRTM, NASADEM, ASTER GDEM (consider licensing & preprocessing).",
-                    "Metadata to capture: tile names, acquisition date, vertical datum.",
+                    "30m SRTM: free, global coverage, good for regional analysis. Not for site-level design.",
+                    "5m ELVIS: Australian national coverage, suitable for catchment studies.",
+                    "1m LiDAR: high accuracy, often available from state agencies for urban areas.",
+                    "Golden rule: never use a 30m DEM to assess flooding on a single property!",
                 ],
             ),
             (
-                "Derived Products",
+                "Derived Surfaces",
                 [
-                    "Hillshade for visual relief, slope/aspect for analysis.",
-                    "Contours for cartographic representation.",
-                    "Zonal statistics to summarise raster values within polygons.",
-                    "Clip to area of interest before heavy processing.",
+                    "HILLSHADE: simulated sun illumination—makes terrain 'pop' as a basemap.",
+                    "SLOPE: angle of incline (degrees or %). Key for erosion, construction, accessibility.",
+                    "ASPECT: compass direction a slope faces (N, S, E, W). Critical for solar, agriculture, ecology.",
+                    "CONTOURS: lines of equal elevation. Extract from DEM for cartographic display.",
                 ],
             ),
             (
-                "Workflow in QGIS",
+                "Zonal Statistics",
                 [
-                    "Load DEM tile, check CRS, reproject if required.",
-                    "Use Clip Raster by Mask Layer (SA2/LGA boundary) to focus analysis.",
-                    "Generate hillshade and slope; style with grayscale ramp and colour ramp.",
-                    "Overlay boundary data to identify vulnerable areas.",
+                    "Summarise raster values within polygons (mean elevation per suburb, max slope per parcel).",
+                    "QGIS: Processing → Raster Analysis → Zonal Statistics.",
+                    "Use case: which LGAs have the highest flood exposure (% area below 5m elevation)?",
+                    "Always clip raster to study area first—processing 1GB of data you don't need wastes time.",
                 ],
             ),
             (
-                "Applications & Storytelling",
+                "Workflow: Flood Risk Example",
                 [
-                    "Flood risk assessment, infrastructure planning, habitat suitability.",
-                    "Combine with socio-economic layers for resilience narratives.",
-                    "Communicate uncertainty (resolution limits, interpolation errors).",
+                    "1. Download DEM from ELVIS or SRTM.",
+                    "2. Clip to LGA boundary; reproject to GDA2020/MGA zone for accurate measurements.",
+                    "3. Reclassify elevation: below 5m = high risk, 5-10m = moderate, above 10m = low.",
+                    "4. Overlay with population data (SA1) to estimate exposed residents.",
+                    "5. Map output with clear legend and source credits.",
+                ],
+            ),
+            (
+                "Today's Lab: Terrain Mapping",
+                [
+                    "Download SRTM tile for your study region via USGS EarthExplorer.",
+                    "Generate hillshade and slope in QGIS; style slope with a red-yellow-green ramp (steep = red).",
+                    "Clip to SA2 boundary and compute mean slope per zone.",
+                    "Discuss: what land-use or planning decisions might use this output?",
                 ],
             ),
             (
                 "Reflection",
                 [
-                    "What terrain insight surprised you the most?",
-                    "How does resolution influence the trustworthiness of your map?",
-                    "Which datasets would you add to tell a more complete story?",
+                    "What surprised you about the terrain of your study area?",
+                    "How would using a 1m DEM vs 30m DEM change your analysis?",
+                    "What additional data layers would strengthen a flood risk story?",
                 ],
             ),
         ],
@@ -306,46 +340,67 @@ SLIDES = {
         "sections": [
             (
                 "Week 05 · Crime Hotspots & Storytelling",
-                "Introduce spatial crime analysis techniques and emphasise responsible communication.",
+                "Crime maps shape public perception, police deployment, and community investment. Today we learn techniques for hotspot analysis—and the ethical responsibility that comes with them.",
             ),
             (
-                "Ethics & Context",
+                "The Ethics of Crime Mapping",
                 [
-                    "Crime data reflects reporting practices and policing focus.",
-                    "Communicate uncertainty and avoid reinforcing stereotypes.",
-                    "Respect privacy: aggregate to appropriate boundary level, anonymise where required.",
+                    "Crime data reflects what's REPORTED, not what happens. Some crimes under-reported, some neighbourhoods over-policed.",
+                    "Maps can reinforce stereotypes: labelling a suburb 'high crime' affects house prices, insurance, perceptions.",
+                    "Privacy matters: point-level data can identify victims. Always aggregate to appropriate scale.",
+                    "Ask: Who benefits from this map? Who might be harmed?",
                 ],
             ),
             (
-                "Data Preparation",
+                "Understanding the Data",
                 [
-                    "Filter offences by time period and category relevant to the question.",
-                    "Convert CSV to GeoPackage for efficient spatial analysis.",
-                    "Join to boundaries (LGA, SA2, police districts) to provide context.",
+                    "NSW BOCSAR data: recorded offences by LGA, category, month. Strengths: official, consistent. Weaknesses: reporting bias.",
+                    "UK Police data: street-level points (anonymised to nearest street). More granular, but location fuzzing affects precision.",
+                    "Always filter by time period and offence type relevant to your question—don't conflate shoplifting with assault.",
                 ],
             ),
             (
-                "Hotspot Techniques",
+                "Kernel Density Estimation (KDE)",
                 [
-                    "Kernel Density Estimation (KDE) — bandwidth selection influences output.",
-                    "Hex binning or fishnet grids for aggregated counts.",
-                    "Time-enabled maps to compare periods (e.g., year-on-year trend).",
+                    "KDE creates a continuous surface showing intensity of points—'hotter' where incidents cluster.",
+                    "Bandwidth (search radius): too small = noisy, too large = over-smoothed. Experiment with 200m, 500m, 1km.",
+                    "In QGIS: Processing → Interpolation → Heatmap (Kernel Density Estimation).",
+                    "Output is a raster; symbolise with a warm colour ramp (yellow→orange→red).",
                 ],
             ),
             (
-                "Narrative & Delivery",
+                "Alternative Aggregation Methods",
                 [
-                    "Frame results alongside community assets (lighting projects, youth programs).",
-                    "Include callouts on data limitations, under-reporting, and socio-economic factors.",
-                    "Consider stakeholder needs (police, community groups, policy makers).",
+                    "HEX BINNING: count points within hexagonal grid cells. Uniform shape, easier to compare than irregular polygons.",
+                    "FISHNET GRID: square cells, simpler but corners can distort perception.",
+                    "BOUNDARY COUNTS: aggregate to SA2/LGA. Good for policy, but hides within-area variation.",
+                    "Normalise by population or area (offences per 1,000 residents) to compare fairly.",
                 ],
             ),
             (
-                "Action Items",
+                "Telling a Responsible Story",
                 [
-                    "Develop lab instructions with step-by-step KDE setup in QGIS.",
-                    "Prepare screenshots illustrating parameter choices and outputs.",
-                    "Create reflection prompts focusing on ethical storytelling.",
+                    "CONTEXT: pair crime data with street lighting, public transport, SEIFA index.",
+                    "LIMITATIONS: state clearly what the data does NOT show (unreported crime, clearance rates).",
+                    "SOLUTIONS: if showing a problem, can you also show interventions or assets?",
+                    "AUDIENCE: a police briefing differs from a community newsletter. Adjust detail and framing.",
+                ],
+            ),
+            (
+                "Today's Lab: Hotspot Mapping",
+                [
+                    "Load NSW BOCSAR or UK Police data as CSV; geocode or use provided coordinates.",
+                    "Run KDE with 500m bandwidth; experiment with 200m and 1km to see effect.",
+                    "Create hex bin count for comparison; symbolise both maps.",
+                    "Write 2-3 sentences describing findings and noting ONE limitation.",
+                ],
+            ),
+            (
+                "Reflection",
+                [
+                    "How does bandwidth choice change your map's message?",
+                    "What factors besides policing might explain the patterns you see?",
+                    "How would you present this map to a community group versus a police unit?",
                 ],
             ),
         ],
@@ -355,46 +410,68 @@ SLIDES = {
         "sections": [
             (
                 "Week 06 · Public Health & Accessibility",
-                "Analyse health service accessibility and equity by combining facilities, networks, and vulnerability indices.",
+                "Healthcare access is a spatial problem. Today we measure who can reach services, who can't, and what that means for equity—using buffers, drive-time polygons, and vulnerability indices.",
             ),
             (
-                "Health Equity Framing",
+                "Why Access Matters",
                 [
-                    "Social determinants: income, transport, demographics influence health outcomes.",
-                    "Access is multidimensional (distance, travel time, service capacity).",
-                    "Data gaps: facility opening hours, service offerings, community preferences.",
+                    "Distance to care predicts outcomes: rural residents have higher mortality for treatable conditions.",
+                    "Access isn't just distance: consider travel mode, service hours, cultural safety, affordability.",
+                    "Equity lens: does everyone in the region have the same opportunity to reach care?",
+                    "GIS helps quantify disparities and target interventions (new clinics, transport routes).",
                 ],
             ),
             (
-                "Data Inputs",
+                "Vulnerability Indices",
                 [
-                    "Vulnerability indicators (SEIFA, ARIA+, SVI).",
-                    "Health service locations (National Health Services Directory, HRSA site data).",
-                    "Road or transit networks (OpenStreetMap extracts, GTFS).",
+                    "SEIFA (Australia): Index of Relative Disadvantage. Lower score = more disadvantage.",
+                    "SVI (US): CDC Social Vulnerability Index—housing, transport, demographics, disability.",
+                    "ARIA+ (Australia): Accessibility/Remoteness Index. Measures distance to service centres.",
+                    "Combine with facility locations to ask: are services reaching those who need them most?",
                 ],
             ),
             (
-                "Accessibility Techniques",
+                "Measuring Accessibility",
                 [
-                    "Simple buffers and drive-time polygons to approximate catchments.",
-                    "Network analysis plugins (QNEAT3, Iso-Area) for walk/drive times.",
-                    "Two-step floating catchment methods for supply-demand balance (optional extension).",
+                    "BUFFER: simple circle around facility (e.g., 2 km radius). Easy but ignores roads/barriers.",
+                    "DRIVE-TIME POLYGON: 10-minute drive from hospital. Requires road network data.",
+                    "WALK-TIME: 15-minute walk to GP clinic. Important for non-drivers, elderly.",
+                    "Population overlap: count how many residents live within each catchment.",
                 ],
             ),
             (
-                "Storytelling & Reporting",
+                "Network Analysis in QGIS",
                 [
-                    "Pair maps with summaries highlighting coverage gaps and equity issues.",
-                    "Suggest actionable insights (new clinic locations, transport improvements).",
-                    "Include caveats on data freshness, service capacity, and local context.",
+                    "Plugin: QNEAT3 for isochrones (areas reachable within time threshold).",
+                    "Data: OpenStreetMap road network (download via QuickOSM plugin).",
+                    "Workflow: set origin (clinic), travel mode (car/walk), threshold (10 mins), compute polygon.",
+                    "Overlay result on population layer to estimate coverage.",
                 ],
             ),
             (
-                "Action Items",
+                "Interpreting Gaps",
                 [
-                    "Document plugin setup and troubleshooting tips.",
-                    "Create sample outputs (catchment maps, equity tables) for students.",
-                    "Prepare reflection questions around equity and reproducibility.",
+                    "Map shows 'desert': areas with no clinic within 15-min drive. Who lives there?",
+                    "Overlay SEIFA: are deserts in disadvantaged or advantaged areas?",
+                    "Suggest interventions: mobile clinic route, new facility location, transit improvement.",
+                    "Caveat: isochrone assumes average speed; real travel times vary by traffic, conditions.",
+                ],
+            ),
+            (
+                "Today's Lab: GP Clinic Access",
+                [
+                    "Load GP clinic locations (from OpenStreetMap or provided dataset).",
+                    "Generate 10-minute drive-time polygons using QNEAT3.",
+                    "Overlay SA2 population and SEIFA to identify underserved, disadvantaged areas.",
+                    "Export map with clear legend showing coverage and equity classification.",
+                ],
+            ),
+            (
+                "Reflection",
+                [
+                    "What assumptions does your isochrone make that might not hold?",
+                    "How would you validate your accessibility findings with real-world data?",
+                    "What other services (pharmacies, hospitals, aged care) might benefit from this analysis?",
                 ],
             ),
         ],
@@ -404,48 +481,68 @@ SLIDES = {
         "sections": [
             (
                 "Week 07 · Bridge to Python & Reproducibility",
-                "Introduce managed environments, version control, and standards for reproducible spatial analysis.",
+                "QGIS got us here, but what if you need to run the same analysis on 100 datasets? Today we set up Python and learn why reproducibility separates good analysis from great analysis.",
             ),
             (
-                "Why Reproducibility?",
+                "Why Move to Python?",
                 [
-                    "Ensures analyses can be repeated, audited, and shared.",
-                    "Supports collaboration and transparency.",
-                    "Reduces onboarding time for future contributors.",
+                    "Automation: run the same workflow on new data with one command—no clicking through menus.",
+                    "Reproducibility: share a script and anyone can recreate your results exactly.",
+                    "Integration: combine GIS with statistics, machine learning, web dashboards.",
+                    "Career value: Python + GIS skills are in demand across government, consulting, research.",
                 ],
             ),
             (
-                "Environment Options",
+                "What is Reproducibility?",
                 [
-                    "VS Code dev container — consistent stack, easy onboarding.",
-                    "Miniforge/conda environment from `resources/environment/environment.yml`.",
-                    "Google Colab for lightweight demos (limitations apply).",
+                    "Goal: another person (or future you) can run your code and get the same result.",
+                    "Requires: documented data sources, fixed package versions, clear code, no hard-coded paths.",
+                    "Why it matters: auditing, collaboration, peer review, reusing your own work a year later.",
+                ],
+            ),
+            (
+                "Setting Up Your Environment",
+                [
+                    "We use Anaconda (conda) to manage Python and packages like GeoPandas, Rasterio, OSMnx.",
+                    "An environment.yml file lists exactly which packages (and versions) are installed.",
+                    "Everyone in the course uses the same environment = no 'works on my machine' issues.",
+                    "Follow the Anaconda Setup guide before Week 8!",
                 ],
             ),
             (
                 "Project Structure",
                 [
-                    "Use `site_docs/` for published content and `resources/` for support materials.",
-                    "Maintain predictable paths (`data/raw`, `data/processed`).",
-                    "Track data changes in `resources/docs/data-inventory.md`.",
+                    "data/raw: original downloads—never modify these.",
+                    "data/processed: cleaned, reprojected, filtered outputs.",
+                    "notebooks: Jupyter notebooks for analysis.",
+                    "exports: maps, charts, tables for reports.",
+                    "Consistent structure = easier to find files, easier to collaborate.",
                 ],
             ),
             (
-                "Practical Walk-through",
+                "Your First Python GIS Code",
                 [
-                    "Launch the dev container, run `python resources/environment/verify_setup.py`.",
-                    "Open Week 08 notebook, review structure (setup cell, TODO cells, exports).",
-                    "Demonstrate relative paths for loading processed data.",
-                    "Commit changes with clear messages; capture environment updates.",
+                    "import geopandas as gpd",
+                    "gdf = gpd.read_file('data/raw/sa2_2021.gpkg')  # Load spatial data",
+                    "gdf = gdf.to_crs('EPSG:7855')  # Reproject to GDA2020/MGA Zone 55",
+                    "gdf.plot()  # Quick map—looks familiar?",
                 ],
             ),
             (
-                "Checklist for Students",
+                "Before Next Week",
                 [
-                    "Confirm environment access (dev container or conda).",
-                    "Clone repository or sync workspace structure.",
-                    "Note any environment issues to raise in lab.",
-                    "Identify datasets to automate in Week 08.",
+                    "Complete the Anaconda Setup guide—install Anaconda, create the intro-gis environment.",
+                    "Run the verification script to confirm packages installed correctly.",
+                    "Launch Jupyter Lab and create a test notebook with `import geopandas`.",
+                    "If you hit issues, bring them to lab—we'll troubleshoot together.",
+                ],
+            ),
+            (
+                "Reflection",
+                [
+                    "What repetitive QGIS task would you most like to automate?",
+                    "What challenges do you anticipate learning Python?",
+                    "How might reproducibility improve your current workflow?",
                 ],
             ),
         ],
@@ -455,54 +552,72 @@ SLIDES = {
         "sections": [
             (
                 "Week 08 · Python Vector Workflows",
-                "Automate QGIS-style vector analysis using GeoPandas, Shapely, and other Python libraries.",
+                "GeoPandas is 'pandas for maps'—the same data manipulation you'd do in Excel or QGIS, but scripted, repeatable, and scalable. Today we automate vector analysis.",
             ),
             (
-                "GeoPandas Fundamentals",
+                "GeoPandas: The Core Library",
                 [
-                    "Read/write spatial data (`read_file`, `to_file`).",
-                    "CRS handling (`to_crs`) to maintain consistent projections.",
-                    "Attribute operations using Pandas-style methods (`assign`, `groupby`).",
+                    "GeoDataFrame = DataFrame + geometry column. Think attribute table with shapes attached.",
+                    "gpd.read_file() loads shapefiles, GeoPackages, GeoJSON—any vector format GDAL supports.",
+                    "gdf.to_crs() reprojects, just like QGIS Layer → Set CRS but in one line of code.",
+                    "gdf.to_file() exports to GeoPackage, Shapefile, etc.",
                 ],
             ),
             (
-                "Cleaning & Standardisation",
+                "Attribute Operations",
                 [
-                    "Normalize column names, drop unused fields.",
-                    "Handle multi-part geometries (`explode`) if needed.",
-                    "Calculate area/length in projected CRS for per-km² metrics.",
+                    "Filter: gdf[gdf['state'] == 'NSW'] — like QGIS Select by Attribute.",
+                    "Create columns: gdf['density'] = gdf['pop'] / gdf['area_km2']",
+                    "Aggregate: gdf.groupby('state').sum() — combine stats by category.",
+                    "Merge tables: gdf.merge(csv_df, on='sa2_code') — same as QGIS join.",
                 ],
             ),
             (
-                "Spatial Joins & Overlays",
+                "Spatial Operations",
                 [
-                    "Point-in-polygon using `sjoin(predicate=\"within\")`.",
-                    "Combine polygons with `overlay` or `dissolve` to match reporting requirements.",
-                    "Check results with record counts and summaries.",
+                    "BUFFER: gdf.buffer(1000) — 1 km buffer around each feature.",
+                    "SPATIAL JOIN: gpd.sjoin(points, polygons, predicate='within') — which points are inside which polygons?",
+                    "OVERLAY: gpd.overlay(gdf1, gdf2, how='intersection') — clip, union, difference.",
+                    "DISSOLVE: gdf.dissolve(by='state') — merge polygons by attribute.",
                 ],
             ),
             (
-                "Visualisation & Export",
+                "Quick Visualisation",
                 [
-                    "Create quick choropleths via `GeoDataFrame.plot` with Matplotlib.",
-                    "Add basemaps using Contextily if needed.",
-                    "Export cleaned summaries to GeoPackage for reuse in QGIS (`neighbourhoods_summary.gpkg`).",
+                    "gdf.plot() — instant map, good for checking your work.",
+                    "gdf.plot(column='population', cmap='viridis', legend=True) — choropleth.",
+                    "Add basemap: import contextily; contextily.add_basemap(ax, source=ctx.providers.OpenStreetMap.Mapnik)",
+                    "For publication maps, export to QGIS or use matplotlib styling.",
                 ],
             ),
             (
-                "Best Practices",
+                "Workflow Example: Crime by LGA",
                 [
-                    "Write modular code (functions or notebooks with clear sections).",
-                    "Log assumptions and filters inline.",
-                    "Version-control notebooks or export scripts for reproducibility.",
+                    "# Load data",
+                    "lga = gpd.read_file('data/raw/lga_2021.gpkg')",
+                    "crime = pd.read_csv('data/raw/crime_2023.csv')",
+                    "# Join and calculate rate",
+                    "lga = lga.merge(crime, on='lga_code')",
+                    "lga['crime_rate'] = lga['offences'] / lga['population'] * 1000",
+                    "# Export",
+                    "lga.to_file('data/processed/lga_crime_rate.gpkg', driver='GPKG')",
                 ],
             ),
             (
-                "Next Steps",
+                "Today's Lab: Automate a Join",
                 [
-                    "Connect outputs to Week 09 raster analysis and Week 10 networks.",
-                    "Plan for automated reporting (charts, tables) in future weeks.",
-                    "Update `resources/docs/data-inventory.md` with processed dataset locations.",
+                    "Load SA2 boundaries and SEIFA CSV in Python.",
+                    "Merge on SA2 code; create a percentile column using pandas.",
+                    "Generate a quick choropleth; export result to GeoPackage.",
+                    "Compare time spent vs doing the same in QGIS.",
+                ],
+            ),
+            (
+                "Reflection",
+                [
+                    "What felt faster in Python? What felt harder than QGIS?",
+                    "How would you modify this script for new data next year?",
+                    "What error messages did you encounter, and how did you solve them?",
                 ],
             ),
         ],
@@ -512,48 +627,69 @@ SLIDES = {
         "sections": [
             (
                 "Week 09 · Raster & Remote Sensing in Python",
-                "Process multi-temporal rasters, compute change metrics, and summarise results across administrative zones.",
+                "Satellites capture the Earth every few days. Today we use Python to process imagery, calculate vegetation indices, and detect change over time—turning pixels into insights.",
             ),
             (
-                "Remote Sensing Basics",
+                "Satellite Imagery 101",
                 [
-                    "Spectral bands: red, NIR, SWIR; revisit cycles (Sentinel-2, Landsat 8/9).",
-                    "Preprocessing considerations: cloud masking, atmospheric correction.",
-                    "Resolution/resampling trade-offs for analysis vs visualisation.",
+                    "Landsat 8/9: 30m resolution, 16-day revisit, free from USGS. Great for long-term studies (since 1972).",
+                    "Sentinel-2: 10m resolution, 5-day revisit, free from ESA. Better detail, shorter history (since 2015).",
+                    "Bands capture different wavelengths: Red, Green, Blue (what we see), NIR/SWIR (vegetation health, moisture).",
+                    "Pre-processing: cloud masking, atmospheric correction. Often done for you in 'Analysis Ready Data' products.",
                 ],
             ),
             (
-                "Python Tools",
+                "Python Libraries for Raster",
                 [
-                    "Rasterio for reading/writing GeoTIFFs and masking by AOI.",
-                    "Rioxarray/xarray for multi-band analysis.",
-                    "Rasterstats for zonal statistics over polygons.",
+                    "RASTERIO: read/write GeoTIFFs, access pixel values, clip to boundaries.",
+                    "RIOXARRAY: xarray + rasterio. Handles multi-band, multi-temporal data as labelled arrays.",
+                    "RASTERSTATS: zonal statistics—summarise raster values within vector polygons.",
+                    "These replace QGIS Processing → Raster tools, but faster and scriptable.",
+                ],
+            ),
+            (
+                "Vegetation Index: NDVI",
+                [
+                    "NDVI = (NIR - Red) / (NIR + Red) — measures vegetation greenness.",
+                    "Values: -1 to +1. Dense vegetation ≈ 0.6–0.9. Bare soil/water ≈ 0 or negative.",
+                    "Use case: before/after bushfire—healthy forest vs burnt scar.",
+                    "In code: ndvi = (nir - red) / (nir + red)",
                 ],
             ),
             (
                 "Change Detection Workflow",
                 [
-                    "Clip pre- and post-event rasters to area of interest.",
-                    "Compute indices (e.g., NDVI) and difference arrays.",
-                    "Apply thresholds or classification to interpret magnitude of change.",
-                    "Summarise mean/median change per boundary using zonal stats.",
+                    "1. Download pre-event and post-event imagery (same sensor, similar season).",
+                    "2. Calculate NDVI for both dates.",
+                    "3. Compute difference: ndvi_change = ndvi_post - ndvi_pre",
+                    "4. Threshold: areas with change < -0.2 likely lost vegetation.",
+                    "5. Summarise per SA2: average change, % area affected.",
                 ],
             ),
             (
-                "Visualisation & Reporting",
+                "Zonal Statistics",
                 [
-                    "Plot change rasters with diverging colour ramps.",
-                    "Map per-boundary summaries with GeoPandas.",
-                    "Export GeoPackages/CSVs for integration into Week 11 design studio or capstone.",
-                    "Document assumptions (temporal alignment, cloud cover) in reflections.",
+                    "from rasterstats import zonal_stats",
+                    "stats = zonal_stats(sa2_gdf, ndvi_raster, stats=['mean', 'min', 'max'])",
+                    "Output: list of dicts with stats for each polygon. Join back to GeoDataFrame.",
+                    "Export: gdf.to_file('ndvi_by_sa2.gpkg')",
                 ],
             ),
             (
-                "Action Items",
+                "Today's Lab: Bushfire Impact",
                 [
-                    "Select Sentinel or Landsat scenes relevant to class projects.",
-                    "Create tutorials for clipping, NDVI calculation, and zonal stats.",
-                    "Gather example use cases (deforestation, urban expansion, disaster recovery).",
+                    "Load pre- and post-fire Landsat imagery for a study region.",
+                    "Calculate NDVI for both dates; compute difference raster.",
+                    "Threshold to classify 'severe burn' vs 'moderate' vs 'unaffected'.",
+                    "Run zonal stats to report mean NDVI change per LGA.",
+                ],
+            ),
+            (
+                "Reflection",
+                [
+                    "What challenges did you face aligning images from different dates?",
+                    "How might cloud cover or seasonality affect your results?",
+                    "What other applications (urban growth, drought, flooding) could use this workflow?",
                 ],
             ),
         ],
@@ -563,47 +699,66 @@ SLIDES = {
         "sections": [
             (
                 "Week 10 · Transport Networks & Accessibility",
-                "Use OSMnx and network analysis to evaluate mobility, isochrones, and equitable service coverage.",
+                "Cities are networks: roads, rail, walking paths. Today we model these networks in Python to answer: Who can reach what, how quickly, and who is left behind?",
             ),
             (
-                "Graph Concepts",
+                "Networks as Graphs",
                 [
-                    "Nodes (intersections/stops) and edges (streets, transit links).",
-                    "Directed vs undirected graphs; weighted edges (length, time).",
-                    "Simplification levels: primal vs dual networks.",
+                    "NODES: intersections, transit stops, points of interest.",
+                    "EDGES: road segments, rail lines, footpaths. Each has length, speed limit, travel time.",
+                    "DIRECTED: one-way streets matter for driving; walking is usually undirected.",
+                    "GIS + graph theory = powerful accessibility analysis.",
                 ],
             ),
             (
-                "Data Sources",
+                "OSMnx: OpenStreetMap + NetworkX",
                 [
-                    "OpenStreetMap extracts via OSMnx.",
-                    "GTFS feeds (transit schedules) for multimodal analysis.",
-                    "Population/vulnerability layers for coverage calculations.",
+                    "OSMnx downloads street networks from OpenStreetMap and converts them to NetworkX graphs.",
+                    "import osmnx as ox",
+                    "G = ox.graph_from_place('Sydney, Australia', network_type='walk')  # or 'drive', 'bike'",
+                    "ox.plot_graph(G)  # instant network visualisation",
                 ],
             ),
             (
-                "Workflow Highlights",
+                "Isochrones: Travel-Time Polygons",
                 [
-                    "Download and simplify network graph with OSMnx.",
-                    "Generate walking or driving isochrones around facilities.",
-                    "Overlay isochrones with population polygons to quantify coverage.",
-                    "Optionally compute centrality metrics to find critical links.",
+                    "Isochrone = area reachable within a time threshold from a point.",
+                    "Example: where can you walk in 15 minutes from Central Station?",
+                    "OSMnx: subgraph = ox.truncate.truncate_graph_dist(G, source_node, dist=1200)  # 1.2 km",
+                    "Convert node hull to polygon for mapping.",
                 ],
             ),
             (
-                "Storytelling",
+                "Measuring Access",
                 [
-                    "Highlight accessibility disparities across demographics.",
-                    "Propose infrastructure or service interventions (new stops, frequency changes).",
-                    "Communicate assumptions (speed profiles, data freshness).",
+                    "Count population within each isochrone: who can reach the hospital in 10, 20, 30 minutes?",
+                    "Compare across demographics: do disadvantaged areas have worse access?",
+                    "Service area analysis: if we add a new bus stop here, how many more people are covered?",
                 ],
             ),
             (
-                "Next Steps",
+                "Network Centrality",
                 [
-                    "Prepare example notebooks showing isochrone generation.",
-                    "Collect local GTFS feeds and document licensing.",
-                    "Design visuals for Week 11 layout critiques using network outputs.",
+                    "BETWEENNESS: how often does this road appear on shortest paths? High = critical link.",
+                    "CLOSENESS: how close is this node to all others? Identifies well-connected locations.",
+                    "Use case: if this bridge closes, which routes are affected? Which intersections need traffic lights?",
+                ],
+            ),
+            (
+                "Today's Lab: Walk-Time Isochrones",
+                [
+                    "Download walking network for your study area using OSMnx.",
+                    "Generate 5, 10, 15-minute isochrones from a hospital or transit station.",
+                    "Overlay SA1 population data to estimate people within each band.",
+                    "Export isochrones to GeoPackage for mapping in QGIS.",
+                ],
+            ),
+            (
+                "Reflection",
+                [
+                    "What surprised you about the walkable area around your chosen point?",
+                    "How accurate are OSM speed assumptions? What would you change?",
+                    "How could transit planners use these isochrones to improve equity?",
                 ],
             ),
         ],
@@ -613,47 +768,69 @@ SLIDES = {
         "sections": [
             (
                 "Week 11 · Design & Storytelling Studio",
-                "Refine map layouts, apply accessibility checks, and craft compelling narratives for the capstone.",
+                "You've done the analysis. Now make it land. Today is about refining your maps into visual stories that inform, persuade, and inspire action.",
             ),
             (
-                "Narrative Structure",
+                "From Analysis to Story",
                 [
-                    "Hook → Context → Insight → Call to action.",
-                    "Align visuals with narrative flow; avoid unnecessary decoration.",
-                    "Provide plain-language summaries alongside maps.",
+                    "Every map should answer: So what? Why does this matter?",
+                    "Structure: HOOK (grab attention) → CONTEXT (background) → INSIGHT (finding) → ACTION (what now?).",
+                    "Example: 'Three suburbs have no GP clinic within 15 minutes—here's where a new clinic would help most.'",
+                    "Remove anything that doesn't serve the story. Simplify ruthlessly.",
                 ],
             ),
             (
-                "Design Systems",
+                "Visual Hierarchy",
                 [
-                    "Use grid-based layouts for consistent alignment.",
-                    "Limit font families and maintain hierarchy (titles, labels, body).",
-                    "Reuse colour palettes established in earlier weeks.",
+                    "Reader's eye follows: largest → brightest → most detailed.",
+                    "Title should be prominent; data source can be small.",
+                    "Main map = focus. Insets, legends, scale = supporting cast.",
+                    "Use whitespace to separate elements and reduce clutter.",
                 ],
             ),
             (
-                "Accessibility Checklist",
+                "Typography & Colour Consistency",
                 [
-                    "Colour contrast meets or exceeds accessibility guidelines.",
-                    "Provide alt text or descriptions for screen readers.",
-                    "Ensure legends and labels are legible at intended output size.",
+                    "Max 2 font families: one for titles, one for body/labels.",
+                    "Consistent sizing: establish a scale (e.g., 24pt title, 12pt labels, 9pt sources).",
+                    "Reuse your colour palette from earlier maps. Brand consistency builds trust.",
+                    "Avoid all-caps except for very short labels (N, S, E, W).",
                 ],
             ),
             (
-                "Peer Critique Framework",
+                "Accessibility Review",
                 [
-                    "Clarity of message (does the map answer the question?).",
-                    "Accuracy and integrity of data presentation.",
-                    "Aesthetics (hierarchy, balance, typography, colour).",
-                    "Accessibility considerations.",
+                    "Colour contrast ≥ 4.5:1 for all text. Use WebAIM Contrast Checker.",
+                    "Colour alone shouldn't carry meaning—add patterns, icons, or labels.",
+                    "Minimum 9pt text for print; 12pt for screen display.",
+                    "Prepare alt text: 'Choropleth map showing crime rate per LGA in NSW, with darkest shading in inner Sydney.'",
                 ],
             ),
             (
-                "Action Items",
+                "Peer Critique Protocol",
                 [
-                    "Develop critique rubric and distribute ahead of studio session.",
-                    "Collect sample layouts (strong/weak) for discussion.",
-                    "Ensure each student has at least one map ready for feedback.",
+                    "1. CLARITY: Can you understand the map's message in 10 seconds?",
+                    "2. ACCURACY: Are data represented fairly? Any misleading choices?",
+                    "3. AESTHETICS: Is it visually balanced? Professional?",
+                    "4. ACCESSIBILITY: Would it work for colourblind viewers? Small screens?",
+                    "Give specific, actionable feedback: 'The legend is hard to read—try larger font.'",
+                ],
+            ),
+            (
+                "Today's Studio",
+                [
+                    "Bring your draft capstone map (or best map from earlier weeks).",
+                    "Present in 2 minutes: What question? What finding? What action?",
+                    "Receive feedback from 2 peers using the critique protocol.",
+                    "Note 3 specific improvements to implement before Week 12.",
+                ],
+            ),
+            (
+                "Reflection",
+                [
+                    "What feedback surprised you most?",
+                    "Which design principle will you prioritise in your revision?",
+                    "How has your understanding of 'good' cartography evolved?",
                 ],
             ),
         ],
@@ -663,49 +840,71 @@ SLIDES = {
         "sections": [
             (
                 "Week 12 · Capstone Showcase & Reflection",
-                "Present final projects, gather feedback, and document lessons learned.",
+                "Twelve weeks of learning, culminating in your own spatial story. Today you present, reflect, and celebrate—then look ahead to where GIS takes you next.",
             ),
             (
-                "Capstone Components",
+                "Capstone Deliverables",
                 [
-                    "Problem statement & context.",
-                    "Data sources, processing workflow, reproducibility notes.",
-                    "Key findings with supporting visuals (maps, charts, tables).",
-                    "Recommendations or next steps.",
+                    "PROBLEM: What spatial question did you investigate? Why does it matter?",
+                    "DATA: What sources did you use? How did you clean/process them?",
+                    "ANALYSIS: What methods did you apply (joins, overlays, KDE, network)?",
+                    "FINDINGS: What did you discover? Show it in a polished map or dashboard.",
+                    "REFLECTION: What worked, what didn't, what would you do differently?",
                 ],
             ),
             (
-                "Presentation Tips",
+                "Presentation Format",
                 [
-                    "Keep it concise (3–5 minutes per project).",
-                    "Lead with the insight, then show how you derived it.",
-                    "Highlight uncertainties and assumptions.",
-                    "Invite feedback and questions.",
+                    "5 minutes per project (strict—practice your timing).",
+                    "Structure: 30 sec problem, 1 min data/methods, 2 min findings/map, 1 min reflection.",
+                    "Lead with the insight: 'We found that...' not 'First we downloaded...'.",
+                    "Anticipate questions: data limitations, alternative interpretations.",
                 ],
             ),
             (
-                "Feedback Framework",
+                "Peer Feedback",
                 [
-                    "Clarity: Does the narrative make sense?",
-                    "Evidence: Are methods/data documented?",
-                    "Design: Are visuals accessible and compelling?",
-                    "Impact: What action could this analysis support?",
+                    "CLARITY: Could you understand the story without prior context?",
+                    "EVIDENCE: Were methods transparent and reproducible?",
+                    "DESIGN: Did the map effectively communicate the finding?",
+                    "IMPACT: What decision or action could this analysis support?",
+                    "Frame feedback constructively: 'This was strong because... This could improve by...'",
                 ],
             ),
             (
-                "Reflection & Future Work",
+                "Course Reflection",
                 [
-                    "What GIS skills felt most valuable?",
-                    "Which topics need deeper exploration post-course?",
-                    "How will you share or publish your project (GitHub, blog, portfolio)?",
+                    "Which skill surprised you with its usefulness?",
+                    "What concept still feels challenging?",
+                    "How has your view of 'data' or 'maps' changed?",
+                    "What would you tell a student starting this course?",
                 ],
             ),
             (
-                "Action Items",
+                "What's Next?",
                 [
-                    "Draft capstone brief and rubric; share ahead of Week 12.",
-                    "Provide template README for project repositories.",
-                    "Collect feedback from peers/instructors for continuous improvement.",
+                    "SHARE: Publish your project on GitHub, LinkedIn, or a personal portfolio.",
+                    "DEEPEN: Take advanced courses in remote sensing, spatial statistics, or web mapping.",
+                    "APPLY: Use these skills in research, work, or community projects.",
+                    "CONNECT: Join QGIS user groups, GIS subreddits, local meetups.",
+                ],
+            ),
+            (
+                "Today's Showcase",
+                [
+                    "Present your capstone project to the class.",
+                    "Give constructive feedback to at least 2 peers.",
+                    "Submit final project files and reflection to course portal.",
+                    "Celebrate 12 weeks of growth!",
+                ],
+            ),
+            (
+                "Thank You",
+                [
+                    "You've learned to ask spatial questions, find and clean data, analyse patterns, and communicate findings.",
+                    "That's a powerful skillset—applicable across planning, health, environment, justice, and more.",
+                    "Keep mapping. Keep questioning. Keep learning.",
+                    "Good luck on your spatial journey!",
                 ],
             ),
         ],
@@ -794,12 +993,29 @@ HTML_TEMPLATE = """<!DOCTYPE html>
       z-index: 1;
     }}
 
-    /* Title slide styling */
+    /* Title slide styling with topographic contour pattern */
     .slide.title-slide {{
       background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
       color: white;
       text-align: center;
       justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }}
+
+    /* Topographic contour pattern overlay */
+    .slide.title-slide::before {{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0.12;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'%3E%3Cpath fill='none' stroke='white' stroke-width='1.5' d='M-50 300 Q100 200 200 280 T400 260 T600 300 T850 280'/%3E%3Cpath fill='none' stroke='white' stroke-width='1.5' d='M-50 350 Q150 280 250 340 T450 320 T650 360 T850 340'/%3E%3Cpath fill='none' stroke='white' stroke-width='1.5' d='M-50 400 Q120 340 220 390 T420 370 T620 410 T850 390'/%3E%3Cpath fill='none' stroke='white' stroke-width='1.5' d='M-50 250 Q80 180 180 230 T380 210 T580 250 T850 230'/%3E%3Cpath fill='none' stroke='white' stroke-width='1.5' d='M-50 200 Q100 140 200 180 T400 160 T600 200 T850 180'/%3E%3Cpath fill='none' stroke='white' stroke-width='1.5' d='M-50 150 Q120 100 220 130 T420 110 T620 150 T850 130'/%3E%3Cpath fill='none' stroke='white' stroke-width='1.5' d='M-50 450 Q130 400 230 440 T430 420 T630 460 T850 440'/%3E%3Cpath fill='none' stroke='white' stroke-width='1.5' d='M-50 500 Q140 460 240 490 T440 470 T640 510 T850 490'/%3E%3Cellipse cx='400' cy='300' rx='150' ry='80' fill='none' stroke='white' stroke-width='1.5'/%3E%3Cellipse cx='400' cy='300' rx='100' ry='50' fill='none' stroke='white' stroke-width='1.5'/%3E%3Cellipse cx='400' cy='300' rx='50' ry='25' fill='none' stroke='white' stroke-width='1.5'/%3E%3Cellipse cx='600' cy='450' rx='120' ry='60' fill='none' stroke='white' stroke-width='1.5'/%3E%3Cellipse cx='600' cy='450' rx='70' ry='35' fill='none' stroke='white' stroke-width='1.5'/%3E%3Cellipse cx='200' cy='180' rx='100' ry='50' fill='none' stroke='white' stroke-width='1.5'/%3E%3Cellipse cx='200' cy='180' rx='50' ry='25' fill='none' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E");
+      background-size: cover;
+      background-position: center;
+      pointer-events: none;
     }}
 
     .slide.title-slide h1 {{
@@ -1360,7 +1576,7 @@ def generate_slide_deck(filename: str, slide_data: Dict[str, Union[str, List[Tup
     title = slide_data["title"]
     sections = slide_data["sections"]
     week_num = extract_week_number(filename)
-    footer = f"{week_num} | Intro to GIS | © 2024"
+    footer = f"{week_num} | Intro to GIS | © 2025"
 
     # First section is always the title/intro
     title_heading, title_desc = sections[0]
@@ -1383,9 +1599,11 @@ def main() -> None:
     Main function to generate all slide decks.
 
     Iterates through the SLIDES dictionary and generates an HTML file
-    for each week's presentation.
+    for each week's presentation. Outputs to site_docs/slides/ for MkDocs hosting.
     """
-    slide_dir = Path(__file__).parent
+    # Output to site_docs/slides/ for MkDocs to serve
+    repo_root = Path(__file__).parent.parent.parent
+    slide_dir = repo_root / "site_docs" / "slides"
     slide_dir.mkdir(parents=True, exist_ok=True)
 
     for filename, slide_data in SLIDES.items():
