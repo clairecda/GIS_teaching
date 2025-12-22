@@ -28,9 +28,10 @@ nav:
       - 3. Download datasets: onboarding/03-download-data.md
       - 4. Python setup (Week 7+): onboarding/04-python-setup.md
   - Background Reading:
-      - What is GIS?: readings/week01-what-is-gis.md
-      - Understanding CRS: readings/understanding-crs.md
-      - Administrative boundaries: readings/week03-admin-boundaries.md
+      - Overview: readings/index.md
+      - 1. What is GIS?: readings/week01-what-is-gis.md
+      - 2. Understanding CRS: readings/understanding-crs.md
+      - 3. Administrative Boundaries: readings/week03-admin-boundaries.md
   - Lectures & Theory:
       - Week 1 · Foundations of GIS: lectures/week01-fundamentals.md
       - Week 2 · Cartographic Conventions & Colour: lectures/week02-cartography.md
