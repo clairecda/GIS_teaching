@@ -37,7 +37,7 @@ See [Week 1 lab](../weeks/week01.md) for guided activities and deliverables.
 **Optional but recommended:**
 - [The Geographic Information Science & Technology Body of Knowledge](https://gistbok.ucgis.org/) - Academic reference for GIS concepts, regularly updated by university consortium
 - [Natural Earth Data Documentation](https://www.naturalearthdata.com/about/) - Learn about the free dataset used in labs and its metadata structure
-- [Spatial Data Types Explained](https://spatialthoughts.com/2020/04/14/spatial-data-types/) - Blog post comparing vector vs raster with real-world use cases
+- [Introduction to GIS - Spatial Thoughts](https://courses.spatialthoughts.com/introduction-to-qgis.html) - Free course covering spatial data fundamentals
 
 **Videos:**
 - [What is GIS? - National Geographic](https://www.youtube.com/watch?v=lGaFo_1hP5s) - 4-minute overview of spatial thinking and GIS applications

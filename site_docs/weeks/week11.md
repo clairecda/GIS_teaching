@@ -241,7 +241,7 @@ Your capstone project will synthesize skills from across the course. This week y
 
 ## Reflect
 
-Take 15-20 minutes to answer these questions in your [Week 11 reflection](../reference/reflections.md#week-11--design-studio):
+Take 15-20 minutes to answer these questions in your [Week 11 reflection](../reference/reflections.md#week-11--design--storytelling):
 
 - What was the most valuable piece of feedback you received during critique? How will you apply it?
 - Which accessibility issue surprised you most when you audited your maps?
