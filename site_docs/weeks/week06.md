@@ -77,28 +77,67 @@ Network analysis requires a connected road network. You'll use OpenStreetMap dat
 
 Isochrones show how far you can travel from a location in a given time. You'll create 5, 10, and 15-minute drive-time zones around health facilities.
 
-**Steps:**
+**Step 1: Verify your network is ready**
 
-1. Open Processing Toolbox and search for **"QNEAT3 - Iso-Area as Polygons from Point"**
-2. Configure the tool:
-   - **Vector layer representing network:** your road_network layer
-   - **Start points:** health_facilities layer
-   - **Unique Point ID field:** facility name or ID
-   - **Size of iso-area (distance or time value):** enter `5` (for 5 minutes)
-   - **Contour interval:** `5` (creates zones at 5, 10, 15 minutes)
-   - **Path type to calculate:** Choose "Shortest" (time-based if you have speed data)
-   - **Output:** save to `data/processed/week06/health_service_areas.gpkg`
-3. Click Run (this may take several minutes)
-4. Style the output with graduated colors (5min = dark green, 10min = medium, 15min = light)
-5. Adjust transparency to see overlapping service areas
+Before running QNEAT3, check your road network:
 
-!!! warning "Processing time"
-    Network analysis can be slow for large networks or many facilities. Start with a small study area (one city or region) and a subset of facilities to test your workflow. You can scale up once it's working.
+1. Right-click road_network → **Properties** → **Information**
+2. Confirm geometry type is `LineString` or `MultiLineString`
+3. Verify CRS is projected (meters), not geographic (degrees)
+4. Check the layer has an ID field (or create one with Field Calculator: `$id`)
+
+**Step 2: Run the isochrone analysis**
+
+1. Open Processing Toolbox: `Processing ▶ Toolbox`
+2. Search for "Iso-Area" and select **QNEAT3 → Iso-Area as Polygons (from Point)**
+3. Configure parameters:
+
+| Parameter | Value | Explanation |
+|-----------|-------|-------------|
+| **Network layer** | road_network | Your prepared road layer |
+| **Start points** | health_facilities | Facility locations |
+| **Unique Point ID field** | Select your facility name or ID field | Identifies each service area |
+| **Size of Iso-Area** | `900` | 15 minutes × 60 seconds = 900 seconds |
+| **Contour interval** | `300` | Creates zones at 5min (300s), 10min (600s), 15min (900s) |
+| **Cell size** | `50` | Resolution in meters (smaller = more detail, slower) |
+| **Direction field** | Leave blank | Unless you have one-way street data |
+| **Default speed** | `50` | km/h for driving (use 5 for walking) |
+| **Output** | `data/processed/week06/health_service_areas.gpkg` | |
+
+4. Click **Run** — this may take 5-15 minutes depending on network size
+
+**Step 3: Style the service areas**
+
+5. Right-click the output layer → **Properties** → **Symbology**
+6. Change to **Categorized** symbology
+7. Set **Value** to the time/cost field (often `cost` or `iso_value`)
+8. Choose a sequential color ramp: dark green (5min) → yellow (10min) → orange (15min)
+9. Set layer transparency to 50% in the **Transparency** tab
+
+**Checkpoint:** You should see concentric polygons around each facility. The 5-minute zones should be smallest (closest to facilities), expanding outward to 15-minute zones. Zones from nearby facilities will overlap—this indicates good coverage.
+
+**Expected output characteristics:**
+
+| Zone | Approximate size (driving) | Approximate size (walking) |
+|------|---------------------------|----------------------------|
+| 5 minutes | 2-4 km radius | 400-500m radius |
+| 10 minutes | 5-8 km radius | 800-1000m radius |
+| 15 minutes | 8-12 km radius | 1.2-1.5 km radius |
+
+If your zones are much larger or smaller, check your speed setting and CRS.
+
+!!! warning "Processing time and memory"
+    Network analysis is computationally intensive. If QGIS freezes or runs out of memory:
+    - Reduce the number of facilities (test with 5-10 first)
+    - Clip your road network to a smaller area
+    - Increase cell size from 50 to 100 meters
+    - Close other applications to free memory
 
 **Interpret the results:**
-- Where do service areas overlap? (Good coverage)
-- Where are the gaps? (Underserved areas)
-- Do service areas cross administrative boundaries?
+
+- **Overlapping zones:** Good coverage—residents can reach multiple facilities
+- **Gaps between zones:** Underserved areas needing attention
+- **Irregular shapes:** Reflect road network constraints (rivers, highways, terrain)
 
 ### Activity 4: Overlay with vulnerability data
 
@@ -159,13 +198,45 @@ Next week you'll transition to Python. Start building good documentation habits 
    - Limitations (e.g., "OSM data may be incomplete in rural areas")
 3. This documentation will help you (and others) reproduce your analysis later
 
+## Troubleshooting
+
+### QNEAT3 plugin not visible
+- **Restart QGIS** after installing the plugin
+- Check `Plugins ▶ Manage and Install Plugins... ▶ Installed` to confirm QNEAT3 is checked
+- Some QGIS versions have compatibility issues—try updating QGIS to latest LTR
+
+### "No valid network" or empty output
+- **CRS mismatch:** Network and start points must be in the same projected CRS
+- **Network not connected:** Check for gaps in your road network using `Vector ▶ Analysis Tools ▶ Line Intersections` to find disconnected segments
+- **Start points not on network:** Facilities must be close to road segments. Use `Processing ▶ Vector geometry ▶ Snap geometries to layer` to snap points to the nearest road
+
+### Isochrones are unexpectedly large or small
+- **Speed setting:** Default 50 km/h is for driving. Use 5 km/h for walking, 15-20 km/h for cycling
+- **Size units:** The "Size of Iso-Area" is in the network's cost units. For time-based analysis, use seconds (900 = 15 minutes)
+- **CRS in degrees:** If your CRS is geographic (EPSG:4326), distances are calculated incorrectly. Reproject to a local projected CRS
+
+### QGIS crashes or freezes during processing
+- **Too many points:** Start with 5-10 facilities to test
+- **Network too large:** Clip to a smaller study area
+- **Memory issue:** Increase cell size from 50 to 100 or 200 meters
+- **Save your work** before running long processes
+
+### Service areas have strange shapes or holes
+- **Network topology issues:** Run `Vector ▶ Geometry Tools ▶ Fix Geometries` on your road layer
+- **Disconnected network:** Some areas may be truly unreachable by road (islands, gated communities)
+- **One-way streets:** If your data has one-way restrictions, check the direction field parameter
+
+### "Difference" tool produces empty result
+- **No overlap:** Your service areas may already cover all disadvantaged areas (good news!)
+- **CRS mismatch:** Both layers must be in the same CRS
+- **Invalid geometries:** Run Fix Geometries on both layers first
+
 ## Support materials
 
 - Slides: [Week 06 lecture deck](../slides/index.md)
 - Lecture notes: [Health Equity & Accessibility](../lectures/week06-health-theory.md)
 - Plugin guide: [QNEAT3 documentation](https://root676.github.io/)
 - Dataset checklist: [Week 6 items](../reference/data-download-checklist.md)
-- Case study: [Malaria Atlas Project](https://malariaatlas.org/) — example of global health GIS
 
 ## Reflect
 
@@ -179,10 +250,16 @@ Take 10-15 minutes to answer these questions in your [Week 6 reflection](../refe
 
 ## What you'll submit
 
-- [ ] QGIS project (`projects/week06_health_accessibility.qgz`) with service areas and gap analysis
-- [ ] Accessibility map (PDF) showing vulnerable populations and service gaps
-- [ ] Brief summary table: number of underserved areas, population affected, key findings
-- [ ] Method documentation file
+- [ ] QGIS project: `projects/week06_health_accessibility.qgz`
+- [ ] Service areas layer: `data/processed/week06/health_service_areas.gpkg`
+- [ ] Gap analysis layer: `data/processed/week06/accessibility_gaps.gpkg`
+- [ ] Accessibility map (PDF): `exports/week06_health_accessibility.pdf`
+- [ ] Summary statistics (include in your reflection or as a separate file):
+  - Number of facilities analyzed
+  - Number of SA2s/areas within 15-minute access
+  - Number of high-disadvantage areas outside 15-minute access
+  - Estimated population in accessibility gaps (if data available)
+- [ ] Method documentation: `projects/week06_method_notes.txt`
 - [ ] Your Week 6 reflection entry
 
 ## Coming up next week

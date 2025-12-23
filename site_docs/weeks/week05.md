@@ -43,41 +43,92 @@ Kernel Density Estimation (KDE) helps you identify areas with unusually high con
 
 **Steps:**
 
-1. Open the Processing Toolbox (`Processing ▶ Toolbox`)
-2. Search for "Heatmap (Kernel Density Estimation)"
-3. Configure the tool:
-   - **Point layer:** your filtered crime incidents
-   - **Radius:** start with 500 meters (you'll experiment with this)
-   - **Pixel size:** 50 meters (smaller = more detail, larger file)
-   - **Output:** save to `data/processed/week05/crime_kde.tif`
-4. Click Run and wait for the raster to generate
-5. Style the output using a warm color ramp (yellow → orange → red)
-6. Adjust raster transparency (50-70%) so you can see boundary layers underneath
+1. Open the Processing Toolbox: `Processing ▶ Toolbox` (or press `Ctrl+Alt+T`)
+2. In the search box, type "Heatmap" and select **Heatmap (Kernel Density Estimation)**
+3. Configure the tool parameters:
+   - **Point layer:** your filtered crime incidents (`crime_filtered`)
+   - **Radius:** 500 meters (you'll experiment with this later)
+   - **Pixel size X/Y:** 50 meters (smaller = more detail but larger file)
+   - **Kernel shape:** Quartic (default, works well for most cases)
+   - **Output raster:** click `...` → Save to File → `data/processed/week05/crime_kde.tif`
+4. Click **Run** and wait for processing (may take 1-2 minutes for large datasets)
 
-**Experiment:** Try different radius values (250m, 500m, 1000m). How does the bandwidth setting change what patterns emerge?
+**Style the heatmap:**
 
-!!! tip "Understanding bandwidth"
-    A smaller radius shows very localized hotspots but can be "noisy." A larger radius smooths the pattern but might hide important detail. There's no single "right" answer—it depends on your research question and the scale you're working at.
+5. Right-click the new raster layer → **Properties** → **Symbology**
+6. Change render type to **Singleband pseudocolor**
+7. Set color ramp to **YlOrRd** (yellow-orange-red) or **Reds**
+8. Set **Mode** to **Continuous** and click **Classify**
+9. In the **Transparency** tab, set global opacity to 60-70%
+10. Click **Apply** then **OK**
+
+**Checkpoint:** You should see a smooth gradient with red areas showing highest density. The pattern should roughly match where you saw clusters when viewing the raw points.
+
+**Experiment with bandwidth:**
+
+| Radius | Effect | Best for |
+|--------|--------|----------|
+| 250m | Very localized hotspots, more "speckled" | Street-level analysis, dense urban areas |
+| 500m | Balanced detail and smoothness | Neighborhood-level patterns |
+| 1000m | Broad regional patterns, very smooth | City-wide comparisons, presentations |
+
+Try all three and compare. Save each with a descriptive name (e.g., `crime_kde_250m.tif`).
+
+!!! tip "Choosing the right bandwidth"
+    A smaller radius shows localized hotspots but can be "noisy." A larger radius smooths patterns but might hide important detail. Consider: What scale are you analyzing? Street blocks? Neighborhoods? The whole city? Match your bandwidth to your question.
+
+!!! warning "Edge effects"
+    KDE values drop near the edges of your study area because there are fewer points to count. This is a known limitation—don't interpret low values near boundaries as "safe zones" without checking the raw data.
 
 ### Activity 3: Compare with hex bins
 
 Hex bins are an alternative to KDE that group incidents into equal-area hexagons. This can make patterns easier to communicate to non-technical audiences.
 
-**Steps:**
+**Step 1: Create a hexagonal grid**
 
-1. Create a hexagonal grid over your study area:
-   - `Processing ▶ Toolbox ▶ Create Grid`
-   - **Grid type:** Hexagon
-   - **Horizontal/Vertical spacing:** 500 meters
-   - **Grid extent:** use your boundary layer or draw a custom extent
-   - Save to `data/processed/week05/hex_grid.gpkg`
-2. Count incidents per hexagon:
-   - `Processing ▶ Toolbox ▶ Count Points in Polygon`
-   - **Polygons:** hex_grid
+1. Open Processing Toolbox: `Processing ▶ Toolbox`
+2. Search for "Create grid" and select **Create grid**
+3. Configure:
+   - **Grid type:** Hexagon (H)
+   - **Grid extent:** Click `...` → Calculate from Layer → select your LGA or study area boundary
+   - **Horizontal spacing:** 500 meters
+   - **Vertical spacing:** 500 meters
+   - **Grid CRS:** Use the same CRS as your crime data (check layer properties if unsure)
+   - **Output:** `data/processed/week05/hex_grid.gpkg`
+4. Click **Run**
+
+**Step 2: Count incidents per hexagon**
+
+5. Search for "Count points in polygon" in Processing Toolbox
+6. Configure:
+   - **Polygons:** hex_grid (your new hexagon layer)
    - **Points:** crime_filtered
-   - Save output to `data/processed/week05/crime_hex_counts.gpkg`
-3. Style using graduated symbology (quantile classification, 5 classes)
-4. Compare the hex bin map to your KDE output—which tells a clearer story?
+   - **Count field name:** `crime_count`
+   - **Output:** `data/processed/week05/crime_hex_counts.gpkg`
+7. Click **Run**
+
+**Step 3: Style the hex bins**
+
+8. Right-click crime_hex_counts → **Properties** → **Symbology**
+9. Change from Single Symbol to **Graduated**
+10. Set **Value** to `crime_count`
+11. Set **Mode** to **Quantile (Equal Count)** and **Classes** to 5
+12. Choose a sequential color ramp (e.g., YlOrRd)
+13. Click **Classify** then **Apply**
+
+**Checkpoint:** You should see a honeycomb pattern with darker hexagons where incidents cluster. Empty hexagons (0 incidents) should be in the lightest color or transparent.
+
+**Compare KDE vs Hex bins:**
+
+| Aspect | KDE Heatmap | Hex Bins |
+|--------|-------------|----------|
+| Output type | Continuous raster | Discrete polygons |
+| Values | Density estimate | Actual counts |
+| Best for | Smooth visualization | Exact counts, statistics |
+| Communication | General audiences | Technical reports |
+
+!!! tip "When to use which"
+    Use KDE for visual storytelling and identifying general patterns. Use hex bins when you need to report specific counts or when your audience wants to query individual cells.
 
 ### Activity 4: Boundary comparison
 
@@ -130,12 +181,37 @@ Raw hotspot maps can be misleading without context. You'll add supporting layers
 !!! warning "Avoid stigmatization"
     When presenting findings, focus on environmental and systemic factors, not on labeling neighborhoods as "dangerous." Consider how your maps might be used—or misused—by media, police, or policymakers.
 
+## Troubleshooting
+
+### KDE produces a blank or all-zero raster
+- **Check CRS:** Your points must be in a projected CRS (meters), not geographic (degrees). Reproject using `Vector ▶ Data Management Tools ▶ Reproject Layer` to a local CRS like EPSG:28356 (GDA2020 / MGA Zone 56 for eastern Australia)
+- **Check radius units:** If your data is in degrees but you specified 500 meters, the tool may not work correctly
+- **Check point count:** Very few points (<50) may not produce visible density
+
+### Hex grid doesn't align with study area
+- **CRS mismatch:** Ensure grid CRS matches your boundary layer
+- **Extent issue:** Try using "Calculate from Layer" instead of drawing manually
+- **Spacing too large:** For small areas, try 250m or 100m spacing
+
+### Count Points in Polygon returns zeros
+- **CRS mismatch:** Both layers must be in the same CRS
+- **Points outside polygons:** Check if your points fall within the grid extent
+- **Empty geometries:** Some polygons may have invalid geometry—run `Vector ▶ Geometry Tools ▶ Fix Geometries`
+
+### Heatmap appears "blocky" or pixelated
+- **Pixel size too large:** Reduce from 50m to 25m or 10m (warning: larger file size)
+- **Radius too small:** Increase bandwidth for smoother appearance
+
+### Performance issues with large datasets
+- **Filter first:** Reduce to a subset (one year, one offense type) before running KDE
+- **Increase pixel size:** 100m instead of 50m processes much faster
+- **Clip to study area:** Don't process the entire state if you only need one city
+
 ## Support materials
 
 - Slides: [Week 05 lecture deck](../slides/index.md)
 - Lecture notes: [Ethics of Crime Mapping](../lectures/week05-crime-ethics.md)
 - Dataset checklist: [Week 5 items](../reference/data-download-checklist.md)
-- Optional reading: Responsible crime mapping guidelines (link in lecture notes)
 
 ## Reflect
 
@@ -149,9 +225,11 @@ Take 10-15 minutes to answer these questions in your [Week 5 reflection](../refe
 
 ## What you'll submit
 
-- [ ] QGIS project (`projects/week05_crime_hotspots.qgz`) with KDE raster and hex bins
-- [ ] At least two comparison maps showing different boundary aggregations or methods
-- [ ] Brief written interpretation (1 paragraph) explaining patterns and limitations
+- [ ] QGIS project: `projects/week05_crime_hotspots.qgz`
+- [ ] KDE heatmap raster: `data/processed/week05/crime_kde.tif`
+- [ ] Hex bin counts layer: `data/processed/week05/crime_hex_counts.gpkg`
+- [ ] Comparison layout (PDF or PNG): Three maps showing same data aggregated by LGA, SA2, and hex bins
+- [ ] Written interpretation (1 paragraph): Describe patterns observed and at least 2 limitations of your analysis
 - [ ] Your Week 5 reflection entry
 
 ## Coming up next week
