@@ -14,7 +14,7 @@ By the end of this week, you'll be able to:
 ## Before you start
 
 - [ ] Review the lecture: [Week 5 · Ethics of Crime Mapping](../lectures/week05-crime-ethics.md) — this is essential background
-- [ ] Download crime incident datasets via [Downloading datasets](../onboarding/data-downloads.md) (e.g., NSW Recorded Crime, Chicago Crime Data, or local equivalent)
+- [ ] Download crime incident datasets via [Downloading datasets](../onboarding/03-download-data.md) (e.g., NSW Recorded Crime, Chicago Crime Data, or local equivalent)
 - [ ] Reopen your Week 3 project with boundary layers (SA2, LGA) — you'll use these for comparison
 - [ ] Read about responsible crime mapping practices in the lecture notes
 - [ ] Confirm Week 5 datasets are checked off in the [data download checklist](../reference/data-download-checklist.md)

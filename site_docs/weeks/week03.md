@@ -14,7 +14,7 @@ By the end of this week, you'll be able to:
 
 - [ ] Read: [Understanding administrative boundaries](../readings/week03-admin-boundaries.md)—this provides essential context
 - [ ] Review the lecture: [Boundary Systems & Data Joins](../lectures/week03-boundaries.md)
-- [ ] Download boundary and indicator datasets (ASGS SA2 + SEIFA, or local equivalents) via [Downloading datasets](../onboarding/data-downloads.md)
+- [ ] Download boundary and indicator datasets (ASGS SA2 + SEIFA, or local equivalents) via [Downloading datasets](../onboarding/03-download-data.md)
 - [ ] Check off Week 3 items in the [data download checklist](../reference/data-download-checklist.md)
 - [ ] Think of one question about boundary changes or data comparability to discuss in class
 

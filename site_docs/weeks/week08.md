@@ -27,7 +27,7 @@ By the end of this week, you'll be able to:
 
 ### 3. Download datasets
 
-- [ ] Follow the [Downloading datasets](../onboarding/data-downloads.md) guide for Week 8
+- [ ] Follow the [Downloading datasets](../onboarding/03-download-data.md) guide for Week 8
 - [ ] You need: neighbourhood polygons and incident points
 - [ ] Save to `intro-gis/data/processed/week08/`
   - `neighbourhoods.geojson`
@@ -67,7 +67,7 @@ Python 3.11.x
 
 - If you see `ModuleNotFoundError`, make sure your conda environment is activated: `conda activate intro-gis`
 - If package versions differ slightly, that's usually fine—major version mismatches (e.g., GeoPandas 0.12 vs 0.14) may require updating
-- Still stuck? Check the [Anaconda Setup Guide](../onboarding/anaconda-setup.md) troubleshooting section
+- Still stuck? Check the [Python Setup Guide](../onboarding/04-python-setup.md) troubleshooting section
 
 ### Activity 2: Load and inspect datasets
 

@@ -27,7 +27,7 @@ By the end of this week, you'll be able to:
 
 ### 3. Prepare your datasets
 
-- [ ] Follow the [Downloading datasets](../onboarding/data-downloads.md) guide for Week 10
+- [ ] Follow the [Downloading datasets](../onboarding/03-download-data.md) guide for Week 10
 - [ ] You need: Facility points (hospitals, schools, parks, etc.)
 - [ ] Save to `intro-gis/data/processed/week10/`
   - `facilities.geojson`

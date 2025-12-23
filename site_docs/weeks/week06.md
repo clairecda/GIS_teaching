@@ -14,7 +14,7 @@ By the end of this week, you'll be able to:
 ## Before you start
 
 - [ ] Review the lecture: [Week 6 · Health Equity & Accessibility](../lectures/week06-health-theory.md)
-- [ ] Download health facility locations (hospitals, clinics) via [Downloading datasets](../onboarding/data-downloads.md)
+- [ ] Download health facility locations (hospitals, clinics) via [Downloading datasets](../onboarding/03-download-data.md)
 - [ ] Download or extract OpenStreetMap road network for your study area (see data guide)
 - [ ] Install the **QNEAT3** plugin: `Plugins ▶ Manage and Install Plugins... ▶ search "QNEAT3" ▶ Install Plugin`
 - [ ] Reopen your Week 3 project to access SEIFA or vulnerability layers
@@ -187,4 +187,4 @@ Take 10-15 minutes to answer these questions in your [Week 6 reflection](../refe
 
 ## Coming up next week
 
-Week 7 is the bridge to Python. You'll install Anaconda, set up your Python environment, and see how the QGIS workflows you've mastered can be automated with code. Make sure you have disk space available (~5 GB) and review the [Anaconda Setup Guide](../onboarding/anaconda-setup.md) before next session.
+Week 7 is the bridge to Python. You'll install Anaconda, set up your Python environment, and see how the QGIS workflows you've mastered can be automated with code. Make sure you have disk space available (~5 GB) and review the [Python Setup Guide](../onboarding/04-python-setup.md) before next session.

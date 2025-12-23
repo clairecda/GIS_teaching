@@ -27,7 +27,7 @@ By the end of this week, you'll be able to:
 
 ### 3. Download datasets
 
-- [ ] Follow the [Downloading datasets](../onboarding/data-downloads.md) guide for Week 9
+- [ ] Follow the [Downloading datasets](../onboarding/03-download-data.md) guide for Week 9
 - [ ] You need:
   - Sentinel-2 or Landsat imagery (before/after images)
   - Area of interest boundary polygon
