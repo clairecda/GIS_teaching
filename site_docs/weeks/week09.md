@@ -582,4 +582,4 @@ Take 10-15 minutes to answer these questions in your [Week 9 reflection](../refe
 
 ## Coming up next week
 
-Week 10 shifts to network analysis in Python—calculating optimal routes, service areas, and accessibility metrics using NetworkX and OSMnx. You'll bring together the zonal statistics from this week with network-based accessibility analysis to identify communities that lack both green space AND easy transport access. Make sure your Python environment is working smoothly and review your Week 6 QGIS network analysis to refresh the concepts.
+Week 10 shifts to network analysis in Python—calculating optimal routes, service areas, and accessibility metrics using NetworkX and OSMnx. You'll bring together the zonal statistics from this week with network-based accessibility analysis to identify communities that lack both green space AND easy transport access. Review your Week 6 QGIS network analysis to refresh the concepts.

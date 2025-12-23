@@ -6,11 +6,10 @@ You've spent six weeks mastering spatial analysis in QGIS—filtering data, crea
 
 By the end of this week, you'll be able to:
 
-1. Install Anaconda and set up a Python environment configured for spatial analysis.
-2. Run verification scripts to confirm your environment includes essential packages (GeoPandas, Rasterio, OSMnx).
-3. Launch Jupyter notebooks and run basic Python code for GIS.
-4. Understand reproducibility principles: folder structures, relative paths, and documentation practices.
-5. Map QGIS workflows to Python equivalents, recognizing when to use GUI tools versus scripts.
+1. Run Python notebooks using Google Colab (browser-based) or Jupyter (local).
+2. Import and inspect spatial data using GeoPandas.
+3. Understand reproducibility principles: folder structures, relative paths, and documentation practices.
+4. Map QGIS workflows to Python equivalents, recognizing when to use GUI tools versus scripts.
 
 ## Before you start
 
@@ -24,95 +23,7 @@ By the end of this week, you'll be able to:
 
 ## This week's activities
 
-### Activity 1: Set up your workspace folder
-
-First, create an organized folder structure for your Python work.
-
-**Steps:**
-
-1. **Choose a location** for your course folder (e.g., `Desktop` or `Documents`)
-2. **Create the folder structure:**
-
-**On Mac/Linux (Terminal):**
-```bash
-cd ~/Desktop
-mkdir -p intro-gis/notebooks
-mkdir -p intro-gis/data
-mkdir -p intro-gis/exports
-cd intro-gis
-```
-
-**On Windows (Command Prompt):**
-```cmd
-cd %USERPROFILE%\Desktop
-mkdir intro-gis\notebooks
-mkdir intro-gis\data
-mkdir intro-gis\exports
-cd intro-gis
-```
-
-Your folder structure should look like:
-```
-intro-gis/
-├── notebooks/       ← You'll download Week 8-10 notebooks here
-├── data/            ← Downloaded datasets go here
-└── exports/         ← Your outputs will be saved here
-```
-
-**Why this structure?**
-- **Organized:** Everything related to Python work is in one place
-- **Portable:** Relative paths work the same way on any computer
-- **Professional:** Follows data science project conventions
-
-### Activity 2: Install Anaconda and set up your environment
-
-Now you'll install Anaconda and create a Python environment with all the spatial libraries you need.
-
-**Follow the comprehensive guide:**
-
-📘 **[Python Setup Guide](../onboarding/04-python-setup.md)** ← Click here for detailed instructions
-
-The guide covers:
-- Downloading and installing Anaconda (30-45 minutes)
-- Creating the `intro-gis` environment with all required packages
-- Verifying your installation works
-- Launching Jupyter notebooks
-- Troubleshooting common issues
-
-!!! tip "Don't skip the setup guide!"
-    The Python setup guide has step-by-step instructions for Windows, Mac, and Linux. Follow it carefully and you'll avoid most setup problems.
-
-**Quick summary of what you'll do:**
-
-1. Download Anaconda from [anaconda.com/download](https://www.anaconda.com/download)
-2. Install it (10-15 minutes)
-3. Create the environment: `conda env create -f environment.yml`
-4. Activate the environment: `conda activate intro-gis`
-5. Run verification script to confirm everything works
-
-The [Python Setup Guide](../onboarding/04-python-setup.md) includes a verification script to confirm everything is working.
-
-**You should see output like:**
-```
-🔍 Checking your GIS environment setup...
-
-✅ geopandas       0.14.1
-✅ shapely         2.0.2
-✅ pyproj          3.6.1
-✅ rasterio        1.3.9
-✅ rioxarray       0.15.0
-✅ osmnx           1.8.1
-✅ contextily      1.5.0
-
-🎉 Success! All packages are installed correctly.
-You're ready to start the Python weeks!
-```
-
-If you see this, **you're ready to go!** ✅
-
-If you see any errors, refer to the troubleshooting section in the [Python Setup Guide](../onboarding/04-python-setup.md).
-
-### Activity 3: Run your first Python notebook
+### Activity 1: Run your first Python notebook
 
 Now let's run the Week 7 starter notebook to verify everything works.
 
@@ -146,7 +57,7 @@ Now let's run the Week 7 starter notebook to verify everything works.
 
 **If you completed the notebook, congratulations!** You're ready for Week 8.
 
-### Activity 4: Understanding relative paths
+### Activity 2: Understanding relative paths
 
 Understanding relative paths is crucial for making your notebooks portable and reproducible.
 
@@ -188,7 +99,7 @@ data_path = Path("../data/processed/")
 !!! tip "Windows path gotchas"
     Windows uses backslashes (`\`) but Python uses forward slashes (`/`). Always use forward slashes or `pathlib.Path()` which handles this automatically.
 
-### Activity 5: QGIS to Python workflow mapping
+### Activity 3: QGIS to Python workflow mapping
 
 You'll see how familiar QGIS operations translate to Python code.
 
@@ -215,7 +126,7 @@ You'll see how familiar QGIS operations translate to Python code.
 !!! note "You don't have to choose"
     Most professionals use both tools. QGIS for exploration and prototyping, Python for production workflows. You can even run Python scripts from inside QGIS using the PyQGIS console.
 
-### Activity 6: Reproducibility reflection (optional)
+### Activity 4: Reproducibility reflection (optional)
 
 Think about how you've been organizing your QGIS work over the past six weeks.
 
@@ -238,38 +149,35 @@ Save this as `intro-gis/week07_notes.txt` for your own reference.
 
 ## Support materials
 
-- 📘 **Essential:** [Python Setup Guide](../onboarding/04-python-setup.md) - Detailed installation instructions
 - Slides: [Week 07 lecture deck](../slides/index.md)
 - Lecture notes: [Reproducibility & Environments](../lectures/week07-reproducibility.md)
 - Reference: [Understanding CRS](../readings/understanding-crs.md) - Important background for spatial analysis
+- 📘 **Optional:** [Python Setup Guide](../onboarding/04-python-setup.md) - For local Anaconda installation
 
 ## Reflect
 
 Take 10-15 minutes to answer these questions:
 
-- What was the most challenging part of Anaconda installation and environment setup? How did you resolve it?
 - How do you feel about transitioning from QGIS (point-and-click) to Python (code-based) workflows?
 - Which QGIS workflows are you most excited to automate with Python? Which do you think you'll keep doing in QGIS?
 - What questions do you still have about Jupyter notebooks, relative paths, or folder structures?
 - How confident do you feel about starting Python-based analysis next week (1-10 scale)? What would increase your confidence?
 
-!!! note "Setup struggles are normal"
-    Environment configuration can be frustrating—even experienced developers spend hours troubleshooting dependencies. If you encountered errors, document what you tried and how you solved them. This makes you a better troubleshooter and helps classmates facing similar issues.
+!!! note "First time with Python?"
+    Running code for the first time can feel unfamiliar. That's normal! The notebooks guide you step-by-step. Focus on understanding what each cell does rather than memorizing syntax.
 
 ## What you'll submit
 
-- [ ] **Screenshot or text file** showing successful verification script output (confirming all packages are installed)
-- [ ] **Screenshot of Jupyter Lab** showing the "Hello GIS" test working
-- [ ] **Brief notes** (5-10 sentences) reflecting on the setup process and your readiness for Python
+- [ ] **Screenshot** of the completed "Hello GIS" notebook showing your first map
+- [ ] **Brief notes** (5-10 sentences) reflecting on running your first Python notebook
 
 ## Coming up next week
 
-Week 8 launches into hands-on Python spatial analysis! You'll download the Week 8 notebook and learn to use GeoPandas for vector workflows—loading shapefiles, filtering data, performing spatial joins, and calculating densities.
+Week 8 launches into hands-on Python spatial analysis! You'll use GeoPandas for vector workflows—loading shapefiles, filtering data, performing spatial joins, and calculating densities.
 
 **To prepare:**
-1. Make sure your Anaconda environment is working (verification passed ✅)
-2. Download the Week 8 notebook when it's posted
-3. Download the Week 8 datasets following the data guide
-4. Review the QGIS-to-Python comparison table from Activity 6
 
-Come to Week 8 with questions from your setup experience!
+1. Make sure you can run the Week 7 notebook successfully
+2. Review the QGIS-to-Python comparison table from Activity 3
+
+Come to Week 8 ready to code!

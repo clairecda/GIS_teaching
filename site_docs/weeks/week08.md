@@ -58,29 +58,19 @@ By the end of this week, you'll be able to:
 
 ### Activity 1: Validate your environment
 
-Before diving into spatial analysis, confirm that all required packages are available and functioning correctly.
+Before diving into spatial analysis, confirm that all required packages are available.
 
 **Follow the notebook:**
 
-1. Open `week08_vector_workflows.ipynb` in Jupyter Lab or VS Code
-2. Run the first code cell (Section 1: Environment validation)
-3. You should see green checkmarks confirming each package imports successfully
-
-**Expected output:**
-
-```
-Python 3.11.x
-✓ geopandas 0.14.x
-✓ pyproj 3.6.x
-✓ shapely 2.0.x
-✓ matplotlib 3.8.x
-✓ contextily 1.5.x
-```
+1. Open the Week 8 notebook (Colab or Jupyter)
+2. If using Colab, run the pip install cell first
+3. Run the environment validation cell
+4. You should see checkmarks confirming each package imports successfully
 
 **Troubleshooting:**
 
-- If you see `ModuleNotFoundError`, make sure your conda environment is activated: `conda activate intro-gis`
-- If package versions differ slightly, that's usually fine—major version mismatches (e.g., GeoPandas 0.12 vs 0.14) may require updating
+- **Colab:** If you see `ModuleNotFoundError`, make sure you ran the `!pip install ...` cell at the top
+- **Local:** Make sure your conda environment is activated: `conda activate intro-gis`
 - Still stuck? Check the [Python Setup Guide](../onboarding/04-python-setup.md) troubleshooting section
 
 ### Activity 2: Load and inspect datasets
@@ -330,4 +320,4 @@ Take 15-20 minutes to answer these questions in your [Week 8 reflection](../refe
 
 ## Coming up next week
 
-Week 9 shifts focus from vector to raster: you'll work with elevation data, satellite imagery, and other continuous surfaces. You'll learn Python tools for raster analysis (Rasterio), terrain modeling (slope, aspect, hillshade), and zonal statistics. The same reproducibility principles apply, but the data structure changes from discrete features to continuous grids. Make sure your environment is still working smoothly—Week 9 builds directly on this week's foundation.
+Week 9 shifts focus from vector to raster: you'll work with satellite imagery and continuous surfaces. You'll learn Python tools for raster analysis (Rasterio), calculate vegetation indices like NDVI, and perform change detection. The same reproducibility principles apply, but the data structure changes from discrete features to continuous grids.

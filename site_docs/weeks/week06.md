@@ -264,4 +264,4 @@ Take 10-15 minutes to answer these questions in your [Week 6 reflection](../refe
 
 ## Coming up next week
 
-Week 7 is the bridge to Python. You'll install Anaconda, set up your Python environment, and see how the QGIS workflows you've mastered can be automated with code. Make sure you have disk space available (~5 GB) and review the [Python Setup Guide](../onboarding/04-python-setup.md) before next session.
+Week 7 is the bridge to Python. You'll run your first Python notebook and see how the QGIS workflows you've mastered can be automated with code. No installation required—you can use Google Colab in your browser!
