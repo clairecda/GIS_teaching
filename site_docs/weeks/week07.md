@@ -1,6 +1,6 @@
 # Week 7 · Bridge to Python
 
-You've spent six weeks mastering spatial analysis in QGIS—filtering data, creating hotspots, running network analysis. Now you'll learn how to automate these workflows with Python, making your analyses repeatable, shareable, and scalable. This week is about setting up your Python environment with Anaconda and understanding the reproducibility practices that will make your work professional and shareable.
+You've spent six weeks mastering spatial analysis in QGIS—filtering data, creating hotspots, running network analysis. Now you'll learn how to automate these workflows with Python, making your analyses repeatable, shareable, and scalable. This week introduces Python for GIS using your first notebook—you can run it in the browser with Google Colab (no installation required) or set up a local environment if you prefer.
 
 ## What you'll learn
 
@@ -14,13 +14,13 @@ By the end of this week, you'll be able to:
 
 ## Before you start
 
-- [ ] Ensure you have at least **5 GB free disk space** (for Anaconda installation)
-- [ ] Check you have a **reliable internet connection** (you'll download ~600 MB)
+- [ ] Have a **Google account** (for Colab) OR **5 GB free disk space** (for local Anaconda)
 - [ ] Review the lecture: [Week 7 · Reproducibility & Environments](../lectures/week07-reproducibility.md)
-- [ ] Set aside **1-2 hours** for installation and setup
 
-!!! tip "This week is all about setup"
-    Week 7 is lighter on analysis and heavier on installation. Don't worry if you spend most of your time getting Anaconda working—that's expected! Once it's set up, you'll use it for Weeks 8-10.
+!!! tip "Two ways to run Python notebooks"
+    **Google Colab (Recommended):** Run notebooks in your browser—no installation required. Great for getting started quickly.
+
+    **Local (Anaconda):** Install Python on your computer for faster performance and offline access. Better for large datasets or the capstone project.
 
 ## This week's activities
 
@@ -112,48 +112,37 @@ If you see this, **you're ready to go!** ✅
 
 If you see any errors, refer to the troubleshooting section in the [Python Setup Guide](../onboarding/04-python-setup.md).
 
-### Activity 3: Test Jupyter with the starter notebook
+### Activity 3: Run your first Python notebook
 
-Now let's make sure Jupyter works using the Week 7 starter notebook.
+Now let's run the Week 7 starter notebook to verify everything works.
 
-**Download the starter notebook:**
+**Get the notebook:**
 
-- [week07_hello_gis.ipynb](https://github.com/your-repo/intro-to-gis/raw/main/notebooks/week07_hello_gis.ipynb) (right-click → Save As)
-- Save it to your `intro-gis/notebooks/` folder
+| Option | Link |
+|--------|------|
+| **Run in Colab** (Recommended) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/clairecda/GIS_teaching/blob/main/notebooks/week07_hello_gis.ipynb) |
+| View on GitHub | [week07_hello_gis.ipynb](https://github.com/clairecda/GIS_teaching/blob/main/notebooks/week07_hello_gis.ipynb) |
+| Download | [Right-click → Save As](https://raw.githubusercontent.com/clairecda/GIS_teaching/main/notebooks/week07_hello_gis.ipynb) |
 
-**Steps:**
+=== "Google Colab"
 
-1. **Open Anaconda Prompt** (Windows) or **Terminal** (Mac/Linux)
+    1. Click the **Open in Colab** button above
+    2. Sign in with your Google account if prompted
+    3. Run the first cell to install GIS packages:
+       ```python
+       !pip install geopandas rasterio rasterstats osmnx contextily folium -q
+       ```
+    4. Work through the notebook, running each cell with **Shift + Enter**
+    5. Save your work: `File → Save a copy in Drive`
 
-2. **Navigate to your workspace:**
-   ```bash
-   cd ~/Desktop/intro-gis    # Mac/Linux
-   cd %USERPROFILE%\Desktop\intro-gis    # Windows
-   ```
+=== "Local (Anaconda)"
 
-3. **Activate your environment:**
-   ```bash
-   conda activate intro-gis
-   ```
-
-4. **Launch Jupyter Lab:**
-   ```bash
-   jupyter lab
-   ```
-
-   Your browser will open showing the Jupyter interface.
-
-5. **Open the starter notebook:**
-   - In Jupyter, navigate to `notebooks/`
-   - Double-click `week07_hello_gis.ipynb`
-
-6. **Work through the notebook:**
-   - Run each cell with **Shift + Enter**
-   - The notebook guides you through environment verification, basic operations, and your first map
-
-7. **Close Jupyter when done:**
-   - File → Shut Down
-   - In terminal: Press `Ctrl+C` twice
+    1. Download the notebook and save to `intro-gis/notebooks/`
+    2. Open Anaconda Prompt (Windows) or Terminal (Mac/Linux)
+    3. Activate your environment: `conda activate intro-gis`
+    4. Launch Jupyter: `jupyter lab`
+    5. Open `week07_hello_gis.ipynb` and work through it
+    6. Close when done: `File → Shut Down`
 
 **If you completed the notebook, congratulations!** You're ready for Week 8.
 

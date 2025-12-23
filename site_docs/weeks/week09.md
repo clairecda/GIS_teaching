@@ -15,15 +15,27 @@ By the end of this week, you'll be able to:
 
 ### 1. Get the notebook
 
-📓 **Download the Week 9 notebook:** [week09_raster_remote_sensing.ipynb](../../resources/notebooks/week09_raster_remote_sensing.ipynb)
+| Option | Link |
+|--------|------|
+| **Run in Colab** (Recommended) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/clairecda/GIS_teaching/blob/main/notebooks/week09_raster_remote_sensing.ipynb) |
+| View on GitHub | [week09_raster_remote_sensing.ipynb](https://github.com/clairecda/GIS_teaching/blob/main/notebooks/week09_raster_remote_sensing.ipynb) |
+| Download | [Right-click → Save As](https://raw.githubusercontent.com/clairecda/GIS_teaching/main/notebooks/week09_raster_remote_sensing.ipynb) |
 
-**Where to save it:** Save to your `intro-gis/notebooks/` folder
+**Using Colab?** Run this cell first to install GIS packages:
+```python
+!pip install geopandas rasterio rasterstats osmnx contextily folium -q
+```
 
 ### 2. Confirm your environment works
 
-- [ ] Activate your conda environment: `conda activate intro-gis`
-- [ ] Check Rasterio imports: `python -c "import rasterio; print('✅ Ready!')"`
-- [ ] If you see errors, review [Week 7 setup](week07.md)
+=== "Google Colab"
+    - Run the pip install cell above
+    - If you see `Successfully installed...`, you're ready!
+
+=== "Local (Anaconda)"
+    - Activate your conda environment: `conda activate intro-gis`
+    - Check Rasterio imports: `python -c "import rasterio; print('✅ Ready!')"`
+    - If you see errors, review [Python Setup Guide](../onboarding/04-python-setup.md)
 
 ### 3. Download datasets
 

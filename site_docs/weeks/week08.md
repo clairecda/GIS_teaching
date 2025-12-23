@@ -15,15 +15,29 @@ By the end of this week, you'll be able to:
 
 ### 1. Get the notebook
 
-📓 **Download the Week 8 notebook:** [week08_vector_workflows.ipynb](../../resources/notebooks/week08_vector_workflows.ipynb)
+| Option | Link |
+|--------|------|
+| **Run in Colab** (Recommended) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/clairecda/GIS_teaching/blob/main/notebooks/week08_vector_workflows.ipynb) |
+| View on GitHub | [week08_vector_workflows.ipynb](https://github.com/clairecda/GIS_teaching/blob/main/notebooks/week08_vector_workflows.ipynb) |
+| Download | [Right-click → Save As](https://raw.githubusercontent.com/clairecda/GIS_teaching/main/notebooks/week08_vector_workflows.ipynb) |
 
-**Where to save it:** Save to your `intro-gis/notebooks/` folder (the one you created in Week 7)
+**Using Colab?** Run this cell first to install GIS packages:
+```python
+!pip install geopandas rasterio rasterstats osmnx contextily folium -q
+```
+
+**Using local Anaconda?** Save the notebook to your `intro-gis/notebooks/` folder.
 
 ### 2. Confirm your environment works
 
-- [ ] Activate your conda environment: `conda activate intro-gis`
-- [ ] Check packages import: `python -c "import geopandas; print('✅ Ready!')"`
-- [ ] If you see errors, review [Week 7 setup](week07.md)
+=== "Google Colab"
+    - Run the pip install cell above
+    - If you see `Successfully installed...`, you're ready!
+
+=== "Local (Anaconda)"
+    - Activate your conda environment: `conda activate intro-gis`
+    - Check packages import: `python -c "import geopandas; print('✅ Ready!')"`
+    - If you see errors, review [Python Setup Guide](../onboarding/04-python-setup.md)
 
 ### 3. Download datasets
 

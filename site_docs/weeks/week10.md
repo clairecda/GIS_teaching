@@ -15,15 +15,27 @@ By the end of this week, you'll be able to:
 
 ### 1. Get the notebook
 
-📓 **Download the Week 10 notebook:** [week10_transport_networks.ipynb](../../resources/notebooks/week10_transport_networks.ipynb)
+| Option | Link |
+|--------|------|
+| **Run in Colab** (Recommended) | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/clairecda/GIS_teaching/blob/main/notebooks/week10_transport_networks.ipynb) |
+| View on GitHub | [week10_transport_networks.ipynb](https://github.com/clairecda/GIS_teaching/blob/main/notebooks/week10_transport_networks.ipynb) |
+| Download | [Right-click → Save As](https://raw.githubusercontent.com/clairecda/GIS_teaching/main/notebooks/week10_transport_networks.ipynb) |
 
-**Where to save it:** Save to your `intro-gis/notebooks/` folder
+**Using Colab?** Run this cell first to install GIS packages:
+```python
+!pip install geopandas rasterio rasterstats osmnx contextily folium -q
+```
 
 ### 2. Confirm your environment works
 
-- [ ] Activate your conda environment: `conda activate intro-gis`
-- [ ] Check OSMnx imports: `python -c "import osmnx; print('✅ Ready!')"`
-- [ ] If you see errors, OSMnx should have been installed in Week 7. Try: `conda install -c conda-forge osmnx`
+=== "Google Colab"
+    - Run the pip install cell above
+    - If you see `Successfully installed...`, you're ready!
+
+=== "Local (Anaconda)"
+    - Activate your conda environment: `conda activate intro-gis`
+    - Check OSMnx imports: `python -c "import osmnx; print('✅ Ready!')"`
+    - If you see errors, try: `conda install -c conda-forge osmnx`
 
 ### 3. Prepare your datasets
 
