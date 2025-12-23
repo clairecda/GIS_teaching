@@ -36,7 +36,54 @@ Colab doesn't have GIS packages pre-installed. Run this cell at the top of each 
 
 This takes about 1-2 minutes. You'll need to run it each time you open a notebook (Colab environments reset).
 
-### Step 4: Save your work
+### Step 4: Access your data
+
+Colab runs in the cloud, so you need to get your data files into the Colab environment. Choose the method that works best for you:
+
+=== "Option 1: Upload files (simplest)"
+
+    1. Click the **folder icon** in the left sidebar to open the file browser
+    2. Click the **upload icon** (paper with arrow)
+    3. Select your data files (`.geojson`, `.shp`, `.tif`, etc.)
+    4. Wait for upload to complete
+    5. Access files with: `gpd.read_file("filename.geojson")`
+
+    !!! warning "Uploads are temporary"
+        Uploaded files are deleted when your session ends. Re-upload each time you reconnect.
+
+=== "Option 2: Google Drive (persistent)"
+
+    Mount your Google Drive to access files that persist between sessions:
+
+    ```python
+    from google.colab import drive
+    drive.mount('/content/drive')
+    ```
+
+    Click the link, authorize access, and your Drive appears at `/content/drive/MyDrive/`.
+
+    **To use files from Drive:**
+    ```python
+    # If your file is in Drive > intro-gis > data
+    gdf = gpd.read_file("/content/drive/MyDrive/intro-gis/data/boundaries.geojson")
+    ```
+
+    !!! tip "Recommended for larger projects"
+        Store your course data in a `intro-gis` folder on Google Drive. Files persist and you can access them from any device.
+
+=== "Option 3: Load from URL (no upload needed)"
+
+    If data is hosted online, load it directly:
+
+    ```python
+    # Load from a URL
+    url = "https://example.com/data/boundaries.geojson"
+    gdf = gpd.read_file(url)
+    ```
+
+    The course notebooks include sample data URLs where possible.
+
+### Step 5: Save your work
 
 - **To Google Drive:** `File → Save a copy in Drive`
 - **To your computer:** `File → Download → Download .ipynb`
@@ -155,6 +202,15 @@ Your browser opens with Jupyter. You're ready!
 - You're trying to use too much memory
 - Reduce dataset size or switch to local setup
 
+**"FileNotFoundError" when loading data**
+- File wasn't uploaded or path is wrong
+- Check the file browser (folder icon) to see uploaded files
+- Use the exact filename: `gpd.read_file("myfile.geojson")` not `gpd.read_file("data/myfile.geojson")`
+
+**Uploaded files disappeared**
+- Colab sessions reset after ~90 minutes of inactivity
+- Re-upload your files, or use Google Drive for persistent storage
+
 ### Anaconda issues
 
 **"conda: command not found"**
@@ -182,8 +238,9 @@ Then redo Step 3.
 ### Colab workflow
 1. Open notebook from [Notebooks page](../reference/notebooks.md)
 2. Run pip install cell
-3. Work through notebook
-4. Save to Drive or download
+3. Upload data files OR mount Google Drive
+4. Work through notebook
+5. Save to Drive or download
 
 ### Local workflow
 ```bash
