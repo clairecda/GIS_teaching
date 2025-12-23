@@ -79,6 +79,8 @@ nav:
       - QGIS:
           - Quickstart cheat sheet: reference/qgis-quickstart.md
           - Toolbar reference: reference/toolbar.md
+      - Python:
+          - Notebooks (Weeks 7-10): reference/notebooks.md
       - Map Design:
           - Layout template: reference/layout-template.md
           - Map titles guide: reference/map-titles.md
