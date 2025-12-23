@@ -132,7 +132,7 @@ Raw hotspot maps can be misleading without context. You'll add supporting layers
 
 ## Support materials
 
-- Slides: [Week 05 lecture deck](../../assets/slides/week05.html)
+- Slides: [Week 05 lecture deck](../slides/index.md)
 - Lecture notes: [Ethics of Crime Mapping](../lectures/week05-crime-ethics.md)
 - Dataset checklist: [Week 5 items](../reference/data-download-checklist.md)
 - Optional reading: Responsible crime mapping guidelines (link in lecture notes)

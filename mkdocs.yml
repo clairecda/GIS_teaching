@@ -8,12 +8,22 @@ theme:
   name: material
   palette:
     - scheme: default
-      primary: teal
-      accent: light blue
+      primary: blue grey
+      accent: orange
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: blue grey
+      accent: orange
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
   features:
     - navigation.expand
     - navigation.sections
     - navigation.top
+    - navigation.tabs
     - toc.follow
     - content.code.copy
 
@@ -63,15 +73,27 @@ nav:
       - Week 11 · Design & Storytelling: weeks/week11.md
       - Week 12 · Capstone: weeks/week12.md
   - Reference:
-      - Dataset inventory: reference/data-inventory.md
-      - Data download checklist: reference/data-download-checklist.md
-      - Quickstart cheat sheet: reference/qgis-quickstart.md
-      - Toolbar reference: reference/toolbar.md
-      - Layout template: reference/layout-template.md
-      - Reflection prompts: reference/reflections.md
-      - Project checklist: reference/project-checklist.md
+      - Data:
+          - Dataset inventory: reference/data-inventory.md
+          - Data download checklist: reference/data-download-checklist.md
+      - QGIS:
+          - Quickstart cheat sheet: reference/qgis-quickstart.md
+          - Toolbar reference: reference/toolbar.md
+      - Map Design:
+          - Layout template: reference/layout-template.md
+          - Map titles guide: reference/map-titles.md
+          - Design rubric: reference/design-rubric.md
+          - Accessibility checklist: reference/accessibility-checklist.md
+      - Capstone:
+          - Project checklist: reference/project-checklist.md
+          - Capstone examples: reference/capstone-examples.md
+          - Report template: reference/capstone-template.md
+          - Presentation template: reference/capstone-presentation-template.md
+      - Other:
+          - Reflection prompts: reference/reflections.md
   - Appendices:
       - Course roadmap: reference/roadmap.md
+      - Continuing your GIS journey: reference/continuing-education.md
       - Licensing: reference/licensing.md
 
 extra:

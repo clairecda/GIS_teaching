@@ -231,7 +231,7 @@ Your capstone project will synthesize skills from across the course. This week y
 
 ## Support materials
 
-- Slides: [Week 11 lecture deck](../../assets/slides/week11.html)
+- Slides: [Week 11 lecture deck](../slides/index.md)
 - Lecture notes: [Narrative Map Design](../lectures/week11-storytelling.md)
 - Rubric: [Design Critique Framework](../reference/design-rubric.md)
 - Checklist: [Accessibility Standards](../reference/accessibility-checklist.md)

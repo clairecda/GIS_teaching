@@ -532,7 +532,7 @@ In QGIS, you used the Raster Calculator for band math and Zonal Statistics tool 
 
 ## Support materials
 
-- Slides: [Week 09 lecture deck](../../assets/slides/week09.html)
+- Slides: [Week 09 lecture deck](../slides/index.md)
 - Lecture notes: [Remote Sensing Change Detection](../lectures/week09-remote-sensing.md)
 - Jupyter notebook: `resources/notebooks/week09_raster_remote_sensing.ipynb`
 - Rasterio documentation: [https://rasterio.readthedocs.io/](https://rasterio.readthedocs.io/)

@@ -288,7 +288,7 @@ The notebook includes reflection prompts to help you process what you've learned
 
 ## Support materials
 
-- Slides: [Week 08 lecture deck](../../assets/slides/week08.html)
+- Slides: [Week 08 lecture deck](../slides/index.md)
 - Lecture notes: [Week 8 · Vector Automation Concepts](../lectures/week08-vector-theory.md)
 - GeoPandas documentation: [geopandas.org/en/stable](https://geopandas.org/en/stable/)
 - Dataset checklist: [Week 8 items](../reference/data-download-checklist.md)

@@ -221,7 +221,7 @@ Your final task is to reflect on your learning journey and plan how you'll conti
 
 ## Support materials
 
-- Slides: [Week 12 lecture deck](../../assets/slides/week12.html)
+- Slides: [Week 12 lecture deck](../slides/index.md)
 - Lecture notes: [Synthesis & Communication](../lectures/week12-capstone-theory.md)
 - Template: [Capstone Presentation Template](../reference/capstone-presentation-template.md)
 - Resources: [Continuing Education Guide](../reference/continuing-education.md)

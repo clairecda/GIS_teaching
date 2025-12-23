@@ -168,7 +168,7 @@ Pull everything together into a professional map showing terrain context for you
 
 ## Support materials
 
-- Slides: [Week 04 – Raster & Terrain Analysis](../assets/slides/week04.html)
+- Slides: [Week 04 – Raster & Terrain Analysis](../slides/index.md)
 - Lecture notes: [Elevation & Surface Modelling](../lectures/week04-raster-theory.md)
 - Reading: [Spatial Data Models](../readings/week02-data-models.md)
 - Dataset checklist: [Week 4 items](../reference/data-download-checklist.md)

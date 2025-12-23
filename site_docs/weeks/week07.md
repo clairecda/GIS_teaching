@@ -70,7 +70,7 @@ Now you'll install Anaconda and create a Python environment with all the spatial
 
 **Follow the comprehensive guide:**
 
-📘 **[Anaconda Setup Guide](../onboarding/anaconda-setup.md)** ← Click here for detailed instructions
+📘 **[Python Setup Guide](../onboarding/04-python-setup.md)** ← Click here for detailed instructions
 
 The guide covers:
 - Downloading and installing Anaconda (30-45 minutes)
@@ -80,7 +80,7 @@ The guide covers:
 - Troubleshooting common issues
 
 !!! tip "Don't skip the setup guide!"
-    The Anaconda setup guide is comprehensive with step-by-step instructions for Windows, Mac, and Linux. It includes troubleshooting for common errors. Follow it carefully and you'll avoid most setup problems.
+    The Python setup guide has step-by-step instructions for Windows, Mac, and Linux. Follow it carefully and you'll avoid most setup problems.
 
 **Quick summary of what you'll do:**
 
@@ -90,7 +90,7 @@ The guide covers:
 4. Activate the environment: `conda activate intro-gis`
 5. Run verification script to confirm everything works
 
-The [Anaconda Setup Guide](../onboarding/anaconda-setup.md) includes a verification script to confirm everything is working.
+The [Python Setup Guide](../onboarding/04-python-setup.md) includes a verification script to confirm everything is working.
 
 **You should see output like:**
 ```
@@ -110,11 +110,16 @@ You're ready to start the Python weeks!
 
 If you see this, **you're ready to go!** ✅
 
-If you see any errors, refer to the troubleshooting section in the [Anaconda Setup Guide](../onboarding/anaconda-setup.md).
+If you see any errors, refer to the troubleshooting section in the [Python Setup Guide](../onboarding/04-python-setup.md).
 
-### Activity 4: Test Jupyter with a "Hello GIS" notebook
+### Activity 3: Test Jupyter with the starter notebook
 
-Now let's make sure Jupyter works and you can run Python code.
+Now let's make sure Jupyter works using the Week 7 starter notebook.
+
+**Download the starter notebook:**
+
+- [week07_hello_gis.ipynb](https://github.com/your-repo/intro-to-gis/raw/main/notebooks/week07_hello_gis.ipynb) (right-click → Save As)
+- Save it to your `intro-gis/notebooks/` folder
 
 **Steps:**
 
@@ -138,31 +143,21 @@ Now let's make sure Jupyter works and you can run Python code.
 
    Your browser will open showing the Jupyter interface.
 
-5. **Create a new notebook:**
-   - Click **New** → **Notebook** (or **Python 3**)
-   - Save it as `test_environment.ipynb`
+5. **Open the starter notebook:**
+   - In Jupyter, navigate to `notebooks/`
+   - Double-click `week07_hello_gis.ipynb`
 
-6. **Run a test:**
-   In the first cell, type:
-   ```python
-   import geopandas as gpd
-   import rasterio
-   import osmnx as ox
-   print("✅ All imports successful!")
-   print(f"GeoPandas version: {gpd.__version__}")
-   ```
+6. **Work through the notebook:**
+   - Run each cell with **Shift + Enter**
+   - The notebook guides you through environment verification, basic operations, and your first map
 
-7. **Execute the cell:**
-   - Press **Shift + Enter**
-   - You should see: `✅ All imports successful!`
-
-8. **Close Jupyter:**
-   - In your browser: File → Shut Down
+7. **Close Jupyter when done:**
+   - File → Shut Down
    - In terminal: Press `Ctrl+C` twice
 
-**If this worked, congratulations!** You're ready for Week 8. 🎉
+**If you completed the notebook, congratulations!** You're ready for Week 8.
 
-### Activity 5: Understanding relative paths
+### Activity 4: Understanding relative paths
 
 Understanding relative paths is crucial for making your notebooks portable and reproducible.
 
@@ -204,7 +199,7 @@ data_path = Path("../data/processed/")
 !!! tip "Windows path gotchas"
     Windows uses backslashes (`\`) but Python uses forward slashes (`/`). Always use forward slashes or `pathlib.Path()` which handles this automatically.
 
-### Activity 6: QGIS to Python workflow mapping
+### Activity 5: QGIS to Python workflow mapping
 
 You'll see how familiar QGIS operations translate to Python code.
 
@@ -231,7 +226,7 @@ You'll see how familiar QGIS operations translate to Python code.
 !!! note "You don't have to choose"
     Most professionals use both tools. QGIS for exploration and prototyping, Python for production workflows. You can even run Python scripts from inside QGIS using the PyQGIS console.
 
-### Activity 7: Reproducibility reflection (optional)
+### Activity 6: Reproducibility reflection (optional)
 
 Think about how you've been organizing your QGIS work over the past six weeks.
 
@@ -254,8 +249,8 @@ Save this as `intro-gis/week07_notes.txt` for your own reference.
 
 ## Support materials
 
-- 📘 **Essential:** [Anaconda Setup Guide](../onboarding/anaconda-setup.md) - Detailed installation instructions
-- Slides: [Week 07 lecture deck](../../assets/slides/week07.html)
+- 📘 **Essential:** [Python Setup Guide](../onboarding/04-python-setup.md) - Detailed installation instructions
+- Slides: [Week 07 lecture deck](../slides/index.md)
 - Lecture notes: [Reproducibility & Environments](../lectures/week07-reproducibility.md)
 - Reference: [Understanding CRS](../readings/understanding-crs.md) - Important background for spatial analysis
 

@@ -161,7 +161,7 @@ Next week you'll transition to Python. Start building good documentation habits 
 
 ## Support materials
 
-- Slides: [Week 06 lecture deck](../../assets/slides/week06.html)
+- Slides: [Week 06 lecture deck](../slides/index.md)
 - Lecture notes: [Health Equity & Accessibility](../lectures/week06-health-theory.md)
 - Plugin guide: [QNEAT3 documentation](https://root676.github.io/)
 - Dataset checklist: [Week 6 items](../reference/data-download-checklist.md)

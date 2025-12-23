@@ -194,7 +194,7 @@ Make sure your map is readable by everyone, including those with color vision de
 
 ## Support materials
 
-- Slides: [Week 02 lecture deck](../../assets/slides/week02.html)
+- Slides: [Week 02 lecture deck](../slides/index.md)
 - Reading: [Map Design Basics](../readings/week02-map-design-basics.md)
 - Template: [Layout template guide](../reference/layout-template.md)
 - Toolbar reference: [Quick styling tools](../reference/toolbar.md)

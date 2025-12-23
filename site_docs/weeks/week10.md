@@ -303,7 +303,7 @@ Create clear visualizations and document your findings.
 
 ## Support materials
 
-- Slides: [Week 10 lecture deck](../../assets/slides/week10.html)
+- Slides: [Week 10 lecture deck](../slides/index.md)
 - Lecture notes: [Network Theory for Mobility](../lectures/week10-network-theory.md)
 - Notebook: [week10_transport_networks.ipynb](../../resources/notebooks/week10_transport_networks.ipynb)
 - OSMnx documentation: [https://osmnx.readthedocs.io/](https://osmnx.readthedocs.io/)

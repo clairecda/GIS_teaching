@@ -1,39 +1,100 @@
-# How to Use This Course Book
+# How to Use This Course
 
-This MkDocs site gathers all course materials—weekly plans, readings, dataset instructions, and reference sheets—into one place. Follow these tips to get the most out of it.
+This site contains all course materials — weekly labs, readings, reference sheets, and slide decks. Here's how to navigate it.
 
-## Navigation
+---
 
-- Use the left sidebar to step through sections. The **Lectures & Theory** pages explain weekly concepts; the **Weekly Labs** mirror the 12-week practical syllabus.
-- Look for callout boxes labelled **Download**, **Lecture**, **Reflection**, or **Notebook**. They link directly to datasets, theory notes, prompts, or code.
-- The **Reference** section stores reusable guides such as the QGIS quickstart cheat sheet, toolbar reference, dataset inventory, and layout template.
+## Site structure
 
-## Suggested workflow each week
+| Section | Purpose |
+|---------|---------|
+| **Getting Ready** | Set up software, workspace, and download data |
+| **Background Reading** | Foundational concepts to read before class |
+| **Lectures & Theory** | Weekly lecture notes and key concepts |
+| **Weekly Labs** | Hands-on exercises and activities |
+| **Reference** | Cheat sheets, templates, checklists |
+| **Slides** | Lecture slide decks |
 
-1. **Read:** Start with the weekly page. It summarises learning objectives, session agenda, and pre-work.
-2. **Prepare data:** Follow the dataset links. Use the checklist to confirm files are staged in your workspace.
-3. **Practise:** Work through the QGIS or Python exercises described on the weekly page and in the companion notebooks.
-4. **Reflect:** Capture notes in the reflection prompts linked at the end of each week.
-5. **Extend:** Review the reference materials or try the stretch challenges where provided.
+---
 
-## Icons and callouts
+## Weekly workflow
 
-- `!!! note` callouts highlight reminders or important context.
-- `!!! tip` callouts suggest optional enhancements or shortcuts.
-- `??? example` callouts hide extended walkthroughs—the sections expand when you click them.
-- Task lists show data download items to mark off as you complete them.
+Each week, follow this pattern:
+
+### 1. Before class
+
+- [ ] Read the **Background Reading** for that week (if any)
+- [ ] Download the **datasets** listed in the weekly lab
+- [ ] Skim the **lecture notes** to preview concepts
+
+### 2. During class
+
+- [ ] Follow along with the **lecture**
+- [ ] Work through the **lab exercises**
+- [ ] Ask questions as you go
+
+### 3. After class
+
+- [ ] Complete any unfinished exercises
+- [ ] Write your **reflection** for the week
+- [ ] Update your **capstone project** based on new skills
+
+---
+
+## Finding things
+
+### Data
+- [Download datasets](onboarding/03-download-data.md) — links for each week
+- [Data checklist](reference/data-download-checklist.md) — track what you've downloaded
+
+### Help with QGIS
+- [QGIS quickstart](reference/qgis-quickstart.md) — common operations
+- [Toolbar reference](reference/toolbar.md) — what each tool does
+
+### Capstone project
+- [Capstone introduction](readings/week01-capstone-introduction.md) — overview and timeline
+- [Capstone examples](reference/capstone-examples.md) — past projects
+- [Project checklist](reference/project-checklist.md) — what to submit
+
+### Design
+- [Layout template](reference/layout-template.md) — map layout guide
+- [Design rubric](reference/design-rubric.md) — assessment criteria
+- [Accessibility checklist](reference/accessibility-checklist.md) — make maps accessible
+
+---
+
+## Callout boxes
+
+Throughout the site you'll see:
+
+- **Note boxes:** Important reminders
+- **Tip boxes:** Helpful shortcuts
+- **Warning boxes:** Common mistakes to avoid
+- **Checklists:** Tasks to complete
+
+---
 
 ## Staying organised
 
-- Keep all files inside the `intro-to-gis-course/` workspace described in the download guide. The book assumes that folder layout when referencing paths.
-- Update `resources/docs/data-inventory.md` (in the repository) every time you download or clean a dataset. This record supports reproducibility and helps with capstone documentation.
-- Use Git or another version-control tool if you plan to publish the course material or your project.
+1. **Use the folder structure** from [workspace setup](onboarding/02-workspace-setup.md)
+2. **Save your work** after each session
+3. **Track your data** — note where files came from
+4. **Keep a project log** — decisions, problems, solutions
 
-## Need help?
+---
 
-- QGIS install issues: revisit **Getting Ready ▸ Install QGIS** and the troubleshooting notes.
-- Environment setup: follow the [Anaconda Setup Guide](../onboarding/anaconda-setup.md) to install Python and required packages.
-- Data sourcing: the **Dataset inventory** includes licensing, update cadence, and tips for each source.
-- Still stuck? Collect screenshots/logs and bring them to office hours or the course support channel.
+## Getting help
 
-Return to this guide whenever you need to reorient yourself or explain the structure to new collaborators.
+1. **Check the troubleshooting** section on relevant pages
+2. **Review the reference** materials
+3. **Ask in class** or office hours
+4. **Bring screenshots** of error messages
+
+---
+
+## For Python weeks (7-12)
+
+- Complete [Python setup](onboarding/04-python-setup.md) before Week 7
+- Download notebooks from weekly lab pages
+- Always activate your environment: `conda activate intro-gis`
+- See [Python for GIS reading](readings/week07-python-for-gis.md) for overview

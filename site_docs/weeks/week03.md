@@ -200,7 +200,7 @@ Joins can fail silently. Always verify your results.
 
 ## Support materials
 
-- Slides: [Week 03 – Boundary Systems & Joins](../../assets/slides/week03.html)
+- Slides: [Week 03 lecture deck](../slides/index.md)
 - Reading: [Understanding administrative boundaries](../readings/week03-admin-boundaries.md)
 - Lecture notes: [Boundary Systems & Data Joins](../lectures/week03-boundaries.md)
 - Dataset checklist: [Week 3 items](../reference/data-download-checklist.md)

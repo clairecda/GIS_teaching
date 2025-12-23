@@ -153,7 +153,7 @@ A layout is how you turn your QGIS canvas into a polished map ready for export o
 
 ## Support materials
 
-- Slides: [Week 01 – Foundations of GIS](../../assets/slides/week01.html)
+- Slides: [Week 01 lecture deck](../slides/index.md)
 - Reading: [Understanding GIS](../readings/week01-what-is-gis.md)
 - Cheat sheet: [QGIS Quickstart](../reference/qgis-quickstart.md)
 - Dataset checklist: [Week 1 items](../reference/data-download-checklist.md)
