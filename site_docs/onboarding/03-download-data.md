@@ -1,10 +1,46 @@
 # 3. Download Datasets
 
-Download the data you need before each week's lab. Start with Week 1.
+Download the data you need before each week's lab.
+
+---
+
+## First: Create your workspace
+
+Before downloading anything, create this folder structure on your Desktop:
+
+```
+intro-gis/
+├── data/
+│   ├── raw/        ← Downloaded files go here
+│   └── processed/  ← Cleaned data for analysis
+├── outputs/        ← Your maps and exports
+├── projects/       ← QGIS project files (.qgz)
+└── notebooks/      ← Python notebooks (Week 7+)
+```
+
+=== "Windows"
+    1. Open **File Explorer**
+    2. Go to **Desktop**
+    3. Right-click → **New** → **Folder** → name it `intro-gis`
+    4. Open `intro-gis` and create the subfolders: `data`, `outputs`, `projects`, `notebooks`
+    5. Open `data` and create: `raw`, `processed`
+
+=== "Mac"
+    1. Open **Finder**
+    2. Go to **Desktop**
+    3. File → **New Folder** → name it `intro-gis`
+    4. Create the subfolders inside
+
+=== "Quick (Terminal)"
+    ```bash
+    mkdir -p ~/Desktop/intro-gis/{data/raw,data/processed,outputs,projects,notebooks}
+    ```
 
 ---
 
 ## How to organise downloads
+
+For each week:
 
 1. **Create a week folder** in `data/raw/` (e.g., `data/raw/week01/`)
 2. **Download** files into that folder

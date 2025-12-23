@@ -37,23 +37,16 @@ Now let's run the Week 7 starter notebook to verify everything works.
 
 === "Google Colab"
 
-    1. Click the **Open in Colab** button above
-    2. Sign in with your Google account if prompted
-    3. Run the first cell to install GIS packages:
-       ```python
-       !pip install geopandas rasterio rasterstats osmnx contextily folium -q
-       ```
-    4. Work through the notebook, running each cell with **Shift + Enter**
-    5. Save your work: `File → Save a copy in Drive`
+    1. Click **Open in Colab** above
+    2. Run each cell in order with **Shift + Enter**
+    3. Save your work: `File → Save a copy in Drive`
 
 === "Local (Anaconda)"
 
-    1. Download the notebook and save to `intro-gis/notebooks/`
-    2. Open Anaconda Prompt (Windows) or Terminal (Mac/Linux)
-    3. Activate your environment: `conda activate intro-gis`
-    4. Launch Jupyter: `jupyter lab`
-    5. Open `week07_hello_gis.ipynb` and work through it
-    6. Close when done: `File → Shut Down`
+    1. Create the folder structure from [Data Download Guide](../onboarding/03-download-data.md)
+    2. Download notebook to `intro-gis/notebooks/`
+    3. Run: `conda activate intro-gis` then `jupyter lab`
+    4. Open the notebook and run each cell
 
 **If you completed the notebook, congratulations!** You're ready for Week 8.
 

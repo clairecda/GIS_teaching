@@ -101,6 +101,21 @@ You're ready for Week 7. No terminal commands, no environment setup.
 
 Install Python and packages on your computer for faster performance and offline access.
 
+### Step 0: Create your workspace (if you haven't already)
+
+Make sure you have the folder structure from the [Data Download Guide](03-download-data.md):
+
+```
+Desktop/
+└── intro-gis/
+    ├── data/
+    │   ├── raw/
+    │   └── processed/
+    ├── outputs/
+    ├── projects/
+    └── notebooks/    ← Save notebooks here
+```
+
 ### Step 1: Download Anaconda
 
 1. Go to [anaconda.com/download](https://www.anaconda.com/download)
