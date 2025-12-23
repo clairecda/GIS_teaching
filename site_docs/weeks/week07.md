@@ -57,49 +57,7 @@ Now let's run the Week 7 starter notebook to verify everything works.
 
 **If you completed the notebook, congratulations!** You're ready for Week 8.
 
-### Activity 2: Understanding relative paths
-
-Understanding relative paths is crucial for making your notebooks portable and reproducible.
-
-**Key concept:** When you save a notebook in `intro-gis/notebooks/` and data in `intro-gis/data/`, you need to tell Python how to navigate from one folder to another.
-
-**Folder structure reminder:**
-```
-intro-gis/
-├── notebooks/          ← Your notebook is HERE
-│   └── week08.ipynb
-├── data/               ← Data is HERE
-│   └── processed/
-└── exports/
-```
-
-**To go from `notebooks/` to `data/`:**
-- Go UP one level (`..`) to reach `intro-gis/`
-- Go DOWN into `data/` folder
-
-**In Python:**
-```python
-from pathlib import Path
-
-# Relative path from notebooks/ to data/
-data_path = Path("../data/processed/")
-```
-
-**Why this matters:**
-- ✅ Works on any computer (Mac, Windows, Linux)
-- ✅ Works when you share your notebook with classmates
-- ✅ Works when you move your folder to different locations
-- ❌ Absolute paths like `C:\Users\YourName\Desktop\GIS\data\` only work on YOUR computer
-
-**Best practices:**
-- Always use `Path()` from the `pathlib` module
-- Use relative paths (`../data/`) not absolute paths
-- Keep your folder structure organized
-
-!!! tip "Windows path gotchas"
-    Windows uses backslashes (`\`) but Python uses forward slashes (`/`). Always use forward slashes or `pathlib.Path()` which handles this automatically.
-
-### Activity 3: QGIS to Python workflow mapping
+### Activity 2: QGIS to Python workflow mapping
 
 You'll see how familiar QGIS operations translate to Python code.
 
@@ -126,7 +84,7 @@ You'll see how familiar QGIS operations translate to Python code.
 !!! note "You don't have to choose"
     Most professionals use both tools. QGIS for exploration and prototyping, Python for production workflows. You can even run Python scripts from inside QGIS using the PyQGIS console.
 
-### Activity 4: Reproducibility reflection (optional)
+### Activity 3: Reproducibility reflection (optional)
 
 Think about how you've been organizing your QGIS work over the past six weeks.
 
@@ -178,6 +136,6 @@ Week 8 launches into hands-on Python spatial analysis! You'll use GeoPandas for 
 **To prepare:**
 
 1. Make sure you can run the Week 7 notebook successfully
-2. Review the QGIS-to-Python comparison table from Activity 3
+2. Review the QGIS-to-Python comparison table from Activity 2
 
 Come to Week 8 ready to code!
