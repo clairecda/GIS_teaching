@@ -78,9 +78,53 @@ Download the data you need before each week's lab. Start with Week 1.
 
 ---
 
-## Weeks 7-12 — Python weeks
+## Week 7 — Python setup
 
-Reuse datasets from earlier weeks. Download Jupyter notebooks from the weekly lab pages.
+No new datasets needed. Use Week 3 data to test your environment.
+
+---
+
+## Week 8 — Vector workflows
+
+Reuse your Week 3 or Week 5 data, or use the sample data included in the notebook.
+
+**What you need:**
+
+- Neighbourhood/SA2 polygons (from Week 3)
+- Point data (incidents, facilities, etc.)
+
+!!! tip "Using Colab?"
+    The notebook includes sample data URLs you can load directly. No downloads needed!
+
+---
+
+## Week 9 — Raster & remote sensing
+
+**Option A: Sample data (easiest)**
+
+The notebook includes links to pre-processed Sentinel-2 imagery.
+
+**Option B: Download your own**
+
+1. Go to [Copernicus Browser](https://browser.dataspace.copernicus.eu/)
+2. Create a free account
+3. Draw a small area of interest
+4. Download two images from different dates (before/after)
+5. Save to `data/raw/week09/`
+
+---
+
+## Week 10 — Transport networks
+
+**Street networks:** Downloaded automatically by OSMnx — no manual download needed!
+
+**Facilities:** Reuse health facilities from Week 6, or use sample data in the notebook.
+
+---
+
+## Weeks 11-12 — Design & Capstone
+
+Use outputs from all previous weeks. No new datasets required.
 
 ---
 
