@@ -166,6 +166,49 @@ Pull everything together into a professional map showing terrain context for you
 !!! note "Telling the terrain story"
     Your map should help viewers understand both the physical landscape (what the terrain looks like) and the analytical insight (how terrain relates to boundaries or vulnerability). Use annotations or text boxes to highlight key findings.
 
+## Troubleshooting
+
+### DEM appears as solid gray or black
+- **Stretch symbology:** Right-click raster → **Properties** → **Symbology** → Set Min/Max to "Cumulative count cut" (2-98%)
+- **NoData values:** Large NoData values (-9999) may skew the display. Set NoData color to transparent in Symbology
+- **Single value:** Check raster statistics—the file may be corrupted or empty
+
+### Hillshade is too dark or washed out
+- **Adjust Z-factor:** For data in degrees (geographic CRS), use Z-factor of 0.00001. For meters, use 1
+- **Change altitude:** Lower sun altitude (e.g., 35°) creates more dramatic shadows; higher (e.g., 60°) is softer
+- **Blend modes:** In Layer Properties → Symbology, try "Multiply" blending with the DEM underneath
+
+### Slope values seem wrong
+- **CRS issue:** Slope calculation requires projected CRS (meters). Reproject the DEM first: `Raster ▶ Projections ▶ Warp (Reproject)`
+- **Units:** QGIS outputs slope in degrees by default. For percent, check the tool options
+- **Flat areas:** Very flat terrain (deltas, plains) will show near-zero slope everywhere—this may be correct
+
+### Raster processing is extremely slow
+- **File too large:** Clip to study area first: `Raster ▶ Extraction ▶ Clip Raster by Mask Layer`
+- **High resolution:** Resample to lower resolution for testing: `Raster ▶ Projections ▶ Warp` with larger cell size
+- **Close other apps:** Raster processing is memory-intensive
+
+### "Clip Raster" produces empty or tiny output
+- **CRS mismatch:** Clip layer and raster must be in the same CRS
+- **Extent issue:** Make sure the mask layer actually overlaps the raster
+- **NoData handling:** Check "Create output alpha band" if edges appear clipped incorrectly
+
+### Raster doesn't align with vector boundaries
+- **Different CRS:** Reproject one layer to match the other
+- **On-the-fly projection:** QGIS may display them aligned, but they're not. Check actual CRS in layer properties
+- **Datum shift:** Some older data uses different datums (e.g., AGD66 vs GDA94 in Australia)
+
+### Zonal statistics returns NULL or wrong values
+- **No overlap:** Vector polygons may not overlap the raster extent
+- **CRS mismatch:** Both layers must be in the same CRS
+- **NoData cells:** If polygons cover mostly NoData areas, statistics will be empty
+- **Raster not loaded:** Make sure the raster is added to the project, not just referenced
+
+### Export creates huge file
+- **Compression:** When exporting, use "LZW" or "DEFLATE" compression in Advanced options
+- **Reduce extent:** Clip to only the area you need
+- **Lower resolution:** Resample to 30m or 90m if you don't need 10m detail
+
 ## Support materials
 
 - Slides: [Week 04 – Raster & Terrain Analysis](../slides/index.md)

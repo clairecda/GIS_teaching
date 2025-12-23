@@ -151,6 +151,42 @@ A layout is how you turn your QGIS canvas into a polished map ready for export o
 !!! tip "Practice makes perfect"
     Layouts can feel fiddly at first. Don't worry about making it perfect—you'll get lots of practice in Week 2.
 
+## Troubleshooting
+
+### QGIS won't launch or crashes on startup
+- **Mac:** Right-click the app → Open (bypasses Gatekeeper security warning the first time)
+- **Windows:** Run as Administrator if you get permission errors
+- **All platforms:** Delete the QGIS user profile folder to reset settings:
+  - Windows: `C:\Users\[username]\AppData\Roaming\QGIS\QGIS3\`
+  - Mac: `~/Library/Application Support/QGIS/QGIS3/`
+  - Linux: `~/.local/share/QGIS/QGIS3/`
+
+### Layer doesn't appear on the map
+- **Check visibility:** Is the checkbox ticked in the Layers panel?
+- **Check layer order:** Drag layers up/down—polygons should be below points
+- **Zoom to layer:** Right-click layer → **Zoom to Layer** to find it
+- **Check CRS:** If the layer is in a different CRS, it may appear in the wrong location. Right-click → **Properties** → **Source** to see the CRS
+
+### "Layer is not valid" error when adding data
+- **File path issue:** Move files out of folders with special characters or spaces
+- **Missing components:** Shapefiles need all companion files (.shp, .shx, .dbf, .prj) in the same folder
+- **Corrupted download:** Re-download the file
+
+### Attribute table is empty or shows wrong data
+- **Check the right layer:** Make sure you opened the correct layer's attribute table
+- **Encoding issue:** Try `Layer Properties ▶ Source ▶ Data source encoding` → change to UTF-8
+
+### Can't find a tool or panel
+- **Panels:** `View ▶ Panels` → check the panel you need
+- **Toolbars:** `View ▶ Toolbars` → check the toolbar you need
+- **Processing Toolbox:** `Processing ▶ Toolbox` or press `Ctrl+Alt+T`
+- **Reset interface:** `Settings ▶ Options ▶ System ▶ Reset user interface to default`
+
+### Project won't save or gives errors
+- **Invalid path:** Avoid special characters in folder/file names
+- **Permissions:** Make sure you have write access to the folder
+- **Relative paths:** Check `Project ▶ Properties ▶ General ▶ Save paths` is set to "Relative"
+
 ## Support materials
 
 - Slides: [Week 01 lecture deck](../slides/index.md)

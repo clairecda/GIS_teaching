@@ -198,6 +198,40 @@ Joins can fail silently. Always verify your results.
 !!! note "Boundary correspondence files"
     When boundaries change between census years, use correspondence files from ABS (Australia) or Census Bureau (US) to map old codes to new codes.
 
+## Troubleshooting
+
+### Join shows 0 matched features
+- **Field names don't match:** Check exact spelling, case, and spaces in both layers
+- **Data types differ:** One field is text, the other is number. Convert using Field Calculator: `to_string("numeric_field")` or `to_int("text_field")`
+- **Leading zeros stripped:** Excel often removes leading zeros from codes. Re-import CSV with the field formatted as text
+- **Different vintages:** 2016 census codes won't match 2021 boundary codes exactly
+
+### Join shows partial matches (some NULL values)
+- **Spelling variations:** "Sydney (City)" vs "City of Sydney" won't match
+- **Extra spaces:** Use `trim("field_name")` in Field Calculator to remove
+- **Missing records:** Some areas may genuinely have no data (e.g., unpopulated regions)
+- **Check unmatched:** After joining, filter for NULL values to see which records failed
+
+### Joined fields disappear after saving
+- **Temporary join:** By default, joins are stored in the project, not the layer. To make permanent:
+  1. Right-click the joined layer → **Export** → **Save Features As...**
+  2. Save as GeoPackage to `data/processed/week03/`
+  3. Add the new permanent layer to your project
+
+### Field Calculator expression errors
+- **Syntax error:** Check quotes—field names use double quotes `"field"`, text values use single quotes `'value'`
+- **Division by zero:** Wrap calculations in `CASE WHEN "population" > 0 THEN ... ELSE 0 END`
+- **NULL values:** Use `coalesce("field", 0)` to replace NULL with zero
+
+### Choropleth map looks wrong after join
+- **Wrong field:** Make sure you're mapping the joined field, not the original
+- **NULL values showing:** Set a default color for NULL/no data values in Symbology
+- **Classification method:** Try different methods (Quantile vs Natural Breaks) to see patterns
+
+### Attribute table shows field names like "layer_field"
+- **Join prefix:** QGIS adds the source layer name as a prefix. You can rename after exporting to a permanent layer
+- **Too many fields:** After joining, export only the fields you need to keep the table clean
+
 ## Support materials
 
 - Slides: [Week 03 lecture deck](../slides/index.md)

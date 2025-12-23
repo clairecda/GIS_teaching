@@ -192,6 +192,40 @@ Make sure your map is readable by everyone, including those with color vision de
 4. Write alt text (for future web publication):
    - Draft a one-sentence description: "Choropleth map showing renewable energy share ranges from <5% (yellow) to >40% (dark blue), with highest adoption in Northern Europe and lowest in fossil fuel-producing nations."
 
+## Troubleshooting
+
+### Graduated symbology shows no variation (all one color)
+- **Wrong field selected:** Make sure you selected a numeric field, not text
+- **All values are the same:** Check the attribute table—does the column have variation?
+- **Click Classify:** You must click the "Classify" button after changing settings
+- **Data type issue:** If values imported as text, use Field Calculator to convert: `to_real("field_name")`
+
+### Labels overlap or are unreadable
+- **Enable placement engine:** `Layer Properties ▶ Labels ▶ Rendering ▶ Check "Show all labels for this layer"`
+- **Use automated placement:** Try `Placement ▶ Mode ▶ Free (Angled)` or `Around Point`
+- **Add background:** `Labels ▶ Background ▶ Enable` with white fill and small buffer
+- **Scale-dependent visibility:** Set labels to appear only at certain zoom levels in `Rendering ▶ Scale-dependent visibility`
+
+### Color ramp doesn't look right
+- **Inverted colors:** Click the dropdown arrow next to the color ramp → "Invert Color Ramp"
+- **Wrong number of classes:** Adjust the "Classes" number and re-classify
+- **Custom colors needed:** Click on individual class symbols to change colors manually
+
+### Print Layout issues
+- **Map doesn't update:** Click **Refresh** or check "Lock layers" is unchecked in Map Item Properties
+- **Legend shows wrong items:** In Legend Properties, uncheck "Auto update" and manually remove/rename entries
+- **Scale bar is wrong:** Check the map item's scale in properties, or set a specific scale
+- **Export is blurry:** Increase DPI to 300 for print quality in Export settings
+
+### Can't find Layout Manager
+- **Open it:** `Project ▶ Layout Manager` or `Project ▶ New Print Layout`
+- **Layouts not saving:** Layouts are saved within the .qgz project file—save your project
+
+### CSV data won't join to shapefile
+- **Field type mismatch:** Country names must match exactly (case-sensitive)
+- **Encoding issues:** Re-import CSV with UTF-8 encoding
+- **Extra spaces:** Use Field Calculator to trim: `trim("field_name")`
+
 ## Support materials
 
 - Slides: [Week 02 lecture deck](../slides/index.md)
