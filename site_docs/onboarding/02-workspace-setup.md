@@ -14,17 +14,12 @@ Create a folder structure to keep your course files organised. This takes 5 minu
 ```
 intro-gis/
 ├── data/
-│   ├── week01/       ← Data for Week 1 exercises
-│   ├── week02/       ← Data for Week 2 exercises
-│   ├── ...           ← (create folders as needed each week)
-│   └── week12/
+│   ├── raw/          ← Downloaded files go here (never edit these!)
+│   └── processed/    ← Your cleaned/modified data goes here
 ├── projects/         ← QGIS project files (.qgz)
 ├── exports/          ← Your map outputs (PNG, PDF)
 └── notebooks/        ← Python notebooks (Week 7+)
 ```
-
-!!! tip "Create folders as you go"
-    You don't need all week folders now. Create `week01/` today, then add `week02/` next week, and so on.
 
 ---
 
@@ -64,32 +59,22 @@ Your folder now appears under Favorites. Double-click to expand it and see your 
 
 ---
 
-## Tips
+## The raw/processed rule
 
-- **Keep original downloads** — if you modify data, save with a new name (e.g., `suburbs_cleaned.gpkg`)
-- **Use clear names** — `week03_seifa_join.gpkg` not `data_final_v2.gpkg`
-- **One project per week** — easier to find things later
+This is the most important habit you'll learn:
+
+- **`raw/`** — Put downloaded files here. Never edit them. If you mess up, you can always re-download.
+- **`processed/`** — Save any modified data here. Use clear names like `suburbs_joined.gpkg` or `crime_filtered.gpkg`.
+
+**Why?** Real GIS work requires tracing your data back to its source. If someone asks "where did this number come from?", you need to show the original file and the steps you took. Start this habit now—it will serve you throughout your career.
 
 ---
 
-## For your capstone project
+## Tips
 
-Your capstone is different from weekly exercises—it's a real project where data management matters more. Create a separate structure:
-
-```
-intro-gis/
-├── data/
-│   └── week01/ ... week12/    ← Weekly exercises (as above)
-└── capstone/
-    ├── data/
-    │   ├── raw/               ← Original downloads (never edit!)
-    │   └── processed/         ← Your cleaned/modified data
-    ├── maps/                  ← Exported visualisations
-    ├── notebooks/             ← Python analysis
-    └── project.qgz            ← QGIS project file
-```
-
-**Why raw/processed for capstone?** When doing real analysis, you need to preserve original data so you can always trace back to the source. Weekly exercises are for learning—capstone is for demonstrating professional practice.
+- **Never edit files in `raw/`** — always save changes to `processed/`
+- **Use clear names** — `week03_seifa_join.gpkg` not `data_final_v2.gpkg`
+- **One project per week** — easier to find things later
 
 ---
 

@@ -62,14 +62,14 @@ This is the most important thing to understand:
 
 ### Step 1: Set up your Google Drive folder
 
-Before opening any notebooks, organize your Google Drive:
+Before opening any notebooks, organize your Google Drive to mirror your local folder:
 
 1. Go to [drive.google.com](https://drive.google.com)
 2. Click **+ New** → **New folder**
 3. Name it exactly: `intro-gis`
 4. Open the `intro-gis` folder
 5. Create a subfolder called `data`
-6. Inside `data`, create folders for each week: `week07`, `week08`, `week09`, `week10`
+6. Inside `data`, create two folders: `raw` and `processed`
 
 Your Drive should look like this:
 
@@ -77,13 +77,11 @@ Your Drive should look like this:
 My Drive/
 └── intro-gis/
     └── data/
-        ├── week07/
-        ├── week08/
-        ├── week09/
-        └── week10/
+        ├── raw/          ← Upload downloaded files here
+        └── processed/    ← Save modified data here
 ```
 
-**Upload your data files** to the appropriate week folder. For example, Week 8 needs `neighbourhoods.geojson` and `incidents.geojson` in `data/week08/`.
+**Upload your data files** to `data/raw/`. For example, Week 8 needs `neighbourhoods.geojson` and `incidents.geojson` in `data/raw/`.
 
 ---
 
@@ -226,18 +224,16 @@ Install Python and packages on your computer for faster performance and offline 
 
 ### Step 0: Create your workspace
 
-Make sure you have the folder structure from the [Data Download Guide](03-download-data.md):
+Make sure you have the folder structure from the [Workspace Setup](02-workspace-setup.md):
 
 ```
 Desktop/
 └── intro-gis/
     ├── data/
-    │   ├── week07/
-    │   ├── week08/
-    │   ├── week09/
-    │   └── week10/
-    ├── outputs/
-    └── notebooks/    ← Save notebooks here
+    │   ├── raw/          ← Downloaded files
+    │   └── processed/    ← Modified data
+    ├── exports/
+    └── notebooks/        ← Save notebooks here
 ```
 
 ### Step 1: Download Anaconda
