@@ -2,6 +2,90 @@
 
 This reading introduces spatial autocorrelation and spatial regression—essential concepts for capstone projects that analyze relationships between variables across space.
 
+**No statistics background?** Start with the "What is regression?" section below. If you're comfortable with basic regression, skip to "Why spatial data is different."
+
+---
+
+## What is regression?
+
+Regression answers a simple question: **Does X predict Y?**
+
+### The basic idea
+
+Imagine you have data on 100 neighbourhoods: their poverty rates and their crime rates. You want to know: do areas with higher poverty tend to have higher crime?
+
+You could make a scatter plot—poverty on the x-axis, crime on the y-axis, one dot per neighbourhood. Regression draws the **best-fit line** through those dots.
+
+```
+Crime rate
+    │                    •  •
+    │                 •  • •
+    │              • •• •
+    │           • • •
+    │        •• •
+    │      • •
+    │    •
+    └──────────────────────── Poverty rate
+
+    The line shows: as poverty increases, crime tends to increase
+```
+
+### What regression tells you
+
+When you run a regression, you get:
+
+| Output | What it means | Example |
+|--------|---------------|---------|
+| **Coefficient** | How much Y changes when X increases by 1 | "For each 1% increase in poverty, crime increases by 2.3 incidents per 1000 people" |
+| **p-value** | Is this relationship real or just random chance? | p < 0.05 means it's probably real (statistically significant) |
+| **R²** | How much of the variation in Y does X explain? | R² = 0.45 means poverty explains 45% of the differences in crime rates |
+
+### Multiple regression
+
+Usually we want to include **multiple predictors**. Maybe crime depends on poverty AND unemployment AND population density:
+
+```
+crime = β₀ + β₁(poverty) + β₂(unemployment) + β₃(density) + error
+```
+
+- **β₀** (beta-zero) is the baseline (crime rate when all predictors are zero)
+- **β₁, β₂, β₃** are coefficients showing each predictor's effect
+- **error** is what's left over—the variation we can't explain
+
+Each coefficient tells you: "Holding everything else constant, how much does crime change when this one variable increases by 1?"
+
+### What regression does NOT tell you
+
+**Correlation is not causation.** If poverty and crime are correlated, that doesn't prove poverty *causes* crime. Maybe:
+
+- Both are caused by something else (historical disinvestment, job losses)
+- The relationship is more complex (feedback loops, thresholds)
+- Other unmeasured factors matter more
+
+Regression shows **associations**, not causes. Be careful with language: say "is associated with" rather than "causes."
+
+### A concrete example
+
+You run a regression predicting neighbourhood crime rates:
+
+```
+Results:
+                  Coefficient   Std.Error   p-value
+CONSTANT             5.2          1.8        0.004
+poverty_rate         2.3          0.4        0.000
+unemployment         1.1          0.5        0.028
+median_income       -0.8          0.3        0.008
+
+R² = 0.52
+```
+
+**How to interpret:**
+
+- **poverty_rate = 2.3 (p < 0.001)**: A 1-percentage-point increase in poverty is associated with 2.3 more crimes per 1000 people. This is statistically significant.
+- **unemployment = 1.1 (p = 0.028)**: A 1-percentage-point increase in unemployment is associated with 1.1 more crimes. Significant at the 0.05 level.
+- **median_income = -0.8 (p = 0.008)**: Higher income is associated with less crime. Each $1000 increase in median income is associated with 0.8 fewer crimes.
+- **R² = 0.52**: These three variables together explain 52% of the variation in crime rates. The other 48% is due to factors we didn't measure.
+
 ---
 
 ## Why spatial data is different
