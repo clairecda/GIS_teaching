@@ -12,6 +12,39 @@ We explore how geographic access to healthcare shapes health equity outcomes. Yo
 ## Key vocabulary
 Health equity · accessibility · isochrone · service area · catchment · two-step floating catchment area (2SFCA) · SEIFA · social vulnerability index (SVI) · ARIA+ · drive-time analysis · network analysis.
 
+## Access is more than distance
+
+Accessibility analysis can identify geographic gaps in service coverage—but "access" in lived experience involves far more than what a road network can measure.
+
+**What isochrones can't see:**
+
+- **Transport access:** A 15-minute drive assumes car ownership. What about people who rely on public transit, walking, or rides from others?
+- **Financial barriers:** A clinic within 10 minutes is not "accessible" if the consultation costs a week's wages or requires insurance you don't have
+- **Language and cultural barriers:** Services may be geographically close but functionally distant if providers don't speak your language or understand your cultural context
+- **Time poverty:** Working multiple jobs, caring for family members, or navigating bureaucracy all reduce the "time budget" available for healthcare
+- **Trust and historical harm:** Communities with histories of medical mistreatment may avoid services regardless of proximity
+
+**Whose definition of "access"?**
+
+- Accessibility metrics often reflect assumptions from dominant groups: car ownership, standard work hours, English proficiency
+- "Underserved" areas may have rich informal support systems invisible to official data
+- Indigenous communities may prioritize traditional health practices alongside or instead of Western medicine
+
+**From deficit to action:**
+
+How we frame findings matters. Compare:
+
+- **Deficit framing:** "These communities lack access to healthcare" (implies the community is deficient)
+- **Action framing:** "Healthcare investment has not reached these communities" (identifies where action is needed)
+
+The second framing correctly locates the problem in systems and decisions, not in the people affected.
+
+**Questions to carry forward:**
+
+- What would residents of this area say about their healthcare access? What would they add to this map?
+- What barriers exist that my road network analysis cannot detect?
+- How can I communicate findings in ways that support action rather than stigmatize communities?
+
 ## What happens in class
 - Frame health equity through social determinants of health and discuss why location matters, using Australian rural/metropolitan examples.
 - Compare accessibility metrics side-by-side: simple buffers vs. drive-time zones vs. gravity models, noting data requirements and assumptions.
