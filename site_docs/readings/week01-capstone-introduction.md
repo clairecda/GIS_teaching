@@ -89,19 +89,23 @@ Start looking for data in Week 1. Good sources:
 
 ## Project structure
 
-Organise your capstone folder from Week 1:
+Your capstone has its own folder, separate from weekly exercises. Create this structure:
 
 ```
 intro-gis/
-├── capstone/
-│   ├── data/
-│   │   ├── raw/           ← Original downloads
-│   │   └── processed/     ← Cleaned data
-│   ├── maps/              ← Exported visualisations
-│   ├── notebooks/         ← Python analysis (Weeks 7+)
-│   ├── project.qgz        ← QGIS project file
-│   └── notes.md           ← Progress notes, decisions
+├── data/
+│   └── week01/ ... week12/    ← Weekly exercise data
+└── capstone/
+    ├── data/
+    │   ├── raw/               ← Original downloads (never edit!)
+    │   └── processed/         ← Cleaned/modified data
+    ├── maps/                  ← Exported visualisations
+    ├── notebooks/             ← Python analysis (Weeks 7+)
+    ├── project.qgz            ← QGIS project file
+    └── notes.md               ← Progress notes, decisions
 ```
+
+**Why raw/processed?** Unlike weekly exercises, your capstone is a real project. Keeping original data separate means you can always trace back to the source—essential for reproducibility.
 
 ---
 

@@ -14,12 +14,17 @@ Create a folder structure to keep your course files organised. This takes 5 minu
 ```
 intro-gis/
 ├── data/
-│   ├── raw/          ← Downloaded files go here
-│   └── processed/    ← Cleaned/filtered data goes here
+│   ├── week01/       ← Data for Week 1 exercises
+│   ├── week02/       ← Data for Week 2 exercises
+│   ├── ...           ← (create folders as needed each week)
+│   └── week12/
 ├── projects/         ← QGIS project files (.qgz)
 ├── exports/          ← Your map outputs (PNG, PDF)
 └── notebooks/        ← Python notebooks (Week 7+)
 ```
+
+!!! tip "Create folders as you go"
+    You don't need all week folders now. Create `week01/` today, then add `week02/` next week, and so on.
 
 ---
 
@@ -61,9 +66,30 @@ Your folder now appears under Favorites. Double-click to expand it and see your 
 
 ## Tips
 
-- **Keep raw data untouched** — work from copies in `processed/`
+- **Keep original downloads** — if you modify data, save with a new name (e.g., `suburbs_cleaned.gpkg`)
 - **Use clear names** — `week03_seifa_join.gpkg` not `data_final_v2.gpkg`
 - **One project per week** — easier to find things later
+
+---
+
+## For your capstone project
+
+Your capstone is different from weekly exercises—it's a real project where data management matters more. Create a separate structure:
+
+```
+intro-gis/
+├── data/
+│   └── week01/ ... week12/    ← Weekly exercises (as above)
+└── capstone/
+    ├── data/
+    │   ├── raw/               ← Original downloads (never edit!)
+    │   └── processed/         ← Your cleaned/modified data
+    ├── maps/                  ← Exported visualisations
+    ├── notebooks/             ← Python analysis
+    └── project.qgz            ← QGIS project file
+```
+
+**Why raw/processed for capstone?** When doing real analysis, you need to preserve original data so you can always trace back to the source. Weekly exercises are for learning—capstone is for demonstrating professional practice.
 
 ---
 
