@@ -14,7 +14,6 @@ By the end of this week, you'll be able to:
 
 - [ ] Reopen your Week 1 project and ensure Natural Earth layers load correctly
 - [ ] Bring an inspirational map to share (digital or printed)—note one design element you appreciate
-- [ ] Read: [Map Design Basics](../readings/week02-map-design-basics.md)
 - [ ] Review the lecture: [Cartographic Conventions & Colour](../lectures/week02-cartography.md)
 - [ ] Download Week 2 datasets (renewable energy CSV, world cities) via [Downloading datasets](../onboarding/03-download-data.md)
 - [ ] Check off Week 2 items in the [data download checklist](../reference/data-download-checklist.md)
@@ -40,22 +39,48 @@ Before diving into technical skills, let's build design awareness by looking at 
 
 You'll join renewable energy data to countries and experiment with different classification methods to see how they change the story.
 
+!!! info "What is a CSV file?"
+    CSV (Comma-Separated Values) is a simple spreadsheet format. It's just a text file where each line is a row and commas separate columns. You can open CSVs in Excel, Google Sheets, or any text editor.
+
+    Unlike shapefiles, CSVs don't have geometry (shapes)—they're just data tables. To map CSV data, you either:
+
+    - **Join** it to a layer that already has geometry (like country boundaries)
+    - Load it with **coordinates** if it has latitude/longitude columns
+
 **Steps:**
 
 1. Download the renewable energy CSV (see pre-work checklist)
-2. Load it as a delimited text layer (no geometry needed yet):
+2. Load it as a delimited text layer:
    - `Layer ▶ Add Layer ▶ Add Delimited Text Layer`
-   - **File name:** `resources/data/processed/week02/renewable_energy.csv`
+   - **File name:** browse to your CSV file
    - **Geometry definition:** set to **No geometry (attribute table only)**
    - Click **Add**, then **Close**
-3. Join it to your Natural Earth countries layer:
+
+!!! tip "What does 'delimited' mean?"
+    "Delimited" means the columns are separated by a character—usually commas (CSV) or tabs (TSV). QGIS detects this automatically.
+
+3. Join the CSV data to your countries layer:
+
+!!! info "What is a join?"
+    A join connects two tables using a matching code. Think of it like a lookup:
+
+    - Your **CSV** has data: `AUS → 25% renewable`
+    - Your **shapefile** has shapes: `AUS → [Australia polygon]`
+    - The **join** combines them: `AUS → [Australia polygon] + 25% renewable`
+
+    The code must match exactly. "AUS" won't match "Australia" or "aus".
+
    - Right-click countries layer → **Properties** → **Joins** tab
    - Click **+** to add a join
-   - **Join layer:** renewable energy CSV
-   - **Join field:** ISO code (or country code field)
-   - **Target field:** ISO_A3 (in Natural Earth layer)
+   - **Join layer:** your renewable energy CSV
+   - **Join field:** the column in the CSV with country codes (e.g., "ISO_A3" or "code")
+   - **Target field:** the matching column in Natural Earth (usually "ISO_A3")
    - Click OK
-4. Open the attribute table and verify new fields appear (renewable percentage, capacity, etc.)
+
+4. Verify the join worked:
+   - Open the attribute table (right-click layer → Open Attribute Table)
+   - Scroll right—you should see new columns from the CSV
+   - If columns show NULL/blank, the codes didn't match (check spelling and capitalization)
 5. Apply **Graduated** symbology:
    - Layer Properties → Symbology → Graduated
    - **Value:** renewable energy percentage field
@@ -69,6 +94,47 @@ You'll join renewable energy data to countries and experiment with different cla
 
 !!! note "No single right answer"
     Classification method choice depends on your data distribution and your message. Quantile ensures visual balance but can group very different values. Natural Breaks highlights genuine clusters but can create uneven class sizes.
+
+### Activity 2.5: Classification as choice
+
+Classification methods determine how your map groups data—and different methods tell different stories about the same numbers. This activity makes that visible.
+
+**The question to carry through this exercise:** Who decided these groupings, and what does each choice emphasize?
+
+**Steps:**
+
+1. With your renewable energy choropleth visible, note your current classification method and the class breaks shown in the legend
+2. Take screenshots of all three versions (you may already have them from Activity 2):
+
+   **Version A: Quantile (Equal Count)**
+   - Classes: 5, Mode: Quantile
+   - Note which countries fall into each class
+
+   **Version B: Equal Interval**
+   - Classes: 5, Mode: Equal Interval
+   - Note the legend values
+
+   **Version C: Natural Breaks (Jenks)**
+   - Classes: 5, Mode: Natural Breaks
+   - Note how breaks differ from the other methods
+
+3. Find a country with 15-20% renewable energy (like Germany or Japan) and check which class it falls into for each method. Does it appear "above average," "below average," or "middle"?
+
+4. Answer these questions:
+   - Which method makes differences between countries look **largest**?
+   - Which method makes a country with 15% renewable look **best**? **Worst**?
+   - If you were advocating for increased renewable investment, which method would support your argument?
+
+!!! tip "The point isn't that maps lie"
+    Maps don't lie—they answer specific questions. The skill is recognizing WHICH question each classification answers:
+
+    - **Quantile:** "How does each country rank relative to others?"
+    - **Equal Interval:** "How do countries compare to an absolute scale?"
+    - **Natural Breaks:** "Where are the natural clusters in this data?"
+
+    Choose based on your question—and be explicit about your choice when presenting.
+
+**Reflection prompt:** In your Week 2 reflection, describe how classification choice changed the story. Which method did you choose for your final map, and why?
 
 ### Activity 3: Add labels for major world cities
 
@@ -229,7 +295,6 @@ Make sure your map is readable by everyone, including those with color vision de
 ## Support materials
 
 - Slides: [Week 02 lecture deck](../slides/index.md)
-- Reading: [Map Design Basics](../readings/week02-map-design-basics.md)
 - Template: [Layout template guide](../reference/layout-template.md)
 - Toolbar reference: [Quick styling tools](../reference/toolbar.md)
 - Dataset checklist: [Week 2 items](../reference/data-download-checklist.md)

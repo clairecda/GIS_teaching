@@ -44,8 +44,23 @@ For each week:
 
 1. **Create a week folder** in `data/raw/` (e.g., `data/raw/week01/`)
 2. **Download** files into that folder
-3. **Extract** ZIP files in place
+3. **Extract** ZIP files (see below)
 4. **Keep originals** — work from copies in `data/processed/` when editing
+
+### How to extract ZIP files
+
+ZIP files are compressed (like a folder stuffed into an envelope). You must extract them before QGIS can read the data inside.
+
+=== "Windows"
+    1. Right-click the ZIP file
+    2. Click **Extract All...**
+    3. Choose the same folder (e.g., `data/raw/week01/`)
+    4. Click **Extract**
+
+=== "Mac"
+    1. Double-click the ZIP file
+    2. It automatically extracts to a new folder
+    3. (Optional) Delete the original .zip file to avoid confusion
 
 ---
 
@@ -58,6 +73,18 @@ For each week:
 3. Download the **1:110m** scale (small file, good for learning)
 4. Save to `data/raw/week01/` and extract the ZIP
 5. You should see files ending in `.shp`, `.dbf`, `.shx`, `.prj`
+
+!!! info "What are all these files?"
+    A "shapefile" is actually 4+ files that work together:
+
+    | File | What it contains |
+    |------|------------------|
+    | `.shp` | The shapes (geometry) |
+    | `.dbf` | The data table (attributes) |
+    | `.shx` | Index for fast access |
+    | `.prj` | Coordinate system info |
+
+    **Keep all files together!** If you delete or move just one, QGIS can't read the data. When you load data in QGIS, you only click the `.shp` file—QGIS finds the others automatically.
 
 ---
 

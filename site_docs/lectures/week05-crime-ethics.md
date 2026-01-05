@@ -20,8 +20,8 @@ Kernel density estimation (KDE) · hotspot · bandwidth · search radius · crim
 - Review privacy-preserving techniques such as coordinate jittering and hex bin aggregation.
 
 ## Prepare beforehand
-- Download the crime dataset for Week 5 from the [data download guide](../onboarding/data-downloads.md).
-- Read [Crime Mapping Ethics](../readings/week05-crime-ethics.md) and note discussion questions.
+- Download the crime dataset for Week 5 from the [data download guide](../onboarding/03-download-data.md).
+- Read [Ethics in Spatial Analysis](../readings/week05-ethics-in-mapping.md) and note discussion questions.
 - Review the [Week 5 lab](../weeks/week05.md) to understand the KDE workflow.
 
 ## Connected lab

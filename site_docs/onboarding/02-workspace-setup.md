@@ -25,11 +25,16 @@ intro-gis/
 
 ## Connect the folder in QGIS
 
+Adding your folder to Favorites lets you quickly access it without navigating through your whole computer each time.
+
 1. Open QGIS
-2. In the **Browser** panel (left side), find **Favorites**
-3. Right-click **Favorites** > **Add a Directory...**
-4. Select your `intro-gis/data` folder
-5. Now you can quickly access your data from QGIS
+2. Find the **Browser** panel on the left side of the screen
+3. Look for **Favorites** (usually near the top, with a star icon ⭐)
+4. Right-click **Favorites** → **Add a Directory...**
+5. Navigate to and select your `intro-gis/data` folder
+6. Click **Select Folder** (Windows) or **Open** (Mac)
+
+Your folder now appears under Favorites. Double-click to expand it and see your data files.
 
 ---
 
@@ -38,9 +43,19 @@ intro-gis/
 1. In QGIS, go to **Project > Save As...**
 2. Navigate to your `intro-gis/projects/` folder
 3. Name it `week01.qgz`
-4. Check **Save paths: relative** in project properties
+4. Before saving, go to **Project > Properties > General**
+5. Under "Save paths", select **Relative**
+6. Click **OK**, then save your project
 
-This keeps your project portable between computers.
+!!! info "What are relative paths?"
+    When QGIS saves your project, it remembers where your data files are. There are two ways to store this:
+
+    - **Absolute path:** `C:\Users\Claire\Desktop\intro-gis\data\countries.shp`
+    - **Relative path:** `..\data\countries.shp` (means "go up one folder, then into data")
+
+    **Why relative is better:** If you move your `intro-gis` folder to another location (or another computer), relative paths still work because they describe where files are *relative to the project*. Absolute paths break because the exact location changed.
+
+    **Rule of thumb:** Always use relative paths if your data is inside your project folder.
 
 ---
 

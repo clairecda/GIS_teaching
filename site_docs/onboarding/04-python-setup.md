@@ -27,14 +27,31 @@ You need a Google account to use Colab. If you have Gmail, you're already set.
 
 ### Step 3: Install GIS packages
 
-Colab doesn't have GIS packages pre-installed. Run this cell at the top of each notebook:
+Colab comes with basic Python, but not with GIS tools. You need to install them.
+
+**What is `pip install`?**
+
+`pip` is Python's package manager—it downloads and installs code libraries that other people wrote. When you run `pip install geopandas`, you're downloading the GeoPandas library (for working with maps) from the internet.
+
+Run this cell at the top of each notebook:
 
 ```python
 # Run this first in Colab
 !pip install geopandas rasterio rasterstats osmnx contextily folium -q
 ```
 
-This takes about 1-2 minutes. You'll need to run it each time you open a notebook (Colab environments reset).
+| Package | What it does |
+|---------|--------------|
+| `geopandas` | Read/write/analyze spatial data (like shapefiles) |
+| `rasterio` | Work with raster images (satellite data, DEMs) |
+| `osmnx` | Download street networks from OpenStreetMap |
+| `contextily` | Add basemaps to your plots |
+| `folium` | Create interactive web maps |
+
+This takes about 1-2 minutes. The `-q` means "quiet" (less output text).
+
+!!! warning "You must run this every session"
+    Colab environments reset when you close the tab or after ~90 minutes of inactivity. Each time you reconnect, run the pip install cell again.
 
 ### Step 4: Access your data
 
@@ -53,23 +70,46 @@ Colab runs in the cloud, so you need to get your data files into the Colab envir
 
 === "Option 2: Google Drive (persistent)"
 
-    Mount your Google Drive to access files that persist between sessions:
+    Connect your Google Drive so files stay saved between sessions.
 
+    **Step 1: First, organize your Drive**
+
+    1. Open [Google Drive](https://drive.google.com) in a new tab
+    2. Click **+ New** → **New folder**
+    3. Name it `intro-gis`
+    4. Upload your data files into this folder
+
+    **Step 2: Mount Drive in Colab**
+
+    1. In your Colab notebook, create a new code cell
+    2. Type this code:
     ```python
     from google.colab import drive
     drive.mount('/content/drive')
     ```
+    3. Run the cell (Shift + Enter)
+    4. A popup appears asking permission — click **Connect to Google Drive**
+    5. Choose your Google account
+    6. Click **Allow** to give Colab access
+    7. When successful, you'll see: `Mounted at /content/drive`
 
-    Click the link, authorize access, and your Drive appears at `/content/drive/MyDrive/`.
+    **Step 3: Access your files**
 
-    **To use files from Drive:**
+    Your Drive files are now at `/content/drive/MyDrive/`. To load a file:
     ```python
     # If your file is in Drive > intro-gis > data
     gdf = gpd.read_file("/content/drive/MyDrive/intro-gis/data/boundaries.geojson")
     ```
 
-    !!! tip "Recommended for larger projects"
-        Store your course data in a `intro-gis` folder on Google Drive. Files persist and you can access them from any device.
+    **How to find the correct path:**
+
+    1. Click the **folder icon** (📁) in Colab's left sidebar
+    2. Click **drive** → **MyDrive** → navigate to your file
+    3. Right-click the file → **Copy path**
+    4. Paste the path in your code
+
+    !!! tip "Best for larger projects"
+        Files in Drive persist forever. You won't need to re-upload each session.
 
 === "Option 3: Load from URL (no upload needed)"
 
@@ -151,19 +191,44 @@ Desktop/
 
 ### Step 3: Create your GIS environment
 
-Open your terminal:
-- **Windows:** Search for "Anaconda Prompt" in Start menu
-- **Mac/Linux:** Open Terminal
+**What is an environment?**
 
-Run these commands:
+An environment is like a separate workspace for Python. It keeps this course's packages isolated from other Python projects. If something breaks, you can delete the environment and start fresh without affecting anything else.
+
+**Open your terminal:**
+
+- **Windows:** Click Start, search for "**Anaconda Prompt**" (not regular Command Prompt!)
+- **Mac:** Open **Terminal** (Applications > Utilities > Terminal)
+- **Linux:** Open your terminal application
+
+**Run these commands one at a time:**
 
 ```bash
+# Step 1: Create a new environment called "intro-gis" with Python 3.11
 conda create -n intro-gis python=3.11 -y
+
+# Step 2: Activate (switch to) this environment
 conda activate intro-gis
+
+# Step 3: Install GIS packages into this environment
 conda install -c conda-forge geopandas rasterio rioxarray osmnx networkx rasterstats contextily folium jupyter jupyterlab matplotlib seaborn -y
 ```
 
-This downloads about 500 MB and takes 5-15 minutes.
+| Command | What it does |
+|---------|--------------|
+| `conda create -n intro-gis` | Creates a new environment named "intro-gis" |
+| `conda activate intro-gis` | Switches to using that environment |
+| `conda install -c conda-forge ...` | Downloads packages from conda-forge (a package repository) |
+| `-y` | Auto-confirms prompts (so you don't have to type "yes") |
+
+This downloads about 500 MB and takes 5-15 minutes. You'll see progress bars as packages download.
+
+!!! tip "How to know you're in the right environment"
+    When the environment is active, your terminal prompt shows `(intro-gis)` at the beginning:
+    ```
+    (intro-gis) C:\Users\Claire>
+    ```
+    If you see `(base)` instead, run `conda activate intro-gis` again.
 
 ### Step 4: Test your setup
 

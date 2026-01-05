@@ -161,6 +161,56 @@ Now you'll identify which communities fall outside adequate healthcare access, f
 !!! tip "Drive time vs. reality"
     Drive-time analysis assumes car ownership. Consider creating separate isochrones for walking (15-minute walk ≈ 1km) or public transit if data is available. Accessibility gaps are often much larger for non-drivers.
 
+### Activity 4.5: Invisible barriers
+
+Your service area analysis calculates travel time along roads. But real-world access involves barriers that don't appear in road network data. This activity builds the critical thinking that distinguishes good analysis from great analysis.
+
+**The question:** What barriers to healthcare access are invisible to our analysis?
+
+**Steps:**
+
+1. **List invisible barriers:**
+   Your isochrone analysis assumes someone can drive a car at average speed. List at least five barriers that would prevent someone from reaching a facility even if they're "within 15 minutes":
+
+   - No car access or can't drive
+   - Can't afford fuel, parking, or time off work
+   - Disability limiting mobility
+   - No childcare during appointment time
+   - Language barriers at the facility
+   - Cultural barriers (gender of provider, past discrimination, distrust)
+   - Operating hours conflict with work schedule
+   - Fear of immigration enforcement
+   - Facility doesn't accept their insurance or Medicare
+   - Long wait times after arrival
+
+2. **Map what you can:**
+   Some barriers have proxy data. If available, try adding one of these layers:
+
+   - Car ownership rates by SA2 (census data)
+   - Public transit routes (OpenStreetMap or local transport authority)
+   - Languages spoken at home (census)
+   - SEIFA disadvantage (already loaded from Week 3)
+
+   How does adding this layer change your interpretation of "accessibility gaps"?
+
+3. **Acknowledge limitations in your output:**
+   Add a text box to your layout (or include in your method notes):
+
+   > "This analysis measures drive-time accessibility only. It does not account for car ownership, public transit access, appointment availability, insurance acceptance, language services, or other factors affecting real-world access."
+
+4. **Reframe from deficit to action:**
+   Instead of labeling areas as "underserved" or "lacking access" (deficit framing), reframe your findings in action-oriented language:
+
+   - **Deficit:** "These communities lack adequate healthcare access"
+   - **Action:** "These communities would benefit from mobile clinic services, extended hours, or transit partnerships"
+
+   Both describe the same gap, but one stigmatizes communities and the other points toward solutions.
+
+!!! tip "Why language matters"
+    Deficit framing puts the problem *in* communities. Action framing puts the problem *in* systems. As a GIS analyst, you have power over how gaps are described—use that power thoughtfully.
+
+**Reflection prompt:** If you could add one "invisible barrier" to your analysis, which would most change your conclusions? What data would you need to map it?
+
 ### Activity 5: Visualize and communicate findings
 
 Create a compelling map that tells the accessibility story.

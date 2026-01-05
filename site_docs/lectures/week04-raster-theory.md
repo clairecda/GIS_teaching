@@ -12,6 +12,28 @@ We move from vector-focused analysis to working with raster surfaces. Learners e
 ## Key vocabulary
 DEM · DSM · DTM · resolution · vertical accuracy · hillshade · slope · aspect · contour · zonal statistics · resampling.
 
+## Resolution as access
+
+Raster data appears objective—elevation is just height, right? But the resolution and availability of terrain data reflects investment priorities and power structures.
+
+**Who gets high-resolution data?**
+
+- LiDAR (sub-meter accuracy) costs millions to acquire. Wealthy municipalities, mining companies, and military agencies have detailed terrain models; others rely on free 30m SRTM data
+- Flood modeling at 1m resolution identifies individual properties at risk; at 30m, entire neighborhoods become statistical averages
+- Climate adaptation planning requires detailed coastal DEMs—but not all coastlines receive equal investment
+
+**What terrain data conceals:**
+
+- DEMs are surfaces, not stories. A "flat" area might be reclaimed wetland, drained for agriculture, or sacred ground
+- Elevation surveys require physical access—contested territories, private land, and informal settlements may have gaps or outdated data
+- The vertical datum (mean sea level) itself is a political choice—sea levels vary, and the reference surface affects who appears "at risk"
+
+**Questions to carry forward:**
+
+- Whose properties are visible at this resolution? Whose disappear into aggregated cells?
+- What decisions led to this area having (or lacking) high-quality elevation data?
+- How do we communicate uncertainty when resolution limits what we can claim?
+
 ## What happens in class
 - Review DEM fundamentals, highlighting raster structure, cell size, and metadata (vertical units, datum).
 - Compare Australian (ELVIS, state LiDAR) and global (SRTM, NASADEM) elevation datasets, noting access restrictions and licensing.
@@ -20,8 +42,8 @@ DEM · DSM · DTM · resolution · vertical accuracy · hillshade · slope · as
 - Discuss uncertainty: resolution limitations, interpolation artefacts, and how to communicate them in outputs.
 
 ## Prepare beforehand
-- Download the ELVIS or SRTM tiles listed in the [data download guide](../onboarding/data-downloads.md) and tick off Week 4 in the checklist.
-- Skim the [Week 04 lecture slides](../assets/slides/week04.html) and read relevant sections of the QGIS training manual on raster analysis.
+- Download the ELVIS or SRTM tiles listed in the [data download guide](../onboarding/03-download-data.md) and tick off Week 4 in the checklist.
+- Skim the [Week 04 lecture slides](../slides/week04.html) and read relevant sections of the QGIS training manual on raster analysis.
 - Ensure the boundary join outputs from Week 3 are available; they will be used to clip and summarise rasters.
 
 ## Connected lab

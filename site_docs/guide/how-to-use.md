@@ -44,22 +44,22 @@ Each week, follow this pattern:
 ## Finding things
 
 ### Data
-- [Download datasets](onboarding/03-download-data.md) — links for each week
-- [Data checklist](reference/data-download-checklist.md) — track what you've downloaded
+- [Download datasets](../onboarding/03-download-data.md) — links for each week
+- [Data checklist](../reference/data-download-checklist.md) — track what you've downloaded
 
 ### Help with QGIS
-- [QGIS quickstart](reference/qgis-quickstart.md) — common operations
-- [Toolbar reference](reference/toolbar.md) — what each tool does
+- [QGIS quickstart](../reference/qgis-quickstart.md) — common operations
+- [Toolbar reference](../reference/toolbar.md) — what each tool does
 
 ### Capstone project
-- [Capstone introduction](readings/week01-capstone-introduction.md) — overview and timeline
-- [Capstone examples](reference/capstone-examples.md) — past projects
-- [Project checklist](reference/project-checklist.md) — what to submit
+- [Capstone introduction](../readings/week01-capstone-introduction.md) — overview and timeline
+- [Capstone examples](../reference/capstone-examples.md) — past projects
+- [Project checklist](../reference/project-checklist.md) — what to submit
 
 ### Design
-- [Layout template](reference/layout-template.md) — map layout guide
-- [Design rubric](reference/design-rubric.md) — assessment criteria
-- [Accessibility checklist](reference/accessibility-checklist.md) — make maps accessible
+- [Layout template](../reference/layout-template.md) — map layout guide
+- [Design rubric](../reference/design-rubric.md) — assessment criteria
+- [Accessibility checklist](../reference/accessibility-checklist.md) — make maps accessible
 
 ---
 
@@ -76,7 +76,7 @@ Throughout the site you'll see:
 
 ## Staying organised
 
-1. **Use the folder structure** from [workspace setup](onboarding/02-workspace-setup.md)
+1. **Use the folder structure** from [workspace setup](../onboarding/02-workspace-setup.md)
 2. **Save your work** after each session
 3. **Track your data** — note where files came from
 4. **Keep a project log** — decisions, problems, solutions
@@ -94,7 +94,7 @@ Throughout the site you'll see:
 
 ## For Python weeks (7-12)
 
-- Complete [Python setup](onboarding/04-python-setup.md) before Week 7
+- Complete [Python setup](../onboarding/04-python-setup.md) before Week 7
 - Download notebooks from weekly lab pages
 - Always activate your environment: `conda activate intro-gis`
-- See [Python for GIS reading](readings/week07-python-for-gis.md) for overview
+- See [Python for GIS reading](../readings/week07-python-for-gis.md) for overview

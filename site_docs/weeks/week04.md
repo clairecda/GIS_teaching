@@ -13,7 +13,7 @@ By the end of this week, you'll be able to:
 ## Before you start
 
 - [ ] Download elevation data (ELVIS for Australia or SRTM tile) per [Downloading datasets](../onboarding/03-download-data.md) and tick off Week 4 in the [checklist](../reference/data-download-checklist.md)
-- [ ] Review [Spatial Data Models](../readings/week02-data-models.md) and the theory lecture on [Elevation & Surface Modelling](../lectures/week04-raster-theory.md)
+- [ ] Review [Raster Data Basics](../readings/week04-raster-basics.md) and the theory lecture on [Elevation & Surface Modelling](../lectures/week04-raster-theory.md)
 - [ ] Ensure the Week 3 boundary and indicator layers load correctly—you'll clip rasters using these polygons
 - [ ] Install optional plugins if advised (e.g., **Profile Tool**, **Raster terrain analysis**)
 
@@ -213,7 +213,7 @@ Pull everything together into a professional map showing terrain context for you
 
 - Slides: [Week 04 – Raster & Terrain Analysis](../slides/index.md)
 - Lecture notes: [Elevation & Surface Modelling](../lectures/week04-raster-theory.md)
-- Reading: [Spatial Data Models](../readings/week02-data-models.md)
+- Reading: [Raster Data Basics](../readings/week04-raster-basics.md)
 - Dataset checklist: [Week 4 items](../reference/data-download-checklist.md)
 
 ## Reflect

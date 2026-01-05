@@ -67,6 +67,10 @@ Now you'll create a QGIS project file and set some important defaults.
    - Click the CRS button in the bottom-right corner (shows something like `EPSG:4326`)
    - Search for `4326` (this is WGS 84, a common global CRS)
    - Select it and click OK
+
+!!! info "What is CRS?"
+    CRS tells QGIS how to interpret coordinates. Think of it like a language for locations—"EPSG:4326" means coordinates are in latitude/longitude degrees (like GPS). We'll cover this in depth in Week 2. For now, just use 4326 for global data.
+
 3. Enable relative paths (makes your project portable):
    - `Project ▶ Properties ▶ General`
    - Check **"Save paths: Relative"**
@@ -95,7 +99,14 @@ Time to see some geography! You'll load Natural Earth country boundaries and exp
 7. Close the attribute table
 
 !!! tip "Understanding the connection"
-    Use the **Identify tool** (toolbar button with an "i") to click on a country. You'll see its attributes appear—this shows how the map and table are linked.
+    Use the **Identify tool** to click on any country and see its data:
+
+    1. Find the "i" icon in the toolbar (looks like a lowercase letter i with a cursor)
+    2. Click the icon to activate the tool (your cursor changes)
+    3. Click on any country on the map
+    4. A panel appears showing that country's attributes (name, population, etc.)
+
+    This shows how the map and table are linked—each shape on the map is connected to a row of data.
 
 **Optional:** Load the Admin 1 layer (`ne_110m_admin_1_states_provinces.shp`) to see states and provinces. Notice how it adds more detail.
 
@@ -112,6 +123,15 @@ Let's make the map more meaningful by coloring countries by continent.
 5. Click **OK** to apply
 6. Your map should now show different colors for each continent
 
+!!! info "Symbology types explained"
+    | Type | Use for | Example |
+    |------|---------|---------|
+    | **Single Symbol** | All features look the same | All countries in blue |
+    | **Categorized** | Text/category data | Different color per continent |
+    | **Graduated** | Numeric data | Darker colors for higher population |
+
+    The **Classify** button tells QGIS to scan your data and create groups automatically.
+
 **Experiment:** Try changing it to **Graduated** symbology using `POP_EST` (population) to see countries colored by population ranges.
 
 !!! note "Week 2 preview"
@@ -125,16 +145,29 @@ A layout is how you turn your QGIS canvas into a polished map ready for export o
 
 1. Create a new layout: `Project ▶ New Print Layout...`
 2. Give it a name (e.g., "World Map") and click OK
-3. A new window opens—this is your layout canvas
+3. A new window opens—this is your layout canvas (a blank page)
+
+!!! info "Finding the layout tools"
+    The layout window has its own toolbar on the left side. Key tools:
+
+    - **Add Map** (rectangle with lines) — inserts your map
+    - **Add Label** (letter A) — adds text
+    - **Add Legend** (list icon) — adds legend
+    - **Add Scale Bar** (ruler icon) — adds scale reference
+
+    Hover over any icon to see its name.
+
 4. Add a map:
    - Click the **Add Map** button in the toolbar
-   - Draw a rectangle on the canvas (this defines where your map appears)
+   - Draw a rectangle on the canvas (click and drag to define the area)
    - Your map from the main QGIS window appears in this frame
+
 5. Add a title:
    - Click **Add Label** button
    - Draw a box at the top of the page
-   - In the Label properties panel (right side), replace "Lorem ipsum" with your title: "World Countries by Continent"
-   - Increase font size to 18-24pt
+   - In the panel on the right, find the text box (shows "Lorem ipsum" as placeholder text)
+   - Delete the placeholder and type your title: "World Countries by Continent"
+   - Scroll down in the panel to find **Font** settings → increase size to 18-24pt
 6. Add a legend:
    - Click **Add Legend** button
    - Draw a box where you want the legend

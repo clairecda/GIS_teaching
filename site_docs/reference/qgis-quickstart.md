@@ -68,4 +68,4 @@ Adjust shortcuts via `Settings ▶ Keyboard Shortcuts`.
 
 - QGIS Training Manual: <https://docs.qgis.org/latest/en/docs/training_manual/>
 - Keyboard shortcuts reference: `Help ▶ Keyboard Shortcuts Reference`
-- Course onboarding: [Install QGIS](../onboarding/qgis-install.md), [Downloading datasets](../onboarding/data-downloads.md)
+- Course onboarding: [Install QGIS](../onboarding/01-install-qgis.md), [Downloading datasets](../onboarding/03-download-data.md)

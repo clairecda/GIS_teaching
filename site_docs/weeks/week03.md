@@ -20,6 +20,43 @@ By the end of this week, you'll be able to:
 
 ## This week's activities
 
+### Activity 0: One place, many maps
+
+Before we start joining data, let's see how the same place looks completely different depending on what we map. This activity builds the critical lens you'll need for working with boundaries and socio-economic data.
+
+**The question:** What stories can this place tell—and which ones become invisible with different data choices?
+
+**Steps:**
+
+1. Choose a familiar area (your suburb, a place you've lived, or a well-known neighborhood)
+2. Load your SA2 layer and zoom to that area
+3. Create four different maps of the same place by styling different attributes:
+
+   **Map A: Administrative identity**
+   - Categorize by state or LGA name
+   - What official boundaries define this place?
+
+   **Map B: Geographic hierarchy**
+   - Categorize by SA3 or SA4 region
+   - Where does this place sit in the statistical hierarchy?
+
+   **Map C: Population (if available)**
+   - Graduated symbology by population or area
+   - Is this a dense urban area or sparse rural?
+
+   **Map D: Your choice**
+   - After completing Activity 3 (join), return here and map by SEIFA decile
+   - What socio-economic story does this place tell?
+
+4. For each map, note:
+   - What question does this map answer well?
+   - What does it hide or make invisible?
+
+!!! tip "The point isn't that maps lie"
+    Maps don't lie—they answer specific questions. The skill is recognizing WHICH question each map answers, and what other questions become harder to ask. You'll return to Map D after joining SEIFA data.
+
+**Reflection prompt:** Each map shows the same geography but tells a different story. Which version feels most "true" to your experience of this place? Which could be misleading without context?
+
 ### Activity 1: Understand boundary hierarchies
 
 Before joining data, you need to understand what your boundaries represent and how they relate to each other.

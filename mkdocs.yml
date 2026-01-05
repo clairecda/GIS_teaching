@@ -40,12 +40,13 @@ nav:
   - Background Reading:
       - Overview: readings/index.md
       - 1. What is GIS?: readings/week01-what-is-gis.md
-      - 2. Your Capstone Project: readings/week01-capstone-introduction.md
-      - 3. Understanding CRS: readings/understanding-crs.md
-      - 4. Administrative Boundaries: readings/week03-admin-boundaries.md
-      - 5. Raster Data Basics: readings/week04-raster-basics.md
-      - 6. Ethics in Spatial Analysis: readings/week05-ethics-in-mapping.md
-      - 7. Python for GIS: readings/week07-python-for-gis.md
+      - 2. Seeing Assumptions in GIS: readings/week01-critical-gis-lens.md
+      - 3. Your Capstone Project: readings/week01-capstone-introduction.md
+      - 4. Understanding CRS: readings/understanding-crs.md
+      - 5. Administrative Boundaries: readings/week03-admin-boundaries.md
+      - 6. Raster Data Basics: readings/week04-raster-basics.md
+      - 7. Ethics in Spatial Analysis: readings/week05-ethics-in-mapping.md
+      - 8. Python for GIS: readings/week07-python-for-gis.md
   - Lectures & Theory:
       - Week 1 · Foundations of GIS: lectures/week01-fundamentals.md
       - Week 2 · Cartographic Conventions & Colour: lectures/week02-cartography.md

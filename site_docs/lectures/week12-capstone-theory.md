@@ -12,6 +12,40 @@ We conclude the course by presenting capstone projects, giving and receiving pee
 ## Key vocabulary
 Capstone presentation · peer feedback · portfolio · reproducible research · documentation · stakeholder communication · career pathways · continuing education.
 
+## Critical practice as professional practice
+
+Throughout this course, we've asked questions about data origins, category construction, boundary choices, and design decisions. These aren't add-ons to "real" GIS work—they're core professional competencies.
+
+**The questions to always ask:**
+
+1. **Who created this data, and for what purpose?** Data collected for one purpose (census administration, policing, property taxation) carries assumptions that may not serve your analysis
+2. **What do these categories include and exclude?** Every classification scheme makes some things visible and others invisible
+3. **Who drew these boundaries, and what alternatives exist?** Administrative boundaries are historical artifacts, not natural facts
+4. **What would change if we used different methods?** Classification schemes, aggregation levels, and analytical parameters all shape conclusions
+5. **Who benefits from this analysis, and who might be harmed?** Spatial analysis has consequences for real communities
+
+**Communicating limitations professionally:**
+
+- Acknowledging what your analysis can't show isn't weakness—it's intellectual honesty
+- "This analysis is limited by..." statements belong in every professional report
+- Clients and stakeholders respect analysts who understand the boundaries of their methods
+
+**From student to practitioner:**
+
+- The skills you've developed aren't just technical—they're interpretive. You can read spatial data critically
+- In professional settings, you may face pressure to simplify, overstate certainty, or ignore inconvenient complexity. Your training gives you tools to push back thoughtfully
+- Critical GIS isn't about refusing to do analysis—it's about doing analysis that acknowledges its own conditions
+
+**Your capstone as critical practice:**
+
+As you present your capstone project, consider:
+
+- What assumptions did you make, and how did you document them?
+- What would someone from the community you analyzed want to know about your methods?
+- How would your conclusions change with different data, boundaries, or methods?
+
+The goal isn't to have "perfect" answers—it's to demonstrate that you've thought carefully about the questions.
+
 ## What happens in class
 - Deliver 5-7 minute capstone presentations with Q&A sessions and peer critique.
 - Review documentation checklists: README structure, data provenance, licensing, and reproducibility.

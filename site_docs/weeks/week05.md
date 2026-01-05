@@ -181,6 +181,55 @@ Raw hotspot maps can be misleading without context. You'll add supporting layers
 !!! warning "Avoid stigmatization"
     When presenting findings, focus on environmental and systemic factors, not on labeling neighborhoods as "dangerous." Consider how your maps might be used—or misused—by media, police, or policymakers.
 
+### Activity 7: What isn't mapped
+
+Your crime hotspot map shows reported and recorded incidents. Now let's think critically about what it DOESN'T show—this is a professional skill that separates good analysts from great ones.
+
+**The question:** Every dataset answers some questions well and makes others almost impossible to ask. What questions can't this data answer?
+
+**Steps:**
+
+1. **List what's missing:**
+   Open a text file or your reflection document. Spend 5 minutes listing things that might matter for understanding "safety" or "crime" that your data doesn't include:
+
+   - Unreported crimes (estimates suggest 40-60% of crimes go unreported)
+   - Crimes that are reported but not recorded
+   - White-collar and corporate crime (rarely mapped spatially)
+   - Historical patterns—displacement, disinvestment, redlining
+   - Perception of safety (fear vs. actual risk)
+   - Community assets—mutual aid networks, neighborhood watch, community centers
+   - Where offenders live vs. where offenses occur
+
+2. **Identify what's hard to map:**
+   Some things are genuinely difficult to represent spatially. Note at least three:
+
+   - Trust in police (affects reporting patterns, but how do you map it?)
+   - Informal justice and conflict resolution
+   - The *causes* behind concentrations (poverty, lack of services, historical policy)
+   - Time dimension—crime patterns shift by hour, season, year
+
+3. **Reframe your findings:**
+   Write two different one-sentence summaries of your hotspot map:
+
+   **Version A (what your map shows):**
+   > "This map shows reported [crime type] incidents per [unit], revealing concentrations in [areas]."
+
+   **Version B (what your map doesn't show):**
+   > "This map does NOT show unreported crimes, fear of crime, community safety resources, police patrol patterns, or the historical policies that shaped these patterns."
+
+4. **Connect to professional practice:**
+   If you were presenting this analysis to:
+   - A police department
+   - A community organization
+   - A journalist
+
+   What context would you add? What would you warn them NOT to conclude?
+
+!!! note "Why this matters"
+    "What isn't mapped" isn't an academic exercise—it's a professional skill. The best analysts know what their data CAN'T answer as well as what it can. This prevents overconfident conclusions and helps you seek complementary information.
+
+**Reflection prompt:** What's one thing you wish you could map about safety or crime that current data can't capture? What would it take to create that data?
+
 ## Troubleshooting
 
 ### KDE produces a blank or all-zero raster

@@ -1,6 +1,6 @@
 # Data Download Checklist
 
-Tick off each item after you download and stage the files inside `intro-to-gis-course/data/`. Pair this checklist with the detailed instructions in [Getting Ready ▸ Downloading datasets](../onboarding/data-downloads.md).
+Tick off each item after you download and stage the files inside `intro-to-gis-course/data/`. Pair this checklist with the detailed instructions in [Getting Ready ▸ Downloading datasets](../onboarding/03-download-data.md).
 
 ## Week 1 — QGIS Orientation
 
@@ -38,7 +38,7 @@ Tick off each item after you download and stage the files inside `intro-to-gis-c
 ## Week 7 — Bridge to Python
 
 - [ ] Confirm all QGIS datasets above are organised under `data/`
-- [ ] Verify Anaconda environment is set up (see [Anaconda Setup Guide](../onboarding/anaconda-setup.md))
+- [ ] Verify Anaconda environment is set up (see [Python Setup Guide](../onboarding/04-python-setup.md))
 
 ## Week 8 — Python Vector Workflows
 
