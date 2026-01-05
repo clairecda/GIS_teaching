@@ -4,7 +4,7 @@ Starting Week 7, you'll use Python for GIS analysis. There are two ways to run t
 
 | Option | Best for | Setup time |
 |--------|----------|------------|
-| **Google Colab** (Recommended) | Most students, quick start, Chromebooks | 2 minutes |
+| **Google Colab** (Recommended) | Most students, quick start, Chromebooks | 5 minutes |
 | **Local (Anaconda)** | Advanced users, large datasets, offline work | 30-45 minutes |
 
 **When to do this:** Before Week 7. Skip for Weeks 1-6.
@@ -13,127 +13,203 @@ Starting Week 7, you'll use Python for GIS analysis. There are two ways to run t
 
 ## Option A: Google Colab (Recommended)
 
-Google Colab runs Python in your browser — no installation required.
+### What is Google Colab?
 
-### Step 1: Get a Google account
+Google Colab is a free service that lets you run Python code in your web browser. You don't install anything on your computer—the code runs on Google's computers (servers) in a data center somewhere.
 
-You need a Google account to use Colab. If you have Gmail, you're already set.
+**Think of it like Google Docs for code:** Just as Google Docs lets you write documents without installing Word, Colab lets you run Python without installing Python.
+
+### The key concept: Where does the code run?
+
+This is the most important thing to understand:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                        YOUR COMPUTER                             │
+│  ┌─────────────┐                                                │
+│  │   Browser   │  ← You type code here                          │
+│  │   (Chrome)  │                                                │
+│  └─────────────┘                                                │
+│        │                                                        │
+│        │  Your code is sent over the internet                   │
+│        ▼                                                        │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              │ Internet
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                     GOOGLE'S SERVERS                             │
+│  ┌─────────────┐                                                │
+│  │   Colab     │  ← Your code actually runs here                │
+│  │   Runtime   │                                                │
+│  └─────────────┘                                                │
+│        │                                                        │
+│        │  But this computer can't see your laptop's files!      │
+│        │  It CAN see your Google Drive (if you connect it)      │
+│        ▼                                                        │
+│  ┌─────────────┐                                                │
+│  │   Google    │  ← Your data files go here                     │
+│  │   Drive     │                                                │
+│  └─────────────┘                                                │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+**The problem:** When your code says `read_file("my_data.geojson")`, it looks for that file on the Google server—not on your laptop. Your laptop's files are invisible to Colab.
+
+**The solution:** Store your data files in Google Drive, then "mount" (connect) your Drive to Colab. Now your code can access your files.
+
+---
+
+### Step 1: Set up your Google Drive folder
+
+Before opening any notebooks, organize your Google Drive:
+
+1. Go to [drive.google.com](https://drive.google.com)
+2. Click **+ New** → **New folder**
+3. Name it exactly: `intro-gis`
+4. Open the `intro-gis` folder
+5. Create a subfolder called `data`
+6. Inside `data`, create folders for each week: `week07`, `week08`, `week09`, `week10`
+
+Your Drive should look like this:
+
+```
+My Drive/
+└── intro-gis/
+    └── data/
+        ├── week07/
+        ├── week08/
+        ├── week09/
+        └── week10/
+```
+
+**Upload your data files** to the appropriate week folder. For example, Week 8 needs `neighbourhoods.geojson` and `incidents.geojson` in `data/week08/`.
+
+---
 
 ### Step 2: Open a course notebook
 
-1. Go to the [Notebooks page](../reference/notebooks.md)
-2. Click the **"Open in Colab"** button for Week 7
+1. Go to the weekly guide (e.g., [Week 7](../weeks/week07.md))
+2. Click the **"Open in Colab"** button
 3. Sign in with your Google account if prompted
 
-### Step 3: Install GIS packages
+The notebook opens in a new tab. You'll see cells with code and explanations.
 
-Colab comes with basic Python, but not with GIS tools. You need to install them.
+---
 
-**What is `pip install`?**
+### Step 3: Run the setup cell
 
-`pip` is Python's package manager—it downloads and installs code libraries that other people wrote. When you run `pip install geopandas`, you're downloading the GeoPandas library (for working with maps) from the internet.
+Every notebook starts with a setup cell that:
 
-Run this cell at the top of each notebook:
+1. Detects that you're in Colab
+2. Installs the GIS packages (takes ~1 minute)
+
+Click on the first code cell and press **Shift + Enter** to run it. Wait for it to finish.
+
+---
+
+### Step 4: Mount your Google Drive
+
+This is the crucial step that connects your Drive to Colab.
+
+**What does "mount" mean?**
+
+Think of Google Drive like a USB stick. When you plug a USB into your computer, it "mounts"—your computer can suddenly see and access the files on it.
+
+"Mounting" Google Drive in Colab does the same thing: it connects your Drive to the Colab server so your code can read your files.
+
+**Run the mount cell:**
+
+The notebooks include a cell like this:
 
 ```python
-# Run this first in Colab
-!pip install geopandas rasterio rasterstats osmnx contextily folium -q
+from google.colab import drive
+drive.mount('/content/drive')
 ```
 
-| Package | What it does |
-|---------|--------------|
-| `geopandas` | Read/write/analyze spatial data (like shapefiles) |
-| `rasterio` | Work with raster images (satellite data, DEMs) |
-| `osmnx` | Download street networks from OpenStreetMap |
-| `contextily` | Add basemaps to your plots |
-| `folium` | Create interactive web maps |
+When you run it:
 
-This takes about 1-2 minutes. The `-q` means "quiet" (less output text).
+1. A popup appears asking for permission
+2. Click **Connect to Google Drive**
+3. Choose your Google account
+4. Click **Allow**
+5. You'll see: `Mounted at /content/drive`
 
-!!! warning "You must run this every session"
-    Colab environments reset when you close the tab or after ~90 minutes of inactivity. Each time you reconnect, run the pip install cell again.
+**Now your Drive is connected!** Your files are accessible at `/content/drive/MyDrive/intro-gis/data/...`
 
-### Step 4: Access your data
+---
 
-Colab runs in the cloud, so you need to get your data files into the Colab environment. Choose the method that works best for you:
+### Step 5: Work through the notebook
 
-=== "Option 1: Upload files (simplest)"
+Run each cell in order using **Shift + Enter**. The notebooks are designed to:
 
-    1. Click the **folder icon** in the left sidebar to open the file browser
-    2. Click the **upload icon** (paper with arrow)
-    3. Select your data files (`.geojson`, `.shp`, `.tif`, etc.)
-    4. Wait for upload to complete
-    5. Access files with: `gpd.read_file("filename.geojson")`
+- Automatically detect Colab and set the correct file paths
+- Load your data from Google Drive
+- Guide you through the analysis step by step
 
-    !!! warning "Uploads are temporary"
-        Uploaded files are deleted when your session ends. Re-upload each time you reconnect.
+---
 
-=== "Option 2: Google Drive (persistent)"
+### Step 6: Save your work
 
-    Connect your Google Drive so files stay saved between sessions.
+Your changes to the notebook are NOT automatically saved. Save regularly:
 
-    **Step 1: First, organize your Drive**
-
-    1. Open [Google Drive](https://drive.google.com) in a new tab
-    2. Click **+ New** → **New folder**
-    3. Name it `intro-gis`
-    4. Upload your data files into this folder
-
-    **Step 2: Mount Drive in Colab**
-
-    1. In your Colab notebook, create a new code cell
-    2. Type this code:
-    ```python
-    from google.colab import drive
-    drive.mount('/content/drive')
-    ```
-    3. Run the cell (Shift + Enter)
-    4. A popup appears asking permission — click **Connect to Google Drive**
-    5. Choose your Google account
-    6. Click **Allow** to give Colab access
-    7. When successful, you'll see: `Mounted at /content/drive`
-
-    **Step 3: Access your files**
-
-    Your Drive files are now at `/content/drive/MyDrive/`. To load a file:
-    ```python
-    # If your file is in Drive > intro-gis > data
-    gdf = gpd.read_file("/content/drive/MyDrive/intro-gis/data/boundaries.geojson")
-    ```
-
-    **How to find the correct path:**
-
-    1. Click the **folder icon** (📁) in Colab's left sidebar
-    2. Click **drive** → **MyDrive** → navigate to your file
-    3. Right-click the file → **Copy path**
-    4. Paste the path in your code
-
-    !!! tip "Best for larger projects"
-        Files in Drive persist forever. You won't need to re-upload each session.
-
-=== "Option 3: Load from URL (no upload needed)"
-
-    If data is hosted online, load it directly:
-
-    ```python
-    # Load from a URL
-    url = "https://example.com/data/boundaries.geojson"
-    gdf = gpd.read_file(url)
-    ```
-
-    The course notebooks include sample data URLs where possible.
-
-### Step 5: Save your work
-
-- **To Google Drive:** `File → Save a copy in Drive`
+- **To Google Drive:** `File → Save a copy in Drive` (recommended)
 - **To your computer:** `File → Download → Download .ipynb`
 
-!!! tip "Save early, save often"
-    Colab sessions timeout after ~90 minutes of inactivity. Save your work regularly!
+!!! warning "Sessions timeout after ~90 minutes"
+    If you're inactive for too long, Colab disconnects. When you reconnect, you need to:
 
-### That's it!
+    1. Re-run the setup cell (reinstall packages)
+    2. Re-run the mount cell (reconnect Drive)
+    3. Re-run any cells that load data
 
-You're ready for Week 7. No terminal commands, no environment setup.
+    Your Drive files are safe—they persist forever. Only the Colab "runtime" resets.
+
+---
+
+### Complete Colab workflow summary
+
+Every time you work on a Python notebook:
+
+```
+1. Open notebook from course website → "Open in Colab"
+2. Run setup cell → Installs packages (~1 min)
+3. Run mount cell → Connects Google Drive
+4. Run remaining cells → Do the analysis
+5. Save your work → File > Save a copy in Drive
+```
+
+---
+
+### Troubleshooting Colab
+
+**"ModuleNotFoundError: No module named 'geopandas'"**
+
+- You didn't run the setup cell, or it failed
+- Scroll to the top and run the first code cell again
+
+**"FileNotFoundError: [Errno 2] No such file or directory"**
+
+- Your Google Drive isn't mounted, OR
+- The file path is wrong, OR
+- The file doesn't exist in Drive
+
+**To debug file paths:**
+
+1. Click the **folder icon** (📁) in Colab's left sidebar
+2. Click **drive** → **MyDrive** → navigate to your file
+3. Right-click the file → **Copy path**
+4. Use that exact path in your code
+
+**"Drive already mounted" message**
+
+- This is fine! It just means Drive was already connected
+- You don't need to mount it again
+
+**Session disconnected**
+
+- Normal after ~90 minutes of inactivity
+- Click "Reconnect" and re-run cells from the top
 
 ---
 
@@ -141,7 +217,14 @@ You're ready for Week 7. No terminal commands, no environment setup.
 
 Install Python and packages on your computer for faster performance and offline access.
 
-### Step 0: Create your workspace (if you haven't already)
+### When to choose local setup
+
+- You have slow or unreliable internet
+- You're working with large datasets (>100MB)
+- You want to work offline
+- You're doing the capstone project
+
+### Step 0: Create your workspace
 
 Make sure you have the folder structure from the [Data Download Guide](03-download-data.md):
 
@@ -149,10 +232,11 @@ Make sure you have the folder structure from the [Data Download Guide](03-downlo
 Desktop/
 └── intro-gis/
     ├── data/
-    │   ├── raw/
-    │   └── processed/
+    │   ├── week07/
+    │   ├── week08/
+    │   ├── week09/
+    │   └── week10/
     ├── outputs/
-    ├── projects/
     └── notebooks/    ← Save notebooks here
 ```
 
@@ -193,7 +277,7 @@ Desktop/
 
 **What is an environment?**
 
-An environment is like a separate workspace for Python. It keeps this course's packages isolated from other Python projects. If something breaks, you can delete the environment and start fresh without affecting anything else.
+An environment is like a separate workspace for Python. It keeps this course's packages isolated from other Python projects. If something breaks, you can delete the environment and start fresh.
 
 **Open your terminal:**
 
@@ -204,27 +288,18 @@ An environment is like a separate workspace for Python. It keeps this course's p
 **Run these commands one at a time:**
 
 ```bash
-# Step 1: Create a new environment called "intro-gis" with Python 3.11
+# Create a new environment
 conda create -n intro-gis python=3.11 -y
 
-# Step 2: Activate (switch to) this environment
+# Activate the environment
 conda activate intro-gis
 
-# Step 3: Install GIS packages into this environment
+# Install GIS packages (takes 5-15 minutes)
 conda install -c conda-forge geopandas rasterio rioxarray osmnx networkx rasterstats contextily folium jupyter jupyterlab matplotlib seaborn -y
 ```
 
-| Command | What it does |
-|---------|--------------|
-| `conda create -n intro-gis` | Creates a new environment named "intro-gis" |
-| `conda activate intro-gis` | Switches to using that environment |
-| `conda install -c conda-forge ...` | Downloads packages from conda-forge (a package repository) |
-| `-y` | Auto-confirms prompts (so you don't have to type "yes") |
-
-This downloads about 500 MB and takes 5-15 minutes. You'll see progress bars as packages download.
-
 !!! tip "How to know you're in the right environment"
-    When the environment is active, your terminal prompt shows `(intro-gis)` at the beginning:
+    Your terminal prompt shows `(intro-gis)` at the beginning:
     ```
     (intro-gis) C:\Users\Claire>
     ```
@@ -242,14 +317,34 @@ You should see: `All packages installed!`
 
 ```bash
 conda activate intro-gis
+cd ~/Desktop/intro-gis
 jupyter lab
 ```
 
-Your browser opens with Jupyter. You're ready!
+Your browser opens with Jupyter. Open a notebook from the `notebooks/` folder and start working!
+
+### Local workflow summary
+
+Every time you work on a Python notebook:
+
+```bash
+# 1. Open terminal (Anaconda Prompt on Windows)
+# 2. Activate environment
+conda activate intro-gis
+
+# 3. Navigate to your project folder
+cd ~/Desktop/intro-gis
+
+# 4. Launch Jupyter
+jupyter lab
+
+# 5. Work on notebooks in your browser
+# 6. Ctrl+C in terminal to close Jupyter when done
+```
 
 ---
 
-## Colab vs Local: When to use which
+## Colab vs Local: Quick comparison
 
 | Scenario | Use Colab | Use Local |
 |----------|-----------|-----------|
@@ -259,77 +354,36 @@ Your browser opens with Jupyter. You're ready!
 | Slow/unreliable internet | | ✓ |
 | Large local datasets (>100MB) | | ✓ |
 | Capstone project | | ✓ |
-| Need specific package versions | | ✓ |
+| Need to work offline | | ✓ |
 
 !!! note "You can switch anytime"
-    Start with Colab. If you find you need local setup later (for the capstone or large datasets), you can install Anaconda then.
+    Start with Colab. If you need local setup later, install Anaconda then. The notebooks work in both environments.
 
 ---
 
-## Troubleshooting
-
-### Colab issues
-
-**"ModuleNotFoundError" for geopandas/rasterio**
-- Run the `!pip install ...` cell at the top of the notebook
-- Make sure it completed without errors
-
-**Session disconnected / timed out**
-- Colab sessions reset after inactivity
-- Re-run cells from the top, including the pip install cell
-
-**"You must enable billing" error**
-- You're trying to use too much memory
-- Reduce dataset size or switch to local setup
-
-**"FileNotFoundError" when loading data**
-- File wasn't uploaded or path is wrong
-- Check the file browser (folder icon) to see uploaded files
-- Use the exact filename: `gpd.read_file("myfile.geojson")` not `gpd.read_file("data/myfile.geojson")`
-
-**Uploaded files disappeared**
-- Colab sessions reset after ~90 minutes of inactivity
-- Re-upload your files, or use Google Drive for persistent storage
-
-### Anaconda issues
+## Troubleshooting Anaconda
 
 **"conda: command not found"**
+
 - Windows: Use "Anaconda Prompt" not Command Prompt
 - Mac/Linux: Run: `echo 'export PATH="$HOME/anaconda3/bin:$PATH"' >> ~/.zshrc && source ~/.zshrc`
 
 **Package installation failed**
-- Try one at a time: `conda install -c conda-forge geopandas -y`
+
+- Try installing one at a time: `conda install -c conda-forge geopandas -y`
 
 **"ModuleNotFoundError" in Jupyter**
-- Activate environment first: `conda activate intro-gis`
-- Then launch: `jupyter lab`
+
+- You forgot to activate the environment
+- Close Jupyter, run `conda activate intro-gis`, then `jupyter lab` again
 
 **Start over completely**
+
 ```bash
 conda deactivate
 conda env remove -n intro-gis
 ```
 Then redo Step 3.
-
----
-
-## Quick reference
-
-### Colab workflow
-1. Open notebook from [Notebooks page](../reference/notebooks.md)
-2. Run pip install cell
-3. Upload data files OR mount Google Drive
-4. Work through notebook
-5. Save to Drive or download
-
-### Local workflow
-```bash
-conda activate intro-gis
-cd ~/Desktop/intro-gis
-jupyter lab
-# Work on notebooks
-# Ctrl+C to close
-```
 
 ---
 
