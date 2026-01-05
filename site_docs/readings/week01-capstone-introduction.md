@@ -146,6 +146,21 @@ Your capstone will be assessed on:
 
 ---
 
+## Advanced analysis: spatial statistics
+
+If your capstone involves analyzing relationships between variables (e.g., "Does distance to green space correlate with health outcomes?"), you may need **spatial regression**.
+
+**Why it matters:** Standard regression assumes observations are independent, but spatial data clusters—nearby locations have similar values. Ignoring this can give misleading results.
+
+**Resources for capstone:**
+
+- [Spatial Statistics & Regression reading](spatial-statistics.md) — concepts and interpretation
+- [Spatial Statistics notebook](../reference/notebooks.md) — worked Python examples
+
+You don't need to master this in Week 1. Revisit these resources when you start analysis in Weeks 8-10.
+
+---
+
 ## Getting help
 
 - **Weekly check-ins:** Mention your capstone progress in class

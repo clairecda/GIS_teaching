@@ -10,7 +10,27 @@ We explore the ethics of crime mapping and learn kernel density estimation (KDE)
 - Understand how boundary choice, temporal aggregation, and data provenance shape public perception.
 
 ## Key vocabulary
-Kernel density estimation (KDE) · hotspot · bandwidth · search radius · crime mapping ethics · data bias · privacy aggregation · jittering · hex bins · narrative framing · community impact.
+Kernel density estimation (KDE) · hotspot · bandwidth · search radius · crime mapping ethics · data bias · privacy aggregation · jittering · hex bins · narrative framing · community impact · spatial autocorrelation.
+
+## Hotspots and spatial autocorrelation
+
+When we identify hotspots, we're essentially detecting **spatial autocorrelation**—the tendency for nearby locations to have similar values. Crime doesn't occur randomly across space; it clusters.
+
+**Why this matters:**
+
+- **KDE** (kernel density estimation) is one way to visualize clustering, but it's descriptive—it shows patterns without testing whether they're statistically significant
+- **Moran's I** is a formal statistical test that measures whether spatial clustering exists and is unlikely to occur by chance
+- **LISA** (Local Indicators of Spatial Association) identifies specific hot spots and cold spots with statistical significance levels
+
+**The connection:**
+
+| Technique | What it does | Output |
+|-----------|--------------|--------|
+| KDE | Smooths point data into a continuous surface | Heat map showing intensity |
+| Moran's I | Tests if overall clustering exists | Single number (-1 to +1) with p-value |
+| LISA | Identifies where clusters are located | Map of significant hot/cold spots |
+
+**For your capstone:** If you're analyzing patterns that cluster spatially (crime, health outcomes, prices), consider whether you need descriptive visualization (KDE) or statistical testing (Moran's I, LISA). See [Spatial Statistics & Regression](../readings/spatial-statistics.md) for detailed guidance.
 
 ## What happens in class
 - Discuss ethical considerations in crime mapping: data provenance, privacy, bias in policing data, and community impact.

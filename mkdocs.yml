@@ -48,6 +48,7 @@ nav:
       - 7. Raster Data Basics: readings/week04-raster-basics.md
       - 8. Ethics in Spatial Analysis: readings/week05-ethics-in-mapping.md
       - 9. Python for GIS: readings/week07-python-for-gis.md
+      - 10. Spatial Statistics & Regression: readings/spatial-statistics.md
   - Lectures & Theory:
       - Week 1 · Foundations of GIS: lectures/week01-fundamentals.md
       - Week 2 · Cartographic Conventions & Colour: lectures/week02-cartography.md

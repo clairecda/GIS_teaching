@@ -53,6 +53,23 @@ The goal isn't to have "perfect" answers—it's to demonstrate that you've thoug
 - Reflect on skill growth from Week 1 to Week 12 and identify gaps for future study.
 - Explore GIS career pathways, portfolio strategies, and continuing education options.
 
+## Advanced analysis for capstone
+
+If your capstone involves analyzing relationships between variables (e.g., "Does distance to parks correlate with health outcomes?"), you should consider **spatial regression**:
+
+**When to use spatial methods:**
+
+1. Check for spatial autocorrelation in your outcome variable using Moran's I
+2. If significant, your data clusters spatially—standard regression may give misleading results
+3. Spatial lag or spatial error models account for this dependence
+
+**Resources for capstone:**
+
+- [Spatial Statistics & Regression reading](../readings/spatial-statistics.md) — concepts and interpretation guidance
+- [Spatial Statistics notebook](../reference/notebooks.md) — worked Python examples
+
+**What instructors look for:** Evidence that you checked for spatial autocorrelation, appropriate model choice with justification, correct interpretation of coefficients, and honest acknowledgment of limitations.
+
 ## Prepare beforehand
 - Finalise your capstone project materials: maps, analysis outputs, notebooks, and documentation.
 - Prepare a 5-7 minute presentation covering problem, methods, insights, and impact.

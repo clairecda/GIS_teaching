@@ -55,3 +55,17 @@ Automation is powerful precisely because it removes human judgment from each ind
 ## Connected lab
 The [Week 8 lab](../weeks/week08.md) guides learners through automating vector workflows, performing spatial joins, and creating reproducible analysis scripts.
 
+## Going further: spatial statistics in Python
+
+Once you're comfortable with GeoPandas, you can extend into spatial statistics using **PySAL** (Python Spatial Analysis Library):
+
+- **Spatial autocorrelation**: Test whether your variables cluster spatially (Moran's I, LISA)
+- **Spatial regression**: Account for spatial dependence when modeling relationships between variables
+
+This is particularly relevant for capstone projects that involve regression analysis—standard OLS regression assumes independent observations, but spatial data violates this assumption.
+
+**Resources:**
+
+- [Spatial Statistics & Regression reading](../readings/spatial-statistics.md) — concepts and interpretation
+- [Spatial Statistics notebook](../reference/notebooks.md) — worked Python examples with PySAL
+

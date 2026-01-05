@@ -146,6 +146,18 @@ Use this checklist throughout your GIS projects. Print it out or keep it open as
 - [ ] Alternative explanations considered
 - [ ] Conclusions proportional to evidence
 
+### Spatial Statistics (if applicable)
+If your project involves regression or statistical analysis:
+
+- [ ] Checked for spatial autocorrelation using Moran's I
+- [ ] If Moran's I significant, used spatial regression instead of OLS
+- [ ] Chose appropriate spatial model (lag vs error) with justification
+- [ ] Checked residuals for remaining spatial autocorrelation
+- [ ] Interpreted coefficients correctly (with uncertainty)
+- [ ] Reported model diagnostics (R², AIC, p-values)
+
+**Resources:** [Spatial Statistics reading](../readings/spatial-statistics.md) | [Spatial Statistics notebook](notebooks.md)
+
 ---
 
 ## Export & Submission

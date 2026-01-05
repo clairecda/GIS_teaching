@@ -52,6 +52,20 @@ Network analysis with OSMnx - download street networks, calculate isochrones, an
 
 ---
 
+## Capstone: Spatial Statistics
+
+Advanced spatial analysis for capstone projects - spatial autocorrelation (Moran's I, LISA), spatial regression (lag and error models), and interpretation guidance.
+
+| Option | Link |
+|--------|------|
+| **Run in Colab** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/clairecda/GIS_teaching/blob/main/notebooks/spatial_statistics.ipynb) |
+| View on GitHub | [spatial_statistics.ipynb](https://github.com/clairecda/GIS_teaching/blob/main/notebooks/spatial_statistics.ipynb) |
+| Download | [Right-click → Save As](https://raw.githubusercontent.com/clairecda/GIS_teaching/main/notebooks/spatial_statistics.ipynb) |
+
+**Companion reading:** [Spatial Statistics & Regression](../readings/spatial-statistics.md) explains the concepts and interpretation.
+
+---
+
 ## Using Google Colab
 
 Google Colab provides a free Python environment in your browser - no installation required.
