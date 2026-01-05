@@ -90,6 +90,17 @@ Throughout the site you'll see:
 3. **Ask in class** or office hours
 4. **Bring screenshots** of error messages
 
+### Using AI tools
+
+AI assistants (ChatGPT, Claude, etc.) can help with debugging, explaining error messages, and understanding concepts—but use them thoughtfully.
+
+Read **[Using AI as a Learning Partner](../readings/using-ai-effectively.md)** for guidance on:
+
+- When AI helps learning (debugging, explanations, setup issues)
+- When AI hinders learning (doing work for you)
+- Good prompting practices for GIS questions
+- How to verify AI outputs
+
 ---
 
 ## For Python weeks (7-12)
