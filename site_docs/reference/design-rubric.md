@@ -4,6 +4,45 @@ This guide introduces graphic design fundamentals that make maps effective. The 
 
 ---
 
+## Essential Map Elements
+
+!!! warning "A map without these elements is incomplete"
+    Every finished map **must** include these six elements. Missing any one of them makes your map invalid for professional or academic submission.
+
+| Element | Purpose | Where to place |
+|---------|---------|----------------|
+| **Title** | Tells viewers what the map shows | Top of layout, largest text |
+| **Legend** | Explains symbols and colors | Right side or bottom, near map |
+| **Scale bar** | Shows distance relationships | Bottom of map frame |
+| **North arrow** | Shows map orientation | Top-right or bottom-right corner |
+| **Data source** | Credits data providers, ensures trust | Bottom of layout, small text |
+| **Author & date** | Establishes responsibility and currency | Bottom of layout with source |
+
+### Why North Arrow is Non-Negotiable
+
+The **north arrow** tells viewers which direction is "up" on your map. Without it:
+
+- Viewers cannot orient themselves
+- Distances and directions become meaningless
+- The map fails as a navigation or reference tool
+- Professional reviewers will reject the map
+
+!!! danger "No exceptions"
+    Even if your map shows a familiar area with north at the top, **include a north arrow**. Viewers should never have to guess or assume orientation. The only exception is a series of small multiples where one north arrow serves the entire set.
+
+### The Six-Element Checklist
+
+Before exporting any map, verify:
+
+- [ ] **Title** — Clear, descriptive, answers "what is this map showing?"
+- [ ] **Legend** — All symbols explained, no unexplained colors
+- [ ] **Scale bar** — Appropriate units (km for large areas, m for local)
+- [ ] **North arrow** — Visible, unobtrusive, correctly oriented
+- [ ] **Data source** — All datasets credited
+- [ ] **Author/date** — Your name and creation date
+
+---
+
 ## Why design matters
 
 A map isn't just data—it's a **visual argument**. Good design helps your audience:

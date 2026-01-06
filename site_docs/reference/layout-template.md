@@ -156,7 +156,10 @@ Now add the components that appear on every map.
 
 4. Position: bottom-left of map frame, inside the margin
 
-### Step 8: Add a north arrow
+### Step 8: Add a north arrow (required)
+
+!!! danger "Every map needs a north arrow"
+    A map without a north arrow is incomplete and will not be accepted for submission. Viewers must never have to guess which way is north.
 
 1. Click **Add Item → Add North Arrow**
 2. Draw a small box (15 × 15 mm)
@@ -166,7 +169,11 @@ Now add the components that appear on every map.
 
 4. Position: top-right or bottom-right corner of map frame
 
-**Note:** Only include north arrows when orientation isn't obvious (rotated maps, unfamiliar areas). For standard north-up maps of well-known regions, they're optional.
+**Style tips:**
+
+- Keep it simple—a clean arrow is better than an ornate compass rose
+- Size: 10-20mm, visible but not dominant
+- Position consistently across all your maps (top-right or bottom-right)
 
 ### Step 9: Add title text
 

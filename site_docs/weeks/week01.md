@@ -151,16 +151,16 @@ Consistent colors make your maps look professional. QGIS lets you save custom co
 
 2. Add colors to your palette:
    - Click the green **+** button to add a new color
-   - Use the color wheel or enter hex codes for these suggested colors:
+   - Use the color wheel or enter hex codes
+   - Here are some **example colors** to get you started:
 
-   | Color | Hex Code | Use for |
-   |-------|----------|---------|
-   | Deep Teal | `#0d7377` | Water, primary accent |
-   | Forest Green | `#2e7d32` | Vegetation, parks |
-   | Warm Orange | `#e65100` | Points of interest, highlights |
-   | Slate Grey | `#455a64` | Urban areas, boundaries |
-   | Sand | `#d4a574` | Desert, bare ground |
-   | Light Blue | `#4fc3f7` | Rivers, secondary water |
+   | Feature | Example Hex | Notes |
+   |---------|-------------|-------|
+   | Water | `#4a90d9` | Blues for water (cartographic convention) |
+   | Vegetation | `#2e7d32` | Greens for forests/parks |
+   | Highlights | `#e65100` | Warm colors draw attention |
+   | Urban | `#455a64` | Neutral greys |
+   | Rivers | `#4fc3f7` | Lighter blue for streams |
 
 3. Label your colors:
    - Double-click on a color swatch
@@ -206,6 +206,7 @@ A layout is how you turn your QGIS canvas into a polished map ready for export o
     | ![Add Label](../assets/icons/mLayoutItemLabel.svg){: style="height:1.5em; vertical-align:middle" } | **Add Label** | Adds text (titles, credits) |
     | ![Add Legend](../assets/icons/mLayoutItemLegend.svg){: style="height:1.5em; vertical-align:middle" } | **Add Legend** | Adds map legend |
     | ![Add Scale Bar](../assets/icons/mLayoutItemScaleBar.svg){: style="height:1.5em; vertical-align:middle" } | **Add Scale Bar** | Adds scale reference |
+    | ![Add North Arrow](../assets/icons/mLayoutItemNorthArrow.svg){: style="height:1.5em; vertical-align:middle" } | **Add North Arrow** | Shows map orientation (required!) |
 
     Hover over any icon in QGIS to see its name.
 
@@ -227,9 +228,17 @@ A layout is how you turn your QGIS canvas into a polished map ready for export o
 7. Add a scale bar:
    - Click the ![Add Scale Bar](../assets/icons/mLayoutItemScaleBar.svg){: style="height:1.2em; vertical-align:middle" } **Add Scale Bar** button
    - Draw a box at the bottom of your map
-8. Add data source:
+8. Add a north arrow:
+   - Click **Add Item → Add North Arrow** (or find the compass icon in the toolbar)
+   - Draw a small box in the top-right or bottom-right corner
+   - Choose a simple arrow style
+
+!!! warning "North arrow is required"
+    Every map must have a north arrow. A map without one is incomplete and will not be accepted for submission.
+
+9. Add data source:
    - Add another ![Add Label](../assets/icons/mLayoutItemLabel.svg){: style="height:1.2em; vertical-align:middle" } label at the bottom: "Source: Natural Earth, 2024"
-9. Export your map:
+10. Export your map:
    - Click **Layout ▶ Export as Image...** (or Export as PDF)
    - Save to `exports/week01_first_map.png`
 
@@ -296,6 +305,16 @@ Take 10 minutes to answer these questions in your [Week 1 reflection](../referen
 - [ ] QGIS project file: `projects/week01_orientation.qgz` with Natural Earth layers loaded and styled
 - [ ] Exported map: `exports/week01_first_map.png` (or PDF) showing your categorized world map
 - [ ] Your Week 1 reflection entry
+
+!!! danger "Map submission requirements"
+    Your exported map **must** include these four elements or it will not be accepted:
+
+    - [ ] **Title** — What the map shows
+    - [ ] **Legend** — What the colors/symbols mean
+    - [ ] **Scale bar** — Distance reference
+    - [ ] **North arrow** — Map orientation
+
+    See [Map Design Principles](../reference/design-rubric.md) for the complete checklist.
 
 ## Coming up next week
 

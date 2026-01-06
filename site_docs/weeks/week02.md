@@ -318,6 +318,16 @@ Take 10-15 minutes to answer these questions in your [Week 2 reflection](../refe
 - [ ] Exported layout: `exports/week02_renewable_energy.png` (or PDF) with all required elements
 - [ ] Your Week 2 reflection entry
 
+!!! danger "Map submission requirements"
+    Your exported map **must** include these four elements or it will not be accepted:
+
+    - [ ] **Title** — What the map shows
+    - [ ] **Legend** — What the colors/symbols mean
+    - [ ] **Scale bar** — Distance reference
+    - [ ] **North arrow** — Map orientation
+
+    See [Map Design Principles](../reference/design-rubric.md) for the complete checklist.
+
 ## Coming up next week
 
 Week 3 focuses on administrative and statistical boundaries, and you'll learn how to join socio-economic data (like SEIFA) to spatial layers. This is where GIS starts answering real-world questions about inequality, access, and demographics. Make sure you've downloaded your Week 3 datasets (SA2 boundaries and SEIFA, or local equivalents) so you're ready to hit the ground running.

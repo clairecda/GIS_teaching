@@ -397,6 +397,9 @@ Take 10-15 minutes to answer these questions in your [Week 3 reflection](../refe
 - [ ] Exported map showing spatial patterns in socio-economic data
 - [ ] Your Week 3 reflection entry
 
+!!! danger "Map submission requirements"
+    Your exported map **must** include: **Title**, **Legend**, **Scale bar**, and **North arrow**. Maps missing any of these elements will not be accepted. See [Map Design Principles](../reference/design-rubric.md).
+
 ## Coming up next week
 
 Week 4 introduces raster and terrain analysis. You'll work with digital elevation models (DEMs) to create hillshades, calculate slopes, and identify areas vulnerable to flooding or landslides. This builds on your Week 3 boundary work—you'll overlay terrain products with socio-economic data to answer questions like "Which disadvantaged communities face the highest flood risk?" Download your DEM tiles (ELVIS for Australia or SRTM for other regions) before next session so you're ready to jump in.

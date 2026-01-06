@@ -281,6 +281,9 @@ Take 10-15 minutes to answer these questions in your [Week 5 reflection](../refe
 - [ ] Written interpretation (1 paragraph): Describe patterns observed and at least 2 limitations of your analysis
 - [ ] Your Week 5 reflection entry
 
+!!! danger "Map submission requirements"
+    Your exported maps **must** include: **Title**, **Legend**, **Scale bar**, and **North arrow**. Maps missing any of these elements will not be accepted. See [Map Design Principles](../reference/design-rubric.md).
+
 ## Coming up next week
 
 Week 6 shifts from crime to public health and accessibility. You'll combine vulnerability indices (SEIFA, health risk data) with service locations to evaluate equity in healthcare access. Start thinking about how the network analysis concepts might apply to measuring access to hospitals, clinics, or other essential services.

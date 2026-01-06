@@ -322,6 +322,9 @@ Take 10-15 minutes to answer these questions in your [Week 4 reflection](../refe
 - [ ] Exported map (PDF or PNG) combining terrain output with boundary annotations
 - [ ] Your Week 4 reflection entry
 
+!!! danger "Map submission requirements"
+    Your exported map **must** include: **Title**, **Legend**, **Scale bar**, and **North arrow**. Maps missing any of these elements will not be accepted. See [Map Design Principles](../reference/design-rubric.md).
+
 ## Coming up next week
 
 Week 5 moves into crime hotspot mapping using kernel density estimation and ethical considerations for sensitive data. Think about how elevation or accessibility (steep terrain, distance from roads) might intersect with crime patterns in your region. The raster analysis skills you practiced this week will carry forward into density analysis next week.

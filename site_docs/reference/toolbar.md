@@ -53,6 +53,7 @@ Drag toolbars using the dotted handle on their left edge. Collapse infrequently 
 | ![Add Label](../assets/icons/mLayoutItemLabel.svg){: style="height:1.5em; vertical-align:middle" } | Add Label | Add text (titles, credits) |
 | ![Add Legend](../assets/icons/mLayoutItemLegend.svg){: style="height:1.5em; vertical-align:middle" } | Add Legend | Add map legend |
 | ![Add Scale Bar](../assets/icons/mLayoutItemScaleBar.svg){: style="height:1.5em; vertical-align:middle" } | Add Scale Bar | Add scale reference |
+| ![Add North Arrow](../assets/icons/mLayoutItemNorthArrow.svg){: style="height:1.5em; vertical-align:middle" } | Add North Arrow | Show orientation (required!) |
 | ![Add Picture](../assets/icons/mLayoutItemPicture.svg){: style="height:1.5em; vertical-align:middle" } | Add Picture | Add images (logos, photos) |
 | ![Add Arrow](../assets/icons/mActionAddArrow.svg){: style="height:1.5em; vertical-align:middle" } | Add Arrow | Add directional arrows |
 | ![Add Shape](../assets/icons/mActionAddBasicShape.svg){: style="height:1.5em; vertical-align:middle" } | Add Shape | Add rectangles, circles, etc. |

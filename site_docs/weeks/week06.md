@@ -354,6 +354,9 @@ Take 10-15 minutes to answer these questions in your [Week 6 reflection](../refe
 - [ ] Method documentation: `projects/week06_method_notes.txt`
 - [ ] Your Week 6 reflection entry
 
+!!! danger "Map submission requirements"
+    Your exported map **must** include: **Title**, **Legend**, **Scale bar**, and **North arrow**. Maps missing any of these elements will not be accepted. See [Map Design Principles](../reference/design-rubric.md).
+
 ## Coming up next week
 
 Week 7 is the bridge to Python. You'll run your first Python notebook and see how the QGIS workflows you've mastered can be automated with code. No installation required—you can use Google Colab in your browser!

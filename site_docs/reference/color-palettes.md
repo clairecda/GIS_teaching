@@ -2,20 +2,28 @@
 
 Consistent, accessible colors make your maps professional and readable. This guide covers creating palettes in QGIS and choosing colors for different map types.
 
-## Course Color Palette
+## Example Color Palette
 
-Use these colors as your baseline throughout the course:
+Here's an **example** palette showing typical colors for common map features. You should choose colors appropriate to your specific map and data:
 
-| Color | Hex | RGB | Use for |
-|-------|-----|-----|---------|
-| ![#0d7377](https://via.placeholder.com/20/0d7377/0d7377.png) Deep Teal | `#0d7377` | 13, 115, 119 | Water, ocean, primary accent |
-| ![#2e7d32](https://via.placeholder.com/20/2e7d32/2e7d32.png) Forest Green | `#2e7d32` | 46, 125, 50 | Vegetation, parks, forests |
-| ![#e65100](https://via.placeholder.com/20/e65100/e65100.png) Warm Orange | `#e65100` | 230, 81, 0 | Points of interest, highlights |
-| ![#455a64](https://via.placeholder.com/20/455a64/455a64.png) Slate Grey | `#455a64` | 69, 90, 100 | Urban areas, boundaries |
-| ![#d4a574](https://via.placeholder.com/20/d4a574/d4a574.png) Sand | `#d4a574` | 212, 165, 116 | Desert, bare ground |
-| ![#4fc3f7](https://via.placeholder.com/20/4fc3f7/4fc3f7.png) Light Blue | `#4fc3f7` | 79, 195, 247 | Rivers, streams |
-| ![#8d6e63](https://via.placeholder.com/20/8d6e63/8d6e63.png) Brown | `#8d6e63` | 141, 110, 99 | Roads, built-up areas |
-| ![#7cb342](https://via.placeholder.com/20/7cb342/7cb342.png) Lime Green | `#7cb342` | 124, 179, 66 | Agriculture, grassland |
+| Feature | Example Color | Hex | Notes |
+|---------|---------------|-----|-------|
+| Water (ocean, lakes) | Blue | `#4a90d9` | Use blues for water—this is a universal convention |
+| Rivers, streams | Light Blue | `#4fc3f7` | Lighter blue for smaller water features |
+| Vegetation, forests | Green | `#2e7d32` | Darker greens for dense vegetation |
+| Parks, grassland | Light Green | `#7cb342` | Lighter greens for open land |
+| Urban areas | Grey | `#455a64` | Neutral greys for built-up areas |
+| Desert, bare ground | Sand/Tan | `#d4a574` | Warm earth tones |
+| Roads | Brown/Grey | `#8d6e63` | Depending on map style |
+| Points of interest | Orange/Red | `#e65100` | Warm colors draw attention |
+
+!!! tip "These are suggestions, not rules"
+    Choose colors that work for **your** map and data. The key principles are:
+
+    - **Water should be blue** — this is a strong cartographic convention
+    - **Vegetation should be green** — another universal expectation
+    - **Use contrast** — ensure features are distinguishable
+    - **Be consistent** — use the same color for the same feature type across your maps
 
 ## Setting Up Your Palette in QGIS
 
