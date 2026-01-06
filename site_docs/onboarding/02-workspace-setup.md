@@ -9,53 +9,66 @@ Create a folder structure to keep your course files organised. This takes 5 minu
 1. Open Finder (Mac) or File Explorer (Windows)
 2. Go to your Desktop (or Documents)
 3. Create a new folder called `intro-gis`
-4. Inside `intro-gis`, create these subfolders:
+4. Inside `intro-gis`, create a folder for Week 1:
 
 ```
 intro-gis/
-├── data/
-│   ├── raw/          ← Downloaded files go here (never edit these!)
-│   └── processed/    ← Your cleaned/modified data goes here
-├── projects/         ← QGIS project files (.qgz)
-├── exports/          ← Your map outputs (PNG, PDF)
-└── notebooks/        ← Python notebooks (Week 7+)
+└── week01/
+    ├── data/
+    │   ├── raw/        ← Downloaded files go here
+    │   └── processed/  ← Your modified data goes here
+    ├── week01.qgz      ← Your QGIS project file
+    └── exports/        ← Your map outputs (PNG, PDF)
 ```
+
+Each week, create a new folder with the same structure:
+
+```
+intro-gis/
+├── week01/
+│   ├── data/raw/
+│   ├── data/processed/
+│   ├── week01.qgz
+│   └── exports/
+├── week02/
+│   └── (same structure)
+├── ...
+└── week12/
+```
+
+!!! tip "Create folders as you go"
+    Don't create all 12 weeks now. Create `week01/` today, then `week02/` next week.
 
 ---
 
 ## Connect the folder in QGIS
 
-Adding your folder to Favorites lets you quickly access it without navigating through your whole computer each time.
+Add your course folder to Favorites for quick access:
 
 1. Open QGIS
-2. Find the **Browser** panel on the left side of the screen
-3. Look for **Favorites** (usually near the top, with a star icon ⭐)
-4. Right-click **Favorites** → **Add a Directory...**
-5. Navigate to and select your `intro-gis/data` folder
-6. Click **Select Folder** (Windows) or **Open** (Mac)
+2. Find the **Browser** panel on the left
+3. Right-click **Favorites** → **Add a Directory...**
+4. Select your `intro-gis` folder
+5. Click **Select Folder** (Windows) or **Open** (Mac)
 
-Your folder now appears under Favorites. Double-click to expand it and see your data files.
+Your folder now appears under Favorites. Expand it to see your week folders.
 
 ---
 
 ## Save your first project
 
 1. In QGIS, go to **Project > Save As...**
-2. Navigate to your `intro-gis/projects/` folder
+2. Navigate to your `intro-gis/week01/` folder
 3. Name it `week01.qgz`
 4. Before saving, go to **Project > Properties > General**
 5. Under "Save paths", select **Relative**
-6. Click **OK**, then save your project
+6. Click **OK**, then save
 
 !!! info "What are relative paths?"
-    When QGIS saves your project, it remembers where your data files are. There are two ways to store this:
+    - **Absolute path:** `C:\Users\Claire\Desktop\intro-gis\week01\data\raw\countries.shp`
+    - **Relative path:** `data\raw\countries.shp`
 
-    - **Absolute path:** `C:\Users\Claire\Desktop\intro-gis\data\countries.shp`
-    - **Relative path:** `..\data\countries.shp` (means "go up one folder, then into data")
-
-    **Why relative is better:** If you move your `intro-gis` folder to another location (or another computer), relative paths still work because they describe where files are *relative to the project*. Absolute paths break because the exact location changed.
-
-    **Rule of thumb:** Always use relative paths if your data is inside your project folder.
+    Relative paths still work if you move your folder. Always use them.
 
 ---
 
@@ -63,18 +76,43 @@ Your folder now appears under Favorites. Double-click to expand it and see your 
 
 This is the most important habit you'll learn:
 
-- **`raw/`** — Put downloaded files here. Never edit them. If you mess up, you can always re-download.
-- **`processed/`** — Save any modified data here. Use clear names like `suburbs_joined.gpkg` or `crime_filtered.gpkg`.
+| Folder | What goes here | Can I edit files? |
+|--------|----------------|-------------------|
+| `raw/` | Downloaded files exactly as you got them | **No** — never edit |
+| `processed/` | Data you've cleaned, filtered, or modified | Yes |
 
-**Why?** Real GIS work requires tracing your data back to its source. If someone asks "where did this number come from?", you need to show the original file and the steps you took. Start this habit now—it will serve you throughout your career.
+**Why?** If you make a mistake, you can always start fresh from `raw/`. Professional GIS work requires tracing data back to its source.
+
+---
+
+## Your capstone project
+
+Your capstone gets its own folder at the end:
+
+```
+intro-gis/
+├── week01/
+├── week02/
+├── ...
+├── week12/
+└── capstone/
+    ├── data/
+    │   ├── raw/
+    │   └── processed/
+    ├── capstone.qgz
+    ├── notebooks/      ← Python analysis
+    └── exports/
+```
+
+The capstone folder works exactly like a week folder, but it's your own project that you build throughout the course.
 
 ---
 
 ## Tips
 
-- **Never edit files in `raw/`** — always save changes to `processed/`
-- **Use clear names** — `week03_seifa_join.gpkg` not `data_final_v2.gpkg`
-- **One project per week** — easier to find things later
+- **Never edit files in `raw/`** — always save to `processed/`
+- **Use clear names** — `suburbs_joined.gpkg` not `data_final_v2.gpkg`
+- **Each week is self-contained** — easy to find your work later
 
 ---
 

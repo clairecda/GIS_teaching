@@ -4,75 +4,57 @@ Download the data you need before each week's lab.
 
 ---
 
-## First: Create your workspace
+## Folder structure reminder
 
-Before downloading anything, create this folder structure on your Desktop:
+Each week has its own folder with `raw/` and `processed/` inside:
 
 ```
 intro-gis/
-├── data/
-│   ├── raw/        ← Downloaded files go here
-│   └── processed/  ← Cleaned data for analysis
-├── outputs/        ← Your maps and exports
-├── projects/       ← QGIS project files (.qgz)
-└── notebooks/      ← Python notebooks (Week 7+)
+├── week01/
+│   ├── data/
+│   │   ├── raw/        ← Download files here
+│   │   └── processed/  ← Save your modified data here
+│   ├── week01.qgz
+│   └── exports/
+├── week02/
+│   └── (same structure)
+└── ...
 ```
 
-=== "Windows"
-    1. Open **File Explorer**
-    2. Go to **Desktop**
-    3. Right-click → **New** → **Folder** → name it `intro-gis`
-    4. Open `intro-gis` and create the subfolders: `data`, `outputs`, `projects`, `notebooks`
-    5. Open `data` and create: `raw`, `processed`
-
-=== "Mac"
-    1. Open **Finder**
-    2. Go to **Desktop**
-    3. File → **New Folder** → name it `intro-gis`
-    4. Create the subfolders inside
-
-=== "Quick (Terminal)"
-    ```bash
-    mkdir -p ~/Desktop/intro-gis/{data/raw,data/processed,outputs,projects,notebooks}
-    ```
+**The rule:** Download to `raw/`, save your work to `processed/`.
 
 ---
 
-## How to organise downloads
+## How to download and organise
 
-For each week:
-
-1. **Create a week folder** in `data/raw/` (e.g., `data/raw/week01/`)
-2. **Download** files into that folder
-3. **Extract** ZIP files (see below)
-4. **Keep originals** — work from copies in `data/processed/` when editing
+1. **Create the week folder** (e.g., `intro-gis/week01/data/raw/`)
+2. **Download** files into `raw/`
+3. **Extract** any ZIP files (see below)
+4. **Never edit** files in `raw/` — save changes to `processed/`
 
 ### How to extract ZIP files
-
-ZIP files are compressed (like a folder stuffed into an envelope). You must extract them before QGIS can read the data inside.
 
 === "Windows"
     1. Right-click the ZIP file
     2. Click **Extract All...**
-    3. Choose the same folder (e.g., `data/raw/week01/`)
+    3. Choose the same folder
     4. Click **Extract**
 
 === "Mac"
     1. Double-click the ZIP file
-    2. It automatically extracts to a new folder
-    3. (Optional) Delete the original .zip file to avoid confusion
+    2. It extracts automatically
+    3. Delete the .zip file to avoid confusion
 
 ---
 
 ## Week 1 — Natural Earth
 
-**What:** Global country boundaries to explore QGIS
+**What:** Global country boundaries
 
 1. Go to [naturalearthdata.com/downloads](https://www.naturalearthdata.com/downloads/)
 2. Click **Cultural** > **Admin 0 - Countries**
-3. Download the **1:110m** scale (small file, good for learning)
-4. Save to `data/raw/week01/` and extract the ZIP
-5. You should see files ending in `.shp`, `.dbf`, `.shx`, `.prj`
+3. Download the **1:110m** scale
+4. Save to `week01/data/raw/` and extract
 
 !!! info "What are all these files?"
     A "shapefile" is actually 4+ files that work together:
@@ -84,42 +66,43 @@ ZIP files are compressed (like a folder stuffed into an envelope). You must extr
     | `.shx` | Index for fast access |
     | `.prj` | Coordinate system info |
 
-    **Keep all files together!** If you delete or move just one, QGIS can't read the data. When you load data in QGIS, you only click the `.shp` file—QGIS finds the others automatically.
+    **Keep all files together!** In QGIS, open the `.shp` file.
 
 ---
 
 ## Week 2 — Cities and energy data
 
-**Cities (for labelling practice):**
-
+**Cities:**
 1. Go to [simplemaps.com/data/world-cities](https://simplemaps.com/data/world-cities)
 2. Download the free "Basic" version
-3. Save to `data/raw/week02/` and extract
+3. Save to `week02/data/raw/`
 
-**Renewable energy (for choropleth):**
-
+**Renewable energy:**
 1. Go to [ourworldindata.org/renewable-energy](https://ourworldindata.org/renewable-energy)
 2. Click any chart > Download > CSV
-3. Save to `data/raw/week02/`
+3. Save to `week02/data/raw/`
 
 ---
 
 ## Week 3 — Boundaries + demographics
 
-**Australia option:**
-
+**Australia:**
 - SA2 boundaries: [ABS Digital Boundary Files](https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026/access-and-downloads/digital-boundary-files)
 - SEIFA indexes: [ABS SEIFA](https://www.abs.gov.au/statistics/people/people-and-communities/socio-economic-indexes-areas-seifa-australia/latest-release)
 
 **Other regions:** Use your local census/statistics agency
 
+Save to `week03/data/raw/`
+
 ---
 
 ## Week 4 — Elevation data
 
-**Australia:** [ELVIS](https://elevation.fsdf.org.au/) — free DEM tiles
+**Australia:** [ELVIS](https://elevation.fsdf.org.au/)
 
-**Global:** [USGS EarthExplorer](https://earthexplorer.usgs.gov/) — SRTM data (requires free account)
+**Global:** [USGS EarthExplorer](https://earthexplorer.usgs.gov/) (free account required)
+
+Save to `week04/data/raw/`
 
 ---
 
@@ -131,6 +114,8 @@ ZIP files are compressed (like a folder stuffed into an envelope). You must extr
 
 **US:** Search "[your city] open data crime"
 
+Save to `week05/data/raw/`
+
 ---
 
 ## Week 6 — Health facilities
@@ -139,61 +124,70 @@ ZIP files are compressed (like a folder stuffed into an envelope). You must extr
 
 **OpenStreetMap:** [Geofabrik downloads](https://download.geofabrik.de/) for road networks
 
+Save to `week06/data/raw/`
+
 ---
 
 ## Week 7 — Python setup
 
-No new datasets needed. Use Week 3 data to test your environment.
+No new datasets. Use Week 3 data to test your environment.
+
+Your Week 7 folder will contain notebooks instead of QGIS projects:
+
+```
+week07/
+├── data/
+│   ├── raw/
+│   └── processed/
+├── week07.ipynb      ← Python notebook
+└── exports/
+```
 
 ---
 
 ## Week 8 — Vector workflows
 
-Reuse your Week 3 or Week 5 data, or use the sample data included in the notebook.
+Reuse data from Week 3 or Week 5.
 
 **What you need:**
-
-- Neighbourhood/SA2 polygons (from Week 3)
-- Point data (incidents, facilities, etc.)
+- Neighbourhood/SA2 polygons
+- Point data (incidents, facilities)
 
 !!! tip "Using Colab?"
-    The notebook includes sample data URLs you can load directly. No downloads needed!
+    Notebooks include sample data URLs. No downloads needed!
 
 ---
 
 ## Week 9 — Raster & remote sensing
 
 **Option A: Sample data (easiest)**
+The notebook includes links to pre-processed imagery.
 
-The notebook includes links to pre-processed Sentinel-2 imagery.
-
-**Option B: Download your own**
-
+**Option B: Your own data**
 1. Go to [Copernicus Browser](https://browser.dataspace.copernicus.eu/)
 2. Create a free account
-3. Draw a small area of interest
-4. Download two images from different dates (before/after)
-5. Save to `data/raw/week09/`
+3. Download two images from different dates
+4. Save to `week09/data/raw/`
 
 ---
 
 ## Week 10 — Transport networks
 
-**Street networks:** Downloaded automatically by OSMnx — no manual download needed!
+**Street networks:** Downloaded automatically by OSMnx — no manual download!
 
-**Facilities:** Reuse health facilities from Week 6, or use sample data in the notebook.
+**Facilities:** Reuse from Week 6, or use sample data in notebook.
 
 ---
 
 ## Weeks 11-12 — Design & Capstone
 
-Use outputs from all previous weeks. No new datasets required.
+Use outputs from previous weeks. No new datasets required.
 
 ---
 
 ## Checklist
 
-Use the [Data Download Checklist](../reference/data-download-checklist.md) to track what you've downloaded.
+Use the [Data Download Checklist](../reference/data-download-checklist.md) to track your downloads.
 
 ---
 

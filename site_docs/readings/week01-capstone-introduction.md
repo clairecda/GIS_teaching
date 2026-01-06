@@ -89,22 +89,26 @@ Start looking for data in Week 1. Good sources:
 
 ## Project structure
 
-Use the same folder structure you've been using all course:
+Your capstone gets its own folder, just like each week:
 
 ```
 intro-gis/
-├── data/
-│   ├── raw/           ← Original downloads (never edit!)
-│   └── processed/     ← Cleaned/modified data
-├── projects/          ← QGIS project files (.qgz)
-├── exports/           ← Your map outputs
-└── notebooks/         ← Python analysis (Weeks 7+)
+├── week01/
+├── week02/
+├── ...
+├── week12/
+└── capstone/
+    ├── data/
+    │   ├── raw/        ← Original downloads (never edit!)
+    │   └── processed/  ← Your cleaned/modified data
+    ├── capstone.qgz    ← QGIS project file
+    ├── notebooks/      ← Python analysis
+    └── exports/        ← Your final maps
 ```
 
-For your capstone, you might want to keep capstone-specific files together. You could either:
-
-- Use clear naming: `raw/capstone_suburbs.gpkg`, `processed/capstone_analysis.gpkg`
-- Create a subfolder: `raw/capstone/`, `processed/capstone/`
+The same rules apply:
+- **raw/** — Downloaded files, never edited
+- **processed/** — Your modified data
 
 The key habit: **raw files stay untouched, processed files show your work**.
 

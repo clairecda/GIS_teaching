@@ -14,17 +14,17 @@ Use this checklist throughout your GIS projects. Print it out or keep it open as
 - [ ] Project timeline realistic for available time
 
 ### Workspace Setup
-- [ ] Using the standard course folder structure:
+- [ ] Using the week-based folder structure:
   ```
   intro-gis/
-  ├── data/
-  │   ├── raw/        ← Original downloads (never edit!)
-  │   └── processed/  ← Your cleaned/modified data
-  ├── projects/       ← QGIS project files (.qgz)
-  ├── exports/        ← Your map outputs
-  └── notebooks/      ← Python analysis
+  └── capstone/
+      ├── data/
+      │   ├── raw/        ← Original downloads (never edit!)
+      │   └── processed/  ← Your cleaned/modified data
+      ├── capstone.qgz    ← QGIS project file
+      ├── notebooks/      ← Python analysis
+      └── exports/        ← Your final maps
   ```
-- [ ] Capstone data clearly named or in subfolder (e.g., `raw/capstone_*.gpkg`)
 - [ ] Data sources bookmarked or documented
 - [ ] Backup location identified (cloud/USB)
 
@@ -58,7 +58,7 @@ Use this checklist throughout your GIS projects. Print it out or keep it open as
 ## QGIS Project
 
 ### Project Setup
-- [ ] Saved as `.qgz` in `projects/` folder
+- [ ] Saved as `.qgz` in your week or capstone folder
 - [ ] "Save paths: Relative" enabled (Project → Properties → General)
 - [ ] Project CRS set appropriately for study area
 - [ ] Project title filled in (Project → Properties → General)
