@@ -9,7 +9,20 @@ Create a folder structure to keep your course files organised. This takes 5 minu
 1. Open Finder (Mac) or File Explorer (Windows)
 2. Go to your Desktop (or Documents)
 3. Create a new folder called `intro-gis`
-4. Inside `intro-gis`, create a folder for Week 1:
+
+Now create the **subfolders** inside it. You need to create each folder one by one:
+
+4. Open your `intro-gis` folder
+5. Create a folder called `week01`
+6. Open `week01` and create these folders inside it:
+   - Create a folder called `data`
+   - Create a folder called `exports`
+7. Open the `data` folder you just created
+8. Inside `data`, create two more folders:
+   - Create a folder called `raw`
+   - Create a folder called `processed`
+
+When you're done, your folder structure should look like this:
 
 ```
 intro-gis/
@@ -17,9 +30,14 @@ intro-gis/
     ├── data/
     │   ├── raw/        ← Downloaded files go here
     │   └── processed/  ← Your modified data goes here
-    ├── week01.qgz      ← Your QGIS project file
+    ├── week01.qgz      ← Your QGIS project file (you'll create this later)
     └── exports/        ← Your map outputs (PNG, PDF)
 ```
+
+!!! tip "How to create a folder"
+    **Mac:** Right-click → New Folder (or Cmd + Shift + N)
+
+    **Windows:** Right-click → New → Folder (or Ctrl + Shift + N)
 
 Each week, create a new folder with the same structure:
 
