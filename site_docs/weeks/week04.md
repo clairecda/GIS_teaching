@@ -6,13 +6,15 @@ Moving from crisp vector boundaries to continuous surfaces opens up new analytic
 
 By the end of this week, you'll be able to:
 
-1. Explain the difference between elevation rasters, derived surfaces, and how they complement administrative boundaries.
+1. Explain the difference between elevation rasters, derived surfaces, and spectral indices like NDVI.
 2. Import DEM tiles (ELVIS or SRTM), clip them to an area of interest, and generate terrain products (hillshade, slope).
-3. Combine raster outputs with boundary data to support environmental resilience and planning questions.
+3. Calculate NDVI (vegetation index) from satellite imagery using the Raster Calculator.
+4. Combine raster outputs with boundary data to support environmental resilience and planning questions.
 
 ## Before you start
 
 - [ ] Download elevation data (ELVIS for Australia or SRTM tile) per [Downloading datasets](../onboarding/03-download-data.md) and tick off Week 4 in the [checklist](../reference/data-download-checklist.md)
+- [ ] Download satellite imagery for NDVI (Sentinel-2 or Landsat) — see Activity 6 for sources
 - [ ] Review [Raster Data Basics](../readings/week04-raster-basics.md) and the theory lecture on [Elevation & Surface Modelling](../lectures/week04-raster-theory.md)
 - [ ] Ensure the Week 3 boundary and indicator layers load correctly—you'll clip rasters using these polygons
 - [ ] Install optional plugins if advised (e.g., **Profile Tool**, **Raster terrain analysis**)
@@ -120,7 +122,90 @@ Slope shows how steep the terrain is—critical for understanding flood risk, la
 
 **Optional:** Create contour lines (`Raster ▶ Extraction ▶ Contour`) with an interval appropriate for your study area (e.g., 10m for hilly terrain, 50m for mountainous areas).
 
-### Activity 6: Combine terrain with boundaries
+### Activity 6: Calculate NDVI (vegetation index)
+
+NDVI (Normalized Difference Vegetation Index) measures vegetation health using satellite imagery. Healthy plants absorb red light for photosynthesis but strongly reflect near-infrared (NIR) light. NDVI exploits this difference.
+
+**The NDVI formula:**
+
+```
+NDVI = (NIR - Red) / (NIR + Red)
+```
+
+**Interpreting NDVI values:**
+
+| NDVI Range | What it represents |
+|------------|-------------------|
+| 0.6 to 1.0 | Dense, healthy vegetation (forests, crops at peak) |
+| 0.3 to 0.6 | Moderate vegetation (shrubs, grassland) |
+| 0.1 to 0.3 | Sparse or stressed vegetation |
+| -0.1 to 0.1 | Bare soil, rock, urban areas |
+| -1.0 to -0.1 | Water, snow, clouds |
+
+**Before you start:**
+
+You need multispectral satellite imagery with separate Red and NIR bands. Options:
+
+- **Sentinel-2**: Free from [Copernicus Open Access Hub](https://scihub.copernicus.eu/) — Band 4 = Red, Band 8 = NIR
+- **Landsat 8/9**: Free from [USGS EarthExplorer](https://earthexplorer.usgs.gov/) — Band 4 = Red, Band 5 = NIR
+- **Sample data**: Your instructor may provide pre-downloaded imagery
+
+**Steps:**
+
+1. Load your satellite imagery bands:
+   - `Layer ▶ Add Layer ▶ Add Raster Layer...`
+   - Add both the Red band and NIR band files
+   - Note which band is which (check the filename or metadata)
+
+2. Open the Raster Calculator:
+   - `Raster ▶ Raster Calculator...`
+
+3. Enter the NDVI formula:
+   - In the **Raster Calculator Expression** box, type:
+   ```
+   ("NIR_band@1" - "Red_band@1") / ("NIR_band@1" + "Red_band@1")
+   ```
+   - Replace `NIR_band` and `Red_band` with your actual layer names
+   - For Sentinel-2, this might look like:
+   ```
+   ("T55HBU_B08@1" - "T55HBU_B04@1") / ("T55HBU_B08@1" + "T55HBU_B04@1")
+   ```
+
+4. Set output options:
+   - **Output layer:** save to `data/processed/week04/ndvi.tif`
+   - **Output format:** GeoTIFF
+   - Click **OK** to run
+
+5. Style the NDVI layer:
+   - Right-click the NDVI layer → **Properties** → **Symbology**
+   - Change to **Singleband pseudocolor**
+   - Set **Min:** -0.2, **Max:** 0.8 (or use **Min/Max Value Settings** → **Cumulative count cut**)
+   - Choose the **RdYlGn** (Red-Yellow-Green) color ramp
+   - Click **Classify** → **Apply** → **OK**
+
+6. Interpret the result:
+   - Green areas = healthy vegetation
+   - Yellow areas = moderate/stressed vegetation
+   - Red/brown areas = bare soil, urban, or water
+   - Compare to satellite imagery—do the patterns make sense?
+
+!!! tip "Common NDVI issues"
+    - **All values near zero?** Check you're using the right bands (Red vs NIR)
+    - **Values outside -1 to 1?** Your imagery may need atmospheric correction, or there are nodata values
+    - **Striped patterns?** Could be sensor artifacts or cloud shadows
+
+**Why this matters:**
+
+NDVI is foundational for environmental analysis:
+
+- **Agriculture:** Monitor crop health and predict yields
+- **Urban planning:** Map green space and urban heat islands
+- **Conservation:** Track deforestation and habitat change
+- **Disaster response:** Assess vegetation damage from fires or floods
+
+In Week 9, you'll automate this process in Python and compare NDVI across time to detect change.
+
+### Activity 7: Combine terrain with boundaries
 
 Now you'll bring together terrain analysis with the socio-economic data from Week 3 to tell a more complete story.
 
@@ -142,7 +227,7 @@ Now you'll bring together terrain analysis with the socio-economic data from Wee
 
 **Optional:** Calculate zonal statistics for elevation to find mean height, elevation range, or lowest/highest points per boundary.
 
-### Activity 7: Create a terrain visualization layout
+### Activity 8: Create a terrain visualization layout
 
 Pull everything together into a professional map showing terrain context for your study area.
 
@@ -223,13 +308,17 @@ Take 10-15 minutes to answer these questions in your [Week 4 reflection](../refe
 - How does DEM resolution influence the insights you can draw? When would you need higher-resolution LiDAR?
 - What patterns did you discover when overlaying terrain with boundaries? Were there any surprising relationships between elevation/slope and socio-economic data?
 - Which boundary level (SA2, LGA, suburbs) felt most appropriate when communicating terrain-related risk? Why?
+- What did NDVI reveal about vegetation patterns in your study area? How might you use this for environmental monitoring?
 - What challenges did you encounter working with raster data compared to vectors? What did you learn about managing file sizes and processing time?
-- How will you document DEM sources and processing steps for reproducibility?
+- How will you document raster sources (DEM, satellite imagery) and processing steps for reproducibility?
 
 ## What you'll submit
 
-- [ ] QGIS project file (`projects/week04_terrain_analysis.qgz`) with clipped DEM, hillshade, and slope layers
-- [ ] At least one derived raster (hillshade or slope) saved in `data/processed/week04/`
+- [ ] QGIS project file (`projects/week04_terrain_analysis.qgz`) with clipped DEM, hillshade, slope, and NDVI layers
+- [ ] Derived rasters saved in `data/processed/week04/`:
+  - Hillshade (`hillshade.tif`)
+  - Slope (`slope.tif`)
+  - NDVI (`ndvi.tif`)
 - [ ] Exported map (PDF or PNG) combining terrain output with boundary annotations
 - [ ] Your Week 4 reflection entry
 
