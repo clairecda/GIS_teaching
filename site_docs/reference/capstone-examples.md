@@ -140,72 +140,40 @@ These examples from previous cohorts illustrate the range of topics, methods, an
 
 ---
 
-## Example 5: Urban Planning
+## Example 5: Environmental Science
 
-### Walkability Score Comparison Across Sydney LGAs
+### Koala Habitat Connectivity in Southeast Queensland
 
-**Research question:** How do walkability conditions vary across Sydney's local government areas?
-
-**Methods used:**
-
-- OpenStreetMap data (roads, footpaths, crossings)
-- Points of interest (shops, services, transit)
-- Custom walkability index calculation
-- Spatial aggregation by statistical area
-- Comparative choropleth mapping
-
-**Key findings:**
-
-- Inner-city LGAs score 3-4x higher than outer suburbs
-- Newer developments (post-2000) have lower walkability than older suburbs
-- Correlation between walkability and median property values
-
-**Deliverables:**
-
-- Walkability index map
-- Component maps (path density, POI access, transit access)
-- Methodology document explaining index calculation
-- Comparison table ranking LGAs
-
-**What made it successful:**
-
-- Created a custom analytical framework (the index)
-- Compared across multiple areas systematically
-- Documented methodology for reproducibility
-
----
-
-## Example 6: Transport Analysis
-
-### Public Transit Equity in Brisbane
-
-**Research question:** Do low-income neighborhoods have equitable access to high-frequency public transit?
+**Research question:** How connected are koala habitat patches in the Redlands Coast area, and where are the critical corridors?
 
 **Methods used:**
 
-- GTFS data for transit schedules
-- Service frequency calculation
-- Walking distance buffers around stops
-- Census income data join
-- Equity analysis comparing access by income quintile
+- Vegetation mapping (state government data)
+- Koala sighting records (wildlife surveys + citizen science)
+- Land use classification (raster)
+- Least-cost path analysis for corridor identification
+- Road density as barrier metric
 
 **Key findings:**
 
-- High-frequency transit (10-min or better) serves only 23% of population
-- Lowest income quintile actually has best access (inner-city concentration)
-- Middle-income suburbs in middle ring most underserved
+- 40% habitat loss in study area since 2010
+- Three critical corridors identified connecting major habitat patches
+- Two corridors bisected by proposed development areas
+- Road mortality hotspots align with corridor crossing points
 
 **Deliverables:**
 
-- Transit frequency map
-- Equity comparison chart by income quintile
-- Service gap identification map
+- Habitat patch map with connectivity scores
+- Corridor priority map for conservation planning
+- Change detection map (2010 vs 2023)
+- Recommendations for wildlife crossing infrastructure
 
 **What made it successful:**
 
-- Challenged assumptions (expected low-income = poor access)
-- Used GTFS data creatively
-- Quantified equity with clear metrics
+- Combined ecological data with infrastructure analysis
+- Used change detection to show trends over time
+- Produced actionable conservation recommendations
+- Engaged with local wildlife group for data sharing
 
 ---
 
