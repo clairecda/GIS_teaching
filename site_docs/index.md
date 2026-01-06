@@ -49,6 +49,36 @@ Head to [Week 1 Lab](weeks/week01.md) and begin your GIS journey.
 
 ---
 
+## Your responsibilities
+
+This course requires **initiative and preparation**. Success depends on you taking ownership of your learning.
+
+### Before each class
+
+- Complete the readings and download the required data
+- Set up your folder structure and verify your software works
+- **If you have issues, contact the teaching team BEFORE class** — we cannot troubleshoot installations or missing data during lab time
+
+### For your capstone project
+
+- **Discuss your project idea with the teaching team early** — don't wait until Week 10
+- Come with a topic area and initial questions; we'll help you refine them
+- Try to find data sources yourself first, then ask for guidance if stuck
+- Check in at milestones (Weeks 3, 5, 7, 10) to stay on track
+
+### Asking for help
+
+We're here to support you, but we expect you to:
+
+1. **Try first** — attempt the problem, read error messages, check the documentation
+2. **Be specific** — "It doesn't work" isn't helpful; "I get this error when I try to join these tables" is
+3. **Come prepared** — have your data ready, your project open, and your question clear
+
+!!! tip "The teaching team wants you to succeed"
+    We're happy to help with guidance, troubleshooting, and feedback — but the learning happens when *you* do the work. Take initiative, ask questions, and engage with the material.
+
+---
+
 ## Learning outcomes
 
 By the end of the course you will be able to:

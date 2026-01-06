@@ -170,12 +170,39 @@ You don't need to master this in Week 1. Revisit these resources when you start 
 
 ---
 
-## Getting help
+## Working with the teaching team
 
-- **Weekly check-ins:** Mention your capstone progress in class
-- **Office hours:** Bring specific questions about your project
-- **Peer feedback:** Share drafts with classmates for input
-- **Week 11:** Dedicated time for design critique and feedback
+!!! warning "Discuss your project early"
+    **Don't wait until Week 10 to share your capstone idea.** Talk to the teaching team early so we can help you refine your question and avoid common pitfalls.
+
+### When to check in
+
+| Milestone | What to discuss |
+|-----------|-----------------|
+| **Week 2-3** | Share your topic idea and initial question |
+| **Week 5** | Confirm your data sources and study area |
+| **Week 7** | Review your analysis approach |
+| **Week 10** | Get feedback on draft maps |
+
+### Finding data
+
+**Try first, then ask for help.** Before asking the teaching team where to find data:
+
+1. Search the data portals listed above
+2. Use search terms like "[your topic] shapefile" or "[your area] open data"
+3. Check what data is available and what's missing
+
+Then come to us with: *"I'm looking for [specific data type] for [area]. I've checked [sources] but can't find [specific thing]. Any suggestions?"*
+
+We're happy to point you in the right direction, but the searching is part of the learning.
+
+### Getting help effectively
+
+We want to help you succeed. To make the most of our time together:
+
+- **Be specific:** "I can't get my layers to align" is better than "it doesn't work"
+- **Show your work:** Have your project open with the problem visible
+- **Explain what you've tried:** This helps us understand where you're stuck
 
 ---
 
@@ -187,5 +214,6 @@ This week:
 2. **Check data availability** for each
 3. **Create your capstone folder** structure
 4. **Start a notes file** to track ideas and decisions
+5. **Mention your ideas in class** — early feedback helps
 
 Don't wait until Week 12. The best capstones are built gradually throughout the course.
