@@ -90,12 +90,6 @@ For a simple 3-zone layout (map + legend + margin):
 
 1. Add a vertical guide at **280 mm** — this separates the map area from the legend area
 
-```mermaid
-block-beta
-    columns 3
-    space["15mm margin"]:1 MAP["🗺️ MAP AREA"]:1 LEGEND["📋 LEGEND"]:1
-```
-
 | Zone | From | To | Width |
 |------|------|-----|-------|
 | Left margin | 0 | 15 mm | 15 mm |
@@ -278,10 +272,16 @@ Create multiple templates for different purposes:
 Two map frames side by side with shared legend below. Good for: Before/after, two time periods.
 
 ```mermaid
-block-beta
-    columns 2
-    MAP1["🗺️ MAP 1<br/>(2016)"]:1 MAP2["🗺️ MAP 2<br/>(2021)"]:1
-    LEGEND["📋 LEGEND"]:2
+flowchart TB
+    subgraph row1[" "]
+        direction LR
+        MAP1["🗺️ MAP 1<br/>(2016)"]
+        MAP2["🗺️ MAP 2<br/>(2021)"]
+    end
+    subgraph row2[" "]
+        LEGEND["📋 LEGEND"]
+    end
+    row1 --> row2
 ```
 
 ### Dashboard template
@@ -289,10 +289,19 @@ block-beta
 Main map with inset maps and statistics. Good for: Executive summaries, presentations.
 
 ```mermaid
-block-beta
-    columns 3
-    MAP["🗺️ MAIN MAP"]:2 SIDEBAR["📋 Legend<br/>📊 Stats"]:1
-    INSET1["Inset 1"]:1 INSET2["Inset 2"]:1 NOTES["Notes"]:1
+flowchart TB
+    subgraph main[" "]
+        direction LR
+        MAP["🗺️ MAIN MAP"]
+        SIDEBAR["📋 Legend<br/>📊 Stats"]
+    end
+    subgraph bottom[" "]
+        direction LR
+        INSET1["Inset 1"]
+        INSET2["Inset 2"]
+        NOTES["Notes"]
+    end
+    main --> bottom
 ```
 
 ---

@@ -23,15 +23,16 @@ Professional designers don't place elements randomly. They use an invisible **gr
 
 ### How grids work
 
-```mermaid
-block-beta
-    columns 12
-    TITLE["📰 TITLE (spans columns 1-9)"]:9 space:3
-    MAP["🗺️ MAIN MAP AREA<br/>(8 columns)"]:8 LEGEND["📋 LEGEND<br/>(3 columns)"]:3 space:1
-    CREDITS["Data sources & credits (full width)"]:12
-```
+Elements snap to column boundaries:
 
-Elements snap to column boundaries. In this example:
+| Element | Columns | Width |
+|---------|---------|-------|
+| **Title** | 1–9 | 75% of page |
+| **Main map** | 1–8 | 67% of page |
+| **Legend** | 9–11 | 25% of page |
+| **Credits** | 1–12 | Full width |
+
+In this example:
 - **Title** spans 9 of 12 columns
 - **Map** takes 8 columns (2/3 of the page)
 - **Legend** takes 3 columns (1/4 of the page)
@@ -82,22 +83,18 @@ A balanced layout feels stable. An unbalanced layout feels uncomfortable (even i
 
 === "Symmetrical"
 
-    ```mermaid
-    block-beta
-        columns 3
-        space:1 MAP["🗺️ MAP"]:1 space:1
-        space:1 LEGEND["Legend"]:1 space:1
-    ```
+    | Left | Center | Right |
+    |:----:|:------:|:-----:|
+    | | 🗺️ MAP | |
+    | | Legend | |
 
     Everything centered on the page. Simple but static.
 
 === "Asymmetrical"
 
-    ```mermaid
-    block-beta
-        columns 3
-        MAP["🗺️ MAP (large)"]:2 LEGEND["Legend"]:1
-    ```
+    | Map Area (2/3) | Legend (1/3) |
+    |:--------------:|:------------:|
+    | 🗺️ MAP | Legend |
 
     Heavier on left, balanced by legend on right. More dynamic and professional.
 
@@ -207,11 +204,15 @@ Colors aren't decoration—they carry meaning:
 Good map design uses all these principles:
 
 ```mermaid
-block-beta
-    columns 3
-    TITLE["📰 TITLE — Large, top, high contrast"]:3
-    MAP["🗺️ MAIN MAP"]:2 SIDEBAR["📋 LEGEND<br/>📏 Scale bar"]:1
-    CREDITS["Data: ABS 2021 | CRS: EPSG:7856 | Author: Your Name"]:3
+flowchart TB
+    TITLE["📰 TITLE — Large, top, high contrast"]
+    subgraph content[" "]
+        direction LR
+        MAP["🗺️ MAIN MAP"]
+        SIDEBAR["📋 LEGEND<br/>📏 Scale bar"]
+    end
+    CREDITS["Data: ABS 2021 | CRS: EPSG:7856 | Author: Your Name"]
+    TITLE --> content --> CREDITS
 ```
 
 | Principle | How it's applied |
