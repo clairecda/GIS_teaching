@@ -1,5 +1,7 @@
 # Using AI as a Learning Partner
 
+**Read before:** Week 1 | **Time:** 10 minutes
+
 AI tools like ChatGPT, Claude, and GitHub Copilot can be powerful learning aids—but like any tool, their value depends on how you use them. This guide helps you use AI effectively without undermining your own learning.
 
 ## The core principle

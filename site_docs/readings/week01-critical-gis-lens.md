@@ -1,7 +1,6 @@
 # Seeing Assumptions in GIS
 
-**Read before:** Week 1
-**Time:** 10 minutes
+**Read before:** Week 1 | **Time:** 10 minutes
 
 ---
 

@@ -1,7 +1,6 @@
 # What is GIS?
 
-**Read before:** Week 1
-**Time:** 15 minutes
+**Read before:** Week 1 | **Time:** 15 minutes
 
 ---
 

@@ -1,5 +1,7 @@
 # Spatial Statistics & Regression
 
+**Read before:** Week 10 | **Time:** 25 minutes
+
 This reading introduces spatial autocorrelation and spatial regression—essential concepts for capstone projects that analyze relationships between variables across space.
 
 **No statistics background?** Start with the "What is regression?" section below. If you're comfortable with basic regression, skip to "Why spatial data is different."

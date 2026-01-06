@@ -1,5 +1,7 @@
 # Understanding Coordinate Reference Systems (CRS)
 
+**Read before:** Week 1 (skim) / Week 3 (detail) | **Time:** 30 minutes
+
 One of the most confusing aspects of GIS for beginners is the Coordinate Reference System (CRS). This guide explains what CRS is, why it matters, and how to work with it in your projects.
 
 ## What is a CRS and why does it matter?

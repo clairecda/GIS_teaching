@@ -40,11 +40,12 @@ Head to [Week 1 Lab](weeks/week01.md) and begin your GIS journey.
 
 ## Who this course is for
 
-- Beginners curious about spatial analysis
-- Researchers who want to visualise geographic data
-- Anyone with a laptop (Mac, Windows, or Linux)
+- Students new to spatial analysis and mapping
+- Researchers working with geographic data
+- Professionals needing GIS skills for planning, health, environment, or policy work
+- Self-learners building a portfolio in geospatial analysis
 
-**No prior GIS or programming experience required.**
+**Prerequisites:** No prior GIS or programming experience required. Basic computer skills assumed (file management, installing software).
 
 ---
 

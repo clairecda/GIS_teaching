@@ -1,7 +1,6 @@
 # Administrative Boundaries
 
-**Read before:** Week 3
-**Time:** 20 minutes
+**Read before:** Week 3 | **Time:** 20 minutes
 
 ---
 
