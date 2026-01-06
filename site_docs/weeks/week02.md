@@ -197,7 +197,7 @@ Next, symbolise those same cities so marker size reflects population. The quick 
 8. **Preview the legend:** `Layout ▶ Add Legend` already pulls in the size classes. If you need more control, add `Layout ▶ Add Item ▶ Data-defined size legend` and select the `Major Cities – Population Size` layer so the legend lists sample sizes such as 5 M, 15 M, 30 M.
 
 !!! tip "Need a gut-check?"
-    Hover over cities with **Identify Features** to confirm a 30 M city draws noticeably bigger than a 5 M city. If not, either widen the min/max symbol sizes or reduce the number of classes so differences read clearly.
+    Hover over cities with ![Identify](../assets/icons/mActionIdentify.svg){: style="height:1.2em; vertical-align:middle" } **Identify Features** to confirm a 30 M city draws noticeably bigger than a 5 M city. If not, either widen the min/max symbol sizes or reduce the number of classes so differences read clearly.
 
 ### Activity 5: Create a professional layout
 
@@ -210,26 +210,26 @@ Now you'll assemble everything into a polished, export-ready map.
    - Right-click canvas → **Page Properties**
    - Set to A3 Landscape (or your preferred size)
 3. Add the map:
-   - **Add Map** tool → draw a large rectangle covering most of the page
+   - ![Add Map](../assets/icons/mLayoutItemMap.svg){: style="height:1.2em; vertical-align:middle" } **Add Map** tool → draw a large rectangle covering most of the page
    - Leave margins for title, legend, and credits
 4. Add a title:
-   - **Add Label** → draw a box at the top
+   - ![Add Label](../assets/icons/mLayoutItemLabel.svg){: style="height:1.2em; vertical-align:middle" } **Add Label** → draw a box at the top
    - Text: "Global Renewable Energy Share by Country, 2023"
    - Font: 20-24pt, bold
 5. Add a legend:
-   - **Add Legend** → draw a box (usually right side or bottom) for your choropleth and other layers
+   - ![Add Legend](../assets/icons/mLayoutItemLegend.svg){: style="height:1.2em; vertical-align:middle" } **Add Legend** → draw a box (usually right side or bottom) for your choropleth and other layers
    - In Item Properties, remove unnecessary items (uncheck layers you don't want shown)
    - Rename legend items to be reader-friendly (not technical field names). The `Major Cities – Population Size` entry will already display the differently sized markers because the renderer is in **Size** mode; if you also added a dedicated data-defined size legend, position it directly beside the main legend for clarity.
 6. Add a scale bar:
-   - **Add Scale Bar** → draw at bottom of map
+   - ![Add Scale Bar](../assets/icons/mLayoutItemScaleBar.svg){: style="height:1.2em; vertical-align:middle" } **Add Scale Bar** → draw at bottom of map
    - Choose a style that matches your map aesthetic (single box, line ticks, etc.)
 7. Add an inset map (optional but impressive):
-   - **Add Map** → draw a small rectangle in the corner
+   - ![Add Map](../assets/icons/mLayoutItemMap.svg){: style="height:1.2em; vertical-align:middle" } **Add Map** → draw a small rectangle in the corner
    - In Item Properties → **Map 1**, **Lock layers** and **Lock styles**
    - Zoom this second map out to show global context
    - Draw a rectangle shape showing the extent of your main map
 8. Add data credits:
-   - **Add Label** → small text at bottom
+   - ![Add Label](../assets/icons/mLayoutItemLabel.svg){: style="height:1.2em; vertical-align:middle" } **Add Label** → small text at bottom
    - Text: "Data: Natural Earth, Our World in Data | Map: [Your Name], 2024"
 9. Export:
    - `Layout ▶ Export as Image...` → save to `exports/week02_renewable_energy.png`

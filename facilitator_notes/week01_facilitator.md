@@ -378,6 +378,16 @@ Don't worry about making it pretty. Just practice the mechanics."
 
 **This is the most challenging part for first-timers. Go slowly and show every step.**
 
+**Important: Point students to the layout template guide**
+Before starting the demo, direct students to the **Layout Template** reference guide on the course website (`reference/layout-template.md`). This guide provides:
+- Standard page sizes and margin recommendations
+- Step-by-step guide placement instructions
+- Common layout templates (comparison maps, dashboards)
+- Professional map element placement guidelines
+
+**What to say:**
+"Before we dive in, bookmark the Layout Template guide on the course website. It's your reference for creating professional maps throughout this course. We'll use these standards starting today and in every weekly lab going forward."
+
 **Demo: Creating a New Layout**
 
 **What to do:**

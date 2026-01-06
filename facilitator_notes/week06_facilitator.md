@@ -12,10 +12,11 @@
 ### Learning Objectives
 By the end of this session, students will be able to:
 1. Prepare and validate health facility point data and road network data for analysis
-2. Conduct network analysis using QGEAT3 to create drive-time isochrones
-3. Overlay service areas with vulnerability indices to identify accessibility gaps
-4. Interpret and communicate findings using equity-focused language
-5. Document methodology in preparation for reproducible workflows in Python
+2. Conduct network analysis using QNEAT3 to create drive-time isochrones
+3. Calculate shortest path routes from population centers to health facilities
+4. Overlay service areas with vulnerability indices to identify accessibility gaps
+5. Interpret and communicate findings using equity-focused language
+6. Document methodology in preparation for reproducible workflows in Python
 
 ### Materials Needed
 
@@ -178,6 +179,7 @@ Groups report out (5 min): Capture responses on board
 
 **Stretch activities for fast finishers:**
 - Create walking-access isochrones (5 km/h) and compare to driving
+- Calculate shortest paths from SA2 centroids to nearest hospitals (Part 7 extension)
 - Calculate population-weighted accessibility gaps
 - Design inset map showing detail of worst-served area
 - Research facility capacity data and discuss supply/demand
@@ -443,6 +445,51 @@ Groups report out (5 min): Capture responses on board
 
 **Wrap demo:**
 "That's the workflow. Now you'll do this with your own data. Remember: Check CRS first, start with small network, save your work before running QNEAT3."
+
+---
+
+### Part 7: Shortest Path Analysis (Optional Extension, 10 min)
+
+**Purpose:** Calculate actual travel routes from population centers to nearest health facilities
+
+**When to include:** If time permits and students want to explore beyond isochrones
+
+**Narration:**
+"Isochrones show catchment areas—but what if you want to know the actual route someone would take to reach a hospital? That's shortest path analysis."
+
+**Steps:**
+
+1. **Open Processing Toolbox:**
+   - Search for "Shortest path"
+   - Select **QNEAT3 → Shortest path (point to layer)**
+
+2. **Configure parameters:**
+   - **Network layer:** road_network
+   - **Start point:** Click a point on the map (e.g., town center in a gap area)
+   - **End points layer:** health_facilities
+   - **Direction field:** Leave blank (undirected)
+   - **Default speed:** 50 km/h
+   - **Strategy:** Shortest (fastest if speed varies by road type)
+
+3. **Run and interpret:**
+   - Output shows the optimal route to nearest facility
+   - Attribute table shows distance and travel time
+   - "This resident in [area] would need to travel 23 km, taking 28 minutes to reach the nearest hospital"
+
+4. **Teaching points:**
+   - Shortest path = specific routes for specific origins
+   - Different from isochrones (catchment areas)
+   - Useful for: ambulance routing, patient journey mapping, community-specific analysis
+   - Can run for multiple origins (e.g., SA2 centroids to nearest facility)
+
+**Style the route:**
+- Line symbology: red, 2mm stroke
+- Add arrows to show direction (if using directed network)
+
+**Discussion prompt:**
+"If you ran shortest path from every SA2 centroid to the nearest hospital, what patterns might emerge? How might this inform ambulance station locations?"
+
+**Note:** This activity demonstrates shortest path for health accessibility. For other applications like wildlife corridors or off-road movement, students would need cost-surface analysis (least-cost path)—which is beyond this week's scope but covered in external resources linked in the capstone examples guide.
 
 ---
 

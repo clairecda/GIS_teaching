@@ -18,22 +18,44 @@ Drag toolbars using the dotted handle on their left edge. Collapse infrequently 
 
 ## Icon cheat sheet
 
-| Name | Shortcut | What it does |
-| ---- | -------- | ------------ |
-| New Project | `Ctrl/Cmd + N` | Start a fresh project file. |
-| Open Project | `Ctrl/Cmd + O` | Load an existing `.qgz`. |
-| Save Project | `Ctrl/Cmd + S` | Save current work. |
-| Pan | Hold Space | Move around the map without changing scale. |
-| Zoom In / Zoom Out | Mouse wheel | Focus on a smaller or larger area. |
-| Zoom Full | `Ctrl/Cmd + Shift + F` | Reset view to full layer extent. |
-| Identify Features | `Ctrl/Cmd + Shift + I` | Inspect attributes by clicking features. |
-| Select Features (rectangle) | `Ctrl/Cmd + Shift + R` | Select features spatially. |
-| Toggle Editing | `Ctrl/Cmd + E` | Switch a layer into editable mode. |
-| Add Feature | `Ctrl/Cmd + Shift + F` | Digitise new points/lines/polygons. |
-| Measure Line | `Shift + M` | Measure distance between points. |
-| Measure Area | `Ctrl/Cmd + Shift + M` | Calculate area by drawing a polygon. |
-| Render Toggle | `Ctrl/Cmd + R` | Pause map drawing during heavy operations. |
-| Plugin Manager | — | Install/enable optional plugins. |
+### Navigation tools
+
+| Icon | Name | Shortcut | What it does |
+|:----:| ---- | -------- | ------------ |
+| ![Pan](../assets/icons/mActionPan.svg){: style="height:1.5em; vertical-align:middle" } | Pan | Hold Space | Move around the map without changing scale |
+| ![Zoom In](../assets/icons/mActionZoomIn.svg){: style="height:1.5em; vertical-align:middle" } | Zoom In | Mouse wheel up | Focus on a smaller area |
+| ![Zoom Out](../assets/icons/mActionZoomOut.svg){: style="height:1.5em; vertical-align:middle" } | Zoom Out | Mouse wheel down | View a larger area |
+| ![Zoom Full](../assets/icons/mActionZoomFullExtent.svg){: style="height:1.5em; vertical-align:middle" } | Zoom Full | `Ctrl/Cmd + Shift + F` | Reset view to full layer extent |
+| ![Zoom to Layer](../assets/icons/mActionZoomToLayer.svg){: style="height:1.5em; vertical-align:middle" } | Zoom to Layer | — | Zoom to selected layer's extent |
+
+### Project tools
+
+| Icon | Name | Shortcut | What it does |
+|:----:| ---- | -------- | ------------ |
+| ![Save](../assets/icons/mActionFileSave.svg){: style="height:1.5em; vertical-align:middle" } | Save Project | `Ctrl/Cmd + S` | Save current work |
+| ![Open](../assets/icons/mActionFileOpen.svg){: style="height:1.5em; vertical-align:middle" } | Open Project | `Ctrl/Cmd + O` | Load an existing `.qgz` |
+
+### Data tools
+
+| Icon | Name | Shortcut | What it does |
+|:----:| ---- | -------- | ------------ |
+| ![Add Vector](../assets/icons/mActionAddOgrLayer.svg){: style="height:1.5em; vertical-align:middle" } | Add Vector Layer | `Ctrl/Cmd + Shift + V` | Load shapefiles, GeoPackages, etc. |
+| ![Add Raster](../assets/icons/mActionAddRasterLayer.svg){: style="height:1.5em; vertical-align:middle" } | Add Raster Layer | `Ctrl/Cmd + Shift + R` | Load DEMs, imagery, etc. |
+| ![Identify](../assets/icons/mActionIdentify.svg){: style="height:1.5em; vertical-align:middle" } | Identify Features | `Ctrl/Cmd + Shift + I` | Inspect attributes by clicking features |
+| ![Open Table](../assets/icons/mActionOpenTable.svg){: style="height:1.5em; vertical-align:middle" } | Open Attribute Table | `F6` | View layer's data table |
+| ![Select](../assets/icons/mActionSelect.svg){: style="height:1.5em; vertical-align:middle" } | Select Features | — | Select features spatially |
+
+### Layout tools (Print Layout window)
+
+| Icon | Name | What it does |
+|:----:| ---- | ------------ |
+| ![Add Map](../assets/icons/mLayoutItemMap.svg){: style="height:1.5em; vertical-align:middle" } | Add Map | Insert map canvas into layout |
+| ![Add Label](../assets/icons/mLayoutItemLabel.svg){: style="height:1.5em; vertical-align:middle" } | Add Label | Add text (titles, credits) |
+| ![Add Legend](../assets/icons/mLayoutItemLegend.svg){: style="height:1.5em; vertical-align:middle" } | Add Legend | Add map legend |
+| ![Add Scale Bar](../assets/icons/mLayoutItemScaleBar.svg){: style="height:1.5em; vertical-align:middle" } | Add Scale Bar | Add scale reference |
+| ![Add Picture](../assets/icons/mLayoutItemPicture.svg){: style="height:1.5em; vertical-align:middle" } | Add Picture | Add images (logos, photos) |
+| ![Add Arrow](../assets/icons/mActionAddArrow.svg){: style="height:1.5em; vertical-align:middle" } | Add Arrow | Add directional arrows |
+| ![Add Shape](../assets/icons/mActionAddBasicShape.svg){: style="height:1.5em; vertical-align:middle" } | Add Shape | Add rectangles, circles, etc. |
 
 ## Tips for customisation
 

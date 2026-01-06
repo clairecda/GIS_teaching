@@ -8,7 +8,9 @@ By the end of this week, you'll be able to:
 
 1. Install QGIS (LTR 3.34 recommended) and configure your workspace.
 2. Navigate the QGIS interface (Browser, Layers, Processing Toolbox, Layout Manager).
-3. Load vector layers, inspect attribute tables, and save a project with organised folders.
+3. Load vector layers, inspect attribute tables, and apply basic symbology.
+4. Create a custom color palette for consistent map styling throughout the course.
+5. Build a print layout with title, legend, scale bar, and data credits.
 
 ## Before you start
 
@@ -99,9 +101,9 @@ Time to see some geography! You'll load Natural Earth country boundaries and exp
 7. Close the attribute table
 
 !!! tip "Understanding the connection"
-    Use the **Identify tool** to click on any country and see its data:
+    Use the ![Identify](../assets/icons/mActionIdentify.svg){: style="height:1.2em; vertical-align:middle" } **Identify Features** tool to click on any country and see its data:
 
-    1. Find the "i" icon in the toolbar (looks like a lowercase letter i with a cursor)
+    1. Find the ![Identify](../assets/icons/mActionIdentify.svg){: style="height:1.2em; vertical-align:middle" } icon in the toolbar
     2. Click the icon to activate the tool (your cursor changes)
     3. Click on any country on the map
     4. A panel appears showing that country's attributes (name, population, etc.)
@@ -137,7 +139,55 @@ Let's make the map more meaningful by coloring countries by continent.
 !!! note "Week 2 preview"
     Next week you'll dive deeper into color choices, classification methods, and cartographic design principles. For now, just get comfortable with the mechanics.
 
-### Activity 6: Create your first layout
+### Activity 6: Create a course color palette
+
+Consistent colors make your maps look professional. QGIS lets you save custom colors for easy reuse throughout the course.
+
+**Steps:**
+
+1. Open the color picker:
+   - Go to `Settings ▶ Options ▶ Colors` tab
+   - Or: When in any color selector, click the dropdown arrow → **Colors...**
+
+2. Add colors to your palette:
+   - Click the green **+** button to add a new color
+   - Use the color wheel or enter hex codes for these suggested colors:
+
+   | Color | Hex Code | Use for |
+   |-------|----------|---------|
+   | Deep Teal | `#0d7377` | Water, primary accent |
+   | Forest Green | `#2e7d32` | Vegetation, parks |
+   | Warm Orange | `#e65100` | Points of interest, highlights |
+   | Slate Grey | `#455a64` | Urban areas, boundaries |
+   | Sand | `#d4a574` | Desert, bare ground |
+   | Light Blue | `#4fc3f7` | Rivers, secondary water |
+
+3. Label your colors:
+   - Double-click on a color swatch
+   - Give it a descriptive name (e.g., "Course - Water Teal")
+   - Adding "Course -" prefix keeps them grouped together
+
+4. Access your palette anytime:
+   - In any color picker, your custom colors appear under **Recent Colors** or **Standard Colors**
+   - The palette saves automatically with your QGIS profile
+
+!!! tip "Import/export palettes"
+    You can export your palette to share with classmates:
+
+    - In the Colors tab, click **...** → **Export Colors**
+    - Save as `.gpl` (GIMP palette) file
+    - Share the file; others import via **Import Colors**
+
+**Why this matters:**
+
+- **Consistency:** Same colors across all 12 weeks = professional portfolio
+- **Efficiency:** No searching for "that blue I used last time"
+- **Accessibility:** Plan accessible colors once, use them everywhere
+
+!!! info "ColorBrewer for map-specific palettes"
+    For choropleth maps (graduated colors), use [ColorBrewer](https://colorbrewer2.org/) to generate accessible, sequential or diverging palettes. You'll practice this in Week 2.
+
+### Activity 7: Create your first layout
 
 A layout is how you turn your QGIS canvas into a polished map ready for export or printing.
 
@@ -150,33 +200,35 @@ A layout is how you turn your QGIS canvas into a polished map ready for export o
 !!! info "Finding the layout tools"
     The layout window has its own toolbar on the left side. Key tools:
 
-    - **Add Map** (rectangle with lines) — inserts your map
-    - **Add Label** (letter A) — adds text
-    - **Add Legend** (list icon) — adds legend
-    - **Add Scale Bar** (ruler icon) — adds scale reference
+    | Icon | Tool | What it does |
+    |:----:|------|--------------|
+    | ![Add Map](../assets/icons/mLayoutItemMap.svg){: style="height:1.5em; vertical-align:middle" } | **Add Map** | Inserts your map canvas |
+    | ![Add Label](../assets/icons/mLayoutItemLabel.svg){: style="height:1.5em; vertical-align:middle" } | **Add Label** | Adds text (titles, credits) |
+    | ![Add Legend](../assets/icons/mLayoutItemLegend.svg){: style="height:1.5em; vertical-align:middle" } | **Add Legend** | Adds map legend |
+    | ![Add Scale Bar](../assets/icons/mLayoutItemScaleBar.svg){: style="height:1.5em; vertical-align:middle" } | **Add Scale Bar** | Adds scale reference |
 
-    Hover over any icon to see its name.
+    Hover over any icon in QGIS to see its name.
 
 4. Add a map:
-   - Click the **Add Map** button in the toolbar
+   - Click the ![Add Map](../assets/icons/mLayoutItemMap.svg){: style="height:1.2em; vertical-align:middle" } **Add Map** button in the toolbar
    - Draw a rectangle on the canvas (click and drag to define the area)
    - Your map from the main QGIS window appears in this frame
 
 5. Add a title:
-   - Click **Add Label** button
+   - Click the ![Add Label](../assets/icons/mLayoutItemLabel.svg){: style="height:1.2em; vertical-align:middle" } **Add Label** button
    - Draw a box at the top of the page
    - In the panel on the right, find the text box (shows "Lorem ipsum" as placeholder text)
    - Delete the placeholder and type your title: "World Countries by Continent"
    - Scroll down in the panel to find **Font** settings → increase size to 18-24pt
 6. Add a legend:
-   - Click **Add Legend** button
+   - Click the ![Add Legend](../assets/icons/mLayoutItemLegend.svg){: style="height:1.2em; vertical-align:middle" } **Add Legend** button
    - Draw a box where you want the legend
    - In Legend properties, you can rename items or remove unnecessary entries
 7. Add a scale bar:
-   - Click **Add Scale Bar** button
+   - Click the ![Add Scale Bar](../assets/icons/mLayoutItemScaleBar.svg){: style="height:1.2em; vertical-align:middle" } **Add Scale Bar** button
    - Draw a box at the bottom of your map
 8. Add data source:
-   - Add another label at the bottom: "Source: Natural Earth, 2024"
+   - Add another ![Add Label](../assets/icons/mLayoutItemLabel.svg){: style="height:1.2em; vertical-align:middle" } label at the bottom: "Source: Natural Earth, 2024"
 9. Export your map:
    - Click **Layout ▶ Export as Image...** (or Export as PDF)
    - Save to `exports/week01_first_map.png`

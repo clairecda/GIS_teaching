@@ -1,0 +1,238 @@
+/* ==========================================================================
+   Introduction to GIS - Custom Theme Styles
+   Professional color scheme with blue-grey primary and orange accent
+   ========================================================================== */
+
+:root {
+  /* Color palette - professional GIS theme */
+  --gis-teal: #0d7377;           /* Deep teal - maps/spatial feel */
+  --gis-blue-grey: #455a64;      /* Blue grey - primary */
+  --gis-slate: #37474f;          /* Dark slate */
+  --gis-orange: #e65100;         /* Deep orange - accent */
+  --gis-amber: #ff8f00;          /* Amber - warm accent */
+  --gis-green: #2e7d32;          /* Forest green - nature/environment */
+  --gis-light-bg: #f5f7f8;       /* Light background */
+  --gis-border: #cfd8dc;         /* Subtle border */
+}
+
+/* ==========================================================================
+   Headings - Color hierarchy for easy navigation
+   ========================================================================== */
+
+/* H1 - Page titles: Deep teal with bottom border */
+.md-content h1 {
+  color: var(--gis-teal);
+  font-weight: 600;
+  border-bottom: 3px solid var(--gis-teal);
+  padding-bottom: 0.4em;
+  margin-top: 0;
+}
+
+/* H2 - Major sections: Blue-grey with left accent */
+.md-content h2 {
+  color: var(--gis-slate);
+  font-weight: 600;
+  border-left: 4px solid var(--gis-teal);
+  padding-left: 0.8em;
+  margin-top: 2em;
+}
+
+/* H3 - Activities/subsections: Warm orange accent */
+.md-content h3 {
+  color: var(--gis-orange);
+  font-weight: 600;
+  margin-top: 1.8em;
+}
+
+/* H4 - Parts/details: Muted slate */
+.md-content h4 {
+  color: var(--gis-blue-grey);
+  font-weight: 600;
+  margin-top: 1.5em;
+}
+
+/* H5/H6 - Fine detail */
+.md-content h5,
+.md-content h6 {
+  color: #546e7a;
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Navigation enhancements
+   ========================================================================== */
+
+/* Active nav item highlight */
+.md-nav__item--active > .md-nav__link {
+  color: var(--gis-teal);
+  font-weight: 600;
+}
+
+/* Tab navigation styling */
+.md-tabs__link--active {
+  border-bottom: 2px solid var(--gis-orange);
+}
+
+/* ==========================================================================
+   Tables - Clean professional styling
+   ========================================================================== */
+
+.md-typeset table:not([class]) {
+  border: 1px solid var(--gis-border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.md-typeset table:not([class]) th {
+  background-color: var(--gis-slate);
+  color: white;
+  font-weight: 600;
+  text-align: left;
+}
+
+.md-typeset table:not([class]) tr:nth-child(even) {
+  background-color: var(--gis-light-bg);
+}
+
+.md-typeset table:not([class]) tr:hover {
+  background-color: #eceff1;
+}
+
+/* ==========================================================================
+   Admonitions - Enhanced styling
+   ========================================================================== */
+
+/* Tip admonitions - teal theme */
+.md-typeset .admonition.tip,
+.md-typeset details.tip {
+  border-color: var(--gis-teal);
+}
+
+.md-typeset .tip > .admonition-title,
+.md-typeset .tip > summary {
+  background-color: rgba(13, 115, 119, 0.1);
+}
+
+/* Warning admonitions - orange theme */
+.md-typeset .admonition.warning,
+.md-typeset details.warning {
+  border-color: var(--gis-orange);
+}
+
+.md-typeset .warning > .admonition-title,
+.md-typeset .warning > summary {
+  background-color: rgba(230, 81, 0, 0.1);
+}
+
+/* Info admonitions */
+.md-typeset .admonition.info,
+.md-typeset details.info {
+  border-color: var(--gis-blue-grey);
+}
+
+/* ==========================================================================
+   Code blocks - Professional styling
+   ========================================================================== */
+
+.md-typeset code {
+  background-color: #eceff1;
+  color: var(--gis-slate);
+  padding: 0.1em 0.4em;
+  border-radius: 3px;
+  font-size: 0.85em;
+}
+
+.md-typeset pre {
+  border-radius: 6px;
+  border: 1px solid var(--gis-border);
+}
+
+/* ==========================================================================
+   Task lists - Better checkbox styling
+   ========================================================================== */
+
+.md-typeset .task-list-item input[type="checkbox"] {
+  accent-color: var(--gis-teal);
+}
+
+/* ==========================================================================
+   Links - Teal accent
+   ========================================================================== */
+
+.md-typeset a {
+  color: var(--gis-teal);
+}
+
+.md-typeset a:hover {
+  color: var(--gis-orange);
+}
+
+/* ==========================================================================
+   QGIS icons in content - consistent sizing
+   ========================================================================== */
+
+.md-content img[src*="icons/"] {
+  vertical-align: middle;
+  margin: 0 0.2em;
+}
+
+/* ==========================================================================
+   Week lab pages - Activity styling
+   ========================================================================== */
+
+/* Make "Activity" headings stand out */
+.md-content h3[id^="activity"] {
+  background: linear-gradient(90deg, rgba(230, 81, 0, 0.1) 0%, transparent 100%);
+  padding: 0.5em 0.8em;
+  margin-left: -0.8em;
+  border-radius: 4px;
+}
+
+/* ==========================================================================
+   Dark mode adjustments
+   ========================================================================== */
+
+[data-md-color-scheme="slate"] {
+  --gis-teal: #4db6ac;
+  --gis-orange: #ffab40;
+  --gis-slate: #b0bec5;
+  --gis-blue-grey: #90a4ae;
+  --gis-light-bg: #263238;
+  --gis-border: #455a64;
+}
+
+[data-md-color-scheme="slate"] .md-content h1 {
+  color: var(--gis-teal);
+  border-bottom-color: var(--gis-teal);
+}
+
+[data-md-color-scheme="slate"] .md-content h2 {
+  color: #eceff1;
+  border-left-color: var(--gis-teal);
+}
+
+[data-md-color-scheme="slate"] .md-content h3 {
+  color: var(--gis-orange);
+}
+
+[data-md-color-scheme="slate"] .md-typeset table:not([class]) th {
+  background-color: #37474f;
+}
+
+[data-md-color-scheme="slate"] .md-typeset code {
+  background-color: #37474f;
+  color: #eceff1;
+}
+
+/* ==========================================================================
+   Print styles
+   ========================================================================== */
+
+@media print {
+  .md-content h1,
+  .md-content h2,
+  .md-content h3 {
+    color: black !important;
+    border-color: #333 !important;
+  }
+}

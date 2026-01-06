@@ -387,6 +387,17 @@ Create quick layout and add legend to show how the size classes appear automatic
 
 **Split:** 15 minutes demo + 10-15 minutes hands-on
 
+#### Reference the Layout Template Guide
+
+**Before starting the demo:**
+"Remember the Layout Template guide from Week 1? Now's when it really pays off. Open `reference/layout-template.md` on the course website as your reference."
+
+**Key points to reinforce:**
+- Standard A3/A4 margins (15mm recommended)
+- Guide placement for professional alignment
+- Visual hierarchy principles (title → map → legend → credits)
+- This is the foundation for all your maps going forward
+
 #### Demo Script
 
 **1. Create and set up layout (3 minutes)**

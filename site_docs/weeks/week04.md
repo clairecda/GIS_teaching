@@ -27,7 +27,7 @@ Before you can analyze terrain, you need to understand what your elevation data 
 
 **Steps:**
 
-1. Load your DEM tile (ELVIS or SRTM) into QGIS using `Layer ▶ Add Layer ▶ Add Raster Layer...`
+1. Load your DEM tile (ELVIS or SRTM) into QGIS using ![Add Raster](../assets/icons/mActionAddRasterLayer.svg){: style="height:1.2em; vertical-align:middle" } `Layer ▶ Add Layer ▶ Add Raster Layer...`
 2. Inspect the layer properties:
    - Right-click layer → **Properties** → **Information** tab
    - Note the CRS (often WGS84/EPSG:4326 for SRTM)
@@ -153,12 +153,12 @@ You need multispectral satellite imagery with separate Red and NIR bands. Option
 **Steps:**
 
 1. Load your satellite imagery bands:
-   - `Layer ▶ Add Layer ▶ Add Raster Layer...`
+   - ![Add Raster](../assets/icons/mActionAddRasterLayer.svg){: style="height:1.2em; vertical-align:middle" } `Layer ▶ Add Layer ▶ Add Raster Layer...`
    - Add both the Red band and NIR band files
    - Note which band is which (check the filename or metadata)
 
 2. Open the Raster Calculator:
-   - `Raster ▶ Raster Calculator...`
+   - ![Raster Calculator](../assets/icons/mActionShowRasterCalculator.svg){: style="height:1.2em; vertical-align:middle" } `Raster ▶ Raster Calculator...`
 
 3. Enter the NDVI formula:
    - In the **Raster Calculator Expression** box, type:

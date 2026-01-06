@@ -8,7 +8,8 @@ By the end of this week, you'll be able to:
 
 1. Explain the role of administrative and statistical boundaries in socio-economic analysis.
 2. Perform attribute joins between polygon boundaries (e.g., SA2/LGA) and tabular datasets (e.g., SEIFA, ACS).
-3. Use the Field Calculator and selection tools to create derived indicators.
+3. Aggregate and summarize data across geographic levels (count points in polygons, dissolve boundaries).
+4. Use the Field Calculator and selection tools to create derived indicators.
 
 ## Before you start
 
@@ -185,7 +186,103 @@ Now that your data is joined, let's map it to see patterns.
 3. Try different classification methods (Quantile, Equal Interval)—how does the story change?
 4. Use the Identify tool to click on specific areas and read their values
 
-### Activity 6: Select and filter by attributes or location
+### Activity 6: Aggregate and summarize by geography
+
+One of the most powerful GIS operations is aggregating data from one geographic level to another. You might count points per polygon, sum values when combining areas, or roll up detailed data to a larger region.
+
+**Key tools:**
+
+| Tool | What it does | Example |
+|------|--------------|---------|
+| **Count Points in Polygon** | Count features in each area | Schools per LGA |
+| **Join attributes by location (summary)** | Summarize any statistic spatially | Sum population, mean income |
+| **Dissolve** | Merge polygons + aggregate attributes | Combine SA2s into SA3s with totals |
+
+#### Part A: Count points in polygons
+
+**Steps:**
+
+1. Load a point layer (e.g., schools, health facilities, or cities from Week 2)
+2. Run the count tool:
+   - `Vector ▶ Analysis Tools ▶ Count Points in Polygon`
+   - **Polygons:** your SA2 or LGA layer
+   - **Points:** your point layer (e.g., schools)
+   - **Count field name:** `facility_count`
+   - **Output:** save to `data/processed/week03/sa2_facility_count.gpkg`
+3. Open the attribute table—each polygon now has a count field
+4. Style by the count field using graduated symbology
+5. Interpret: Which areas have the most/fewest facilities? Does this relate to population or disadvantage?
+
+#### Part B: Summarize with spatial join
+
+**Steps:**
+
+1. Open the Processing Toolbox (`Processing ▶ Toolbox`)
+2. Search for "Join attributes by location (summary)"
+3. Configure:
+   - **Join to features in:** your SA2 layer
+   - **By comparing to:** your point layer
+   - **Geometric predicate:** Intersects (or Contains)
+   - **Fields to summarise:** select relevant fields (e.g., capacity, size)
+   - **Summaries to calculate:** Count, Sum, Mean (select what makes sense)
+   - **Output:** save to `data/processed/week03/sa2_with_summary.gpkg`
+4. This is more flexible than Count Points—you can calculate multiple statistics at once
+
+#### Part C: Aggregate to roll up boundaries
+
+Sometimes you need to roll up smaller areas into larger ones while calculating summary statistics. Let's start with a simple example using your Week 1 data, then apply it to boundaries.
+
+**Warm-up: Population by continent**
+
+Using your Natural Earth countries layer from Week 1:
+
+1. Open the Processing Toolbox (`Processing ▶ Toolbox`)
+2. Search for **Aggregate** (under Vector geometry)
+3. Configure:
+   - **Input layer:** `ne_110m_admin_0_countries` (your countries layer)
+   - **Group by expression:** `"CONTINENT"`
+   - **Aggregates:** Click **...** to configure:
+     - `CONTINENT` → First value
+     - `POP_EST` → Sum
+     - `GDP_MD` → Sum
+     - `NAME` → Count (gives number of countries)
+   - **Output:** save to `data/processed/week03/continents_aggregated.gpkg`
+4. Click **Run**
+5. Open the result—you now have **7 polygons** (one per continent) with:
+   - Total population per continent
+   - Total GDP per continent
+   - Count of countries per continent
+
+!!! tip "What just happened?"
+    You transformed ~177 country polygons into 7 continent polygons, with summarized statistics. This is the power of spatial aggregation—rolling up detailed data to answer bigger questions.
+
+**Now apply to boundaries: SA2 → SA3**
+
+The same technique works for statistical boundaries:
+
+1. **Input layer:** your SA2 layer (with joined SEIFA data)
+2. **Group by expression:** `"SA3_CODE21"` (or `"LGA_CODE"` for LGA-level)
+3. **Aggregates:**
+   - `SA3_NAME21` → First value (keeps one name per group)
+   - `population` → Sum
+   - `IRSD_score` → Mean
+   - `AREASQKM` → Sum
+4. **Output:** save to `data/processed/week03/sa3_aggregated.gpkg`
+5. Compare the SA2 map to the SA3 map—what patterns become visible or invisible?
+
+!!! tip "Aggregate vs Dissolve"
+    **Aggregate** (Processing Toolbox) is better for calculating statistics—it has a clear interface for choosing sum, mean, count, etc. **Dissolve** (Vector menu) is simpler but hides the statistics options. Use Aggregate when you need to summarize numeric fields.
+
+!!! warning "Aggregation changes the story"
+    When you aggregate SA2 to SA3, you lose local variation. A disadvantaged pocket within an affluent SA3 becomes invisible. Always consider what level of detail your analysis question requires.
+
+**Challenge:** Calculate a facility-to-population ratio:
+
+1. Use Field Calculator on your count output
+2. Expression: `("facility_count" / "population") * 10000`
+3. This gives facilities per 10,000 people—a fairer comparison than raw counts
+
+### Activity 7: Select and filter by attributes or location
 
 You'll often want to focus on a subset of areas that meet certain criteria.
 
@@ -209,7 +306,7 @@ You'll often want to focus on a subset of areas that meet certain criteria.
 !!! tip "Combining criteria"
     You can combine multiple criteria: `"IRSD_decile" <= 2 AND "state" = 'NSW'` selects only disadvantaged areas in NSW.
 
-### Activity 7: Quality assurance and troubleshooting
+### Activity 8: Quality assurance and troubleshooting
 
 Joins can fail silently. Always verify your results.
 
@@ -282,6 +379,7 @@ Joins can fail silently. Always verify your results.
 Take 10-15 minutes to answer these questions in your [Week 3 reflection](../reference/reflections.md#week-3--vector-analysis--joins):
 
 - How do boundary choices affect the story your data tells? Compare what you see at SA2 vs LGA level.
+- When you dissolved SA2 to a larger geography, what patterns became visible? What local detail was lost?
 - What happens when boundaries change between census releases? How would you handle this in a longitudinal study?
 - Did your join work perfectly, or did you have unmatched records? What might explain the mismatches?
 - What spatial patterns did you observe in the socio-economic data? Were you surprised by anything?
@@ -294,6 +392,7 @@ Take 10-15 minutes to answer these questions in your [Week 3 reflection](../refe
 
 - [ ] QGIS project file (`projects/week03_boundaries_joins.qgz`) with completed joins
 - [ ] Joined boundary layer: `data/processed/week03/sa2_with_seifa.gpkg` (or equivalent)
+- [ ] Aggregated output: `data/processed/week03/sa2_facility_count.gpkg` or dissolved layer
 - [ ] At least one derived indicator created with Field Calculator
 - [ ] Exported map showing spatial patterns in socio-economic data
 - [ ] Your Week 3 reflection entry

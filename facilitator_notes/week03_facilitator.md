@@ -14,8 +14,9 @@
 By the end of this session, students will be able to:
 1. Explain the role of administrative and statistical boundaries in socio-economic analysis
 2. Perform attribute joins between polygon boundaries (e.g., SA2/LGA) and tabular datasets (e.g., SEIFA, ACS)
-3. Use the Field Calculator and selection tools to create derived indicators
-4. Critically evaluate how boundary choices affect analytical outcomes
+3. Aggregate and summarize data across geographic levels (count points in polygons, dissolve boundaries)
+4. Use the Field Calculator and selection tools to create derived indicators
+5. Critically evaluate how boundary choices affect analytical outcomes
 
 **Materials Needed:**
 
@@ -267,6 +268,73 @@ END
 - CASE statements are powerful for categorization
 - Always check output by sorting/filtering after creation
 
+#### Part E: Spatial Aggregation (8-10 min)
+
+**Say:** "Now let's learn to aggregate data—counting points in polygons and rolling up data from smaller to larger geographies. This is essential for comparing areas fairly."
+
+**Demo 1: Count Points in Polygon**
+
+**Do:**
+```
+Vector > Analysis Tools > Count Points in Polygon
+Polygons: SA2 layer (or LGA)
+Points: Load a point layer (cities, facilities, schools)
+Count field name: facility_count
+Run
+```
+
+**Say:** "This counts how many points fall within each polygon. Simple but powerful—how many hospitals per LGA? How many schools per SA2?"
+
+**Show result:**
+- Open attribute table → sort by new count field
+- "This LGA has 15 hospitals, this one has 2. But wait—raw counts don't tell the full story. A bigger LGA naturally has more of everything."
+
+**Demo 2: Aggregate to Roll Up Boundaries**
+
+**Say:** "Sometimes you want to roll up detailed data to a larger scale. Let's start with something simple—using your Week 1 countries data to calculate population by continent."
+
+**Warm-up with familiar data:**
+```
+Processing > Toolbox > search "Aggregate"
+(Under Vector geometry > Aggregate)
+
+Input: ne_110m_admin_0_countries (Week 1 data)
+Group by expression: "CONTINENT"
+Click ... next to Aggregates to configure:
+  - CONTINENT → First value
+  - POP_EST → Sum
+  - NAME → Count
+Run
+```
+
+**Say:** "Look at that—177 countries became 7 continent polygons. Each now has total population and country count. That's aggregation!"
+
+**Show the result:**
+- Open attribute table: "Asia has X billion people, Africa has Y countries"
+- "This is exactly what a database GROUP BY does, but with geometry too"
+
+**Now apply to boundaries:**
+```
+Input: SA2 layer with SEIFA data
+Group by expression: "SA3_CODE21"
+Aggregates:
+  - SA3_NAME21 → First value
+  - population → Sum
+  - IRSD_score → Mean
+Run
+```
+
+**Say:** "Same technique, now rolling up SA2s into SA3s with totals and averages."
+
+**Tip:** "Aggregate is better than Dissolve for this because it has a clear interface for choosing statistics. Dissolve hides these options and is mainly for merging geometries."
+
+**Compare visually:**
+- Toggle between SA2 and SA3 views
+- "See this pocket of high disadvantage in the SA2 map? It's invisible at SA3 scale because it's averaged with surrounding areas."
+
+**Key teaching moment:**
+"Aggregation is powerful but hides detail. Always ask: What level of geography does my analysis question require?"
+
 **Example 3: Population density (if you have population data)**
 ```
 Create output field: pop_density
@@ -291,8 +359,9 @@ END
 3. Activity 3: Perform the attribute join (15 min)
 4. Activity 4: Create derived indicators (15 min)
 5. Activity 5: Visualize patterns with choropleth maps (15 min)
-6. Activity 6: Select and filter by attributes (10-15 min)
-7. Activity 7: Quality assurance (10-15 min)
+6. Activity 6: Aggregate and summarize by geography (20 min)
+7. Activity 7: Select and filter by attributes (10-15 min)
+8. Activity 8: Quality assurance (10-15 min)
 
 **Facilitation strategy:**
 
@@ -1279,7 +1348,49 @@ Build this into workflow from start—demo makes it clear that exporting is NOT 
 
 ---
 
-### Issue 7: "Cannot add layer to project" error
+### Issue 7: Aggregation/Dissolve produces unexpected results
+
+**Symptom:** Count Points in Polygon shows 0 for all areas, or Dissolve creates wrong boundaries.
+
+**Common causes:**
+
+**A. CRS mismatch:**
+- Points and polygons in different coordinate systems
+- QGIS may not correctly determine spatial relationships
+
+**Solution:**
+- Ensure both layers use the same CRS
+- Reproject one layer to match the other before running
+
+**B. Points outside polygons:**
+- Points fall in gaps between polygons or outside study area
+
+**Solution:**
+- Zoom to points and polygons together
+- Check if points actually fall inside polygons
+- Use Select by Location to verify: "How many points intersect my polygons?"
+
+**C. Dissolve field has NULL values:**
+- Areas with NULL in the dissolve field group together unexpectedly
+
+**Solution:**
+- Check for NULL values before dissolving: `"SA3_CODE" IS NULL`
+- Filter out NULL values or assign them to a category
+
+**D. Statistics not configured:**
+- Dissolve runs but no statistics calculated (only geometry merged)
+
+**Solution:**
+- In Dissolve, click the **...** button to access advanced options
+- Under **Statistics**, add fields and select aggregation functions
+- Or use Processing Toolbox version: "Aggregate"
+
+**Teaching moment:**
+"Always verify aggregation results. Open the attribute table, check counts, and compare to source data."
+
+---
+
+### Issue 8: "Cannot add layer to project" error
 
 **Symptom:** Error when trying to load shapefile or CSV.
 

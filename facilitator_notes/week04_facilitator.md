@@ -10,8 +10,9 @@ By the end of this session, students will be able to:
 2. Distinguish between DEM, DSM, and DTM and select appropriate elevation products
 3. Import, reproject, and clip digital elevation models to a study area
 4. Generate terrain derivatives (hillshade, slope) and interpret their meaning
-5. Combine raster outputs with vector boundaries using zonal statistics
-6. Communicate terrain-related insights through professional map layouts
+5. Calculate NDVI from multispectral imagery using Raster Calculator (optional)
+6. Combine raster outputs with vector boundaries using zonal statistics
+7. Communicate terrain-related insights through professional map layouts
 
 **Materials Needed:**
 - QGIS 3.x installed on all student machines
@@ -25,6 +26,7 @@ By the end of this session, students will be able to:
 - DEM tiles (SRTM 30m or ELVIS 5m)
 - SA2/LGA boundary shapefiles from Week 3
 - Optional: SEIFA or other socio-economic indicators from Week 3
+- Optional: Sentinel-2 or Landsat imagery for NDVI calculation (multispectral bands)
 
 ---
 
@@ -272,7 +274,49 @@ By the end of this session, students will be able to:
    - If all values show near 0 or seem wrong:
      - "This happens if CRS is still geographic (degrees). Always reproject first!"
 
-**Activity 6: Zonal Statistics (8 min)**
+**Activity 6: Calculate NDVI (Optional, 10 min)**
+
+**Note:** This activity requires multispectral satellite imagery (e.g., Sentinel-2 or Landsat). If students don't have this data, skip to Activity 7.
+
+1. **Explain NDVI:**
+   - "NDVI—Normalized Difference Vegetation Index—measures vegetation health"
+   - "It uses red and near-infrared bands: healthy plants absorb red light for photosynthesis but reflect NIR light"
+   - "Values range from -1 to +1: higher values = healthier vegetation"
+
+2. **Formula:**
+   - **NDVI = (NIR - Red) / (NIR + Red)**
+   - For Sentinel-2: Red = Band 4, NIR = Band 8
+   - For Landsat 8/9: Red = Band 4, NIR = Band 5
+
+3. **Calculate NDVI using Raster Calculator:**
+   - `Raster > Raster Calculator`
+   - Expression (Sentinel-2):
+     ```
+     ("sentinel_B08@1" - "sentinel_B04@1") / ("sentinel_B08@1" + "sentinel_B04@1")
+     ```
+   - Output: `data/processed/week04/ndvi.tif`
+   - Run
+
+4. **Style NDVI:**
+   - Symbology → Singleband pseudocolor
+   - Color ramp: RdYlGn (red-yellow-green)
+   - Min: -0.2, Max: 0.8 (adjust to your data range)
+   - Classes/interpretation:
+     - < 0: Water, bare soil, built-up areas
+     - 0–0.2: Sparse vegetation, stressed plants
+     - 0.2–0.5: Moderate vegetation (grasslands, crops)
+     - 0.5–0.8: Dense, healthy vegetation (forests)
+     - > 0.8: Very dense vegetation (tropical forests)
+
+5. **Troubleshooting:**
+   - All values near 0? Check you're using the correct band numbers for your sensor
+   - Strange patterns? Verify image is not cloudy
+   - Very high values (>1)? Division by zero—check for NoData values
+
+**Teaching moment:**
+"NDVI is the foundation for vegetation monitoring, crop health assessment, and change detection. Learning it in QGIS means you can later automate it in Python for time-series analysis."
+
+**Activity 7: Zonal Statistics (8 min)**
 
 1. **Explain the goal:**
    - "Zonal statistics summarizes raster values within vector boundaries"
