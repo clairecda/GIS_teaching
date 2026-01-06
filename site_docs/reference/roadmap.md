@@ -6,25 +6,29 @@ A visual guide to your 12-week GIS journey.
 
 ## Course Flow
 
-```
-    QGIS FOUNDATIONS                    PYTHON                      SYNTHESIS
-    ───────────────────────────────     ──────────────────────      ─────────────
-
-    ●───────●───────●───────●───────●───────●───────●───────●───────●───────●───────●───────●
-    1       2       3       4       5       6       7       8       9      10      11      12
-
-    │       │       │       │       │       │       │       │       │       │       │       │
-    │       │       │       │       │       │       │       │       │       │       │       │
-    ▼       ▼       ▼       ▼       ▼       ▼       ▼       ▼       ▼       ▼       ▼       ▼
-
-   QGIS   Design  Joins   Raster  Crime  Health  Setup  Vector  Raster  Network  Story  PRESENT
-   Intro  & Maps   & Data  & DEM   Maps   Access  Python Workflow Sensing Analysis  Maps  CAPSTONE
-
-                    ▲               ▲               ▲                       ▲               ▲
-                    │               │               │                       │               │
-               MILESTONE       MILESTONE       MILESTONE              MILESTONE       MILESTONE
-               Choose          Refine          Data                   Draft           Final
-               study area      question        ready                  maps            project
+```mermaid
+timeline
+    title 12-Week GIS Journey
+    section QGIS Foundations (Weeks 1-6)
+        Week 1 : QGIS Intro
+        Week 2 : Design & Maps
+        Week 3 : Joins & Data
+               : 📍 Choose study area
+        Week 4 : Raster & DEM
+        Week 5 : Crime Maps
+               : 📍 Refine question
+        Week 6 : Health Access
+    section Python (Weeks 7-10)
+        Week 7 : Setup Python
+               : 📍 Data ready
+        Week 8 : Vector Workflow
+        Week 9 : Remote Sensing
+        Week 10 : Network Analysis
+                : 📍 Draft maps
+    section Synthesis (Weeks 11-12)
+        Week 11 : Story Maps
+        Week 12 : Capstone
+                : 📍 Final project
 ```
 
 ---
@@ -33,38 +37,20 @@ A visual guide to your 12-week GIS journey.
 
 Your weekly work has two parallel tracks:
 
-```
-┌─────────────────────────────────────────────────────────────────────────────────┐
-│                                                                                  │
-│   WEEKLY LAB                           CAPSTONE PROJECT                         │
-│   ══════════                           ════════════════                         │
-│                                                                                  │
-│   Week 1  ●──── Learn QGIS basics      ●──── Brainstorm 3 topics               │
-│           │                             │                                        │
-│   Week 2  ●──── Style maps             ●──── Consider visualisation            │
-│           │                             │                                        │
-│   Week 3  ●──── Join data        ══════●══════ CHOOSE STUDY AREA               │
-│           │                             │                                        │
-│   Week 4  ●──── Work with rasters      ●──── Identify datasets                 │
-│           │                             │                                        │
-│   Week 5  ●──── Hotspot analysis ══════●══════ REFINE QUESTION                 │
-│           │                             │                                        │
-│   Week 6  ●──── Accessibility          ●──── Complete data collection          │
-│           │                             │                                        │
-│   Week 7  ●──── Setup Python     ══════●══════ DATA READY                      │
-│           │                             │                                        │
-│   Week 8  ●──── Vector in Python       ●──── Begin analysis                    │
-│           │                             │                                        │
-│   Week 9  ●──── Raster in Python       ●──── Add Python if relevant            │
-│           │                             │                                        │
-│   Week 10 ●──── Network analysis ══════●══════ DRAFT MAPS                      │
-│           │                             │                                        │
-│   Week 11 ●──── Design critique        ●──── Polish & get feedback             │
-│           │                             │                                        │
-│   Week 12 ●──── Presentations    ══════●══════ FINAL SUBMISSION                │
-│                                                                                  │
-└─────────────────────────────────────────────────────────────────────────────────┘
-```
+| Week | Weekly Lab | Capstone Project |
+|:----:|------------|------------------|
+| 1 | Learn QGIS basics | Brainstorm 3 topics |
+| 2 | Style maps | Consider visualisation |
+| 3 | Join data | **📍 CHOOSE STUDY AREA** |
+| 4 | Work with rasters | Identify datasets |
+| 5 | Hotspot analysis | **📍 REFINE QUESTION** |
+| 6 | Accessibility | Complete data collection |
+| 7 | Setup Python | **📍 DATA READY** |
+| 8 | Vector in Python | Begin analysis |
+| 9 | Raster in Python | Add Python if relevant |
+| 10 | Network analysis | **📍 DRAFT MAPS** |
+| 11 | Design critique | Polish & get feedback |
+| 12 | Presentations | **📍 FINAL SUBMISSION** |
 
 ---
 
@@ -72,15 +58,9 @@ Your weekly work has two parallel tracks:
 
 Each week follows the same pattern:
 
-```
-┌────────────────┐      ┌────────────────┐      ┌────────────────┐
-│                │      │                │      │                │
-│   📖 BEFORE    │ ───► │   💻 DURING    │ ───► │   ✏️ AFTER     │
-│                │      │                │      │                │
-│  Read theory   │      │  Hands-on lab  │      │  Practice &    │
-│  Download data │      │  Ask questions │      │  Reflection    │
-│                │      │                │      │                │
-└────────────────┘      └────────────────┘      └────────────────┘
+```mermaid
+flowchart LR
+    A["📖 **BEFORE**<br/>Read theory<br/>Download data"] --> B["💻 **DURING**<br/>Hands-on lab<br/>Ask questions"] --> C["✏️ **AFTER**<br/>Practice &<br/>Reflection"]
 ```
 
 ---
@@ -130,15 +110,24 @@ Track your progress against these checkpoints:
 
 ## What You'll Create
 
-```
-Week 1-2      Week 3-4      Week 5-6      Week 7-10     Week 11-12
-─────────     ─────────     ─────────     ──────────    ──────────
-
-  📍            📊            🔥            🐍             🎯
- First        Joined        Hotspot       Python        Capstone
-  Map          Data          Maps        Notebooks      Project
-              Choropleth    Analysis      Automated     Portfolio
-                                          Workflows     Presentation
+```mermaid
+flowchart LR
+    subgraph W1["Weeks 1-2"]
+        A["📍 First Map"]
+    end
+    subgraph W2["Weeks 3-4"]
+        B["📊 Joined Data<br/>Choropleth"]
+    end
+    subgraph W3["Weeks 5-6"]
+        C["🔥 Hotspot<br/>Analysis"]
+    end
+    subgraph W4["Weeks 7-10"]
+        D["🐍 Python<br/>Notebooks"]
+    end
+    subgraph W5["Weeks 11-12"]
+        E["🎯 Capstone<br/>Project"]
+    end
+    W1 --> W2 --> W3 --> W4 --> W5
 ```
 
 By the end you'll have:

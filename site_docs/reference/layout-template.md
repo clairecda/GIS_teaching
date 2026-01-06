@@ -34,22 +34,12 @@ A new window opens—this is the **Print Layout** editor.
 2. In the **Item Properties** panel (right side), set:
    - **Size:** A3 (or A4 for smaller prints)
    - **Orientation:** Landscape
-3. Your page dimensions appear: A3 landscape = 420 × 297 mm
+3. Your page dimensions appear:
 
-```
-┌─────────────────────────────────────────────────────────────────────┐
-│                                                                      │
-│                         420 mm                                       │
-│  ┌────────────────────────────────────────────────────────────────┐ │
-│  │                                                                 │ │
-│  │                                                                 │ │
-│  │                      Your layout area                          │ 297 mm
-│  │                                                                 │ │
-│  │                                                                 │ │
-│  └────────────────────────────────────────────────────────────────┘ │
-│                                                                      │
-└─────────────────────────────────────────────────────────────────────┘
-```
+| Paper Size | Width | Height |
+|------------|-------|--------|
+| **A3 landscape** | 420 mm | 297 mm |
+| **A4 landscape** | 297 mm | 210 mm |
 
 ---
 
@@ -57,50 +47,61 @@ A new window opens—this is the **Print Layout** editor.
 
 Guides create invisible alignment lines. Professional designers never place elements randomly—they snap to guides.
 
-### Step 3: Add margin guides
+### Step 3: Add margin guides manually
 
 1. Go to **View → Manage Guides**
-2. Click **Add guides from page margins**
-3. Set margins:
-   - **Top:** 15 mm
-   - **Bottom:** 20 mm (extra space for credits)
-   - **Left:** 15 mm
-   - **Right:** 15 mm
-4. Click **Apply**
+2. You'll see two tabs: **Horizontal Guides** and **Vertical Guides**
+
+**For A3 Landscape (420 × 297 mm) with 15mm margins:**
+
+| Guide Type | Click + and enter | What it creates |
+|------------|-------------------|-----------------|
+| Horizontal | `15` | Top margin |
+| Horizontal | `277` | Bottom margin (297 − 20 for credits) |
+| Vertical | `15` | Left margin |
+| Vertical | `405` | Right margin (420 − 15) |
+
+**Step-by-step:**
+
+1. In the Guides panel, make sure you're on the **Horizontal Guides** tab
+2. Click the **+** button
+3. Type `15` and press **Enter** — this creates your top margin line
+4. Click **+** again, type `277` and press **Enter** — bottom margin line
+5. Switch to the **Vertical Guides** tab
+6. Click **+**, type `15` — left margin
+7. Click **+**, type `405` — right margin
+8. Close the Guides panel
+9. Enable **View → Show Guides** and **View → Snap to Guides**
 
 You'll see dashed lines marking your safe area.
 
+**For A4 Landscape (297 × 210 mm):**
+
+| Guide Type | Position |
+|------------|----------|
+| Horizontal | 15 mm (top) |
+| Horizontal | 190 mm (bottom, with 20mm for credits) |
+| Vertical | 15 mm (left) |
+| Vertical | 282 mm (right) |
+
 ### Step 4: Add column guides (optional but recommended)
 
-For a 12-column grid (professional standard):
+For a simple 3-zone layout (map + legend + margin):
 
-1. In **Manage Guides**, add vertical guides at these positions:
-   - Every 32.5 mm from the left margin (for A3)
-   - Or calculate: (420 - 30) ÷ 12 = 32.5 mm per column
+1. Add a vertical guide at **280 mm** — this separates the map area from the legend area
 
-**Simpler approach:** Add guides at key positions:
-- 1/3 page: 140 mm from left
-- 2/3 page: 280 mm from left
-
-2. Enable **View → Show Guides** and **View → Snap to Guides**
-
+```mermaid
+block-beta
+    columns 3
+    space["15mm margin"]:1 MAP["🗺️ MAP AREA"]:1 LEGEND["📋 LEGEND"]:1
 ```
-    15mm   ┊        ┊        ┊        ┊   15mm
-     │     ┊        ┊        ┊        ┊     │
-     ▼     ▼        ▼        ▼        ▼     ▼
-┌────┬─────────────┬────────────────┬──────────┐
-│    │             │                │          │
-│    │             │                │          │
-│    │    MAP      │      MAP       │  LEGEND  │
-│    │   FRAME     │     FRAME      │   AREA   │
-│    │             │                │          │
-│    │             │                │          │
-├────┴─────────────┴────────────────┴──────────┤
-│              CREDITS FOOTER                   │
-└───────────────────────────────────────────────┘
-       ↑                                    ↑
-    Left guide                         Right guide
-```
+
+| Zone | From | To | Width |
+|------|------|-----|-------|
+| Left margin | 0 | 15 mm | 15 mm |
+| Map area | 15 mm | 280 mm | 265 mm |
+| Legend area | 280 mm | 405 mm | 125 mm |
+| Right margin | 405 mm | 420 mm | 15 mm |
 
 ---
 
@@ -273,25 +274,25 @@ Create multiple templates for different purposes:
 - Good for: Reports, single-page handouts
 
 ### Comparison template
-- Two map frames side by side
-- Shared legend below
-- Good for: Before/after, two time periods
+
+Two map frames side by side with shared legend below. Good for: Before/after, two time periods.
+
+```mermaid
+block-beta
+    columns 2
+    MAP1["🗺️ MAP 1<br/>(2016)"]:1 MAP2["🗺️ MAP 2<br/>(2021)"]:1
+    LEGEND["📋 LEGEND"]:2
+```
 
 ### Dashboard template
-- Main map with 2-3 small inset maps
-- Space for charts or statistics
-- Good for: Executive summaries, presentations
 
-```
-COMPARISON TEMPLATE              DASHBOARD TEMPLATE
-┌──────────┬──────────┐          ┌─────────────┬─────┐
-│          │          │          │             │░░░░░│
-│  MAP 1   │  MAP 2   │          │   MAIN MAP  │░░░░░│
-│  (2016)  │  (2021)  │          │             ├─────┤
-│          │          │          │             │░░░░░│
-├──────────┴──────────┤          ├──────┬──────┼─────┤
-│      LEGEND         │          │INSET1│INSET2│STATS│
-└─────────────────────┘          └──────┴──────┴─────┘
+Main map with inset maps and statistics. Good for: Executive summaries, presentations.
+
+```mermaid
+block-beta
+    columns 3
+    MAP["🗺️ MAIN MAP"]:2 SIDEBAR["📋 Legend<br/>📊 Stats"]:1
+    INSET1["Inset 1"]:1 INSET2["Inset 2"]:1 NOTES["Notes"]:1
 ```
 
 ---

@@ -23,24 +23,19 @@ Professional designers don't place elements randomly. They use an invisible **gr
 
 ### How grids work
 
+```mermaid
+block-beta
+    columns 12
+    TITLE["📰 TITLE (spans columns 1-9)"]:9 space:3
+    MAP["🗺️ MAIN MAP AREA<br/>(8 columns)"]:8 LEGEND["📋 LEGEND<br/>(3 columns)"]:3 space:1
+    CREDITS["Data sources & credits (full width)"]:12
 ```
-┌────────────────────────────────────────────────────────────────┐
-│  ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊│
-│  ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊│
-│  ┊  TITLE SPANS MULTIPLE COLUMNS  ┊     ┊     ┊     ┊     ┊   │
-│  ┊─────────────────────────────────┊     ┊     ┊     ┊     ┊   │
-│  ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊│
-│  ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊│
-│  ┊     ┊  MAIN MAP AREA     ┊     ┊     ┊  LEGEND  ┊     ┊   │
-│  ┊     ┊  (8 columns)       ┊     ┊     ┊  (3 col) ┊     ┊   │
-│  ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊│
-│  ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊│
-│  ┊─────────────────────────────────────────────────────────────┊│
-│  ┊  DATA SOURCES & CREDITS (full width)                       ┊│
-└────────────────────────────────────────────────────────────────┘
-      1     2     3     4     5     6     7     8     9    10   11   12
-                         ↑ 12-column grid ↑
-```
+
+Elements snap to column boundaries. In this example:
+- **Title** spans 9 of 12 columns
+- **Map** takes 8 columns (2/3 of the page)
+- **Legend** takes 3 columns (1/4 of the page)
+- **Credits** span the full width
 
 **Magazine example:** Open any magazine. Notice how headlines, images, and text align to invisible vertical lines. That's a grid.
 
@@ -85,20 +80,26 @@ A balanced layout feels stable. An unbalanced layout feels uncomfortable (even i
 
 ### Symmetrical vs asymmetrical
 
-```
-SYMMETRICAL                      ASYMMETRICAL
-┌───────────────────┐            ┌───────────────────┐
-│                   │            │                   │
-│   ┌─────────┐     │            │ ┌───────────────┐ │
-│   │  MAP    │     │            │ │               │ │
-│   │         │     │            │ │     MAP       │ │
-│   └─────────┘     │            │ │               │ │
-│     [legend]      │            │ └───────────────┘ │
-│                   │            │        [legend]   │
-└───────────────────┘            └───────────────────┘
-    Everything                       Heavier on left,
-    centered                         balanced by legend
-```
+=== "Symmetrical"
+
+    ```mermaid
+    block-beta
+        columns 3
+        space:1 MAP["🗺️ MAP"]:1 space:1
+        space:1 LEGEND["Legend"]:1 space:1
+    ```
+
+    Everything centered on the page. Simple but static.
+
+=== "Asymmetrical"
+
+    ```mermaid
+    block-beta
+        columns 3
+        MAP["🗺️ MAP (large)"]:2 LEGEND["Legend"]:1
+    ```
+
+    Heavier on left, balanced by legend on right. More dynamic and professional.
 
 **Asymmetrical balance** is more dynamic and professional. Balance a large element (map) with smaller elements (legend, title) on the opposite side.
 
@@ -145,19 +146,29 @@ When your layout feels done, **remove one element**. If the map still works, lea
 
 Elements that align feel intentional. Elements that *almost* align feel like mistakes.
 
-```
-BAD (ragged)                    GOOD (aligned)
-┌───────────────────┐           ┌───────────────────┐
-│  Title            │           │  Title            │
-│                   │           │  ─────────────    │
-│    Map            │           │  Map              │
-│        Legend     │           │  Legend           │
-│   Scale bar       │           │  Scale bar        │
-│     Credits       │           │  Credits          │
-└───────────────────┘           └───────────────────┘
-  Left edges don't               Everything aligns
-  line up                        to the same edge
-```
+=== "Bad (ragged)"
+
+    | Element | Position |
+    |---------|----------|
+    | Title | slightly left |
+    | Map | center-ish |
+    | Legend | far right |
+    | Scale bar | left of center |
+    | Credits | random indent |
+
+    Left edges don't line up — looks accidental.
+
+=== "Good (aligned)"
+
+    | Element | Position |
+    |---------|----------|
+    | Title | left edge |
+    | Map | left edge |
+    | Legend | left edge |
+    | Scale bar | left edge |
+    | Credits | left edge |
+
+    Everything aligns to the same edge — looks intentional.
 
 **Rule:** Pick alignment edges and stick to them. In QGIS, use guides or a grid.
 
@@ -195,26 +206,21 @@ Colors aren't decoration—they carry meaning:
 
 Good map design uses all these principles:
 
+```mermaid
+block-beta
+    columns 3
+    TITLE["📰 TITLE — Large, top, high contrast"]:3
+    MAP["🗺️ MAIN MAP"]:2 SIDEBAR["📋 LEGEND<br/>📏 Scale bar"]:1
+    CREDITS["Data: ABS 2021 | CRS: EPSG:7856 | Author: Your Name"]:3
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                                                                  │
-│     [TITLE - Large, top, high contrast]                         │
-│     ─────────────────────────────────────                       │← HIERARCHY
-│                                                                  │  (size, position)
-│     ┌─────────────────────────────────┐    ┌──────────────┐     │
-│     │                                 │    │              │     │← BALANCE
-│     │                                 │    │   LEGEND     │     │  (asymmetrical)
-│     │         MAIN MAP                │    │              │     │
-│     │                                 │    ├──────────────┤     │← ALIGNMENT
-│     │                                 │    │  Scale bar   │     │  (right edges)
-│     │                                 │    └──────────────┘     │
-│     │                                 │                         │← NEGATIVE SPACE
-│     └─────────────────────────────────┘                         │  (margins, gutters)
-│                                                                  │
-│     Data: ABS 2021 | CRS: EPSG:7856 | Author: Your Name        │← GRID
-│                                                                  │  (full-width footer)
-└─────────────────────────────────────────────────────────────────┘
-```
+
+| Principle | How it's applied |
+|-----------|------------------|
+| **Hierarchy** | Title is largest, at top position |
+| **Balance** | Large map balanced by legend column |
+| **Alignment** | All elements snap to grid columns |
+| **Negative space** | Margins around edges, gutters between elements |
+| **Grid** | 3-column structure, credits span full width |
 
 ---
 
