@@ -8,7 +8,7 @@ By the end of this week, you'll be able to:
 
 1. Prepare and validate health facility point data (hospitals, clinics, pharmacies).
 2. Set up network analysis in QGIS using road network data and calculate travel-time service areas (isochrones).
-3. Calculate shortest paths and understand least-cost path analysis for corridor planning.
+3. Calculate shortest paths to identify travel times from communities to facilities.
 4. Overlay service areas with socio-economic vulnerability data (SEIFA, ARIA+, or local equivalents) to identify underserved populations.
 5. Quantify and map accessibility gaps, creating evidence for planning interventions.
 
@@ -212,19 +212,11 @@ Your service area analysis calculates travel time along roads. But real-world ac
 
 **Reflection prompt:** If you could add one "invisible barrier" to your analysis, which would most change your conclusions? What data would you need to map it?
 
-### Activity 5: Shortest path and least-cost path analysis
+### Activity 5: Calculate shortest paths (routes to facilities)
 
-Beyond service areas, network analysis can find optimal routes between locations. This is essential for understanding travel times, planning corridors, and modeling movement.
+Beyond service areas, you can calculate the actual route someone would take to reach a facility. This is useful for understanding travel patterns, emergency response times, and identifying communities with poor road connections.
 
-**Shortest path vs. least-cost path:**
-
-| Type | Optimizes for | Example use case |
-|------|---------------|------------------|
-| **Shortest path** | Distance (meters) | Finding the most direct route |
-| **Fastest path** | Time (seconds) | Considering speed limits, traffic |
-| **Least-cost path** | Custom cost | Wildlife corridors (avoiding roads), accessibility (avoiding stairs) |
-
-**Part A: Calculate shortest paths between facilities**
+**Steps:**
 
 1. Open Processing Toolbox: `Processing ▶ Toolbox`
 2. Search for "Shortest path" and select **QNEAT3 → Shortest Path (Point to Point)**
@@ -233,52 +225,32 @@ Beyond service areas, network analysis can find optimal routes between locations
 | Parameter | Value |
 |-----------|-------|
 | **Network layer** | road_network |
-| **Start point** | Click "..." and select a point on the map (e.g., a hospital) |
-| **End point** | Click "..." and select another point (e.g., a community center) |
+| **Start point** | Click "..." and select a location (e.g., a community center) |
+| **End point** | Click "..." and select a hospital |
 | **Direction field** | Leave blank unless you have one-way data |
 | **Default speed** | 50 (km/h for driving) or 5 (km/h for walking) |
 | **Output** | shortest_path.gpkg |
 
 4. Click **Run** — the output is a line showing the optimal route
-5. Open the attribute table to see the total cost (distance or time)
+5. Open the attribute table to see the total travel time and distance
 
-**Part B: Batch shortest paths from multiple origins**
+**Batch routes from multiple locations:**
 
 1. Search for **QNEAT3 → Shortest Path (Layer to Point)**
-2. Set **Start points** to your health_facilities layer
-3. Set **End point** to a central location (e.g., main hospital, town center)
-4. Run — this creates routes from every facility to the destination
-5. Style by travel time to see which facilities have longest travel
+2. Set **Start points** to a layer of community locations or population centers
+3. Set **End point** to your main hospital
+4. Run — this creates routes from every origin to the hospital
+5. Style routes by travel time (graduated colors) to identify which communities have the longest trips
 
-**Part C: Least-cost path for corridor analysis (optional)**
+**Interpret the results:**
 
-Least-cost paths use a cost raster instead of road networks—useful for wildlife corridors, off-road movement, or avoiding barriers.
-
-1. Create a cost raster:
-   - Use `Raster ▶ Raster Calculator`
-   - Example: high cost near roads (barrier for wildlife)
-   ```
-   10 * ("roads_proximity@1" < 100) + 1 * ("roads_proximity@1" >= 100)
-   ```
-   - This makes areas near roads 10x more costly to cross
-
-2. Run least-cost path:
-   - `Processing ▶ Toolbox ▶ search "Least cost"`
-   - Use **GRASS → r.drain** or **SAGA → Least Cost Paths**
-   - Set your cost raster and start/end points
-   - The output shows the path that minimizes total cost
-
-3. Applications:
-   - **Wildlife corridors:** Cost = road density + urban areas + steep slopes
-   - **Evacuation routes:** Cost = flood risk + distance to shelter
-   - **Heritage trails:** Cost = distance from historic sites
-
-!!! tip "Capstone connection"
-    Least-cost path analysis is powerful for environmental capstone projects. The [Koala Habitat Connectivity example](../reference/capstone-examples.md#example-5-environmental-science) uses this technique to identify critical wildlife corridors.
+- Long travel times may indicate need for closer facilities or better transport links
+- Compare drive routes vs. walk routes — the gap reveals car dependency
+- Routes that cross barriers (rivers, highways) may be longer than straight-line distance suggests
 
 **Compare to Python:**
 
-In Week 10, you'll automate path calculations with NetworkX in Python. The QGIS workflow is ideal for exploring individual routes and understanding the analysis; Python scales to hundreds of origin-destination pairs.
+In Week 10, you'll automate route calculations with NetworkX in Python. The QGIS workflow is ideal for exploring individual routes; Python scales to hundreds of origin-destination pairs.
 
 ### Activity 6: Visualize and communicate findings
 
@@ -363,7 +335,7 @@ Take 10-15 minutes to answer these questions in your [Week 6 reflection](../refe
 
 - Which areas had the worst accessibility? Were you surprised?
 - How would your findings change if you analyzed walking access instead of driving?
-- When would you use shortest path vs. least-cost path analysis? What kinds of questions does each answer?
+- What did the shortest path routes reveal that isochrones didn't show? When is each approach more useful?
 - What additional data would strengthen this analysis (transit routes, facility capacity, wait times)?
 - Who are the stakeholders for this type of analysis? How might different groups use (or misuse) these findings?
 - How confident are you in your results? What are the biggest sources of uncertainty?

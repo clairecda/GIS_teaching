@@ -190,8 +190,9 @@ Not sure how to do something mentioned in these examples? Here's where to find e
 | **Kernel density (KDE)** | [Week 5](../weeks/week05.md) | — | Create heatmaps showing concentration of points |
 | **Hotspot analysis (Gi*)** | [Week 5](../weeks/week05.md) | — | Identify statistically significant clusters |
 | **Isochrones (service areas)** | [Week 6](../weeks/week06.md) | [Week 10](../weeks/week10.md) | Calculate travel-time zones from locations |
-| **Shortest/least-cost paths** | [Week 6](../weeks/week06.md) | [Week 10](../weeks/week10.md) | Find optimal routes considering distance or custom costs |
+| **Shortest paths** | [Week 6](../weeks/week06.md) | [Week 10](../weeks/week10.md) | Find optimal routes along road networks |
 | **Change detection** | — | [Week 9](../weeks/week09.md) | Compare two time periods to find differences |
+| **Least-cost paths** | — | See note | Find corridors avoiding barriers (advanced) |
 
 **Choose your tool:**
 
@@ -202,9 +203,9 @@ Not sure how to do something mentioned in these examples? Here's where to find e
 
 For techniques beyond the course:
 
+- **Least-cost path analysis:** [QGIS least-cost path tutorial](https://www.qgistutorials.com/en/docs/3/least_cost_path.html) — uses cost rasters for wildlife corridors, evacuation routes
 - **Walkability indices:** [Walkability methods overview](https://www.walkscore.com/methodology.shtml)
 - **Species distribution:** [QGIS Species Distribution tutorial](https://docs.qgis.org/latest/en/docs/training_manual/)
-- **Flood risk:** [QGIS Sketcher - terrain analysis](https://www.sketcher.io/)
 - **Site suitability:** Search "QGIS weighted overlay analysis"
 
 Don't try to learn a completely new technique for your capstone—build on what you've already practiced in the weekly labs.
