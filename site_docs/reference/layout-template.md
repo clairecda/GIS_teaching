@@ -271,38 +271,17 @@ Create multiple templates for different purposes:
 
 Two map frames side by side with shared legend below. Good for: Before/after, two time periods.
 
-```mermaid
-flowchart TB
-    subgraph row1[" "]
-        direction LR
-        MAP1["🗺️ MAP 1<br/>(2016)"]
-        MAP2["🗺️ MAP 2<br/>(2021)"]
-    end
-    subgraph row2[" "]
-        LEGEND["📋 LEGEND"]
-    end
-    row1 --> row2
-```
+| 🗺️ MAP 1 (2016) | 🗺️ MAP 2 (2021) |
+|:---------------:|:---------------:|
+| 📋 LEGEND (spans both) ||
 
 ### Dashboard template
 
 Main map with inset maps and statistics. Good for: Executive summaries, presentations.
 
-```mermaid
-flowchart TB
-    subgraph main[" "]
-        direction LR
-        MAP["🗺️ MAIN MAP"]
-        SIDEBAR["📋 Legend<br/>📊 Stats"]
-    end
-    subgraph bottom[" "]
-        direction LR
-        INSET1["Inset 1"]
-        INSET2["Inset 2"]
-        NOTES["Notes"]
-    end
-    main --> bottom
-```
+| 🗺️ MAIN MAP | 📋 Legend / 📊 Stats |
+|:-----------:|:-------------------:|
+| Inset 1 \| Inset 2 | Notes |
 
 ---
 

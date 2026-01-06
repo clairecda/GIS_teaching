@@ -6,30 +6,11 @@ A visual guide to your 12-week GIS journey.
 
 ## Course Flow
 
-```mermaid
-timeline
-    title 12-Week GIS Journey
-    section QGIS Foundations (Weeks 1-6)
-        Week 1 : QGIS Intro
-        Week 2 : Design & Maps
-        Week 3 : Joins & Data
-               : 📍 Choose study area
-        Week 4 : Raster & DEM
-        Week 5 : Crime Maps
-               : 📍 Refine question
-        Week 6 : Health Access
-    section Python (Weeks 7-10)
-        Week 7 : Setup Python
-               : 📍 Data ready
-        Week 8 : Vector Workflow
-        Week 9 : Remote Sensing
-        Week 10 : Network Analysis
-                : 📍 Draft maps
-    section Synthesis (Weeks 11-12)
-        Week 11 : Story Maps
-        Week 12 : Capstone
-                : 📍 Final project
-```
+| Phase | Weeks | Topics | Milestones |
+|-------|-------|--------|------------|
+| **QGIS Foundations** | 1–6 | QGIS Intro → Design → Joins → Raster → Crime → Health | 📍 Week 3: Choose study area<br/>📍 Week 5: Refine question |
+| **Python** | 7–10 | Setup → Vector → Raster → Networks | 📍 Week 7: Data ready<br/>📍 Week 10: Draft maps |
+| **Synthesis** | 11–12 | Story Maps → Capstone | 📍 Week 12: Final project |
 
 ---
 
@@ -58,10 +39,10 @@ Your weekly work has two parallel tracks:
 
 Each week follows the same pattern:
 
-```mermaid
-flowchart LR
-    A["📖 **BEFORE**<br/>Read theory<br/>Download data"] --> B["💻 **DURING**<br/>Hands-on lab<br/>Ask questions"] --> C["✏️ **AFTER**<br/>Practice &<br/>Reflection"]
-```
+| 📖 BEFORE | → | 💻 DURING | → | ✏️ AFTER |
+|-----------|---|-----------|---|----------|
+| Read theory | | Hands-on lab | | Practice & |
+| Download data | | Ask questions | | Reflection |
 
 ---
 
@@ -110,25 +91,9 @@ Track your progress against these checkpoints:
 
 ## What You'll Create
 
-```mermaid
-flowchart LR
-    subgraph W1["Weeks 1-2"]
-        A["📍 First Map"]
-    end
-    subgraph W2["Weeks 3-4"]
-        B["📊 Joined Data<br/>Choropleth"]
-    end
-    subgraph W3["Weeks 5-6"]
-        C["🔥 Hotspot<br/>Analysis"]
-    end
-    subgraph W4["Weeks 7-10"]
-        D["🐍 Python<br/>Notebooks"]
-    end
-    subgraph W5["Weeks 11-12"]
-        E["🎯 Capstone<br/>Project"]
-    end
-    W1 --> W2 --> W3 --> W4 --> W5
-```
+| Weeks 1-2 | Weeks 3-4 | Weeks 5-6 | Weeks 7-10 | Weeks 11-12 |
+|:---------:|:---------:|:---------:|:----------:|:-----------:|
+| 📍 First Map | 📊 Choropleth | 🔥 Hotspot Analysis | 🐍 Python Notebooks | 🎯 Capstone |
 
 By the end you'll have:
 

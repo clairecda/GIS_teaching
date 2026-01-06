@@ -203,17 +203,11 @@ Colors aren't decoration—they carry meaning:
 
 Good map design uses all these principles:
 
-```mermaid
-flowchart TB
-    TITLE["📰 TITLE — Large, top, high contrast"]
-    subgraph content[" "]
-        direction LR
-        MAP["🗺️ MAIN MAP"]
-        SIDEBAR["📋 LEGEND<br/>📏 Scale bar"]
-    end
-    CREDITS["Data: ABS 2021 | CRS: EPSG:7856 | Author: Your Name"]
-    TITLE --> content --> CREDITS
-```
+| Row | Left (2/3) | Right (1/3) |
+|-----|------------|-------------|
+| **Top** | 📰 TITLE — Large, high contrast | |
+| **Middle** | 🗺️ MAIN MAP | 📋 LEGEND<br/>📏 Scale bar |
+| **Bottom** | Data: ABS 2021 \| CRS: EPSG:7856 \| Author: Your Name | |
 
 | Principle | How it's applied |
 |-----------|------------------|
