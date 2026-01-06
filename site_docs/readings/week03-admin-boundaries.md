@@ -94,21 +94,36 @@ Boundaries are redrawn regularly:
 
 ### 2. The Modifiable Areal Unit Problem (MAUP)
 
-The same data can tell different stories depending on how you draw boundaries.
+!!! warning "MAUP is technical AND political"
+    The Modifiable Areal Unit Problem isn't just a methodological curiosity—it's a tool of power.
+
+The same data can tell completely different stories depending on how you draw boundaries.
 
 **Example:** Crime rates in Sydney
 - By LGA: "Parramatta has high crime"
 - By SA2: "Only 2 suburbs in Parramatta are high crime, the rest are low"
 - By postcode: Different pattern again
 
-**This is called MAUP** — the results change based on the units you choose.
+**The technical problem:** Results change based on the units you choose. Aggregate data to larger areas and patterns smooth out. Use smaller units and hotspots appear. Neither is "wrong"—they're different views of the same reality.
 
-**Impact:** You can (accidentally or deliberately) manipulate findings by choosing boundaries that support your conclusion.
+**The political problem:** Boundaries are not neutral. They are drawn by institutions with agendas:
 
-**Solution:**
-- Be transparent about boundary choice
-- Test sensitivity by using different boundary levels
-- Report the level you used and why
+- **Gerrymandering** manipulates electoral boundaries to favour certain parties
+- **Redlining** used neighbourhood boundaries to deny services to minority communities
+- **"High crime area"** designations justify increased policing in specific neighbourhoods
+- **School catchments** can entrench advantage or disadvantage
+- **Statistical boundaries** can hide or reveal inequality depending on where lines are drawn
+
+When someone shows you a map with boundaries, ask: *Who drew these lines? For what purpose? Who benefits from this particular division of space?*
+
+**Impact:** You can (accidentally or deliberately) manipulate findings by choosing boundaries that support your conclusion. A government wanting to show "crime is down" might use larger boundaries that smooth out hotspots. A lobby group wanting more police funding might use smaller units that make problems look concentrated.
+
+**What to do:**
+- Be transparent about boundary choice and why you chose it
+- Test sensitivity by running analysis at multiple boundary levels
+- Report what changes when you use different units
+- Ask who created the boundaries and what they were designed for
+- Consider whether administrative boundaries serve your analytical question—or obscure it
 
 ### 3. Boundaries don't match real-world patterns
 
