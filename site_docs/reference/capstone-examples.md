@@ -177,6 +177,35 @@ These examples from previous cohorts illustrate the range of topics, methods, an
 
 ---
 
+## Methods Quick Reference
+
+Not sure how to do something mentioned in these examples? Here's where to find each technique:
+
+| Method | Where to Learn | What It Does |
+|--------|----------------|--------------|
+| **Choropleth mapping** | [Week 2 Lab](../weeks/week02.md) | Colour areas by data values (e.g., income by suburb) |
+| **Spatial joins** | [Week 3 Lab](../weeks/week03.md) | Attach data from one layer to another based on location |
+| **Zonal statistics** | [Week 4 Lab](../weeks/week04.md) | Calculate statistics (mean, sum) for areas from raster data |
+| **Kernel density (KDE)** | [Week 5 Lab](../weeks/week05.md) | Create heatmaps showing concentration of points |
+| **Hotspot analysis (Gi*)** | [Week 5 Lab](../weeks/week05.md) | Identify statistically significant clusters |
+| **Network analysis / Isochrones** | [Week 6](../weeks/week06.md), [Week 10](../weeks/week10.md) | Calculate travel times, service areas, routes |
+| **NDVI calculation** | [Week 9 Lab](../weeks/week09.md) | Measure vegetation health from satellite imagery |
+| **Change detection** | [Week 9 Lab](../weeks/week09.md) | Compare two time periods to find differences |
+| **Least-cost paths** | [Week 10 Lab](../weeks/week10.md) | Find optimal routes considering barriers/costs |
+
+### External Resources
+
+For techniques beyond the course:
+
+- **Walkability indices:** [Walkability methods overview](https://www.walkscore.com/methodology.shtml)
+- **Species distribution:** [QGIS Species Distribution tutorial](https://docs.qgis.org/latest/en/docs/training_manual/)
+- **Flood risk:** [QGIS Sketcher - terrain analysis](https://www.sketcher.io/)
+- **Site suitability:** Search "QGIS weighted overlay analysis"
+
+Don't try to learn a completely new technique for your capstone—build on what you've already practiced in the weekly labs.
+
+---
+
 ## Common Characteristics of Strong Capstones
 
 1. **Focused question:** One clear research question, not three vague ones
