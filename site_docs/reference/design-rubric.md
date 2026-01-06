@@ -6,8 +6,8 @@ This guide introduces graphic design fundamentals that make maps effective. The 
 
 ## Essential Map Elements
 
-!!! warning "A map without these elements is incomplete"
-    Every finished map **must** include these six elements. Missing any one of them makes your map invalid for professional or academic submission.
+!!! danger "A map without these elements is incomplete"
+    Every finished map **must** include these six elements. Missing **any one** makes your map invalid for professional or academic submission.
 
 | Element | Purpose | Where to place |
 |---------|---------|----------------|
@@ -18,19 +18,21 @@ This guide introduces graphic design fundamentals that make maps effective. The 
 | **Data source** | Credits data providers, ensures trust | Bottom of layout, small text |
 | **Author & date** | Establishes responsibility and currency | Bottom of layout with source |
 
-### Why North Arrow is Non-Negotiable
+### Why Each Element is Required
 
-The **north arrow** tells viewers which direction is "up" on your map. Without it:
+| Element | Without it... |
+|---------|---------------|
+| **Title** | Viewers don't know what they're looking at |
+| **Legend** | Colors and symbols are meaningless |
+| **Scale bar** | Distances cannot be understood |
+| **North arrow** | Orientation is unknown |
+| **Data source** | Map lacks credibility and violates attribution requirements |
+| **Author/date** | No accountability; unclear if information is current |
 
-- Viewers cannot orient themselves
-- Distances and directions become meaningless
-- The map fails as a navigation or reference tool
-- Professional reviewers will reject the map
+!!! danger "No exceptions for the core four"
+    **Title, Legend, Scale bar, and North arrow** must appear on every map. A map missing any of these will not be accepted for submission.
 
-!!! danger "No exceptions"
-    Even if your map shows a familiar area with north at the top, **include a north arrow**. Viewers should never have to guess or assume orientation. The only exception is a series of small multiples where one north arrow serves the entire set.
-
-### The Six-Element Checklist
+### Pre-Export Checklist
 
 Before exporting any map, verify:
 
