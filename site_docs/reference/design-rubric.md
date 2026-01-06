@@ -1,110 +1,273 @@
-# Design Critique Rubric
+# Map Design Principles
 
-Use this rubric during peer critique sessions to provide structured, constructive feedback on map designs.
-
-## Evaluation Dimensions
-
-### 1. Clarity (Message Comprehension)
-
-| Level | Description |
-|-------|-------------|
-| **Excellent (4)** | Main message is immediately clear within 5 seconds; no explanation needed |
-| **Good (3)** | Message is clear after brief study (10-15 seconds) |
-| **Developing (2)** | Message requires explanation from the creator to understand |
-| **Needs Work (1)** | Message is unclear even with explanation; viewer is confused |
-
-**Questions to consider:**
-
-- Can you identify the main point without any context?
-- Does the title accurately reflect the map's content?
-- Are there any elements that distract from the main message?
+This guide introduces graphic design fundamentals that make maps effective. The same principles used in magazines, websites, and professional publications apply to cartography.
 
 ---
 
-### 2. Visual Hierarchy
+## Why design matters
 
-| Level | Description |
-|-------|-------------|
-| **Excellent (4)** | Eye naturally moves to the most important elements first; clear focal point |
-| **Good (3)** | Hierarchy is mostly clear; minor competing elements |
-| **Developing (2)** | Multiple elements compete for attention; unclear where to look first |
-| **Needs Work (1)** | No clear hierarchy; chaotic visual organization |
+A map isn't just data—it's a **visual argument**. Good design helps your audience:
 
-**Questions to consider:**
+- Understand the message quickly
+- Know where to look first
+- Trust the information
+- Remember the key points
 
-- What do you look at first? Is that the most important element?
-- Do size, color, and position guide your eye appropriately?
-- Is there a clear visual path through the information?
+Bad design creates confusion, even when the analysis is excellent.
 
 ---
 
-### 3. Technical Accuracy
+## The grid system
 
-| Level | Description |
-|-------|-------------|
-| **Excellent (4)** | All labels correct; scale bar accurate; appropriate projection; data sources cited |
-| **Good (3)** | Minor issues (small typos, slightly off scale) that don't affect interpretation |
-| **Developing (2)** | Notable errors that could cause confusion but don't invalidate the analysis |
-| **Needs Work (1)** | Major errors that undermine credibility or lead to misinterpretation |
+Professional designers don't place elements randomly. They use an invisible **grid** to create order and alignment.
 
-**Checklist:**
+### How grids work
 
-- [ ] Labels are spelled correctly
-- [ ] Scale bar matches actual distances
-- [ ] North arrow present (if needed)
-- [ ] Projection is appropriate for the study area and purpose
-- [ ] Data sources and dates are credited
-- [ ] Legend matches map symbology exactly
+```
+┌────────────────────────────────────────────────────────────────┐
+│  ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊│
+│  ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊│
+│  ┊  TITLE SPANS MULTIPLE COLUMNS  ┊     ┊     ┊     ┊     ┊   │
+│  ┊─────────────────────────────────┊     ┊     ┊     ┊     ┊   │
+│  ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊│
+│  ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊│
+│  ┊     ┊  MAIN MAP AREA     ┊     ┊     ┊  LEGEND  ┊     ┊   │
+│  ┊     ┊  (8 columns)       ┊     ┊     ┊  (3 col) ┊     ┊   │
+│  ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊│
+│  ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊     ┊│
+│  ┊─────────────────────────────────────────────────────────────┊│
+│  ┊  DATA SOURCES & CREDITS (full width)                       ┊│
+└────────────────────────────────────────────────────────────────┘
+      1     2     3     4     5     6     7     8     9    10   11   12
+                         ↑ 12-column grid ↑
+```
+
+**Magazine example:** Open any magazine. Notice how headlines, images, and text align to invisible vertical lines. That's a grid.
+
+**For maps:** Use a 12-column grid. Elements snap to column edges, creating visual order even when viewers don't consciously notice it.
+
+### Gutters
+
+The spaces between columns are called **gutters**. They prevent elements from touching and give the eye room to move.
+
+- Standard gutter: 5mm
+- Larger gutters (10mm) for more breathing room
 
 ---
+
+## Visual hierarchy
+
+**Hierarchy** controls what viewers see first, second, third. Without it, everything competes for attention.
+
+### The tools of hierarchy
+
+| Tool | How it works | Map example |
+|------|--------------|-------------|
+| **Size** | Larger = more important | Title bigger than legend text |
+| **Color** | Bright/saturated = attention | Red for key features, grey for context |
+| **Position** | Top-left gets read first | Title at top, credits at bottom |
+| **Contrast** | High contrast = focal point | Dark text on light background |
+| **Isolation** | Surrounded by space = important | Main map has margins around it |
+
+### The squint test
+
+**Squint at your map.** What do you see?
+
+- The blurry shapes that stand out are your visual hierarchy
+- If everything blurs together equally, you have no hierarchy
+- If the wrong thing stands out, adjust size/color/position
+
+---
+
+## Balance
+
+A balanced layout feels stable. An unbalanced layout feels uncomfortable (even if viewers can't say why).
+
+### Symmetrical vs asymmetrical
+
+```
+SYMMETRICAL                      ASYMMETRICAL
+┌───────────────────┐            ┌───────────────────┐
+│                   │            │                   │
+│   ┌─────────┐     │            │ ┌───────────────┐ │
+│   │  MAP    │     │            │ │               │ │
+│   │         │     │            │ │     MAP       │ │
+│   └─────────┘     │            │ │               │ │
+│     [legend]      │            │ └───────────────┘ │
+│                   │            │        [legend]   │
+└───────────────────┘            └───────────────────┘
+    Everything                       Heavier on left,
+    centered                         balanced by legend
+```
+
+**Asymmetrical balance** is more dynamic and professional. Balance a large element (map) with smaller elements (legend, title) on the opposite side.
+
+### Visual weight
+
+Different elements have different "weights":
+
+- Large elements are heavy
+- Dark elements are heavier than light
+- Complex/detailed areas feel heavier than simple areas
+- Isolation makes elements feel heavier
+
+**Balance the weights** across your page.
+
+---
+
+## Negative space (white space)
+
+**Negative space** is the empty area around and between elements. Beginners fill every inch; professionals use emptiness strategically.
+
+### What negative space does
+
+- **Separates elements** without needing boxes or lines
+- **Creates breathing room** so the eye can rest
+- **Emphasizes importance** — isolation draws attention
+- **Improves readability** — text needs margins
+
+### Common mistakes
+
+| Mistake | Problem | Fix |
+|---------|---------|-----|
+| Filling every corner | Feels cluttered, overwhelming | Remove or shrink non-essential elements |
+| Legend touching map | Elements compete | Add 10mm margin between |
+| Text to edge | Feels cramped | Maintain 15mm page margins |
+| Equal spacing everywhere | Nothing stands out | Vary spacing to group related items |
+
+### The "remove one thing" rule
+
+When your layout feels done, **remove one element**. If the map still works, leave it out. Repeat until removing anything would hurt the message.
+
+---
+
+## Alignment
+
+Elements that align feel intentional. Elements that *almost* align feel like mistakes.
+
+```
+BAD (ragged)                    GOOD (aligned)
+┌───────────────────┐           ┌───────────────────┐
+│  Title            │           │  Title            │
+│                   │           │  ─────────────    │
+│    Map            │           │  Map              │
+│        Legend     │           │  Legend           │
+│   Scale bar       │           │  Scale bar        │
+│     Credits       │           │  Credits          │
+└───────────────────┘           └───────────────────┘
+  Left edges don't               Everything aligns
+  line up                        to the same edge
+```
+
+**Rule:** Pick alignment edges and stick to them. In QGIS, use guides or a grid.
+
+---
+
+## Contrast and color
+
+### Contrast for readability
+
+Text needs **contrast ratio of 4.5:1 or higher** against its background.
+
+| Good contrast | Poor contrast |
+|---------------|---------------|
+| Black on white | Grey on white |
+| White on dark blue | Yellow on white |
+| Dark text on light map | Light text on busy map |
+
+**Test:** If you squint and the text disappears into the background, contrast is too low.
+
+### Color for meaning
+
+Colors aren't decoration—they carry meaning:
+
+| Color use | Purpose |
+|-----------|---------|
+| **Sequential** (light→dark) | Ordered data (low→high) |
+| **Diverging** (red←white→blue) | Data with meaningful center |
+| **Categorical** (distinct hues) | Different types (no order) |
+
+**Limit colors:** 3-5 colors maximum. More creates visual noise.
+
+---
+
+## Putting it together
+
+Good map design uses all these principles:
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                                                                  │
+│     [TITLE - Large, top, high contrast]                         │
+│     ─────────────────────────────────────                       │← HIERARCHY
+│                                                                  │  (size, position)
+│     ┌─────────────────────────────────┐    ┌──────────────┐     │
+│     │                                 │    │              │     │← BALANCE
+│     │                                 │    │   LEGEND     │     │  (asymmetrical)
+│     │         MAIN MAP                │    │              │     │
+│     │                                 │    ├──────────────┤     │← ALIGNMENT
+│     │                                 │    │  Scale bar   │     │  (right edges)
+│     │                                 │    └──────────────┘     │
+│     │                                 │                         │← NEGATIVE SPACE
+│     └─────────────────────────────────┘                         │  (margins, gutters)
+│                                                                  │
+│     Data: ABS 2021 | CRS: EPSG:7856 | Author: Your Name        │← GRID
+│                                                                  │  (full-width footer)
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## Design critique rubric
+
+Use this during peer feedback sessions:
+
+### 1. Clarity (Is the message clear?)
+
+| Score | Description |
+|-------|-------------|
+| **4** | Message clear within 5 seconds |
+| **3** | Message clear after 10-15 seconds |
+| **2** | Requires explanation to understand |
+| **1** | Unclear even with explanation |
+
+### 2. Visual hierarchy (Do you know where to look?)
+
+| Score | Description |
+|-------|-------------|
+| **4** | Clear focal point, eye moves naturally |
+| **3** | Mostly clear, minor competing elements |
+| **2** | Multiple elements compete for attention |
+| **1** | No clear hierarchy, chaotic |
+
+### 3. Technical accuracy
+
+| Score | Description |
+|-------|-------------|
+| **4** | All labels correct, sources cited, scale accurate |
+| **3** | Minor issues that don't affect interpretation |
+| **2** | Notable errors causing confusion |
+| **1** | Major errors undermining credibility |
 
 ### 4. Accessibility
 
-| Level | Description |
+| Score | Description |
 |-------|-------------|
-| **Excellent (4)** | Passes all WCAG AA standards; works for color vision deficiencies; appropriate font sizes |
-| **Good (3)** | Minor accessibility issues that don't significantly impair readability |
-| **Developing (2)** | Some categories indistinguishable for colorblind viewers; text too small in places |
-| **Needs Work (1)** | Major accessibility barriers; map unusable for significant portion of viewers |
+| **4** | Works for colorblind viewers, good contrast, readable fonts |
+| **3** | Minor accessibility issues |
+| **2** | Some categories indistinguishable, text too small |
+| **1** | Major barriers, unusable for many viewers |
 
-**Checklist:**
+### Giving feedback
 
-- [ ] Text meets minimum contrast ratio (4.5:1 for body text, 3:1 for large text)
-- [ ] Colors distinguishable under deuteranopia, protanopia, and tritanopia simulation
-- [ ] Minimum font sizes met (9pt print, 12pt digital)
-- [ ] Labels don't overlap or obscure important features
-- [ ] Alt text provided for digital distribution
+1. **What works:** "The graduated color scheme makes density patterns immediately clear."
+2. **What could improve:** "The legend overlaps part of the study area."
+3. **Suggestion:** "Move the legend to the empty ocean area in the lower right."
 
 ---
 
-## Feedback Format
+## Further reading
 
-When giving critique, use this structure:
-
-1. **What works:** Identify a specific positive element
-   > "The graduated color scheme makes population density patterns immediately clear."
-
-2. **What could be stronger:** Identify a specific issue
-   > "The legend is positioned over part of the study area, obscuring some data."
-
-3. **Suggestion:** Offer an actionable improvement
-   > "Move the legend to the lower right corner where there's empty ocean space."
-
----
-
-## Quick Reference Scoring
-
-| Dimension | Score (1-4) | Notes |
-|-----------|-------------|-------|
-| Clarity | | |
-| Hierarchy | | |
-| Accuracy | | |
-| Accessibility | | |
-| **Total** | **/16** | |
-
-**Score interpretation:**
-
-- 14-16: Publication-ready with minor polish
-- 10-13: Solid work with specific areas for improvement
-- 6-9: Needs significant revision before sharing
-- 4-5: Requires fundamental rethinking of approach
+- [Cartography Guide](https://www.axismaps.com/guide) — Axis Maps
+- [ColorBrewer](https://colorbrewer2.org/) — Color schemes for maps
+- [Butterick's Practical Typography](https://practicaltypography.com/) — Typography basics
