@@ -84,11 +84,11 @@ Use this checklist throughout your GIS projects. Print it out or keep it open as
 
 ## Map Design
 
-### Essential Elements
+### Essential Elements (all required)
 - [ ] **Title**: Specific, includes What + Where + When
 - [ ] **Legend**: All symbols explained, units shown
 - [ ] **Scale bar**: Appropriate units, reasonable size
-- [ ] **North arrow**: Included if map orientation unclear
+- [ ] **North arrow**: Required on every map
 - [ ] **Data sources**: All datasets credited
 - [ ] **Author & date**: Your name and creation date
 

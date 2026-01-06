@@ -74,12 +74,14 @@ Test your map using [Color Oracle](https://colororacle.org/) (desktop) or [Cobli
 
 ## 4. Map Elements
 
+All four core elements are **required** on every map.
+
 | Element | Present? | Accessible? | Notes |
 |---------|----------|-------------|-------|
 | Title | [ ] Yes [ ] No | [ ] Yes [ ] No | Clear and descriptive? |
 | Legend | [ ] Yes [ ] No | [ ] Yes [ ] No | All categories explained? |
 | Scale bar | [ ] Yes [ ] No | [ ] Yes [ ] No | Readable units? |
-| North arrow | [ ] Yes [ ] N/A | [ ] Yes [ ] No | Needed for this map? |
+| North arrow | [ ] Yes [ ] No | [ ] Yes [ ] No | Visible and correctly oriented? |
 | Data sources | [ ] Yes [ ] No | [ ] Yes [ ] No | All sources credited? |
 | Date/author | [ ] Yes [ ] No | [ ] Yes [ ] No | Attribution present? |
 
