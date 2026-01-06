@@ -289,16 +289,16 @@ Main map with inset maps and statistics. Good for: Executive summaries, presenta
 
 | Icon | Tool | Shortcut |
 |------|------|----------|
-| 🗺️ | Add Map | — |
-| 📋 | Add Legend | — |
-| 📏 | Add Scale Bar | — |
-| ⬆️ | Add North Arrow | — |
-| 📝 | Add Label | — |
-| 🖼️ | Add Picture | — |
-| ⬜ | Add Shape | — |
-| ↖️ | Select/Move | V |
-| ✋ | Pan Layout | P |
-| 🔍 | Zoom | Z |
+| ![Add Map](../assets/icons/mLayoutItemMap.svg){: style="width:24px"} | Add Map | — |
+| ![Add Legend](../assets/icons/mLayoutItemLegend.svg){: style="width:24px"} | Add Legend | — |
+| ![Add Scale Bar](../assets/icons/mLayoutItemScaleBar.svg){: style="width:24px"} | Add Scale Bar | — |
+| ![Add Arrow](../assets/icons/mActionAddArrow.svg){: style="width:24px"} | Add North Arrow | — |
+| ![Add Label](../assets/icons/mLayoutItemLabel.svg){: style="width:24px"} | Add Label | — |
+| ![Add Picture](../assets/icons/mLayoutItemPicture.svg){: style="width:24px"} | Add Picture | — |
+| ![Add Shape](../assets/icons/mActionAddBasicShape.svg){: style="width:24px"} | Add Shape | — |
+| ![Select](../assets/icons/mActionSelect.svg){: style="width:24px"} | Select/Move | V |
+| ![Pan](../assets/icons/mActionPan.svg){: style="width:24px"} | Pan Layout | P |
+| ![Zoom](../assets/icons/mActionZoomIn.svg){: style="width:24px"} | Zoom | Z |
 
 ---
 

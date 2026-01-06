@@ -111,6 +111,7 @@ extra_javascript:
   - javascripts/external-links.js
 
 markdown_extensions:
+  - attr_list
   - admonition
   - toc:
       permalink: true
