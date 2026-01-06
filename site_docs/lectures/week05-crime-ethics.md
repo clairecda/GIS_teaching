@@ -14,7 +14,7 @@ Kernel density estimation (KDE) · hotspot · bandwidth · search radius · crim
 
 ## Hotspots and spatial autocorrelation
 
-When we identify hotspots, we're essentially detecting **spatial autocorrelation**—the tendency for nearby locations to have similar values. Crime doesn't occur randomly across space; it clusters.
+When we identify hotspots, we're essentially detecting **spatial autocorrelation**—the tendency for nearby locations to have similar values. Research consistently shows that recorded crime tends to cluster in specific places rather than occurring randomly across space (Weisburd, 2015; Brantingham & Brantingham, 1981)—though it's worth remembering this reflects *reported and recorded* crime, not necessarily all crime.
 
 **Why this matters:**
 
