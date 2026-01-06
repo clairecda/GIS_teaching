@@ -271,17 +271,34 @@ Create multiple templates for different purposes:
 
 Two map frames side by side with shared legend below. Good for: Before/after, two time periods.
 
-| 🗺️ MAP 1 (2016) | 🗺️ MAP 2 (2021) |
-|:---------------:|:---------------:|
-| 📋 LEGEND (spans both) ||
+**Layout:**
+
+```
+┌─────────────────┬─────────────────┐
+│                 │                 │
+│    MAP 1        │    MAP 2        │
+│    (2016)       │    (2021)       │
+│                 │                 │
+├─────────────────┴─────────────────┤
+│           SHARED LEGEND           │
+└───────────────────────────────────┘
+```
 
 ### Dashboard template
 
 Main map with inset maps and statistics. Good for: Executive summaries, presentations.
 
-| 🗺️ MAIN MAP | 📋 Legend / 📊 Stats |
-|:-----------:|:-------------------:|
-| Inset 1 \| Inset 2 | Notes |
+**Layout:**
+
+```
+┌───────────────────────┬───────────┐
+│                       │  Legend   │
+│      MAIN MAP         ├───────────┤
+│                       │  Stats    │
+├───────────┬───────────┼───────────┤
+│  Inset 1  │  Inset 2  │  Notes    │
+└───────────┴───────────┴───────────┘
+```
 
 ---
 
