@@ -97,6 +97,13 @@ Boundaries are redrawn regularly:
 !!! warning "MAUP is technical AND political"
     The Modifiable Areal Unit Problem isn't just a methodological curiosity—it's a tool of power.
 
+**What is MAUP?** When you aggregate individual data points into areas (like suburbs or councils), the results you get depend on:
+
+1. **Scale** — How big are the areas? (SA2 vs LGA vs state)
+2. **Zonation** — Where exactly are the boundary lines drawn?
+
+Change either one, and your statistics change—even though the underlying data is identical. This is the Modifiable Areal Unit Problem.
+
 The same data can tell completely different stories depending on how you draw boundaries.
 
 **Example:** Crime rates in Sydney
