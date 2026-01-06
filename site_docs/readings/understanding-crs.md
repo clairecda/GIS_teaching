@@ -4,15 +4,23 @@ One of the most confusing aspects of GIS for beginners is the Coordinate Referen
 
 ## What is a CRS and why does it matter?
 
-Imagine trying to meet a friend somewhere. If you say "I'm at coordinates 51.5, -0.1," that's meaningless unless you both agree on what those numbers represent. Are they degrees? Meters? From where?
+Think back to maths class: you plotted points on a Cartesian grid using X and Y coordinates. The point (3, 4) meant "3 units right from the origin, 4 units up." Simple.
 
-A **Coordinate Reference System** (CRS) is like that agreement—it defines:
+But that only works because everyone agrees on:
 
-1. **What the numbers mean** (latitude/longitude in degrees vs. X/Y in meters)
-2. **Where "zero" is** (the origin point)
-3. **How to translate the 3D Earth onto a 2D map** (the projection)
+- **Where the origin (0, 0) is** — the corner of the grid
+- **What the units are** — usually just "units" on the grid
+- **Which direction is positive** — right for X, up for Y
 
-Without a CRS, coordinates are just meaningless numbers. With the wrong CRS, your layers won't line up.
+Now imagine doing this on the Earth's surface. Where's (0, 0)? What's a "unit"—degrees? meters? feet? Which way is "up" when you're on a sphere?
+
+A **Coordinate Reference System** (CRS) answers all these questions:
+
+1. **Where is the origin?** (e.g., the intersection of the Equator and Prime Meridian)
+2. **What units are used?** (degrees for lat/lon, meters for projected systems)
+3. **How is the curved Earth flattened onto a flat map?** (the projection method)
+
+Without a CRS, the coordinates `(151.2, -33.9)` are meaningless numbers. With the wrong CRS, your layers won't align—Sydney could end up in the Atlantic Ocean.
 
 ## The fundamental problem: Earth is round, maps are flat
 
