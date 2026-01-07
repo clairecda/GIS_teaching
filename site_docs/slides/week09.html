@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Week 09 – Raster & Remote Sensing in Python - Introduction to GIS Course">
+  <meta name="description" content="Week 09 – Flood Risk Assessment in Python - Introduction to GIS Course">
   <meta name="author" content="Intro to GIS">
-  <title>Week 09 – Raster & Remote Sensing in Python</title>
+  <title>Week 09 – Flood Risk Assessment in Python</title>
   <style>
     /* ========== FONTS & RESET ========== */
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Fira+Code&display=swap');
@@ -407,32 +407,32 @@
 <body>
   <div id="slides-container">
     <div class="slide title-slide active" role="region" aria-label="Title slide">
-      <h1>Week 09 · Raster & Remote Sensing in Python</h1>
-      <p>Satellites capture the Earth every few days. Today we use Python to process imagery, calculate vegetation indices, and detect change over time—turning pixels into insights.</p>
+      <h1>Week 09 · Flood Risk Assessment in Python</h1>
+      <p>Automate the flood risk analysis you did in QGIS Week 4. Python lets you fetch elevation data from cloud APIs, calculate terrain derivatives, and classify risk zones — all in reproducible code.</p>
       <div class="slide-footer">Week 09 | Intro to GIS | © 2025</div>
     </div>
 
     <div class="slide toc-slide" role="region" aria-label="Table of contents">
       <h2>Overview</h2>
       <ol>
-        <li>Satellite Imagery 101</li>
+        <li>Cloud-Hosted Data: No Downloads!</li>
         <li>Python Libraries for Raster</li>
-        <li>Vegetation Index: NDVI</li>
-        <li>Change Detection Workflow</li>
+        <li>Terrain Analysis: Slope & Aspect</li>
+        <li>Flood Risk Classification</li>
         <li>Zonal Statistics</li>
-        <li>Today's Lab: Bushfire Impact</li>
+        <li>Today's Lab: Flood Risk Assessment</li>
         <li>Reflection</li>
       </ol>
       <div class="slide-footer">Week 09 | Intro to GIS | © 2025</div>
     </div>
 
-    <div class="slide content-slide" role="region" aria-label="Satellite Imagery 101">
-      <h2>Satellite Imagery 101</h2>
+    <div class="slide content-slide" role="region" aria-label="Cloud-Hosted Data: No Downloads!">
+      <h2>Cloud-Hosted Data: No Downloads!</h2>
       <ul>
-        <li>Landsat 8/9: 30m resolution, 16-day revisit, free from USGS. Great for long-term studies (since 1972).</li>
-        <li>Sentinel-2: 10m resolution, 5-day revisit, free from ESA. Better detail, shorter history (since 2015).</li>
-        <li>Bands capture different wavelengths: Red, Green, Blue (what we see), NIR/SWIR (vegetation health, moisture).</li>
-        <li>Pre-processing: cloud masking, atmospheric correction. Often done for you in 'Analysis Ready Data' products.</li>
+        <li>Planetary Computer hosts elevation data (Copernicus DEM) accessible via API.</li>
+        <li>No more downloading 500MB files — read only the area you need directly from the cloud.</li>
+        <li>The notebook connects to the API and fetches data for your study area automatically.</li>
+        <li>Same workflow scales to national analysis without downloading terabytes of data.</li>
       </ul>
       <div class="slide-footer">Week 09 | Intro to GIS | © 2025</div>
     </div>
@@ -448,25 +448,25 @@
       <div class="slide-footer">Week 09 | Intro to GIS | © 2025</div>
     </div>
 
-    <div class="slide content-slide" role="region" aria-label="Vegetation Index: NDVI">
-      <h2>Vegetation Index: NDVI</h2>
+    <div class="slide content-slide" role="region" aria-label="Terrain Analysis: Slope & Aspect">
+      <h2>Terrain Analysis: Slope & Aspect</h2>
       <ul>
-        <li>NDVI = (NIR - Red) / (NIR + Red) — measures vegetation greenness.</li>
-        <li>Values: -1 to +1. Dense vegetation ≈ 0.6–0.9. Bare soil/water ≈ 0 or negative.</li>
-        <li>Use case: before/after bushfire—healthy forest vs burnt scar.</li>
-        <li>In code: ndvi = (nir - red) / (nir + red)</li>
+        <li>SLOPE = rate of elevation change. Flat areas accumulate water (high flood risk).</li>
+        <li>ASPECT = direction slope faces. Can affect drainage patterns.</li>
+        <li>HILLSHADE = simulated sun illumination for visualisation.</li>
+        <li>In code: use np.gradient() on elevation array to calculate slope.</li>
       </ul>
       <div class="slide-footer">Week 09 | Intro to GIS | © 2025</div>
     </div>
 
-    <div class="slide content-slide" role="region" aria-label="Change Detection Workflow">
-      <h2>Change Detection Workflow</h2>
+    <div class="slide content-slide" role="region" aria-label="Flood Risk Classification">
+      <h2>Flood Risk Classification</h2>
       <ul>
-        <li>1. Download pre-event and post-event imagery (same sensor, similar season).</li>
-        <li>2. Calculate NDVI for both dates.</li>
-        <li>3. Compute difference: ndvi_change = ndvi_post - ndvi_pre</li>
-        <li>4. Threshold: areas with change < -0.2 likely lost vegetation.</li>
-        <li>5. Summarise per SA2: average change, % area affected.</li>
+        <li>1. Fetch DEM from Planetary Computer API.</li>
+        <li>2. Calculate slope from elevation.</li>
+        <li>3. Normalise both layers: low elevation = high score, flat = high score.</li>
+        <li>4. Combine with weights: elevation (60%) + slope (40%).</li>
+        <li>5. Classify into risk zones: Low, Moderate, High, Very High.</li>
       </ul>
       <div class="slide-footer">Week 09 | Intro to GIS | © 2025</div>
     </div>
@@ -482,39 +482,24 @@
       <div class="slide-footer">Week 09 | Intro to GIS | © 2025</div>
     </div>
 
-    <div class="slide content-slide" role="region" aria-label="Today's Lab: Prep Check">
-      <h2>Lab Time: Are You Ready?</h2>
+    <div class="slide content-slide" role="region" aria-label="Today's Lab: Flood Risk Assessment">
+      <h2>Today's Lab: Flood Risk Assessment</h2>
       <ul>
-        <li><strong>Pre-class checklist:</strong></li>
-        <li>☐ Python environment working with rasterio?</li>
-        <li>☐ Satellite imagery downloaded (Landsat/Sentinel-2)?</li>
-        <li>☐ Pre- and post-event images for your study area?</li>
-        <li>☐ Read the remote sensing theory?</li>
+        <li>The notebook fetches Copernicus DEM from Planetary Computer — no downloads!</li>
+        <li>Calculate slope and classify flood risk zones.</li>
+        <li>Run zonal stats to report % high-risk area per SA2.</li>
+        <li>Compare results to your QGIS Week 4 analysis.</li>
       </ul>
-      <p style="margin-top: 1rem; padding: 0.75rem; background: #f8d7da; border-left: 4px solid #dc3545; font-size: 0.95rem;"><strong>Not prepared?</strong> We cannot assist you during class. If you had issues downloading imagery, you should have contacted us BEFORE class.</p>
-      <p style="margin-top: 1.5rem; font-size: 1.1rem;"><strong>Follow along:</strong> <a href="../weeks/week09/" style="color: var(--primary); font-weight: 600;">Week 9 Lab Guide</a></p>
-      <p style="margin-top: 1rem; font-size: 1.1rem; color: var(--accent);"><strong>Stuck? Raise your hand!</strong> We're here to help.</p>
       <div class="slide-footer">Week 09 | Intro to GIS | © 2025</div>
     </div>
 
     <div class="slide content-slide" role="region" aria-label="Reflection">
       <h2>Reflection</h2>
       <ul>
-        <li>What challenges did you face aligning images from different dates?</li>
-        <li>How might cloud cover or seasonality affect your results?</li>
-        <li>What other applications (urban growth, drought, flooding) could use this workflow?</li>
+        <li>How did your Python results compare to your QGIS analysis?</li>
+        <li>What are the advantages of cloud-hosted data access vs downloading files?</li>
+        <li>How could you extend this to other hazards (bushfire, landslide)?</li>
       </ul>
-      <div class="slide-footer">Week 09 | Intro to GIS | © 2025</div>
-    </div>
-
-    <div class="slide content-slide" role="region" aria-label="Before Next Week">
-      <h2>Before Next Week</h2>
-      <ul>
-        <li><strong>Reading:</strong> Week 10 network analysis and accessibility theory</li>
-        <li><strong>Install:</strong> OSMnx package if not already in your environment</li>
-        <li><strong>Capstone:</strong> Milestone—create draft maps for your project</li>
-      </ul>
-      <p style="margin-top: 1.5rem; font-size: 0.95rem; color: var(--text-light);">📖 Course site: <a href="../weeks/week10/" style="color: var(--primary);">Week 10 Lab Guide</a> | <a href="../reference/roadmap/" style="color: var(--primary);">Course Roadmap</a> | <a href="../reference/project-checklist/" style="color: var(--primary);">Project Checklist</a></p>
       <div class="slide-footer">Week 09 | Intro to GIS | © 2025</div>
     </div>
 

@@ -101,9 +101,9 @@ SLIDES = {
                 [
                     "Create folder: intro-gis-course/ on your Desktop or Documents",
                     "Inside it, create: data/raw/, data/processed/, projects/, exports/",
-                    "Download Natural Earth countries from naturalearthdata.com (Admin 0 - Countries)",
+                    "Together we'll download Natural Earth countries from naturalearthdata.com",
+                    "Your facilitator will guide the download — follow along on screen",
                     "Unzip to: data/raw/natural_earth/",
-                    "Keep raw data untouched — we'll never edit files in data/raw/",
                 ],
             ),
             (
@@ -150,8 +150,9 @@ SLIDES = {
                 "Before Next Week",
                 [
                     "Complete the Week 01 reflection prompt in your notes folder.",
-                    "Download renewable energy and world cities datasets (see Data Download Checklist).",
-                    "Explore QGIS: try the Sketcher in Help menu, or browse plugins.",
+                    "Review the Week 02 lecture on cartographic design.",
+                    "Bring an inspirational map (digital or printed) to share in class.",
+                    "No data downloads needed — we'll do those together in class!",
                 ],
             ),
         ],
@@ -222,13 +223,13 @@ SLIDES = {
                 "Now let's apply these concepts. You'll load point data, experiment with classification methods, test accessibility, and build a polished layout.",
             ),
             (
-                "Lab Step 1: Load Renewable Energy Data",
+                "Lab Step 1: Download & Load Renewable Energy Data",
                 [
-                    "Download renewable energy CSV from course data checklist",
+                    "Together we'll download the renewable energy CSV — follow your facilitator",
+                    "Save to: data/raw/renewable_energy/",
                     "Layer → Add Layer → Add Delimited Text Layer",
                     "Select your CSV file, set X=longitude, Y=latitude",
                     "CRS: WGS 84 (EPSG:4326) — the standard for lat/long",
-                    "You should see points scattered across the world map",
                 ],
             ),
             (
@@ -336,7 +337,7 @@ SLIDES = {
             (
                 "Today's Lab: Mapping Socio-Economic Advantage",
                 [
-                    "Load SA2 boundaries and SEIFA 2021 index of advantage/disadvantage.",
+                    "Together we'll download SA2 boundaries and SEIFA data — follow your facilitator.",
                     "Join on SA2 code; check for NULLs in regional areas.",
                     "Create choropleth using diverging colour ramp centred on the median score.",
                     "Add context layers (hospitals, schools) and discuss what patterns emerge.",
@@ -398,20 +399,20 @@ SLIDES = {
             (
                 "Workflow: Flood Risk Example",
                 [
-                    "1. Download DEM from ELVIS or SRTM.",
-                    "2. Clip to LGA boundary; reproject to GDA2020/MGA zone for accurate measurements.",
+                    "1. Together we'll download DEM from ELVIS — your facilitator will guide you.",
+                    "2. Clip to study area; reproject to GDA2020/MGA zone for accurate measurements.",
                     "3. Reclassify elevation: below 5m = high risk, 5-10m = moderate, above 10m = low.",
                     "4. Overlay with population data (SA1) to estimate exposed residents.",
                     "5. Map output with clear legend and source credits.",
                 ],
             ),
             (
-                "Today's Lab: Terrain Mapping",
+                "Today's Lab: Flood Risk Mapping",
                 [
-                    "Download SRTM tile for your study region via USGS EarthExplorer.",
+                    "Together we'll download the Hawkesbury DEM from ELVIS — follow your facilitator.",
                     "Generate hillshade and slope in QGIS; style slope with a red-yellow-green ramp (steep = red).",
-                    "Clip to SA2 boundary and compute mean slope per zone.",
-                    "Discuss: what land-use or planning decisions might use this output?",
+                    "Classify flood risk zones using elevation and slope.",
+                    "Use zonal statistics to summarise risk by SA2 boundary.",
                 ],
             ),
             (
@@ -478,9 +479,9 @@ SLIDES = {
             (
                 "Today's Lab: Hotspot Mapping",
                 [
-                    "Load NSW BOCSAR or UK Police data as CSV; geocode or use provided coordinates.",
+                    "Together we'll download crime data — your facilitator will guide you through the portal.",
+                    "Load as CSV; geocode or use provided coordinates.",
                     "Run KDE with 500m bandwidth; experiment with 200m and 1km to see effect.",
-                    "Create hex bin count for comparison; symbolise both maps.",
                     "Write 2-3 sentences describing findings and noting ONE limitation.",
                 ],
             ),
@@ -549,7 +550,7 @@ SLIDES = {
             (
                 "Today's Lab: GP Clinic Access",
                 [
-                    "Load GP clinic locations (from OpenStreetMap or provided dataset).",
+                    "Together we'll download health facility data and install QNEAT3 plugin — follow your facilitator.",
                     "Generate 10-minute drive-time polygons using QNEAT3.",
                     "Overlay SA2 population and SEIFA to identify underserved, disadvantaged areas.",
                     "Export map with clear legend showing coverage and equity classification.",
@@ -620,10 +621,10 @@ SLIDES = {
             (
                 "Before Next Week",
                 [
-                    "Complete the Anaconda Setup guide—install Anaconda, create the intro-gis environment.",
-                    "Run the verification script to confirm packages installed correctly.",
-                    "Launch Jupyter Lab and create a test notebook with `import geopandas`.",
-                    "If you hit issues, bring them to lab—we'll troubleshoot together.",
+                    "We'll set up Anaconda together in class — no pre-class installation required.",
+                    "Python notebooks download data automatically — no manual file hunting!",
+                    "Bring questions about QGIS workflows you'd like to automate.",
+                    "If you want to try ahead: review the Anaconda Setup guide in the course materials.",
                 ],
             ),
             (
@@ -695,8 +696,8 @@ SLIDES = {
             (
                 "Today's Lab: Automate a Join",
                 [
-                    "Load SA2 boundaries and SEIFA CSV in Python.",
-                    "Merge on SA2 code; create a percentile column using pandas.",
+                    "The notebook downloads NYC sample data automatically — no manual downloads!",
+                    "Merge neighbourhoods with incidents; calculate counts per area.",
                     "Generate a quick choropleth; export result to GeoPackage.",
                     "Compare time spent vs doing the same in QGIS.",
                 ],
@@ -712,19 +713,19 @@ SLIDES = {
         ],
     },
     "week09.html": {
-        "title": "Week 09 – Raster & Remote Sensing in Python",
+        "title": "Week 09 – Flood Risk Assessment in Python",
         "sections": [
             (
-                "Week 09 · Raster & Remote Sensing in Python",
-                "Satellites capture the Earth every few days. Today we use Python to process imagery, calculate vegetation indices, and detect change over time—turning pixels into insights.",
+                "Week 09 · Flood Risk Assessment in Python",
+                "Automate the flood risk analysis you did in QGIS Week 4. Python lets you fetch elevation data from cloud APIs, calculate terrain derivatives, and classify risk zones — all in reproducible code.",
             ),
             (
-                "Satellite Imagery 101",
+                "Cloud-Hosted Data: No Downloads!",
                 [
-                    "Landsat 8/9: 30m resolution, 16-day revisit, free from USGS. Great for long-term studies (since 1972).",
-                    "Sentinel-2: 10m resolution, 5-day revisit, free from ESA. Better detail, shorter history (since 2015).",
-                    "Bands capture different wavelengths: Red, Green, Blue (what we see), NIR/SWIR (vegetation health, moisture).",
-                    "Pre-processing: cloud masking, atmospheric correction. Often done for you in 'Analysis Ready Data' products.",
+                    "Planetary Computer hosts elevation data (Copernicus DEM) accessible via API.",
+                    "No more downloading 500MB files — read only the area you need directly from the cloud.",
+                    "The notebook connects to the API and fetches data for your study area automatically.",
+                    "Same workflow scales to national analysis without downloading terabytes of data.",
                 ],
             ),
             (
@@ -737,22 +738,22 @@ SLIDES = {
                 ],
             ),
             (
-                "Vegetation Index: NDVI",
+                "Terrain Analysis: Slope & Aspect",
                 [
-                    "NDVI = (NIR - Red) / (NIR + Red) — measures vegetation greenness.",
-                    "Values: -1 to +1. Dense vegetation ≈ 0.6–0.9. Bare soil/water ≈ 0 or negative.",
-                    "Use case: before/after bushfire—healthy forest vs burnt scar.",
-                    "In code: ndvi = (nir - red) / (nir + red)",
+                    "SLOPE = rate of elevation change. Flat areas accumulate water (high flood risk).",
+                    "ASPECT = direction slope faces. Can affect drainage patterns.",
+                    "HILLSHADE = simulated sun illumination for visualisation.",
+                    "In code: use np.gradient() on elevation array to calculate slope.",
                 ],
             ),
             (
-                "Change Detection Workflow",
+                "Flood Risk Classification",
                 [
-                    "1. Download pre-event and post-event imagery (same sensor, similar season).",
-                    "2. Calculate NDVI for both dates.",
-                    "3. Compute difference: ndvi_change = ndvi_post - ndvi_pre",
-                    "4. Threshold: areas with change < -0.2 likely lost vegetation.",
-                    "5. Summarise per SA2: average change, % area affected.",
+                    "1. Fetch DEM from Planetary Computer API.",
+                    "2. Calculate slope from elevation.",
+                    "3. Normalise both layers: low elevation = high score, flat = high score.",
+                    "4. Combine with weights: elevation (60%) + slope (40%).",
+                    "5. Classify into risk zones: Low, Moderate, High, Very High.",
                 ],
             ),
             (
@@ -765,20 +766,20 @@ SLIDES = {
                 ],
             ),
             (
-                "Today's Lab: Bushfire Impact",
+                "Today's Lab: Flood Risk Assessment",
                 [
-                    "Load pre- and post-fire Landsat imagery for a study region.",
-                    "Calculate NDVI for both dates; compute difference raster.",
-                    "Threshold to classify 'severe burn' vs 'moderate' vs 'unaffected'.",
-                    "Run zonal stats to report mean NDVI change per LGA.",
+                    "The notebook fetches Copernicus DEM from Planetary Computer — no downloads!",
+                    "Calculate slope and classify flood risk zones.",
+                    "Run zonal stats to report % high-risk area per SA2.",
+                    "Compare results to your QGIS Week 4 analysis.",
                 ],
             ),
             (
                 "Reflection",
                 [
-                    "What challenges did you face aligning images from different dates?",
-                    "How might cloud cover or seasonality affect your results?",
-                    "What other applications (urban growth, drought, flooding) could use this workflow?",
+                    "How did your Python results compare to your QGIS analysis?",
+                    "What are the advantages of cloud-hosted data access vs downloading files?",
+                    "How could you extend this to other hazards (bushfire, landslide)?",
                 ],
             ),
         ],
@@ -836,7 +837,7 @@ SLIDES = {
             (
                 "Today's Lab: Walk-Time Isochrones",
                 [
-                    "Download walking network for your study area using OSMnx.",
+                    "OSMnx downloads the street network automatically — no manual data prep!",
                     "Generate 5, 10, 15-minute isochrones from a hospital or transit station.",
                     "Overlay SA1 population data to estimate people within each band.",
                     "Export isochrones to GeoPackage for mapping in QGIS.",

@@ -15,11 +15,11 @@ By the end of this week, you'll be able to:
 ## Before you start
 
 - [ ] Follow the [Install QGIS](../onboarding/01-install-qgis.md) guide and confirm the app launches
-- [ ] Create the course workspace structure (`data/`, `projects/`, `exports/`, etc.)
-- [ ] Review the QGIS quickstart cheat sheet: [Reference ▸ Quickstart](../reference/qgis-quickstart.md)
 - [ ] Review the lecture: [Foundations of GIS](../lectures/week01-fundamentals.md)
 - [ ] Read the GIS primer: [Understanding GIS](../readings/week01-what-is-gis.md)
-- [ ] Download Natural Earth datasets using the [dataset guide](../onboarding/03-download-data.md) and check off Week 1 items in the [checklist](../reference/data-download-checklist.md)
+
+!!! note "Data downloads happen in class"
+    We'll download Natural Earth datasets together during class. Your facilitator will guide you through the process—no pre-class downloads required!
 
 ## This week's activities
 

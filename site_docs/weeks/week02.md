@@ -15,9 +15,10 @@ By the end of this week, you'll be able to:
 - [ ] Reopen your Week 1 project and ensure Natural Earth layers load correctly
 - [ ] Bring an inspirational map to share (digital or printed)—note one design element you appreciate
 - [ ] Review the lecture: [Cartographic Conventions & Colour](../lectures/week02-cartography.md)
-- [ ] Download Week 2 datasets (renewable energy CSV, world cities) via [Downloading datasets](../onboarding/03-download-data.md)
-- [ ] Check off Week 2 items in the [data download checklist](../reference/data-download-checklist.md)
 - [ ] Skim the [Layout Template guide](../reference/layout-template.md) for reference
+
+!!! note "Data downloads happen in class"
+    We'll download the renewable energy and world cities datasets together during class. Your facilitator will guide you through the process.
 
 ## This week's activities
 

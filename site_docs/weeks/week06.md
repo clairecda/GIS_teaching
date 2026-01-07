@@ -21,11 +21,10 @@ By the end of this week, you'll be able to:
 ## Before you start
 
 - [ ] Review the lecture: [Week 6 · Health Equity & Accessibility](../lectures/week06-health-theory.md)
-- [ ] Download health facility locations (hospitals, clinics) via [Downloading datasets](../onboarding/03-download-data.md)
-- [ ] Download or extract OpenStreetMap road network for your study area (see data guide)
-- [ ] Install the **QNEAT3** plugin: `Plugins ▶ Manage and Install Plugins... ▶ search "QNEAT3" ▶ Install Plugin`
 - [ ] Reopen your Week 3 project to access SEIFA or vulnerability layers
-- [ ] Confirm Week 6 datasets are checked off in the [data download checklist](../reference/data-download-checklist.md)
+
+!!! note "Data downloads and plugin install happen in class"
+    We'll download health facility locations and the OpenStreetMap road network together, and install the QNEAT3 plugin as a group. Your facilitator will guide you through each step—Week 6 has the most complex setup in the course!
 
 !!! tip "Plugin troubleshooting"
     If QNEAT3 doesn't appear after installation, restart QGIS. If you encounter errors, check that your road network has proper line geometry and no gaps.

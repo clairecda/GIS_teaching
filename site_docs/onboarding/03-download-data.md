@@ -1,6 +1,9 @@
 # 3. Download Datasets
 
-Download the data you need before each week's lab. This page gives you **exact steps** for each download.
+This page gives you **exact steps** for each week's data downloads. Your facilitator will guide you through these during class—use this as a reference to follow along.
+
+!!! tip "No pre-class downloads required"
+    All data downloads happen during class time. Your facilitator will walk through the process step-by-step. This guide is for reference during class, not homework!
 
 ---
 

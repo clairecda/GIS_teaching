@@ -1,6 +1,9 @@
 # Data Download Checklist
 
-Tick off each item as you download. See [Download Datasets](../onboarding/03-download-data.md) for step-by-step instructions.
+Use this checklist during class as your facilitator guides you through each download. Tick off items as you complete them together.
+
+!!! tip "In-class reference"
+    Downloads happen during class time—no pre-class homework! See [Download Datasets](../onboarding/03-download-data.md) for step-by-step instructions.
 
 ---
 

@@ -22,9 +22,9 @@ By the end of this week, you'll be able to:
 
 - [ ] Review the lecture: [Elevation & Surface Modelling](../lectures/week04-raster-theory.md)
 - [ ] Read: [Raster Data Basics](../readings/week04-raster-basics.md)
-- [ ] Download elevation data from ELVIS (see Activity 1 for detailed steps)
-- [ ] Download SA2 boundaries for the Hawkesbury region (from Week 3 or ABS)
-- [ ] Check off Week 4 items in the [data download checklist](../reference/data-download-checklist.md)
+
+!!! note "Data downloads happen in class"
+    We'll download elevation data from ELVIS together as Activity 1. Your facilitator will guide you through the process—this is one of the more complex downloads in the course!
 
 ## Study area
 
