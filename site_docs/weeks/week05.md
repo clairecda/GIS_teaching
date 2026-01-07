@@ -1,4 +1,8 @@
-# Week 5 · Crime Hotspots & Ethical Mapping
+# Week 5 · Crime Hotspot Analysis
+
+## Research Question
+
+> **"Where are crime hotspots located, and how do different mapping techniques and boundary choices shape the story we tell about safety?"**
 
 Crime data is sensitive, powerful, and often misunderstood. This week, you'll learn how to map incident patterns responsibly using hotspot analysis techniques—while staying mindful of the ethical considerations that come with visualizing crime data. You'll work with real crime datasets to identify spatial patterns, compare different boundary systems, and practice framing your findings in ways that support communities rather than stigmatize them.
 
@@ -255,6 +259,49 @@ Your crime hotspot map shows reported and recorded incidents. Now let's think cr
 - **Filter first:** Reduce to a subset (one year, one offense type) before running KDE
 - **Increase pixel size:** 100m instead of 50m processes much faster
 - **Clip to study area:** Don't process the entire state if you only need one city
+
+## Your Research Findings
+
+After completing this week's analysis, summarize your findings:
+
+### Research Question
+"Where are crime hotspots located, and how do different mapping techniques and boundary choices shape the story we tell about safety?"
+
+### Key Findings
+Complete these based on your analysis:
+
+1. The primary hotspots are located in: _________________________________
+2. The hotspot pattern correlates with: _________________________________ (transit hubs? commercial zones? specific land uses?)
+3. Changing the KDE bandwidth from 250m to 1000m made the pattern: _________________________________
+4. Aggregating by different boundaries (LGA vs SA2 vs hex bins) changed the story by: _________________________________
+
+### Methodology
+- **Data source:** _________________________________ (BOCSAR, data.police.uk, etc.)
+- **Key parameters:** KDE bandwidth: _____m, Hex grid size: _____m
+- **Tools used:** KDE Heatmap, Hex grid, Count Points in Polygon, Field Calculator
+
+### Limitations
+This analysis does NOT capture:
+
+- [ ] Unreported crimes (estimated 40-60% go unreported)
+- [ ] Reporting bias (some areas have more police presence → more reports)
+- [ ] Changes over time (point-in-time snapshot only)
+- [ ] Root causes of crime patterns
+- [ ] Community assets and resilience factors
+
+### Ethical considerations
+How this analysis could be **misused:**
+
+- _________________________________
+
+How this analysis could **support communities:**
+
+- _________________________________
+
+### If this were your capstone
+- What additional context layers would you add?
+- How would you present findings to a community group vs. police department?
+- What research question would you ask?
 
 ## Support materials
 

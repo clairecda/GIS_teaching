@@ -65,13 +65,13 @@ nav:
   - Weekly Labs:
       - Week 1 · QGIS Orientation: weeks/week01.md
       - Week 2 · Symbology & Layouts: weeks/week02.md
-      - Week 3 · Vector Analysis & Joins: weeks/week03.md
-      - Week 4 · Raster & Terrain: weeks/week04.md
-      - Week 5 · Crime & Hotspots: weeks/week05.md
-      - Week 6 · Public Health & Accessibility: weeks/week06.md
+      - Week 3 · Mapping Disadvantage: weeks/week03.md
+      - Week 4 · Flood Risk Assessment: weeks/week04.md
+      - Week 5 · Crime Hotspot Analysis: weeks/week05.md
+      - Week 6 · Healthcare Accessibility: weeks/week06.md
       - Week 7 · Bridge to Python: weeks/week07.md
       - Week 8 · Python Vector Workflows: weeks/week08.md
-      - Week 9 · Raster & Remote Sensing: weeks/week09.md
+      - Week 9 · Flood Risk (Python): weeks/week09.md
       - Week 10 · Transport Networks: weeks/week10.md
       - Week 11 · Design & Storytelling: weeks/week11.md
       - Week 12 · Capstone: weeks/week12.md

@@ -59,15 +59,22 @@ intro-gis/
 
 ---
 
-## Week 4 — Raster & Terrain
+## Week 4 — Flood Risk Assessment
 
 **Sources:** [ELVIS](https://elevation.fsdf.org.au/) (Australia) or [USGS EarthExplorer](https://earthexplorer.usgs.gov/) (global)
 
-- [ ] Identified study area (keep it small!)
-- [ ] Downloaded DEM tiles
+**Study area:** Hawkesbury-Nepean floodplain (west of Sydney)
+
+- Bounding box: approximately 150.6°E to 150.85°E, 33.65°S to 33.45°S
+- Keep it small (~20km × 20km) for faster processing
+
+- [ ] Identified study area on ELVIS map
+- [ ] Downloaded DEM tiles for Hawkesbury-Nepean region
 - [ ] Extracted any ZIP files
+- [ ] Downloaded SA2 boundaries for study area (from Week 3 or ABS)
 - [ ] Files in `week04/data/raw/`:
     - [ ] DEM raster file(s) (`.tif` or similar)
+    - [ ] SA2 boundaries (for zonal statistics)
 
 ---
 
@@ -119,24 +126,24 @@ To use Australian data instead, export from QGIS and place in `week08/data/raw/`
 
 ---
 
-## Week 9 — Raster & Remote Sensing
+## Week 9 — Flood Risk (Python)
 
-**No download needed!** The notebook generates synthetic satellite data automatically.
+**No download needed!** The notebook fetches elevation data from Planetary Computer API.
 
-- [ ] Run the notebook — it creates sample "before" and "after" imagery
+- [ ] Run the notebook — it downloads Copernicus DEM automatically
+- [ ] If API is unavailable, notebook falls back to synthetic terrain data
 
-**Optional: Use real Sentinel-2 imagery**
+**What the notebook downloads automatically:**
 
-Only attempt this after completing the notebook with sample data:
+- Copernicus DEM 30m for Hawkesbury-Nepean region
+- SA2 boundaries (same study area as Week 4 QGIS)
 
-1. [ ] Create free account at [Copernicus Browser](https://browser.dataspace.copernicus.eu/)
-2. [ ] Draw study area (keep it small — 10km × 10km)
-3. [ ] Select **Sentinel-2 L2A**, cloud cover <10%
-4. [ ] Download TWO images (3-6 months apart)
-5. [ ] Extract and find B04 (Red) and B08 (NIR) bands
-6. [ ] Merge bands in QGIS: Raster → Miscellaneous → Merge
-7. [ ] Save as `sentinel_before.tif` and `sentinel_after.tif`
-8. [ ] Place in `week09/data/raw/`
+**Optional: Use your own study area**
+
+To analyze a different region, modify the bounding box in the notebook:
+```python
+bbox = [west, south, east, north]  # in decimal degrees
+```
 
 ---
 
@@ -170,10 +177,10 @@ Only attempt this after completing the notebook with sample data:
 | 1 | `ne_110m_admin_0_countries.shp` | Yes |
 | 2 | `worldcities.csv`, renewable energy CSV | Yes |
 | 3 | SA2 shapefile, SEIFA data | Yes |
-| 4 | DEM raster | Yes |
+| 4 | DEM raster (Hawkesbury-Nepean), SA2 boundaries | Yes |
 | 5 | Crime CSV, LGA shapefile | Yes |
 | 6 | Health facilities | Yes |
 | 7 | (none) | No — notebook creates data |
 | 8 | (none) | No — notebook downloads NYC data |
-| 9 | (none) | No — notebook generates synthetic data |
+| 9 | (none) | No — API fetches Copernicus DEM |
 | 10 | (none) | No — OSMnx downloads from OpenStreetMap |

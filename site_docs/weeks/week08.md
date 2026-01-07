@@ -1,15 +1,21 @@
 # Week 8 · Python Vector Workflows
 
-You've spent weeks mastering QGIS operations—filtering data, joining attributes, calculating densities, styling maps. This week, you'll replicate those same workflows using Python and GeoPandas, unlocking the power of automation and reproducibility. Instead of clicking through menus, you'll write code that documents every step, can be run repeatedly with new data, and can be shared with colleagues who need to reproduce your analysis. If Week 7 was your bridge to Python, this week you'll cross it.
+## Research Question
+
+> **"Which neighbourhoods have the highest incident density, and how can we automate the analysis we performed manually in QGIS?"**
+
+You've spent weeks mastering QGIS operations—filtering data, joining attributes, calculating densities, styling maps. This week, you'll replicate those same workflows using Python and GeoPandas, unlocking the power of automation and reproducibility. Instead of clicking through menus, you'll write code that documents every step, can be run repeatedly with new data, and can be shared with colleagues who need to reproduce your analysis.
+
+This week automates the spatial join workflow you learned in Week 3. By writing code to replicate your QGIS work, you'll understand how professionals build reproducible analysis pipelines.
 
 ## What you'll learn
 
 By the end of this week, you'll be able to:
 
-1. Load vector datasets into GeoPandas GeoDataFrames and perform attribute cleaning and filtering programmatically.
+1. Answer spatial questions programmatically—identifying which neighbourhoods have the highest incident density.
 2. Execute spatial joins to link incidents to neighbourhoods and calculate density metrics (counts per area).
 3. Create choropleth visualizations using Matplotlib and export cleaned outputs to GeoPackage for QGIS integration.
-4. Document reproducible workflows with explicit data paths and transparent processing steps.
+4. Build reproducible workflows that document every step and can be rerun with new data.
 
 ## Before you start
 
@@ -290,10 +296,47 @@ The notebook includes reflection prompts to help you process what you've learned
 - How does seeing the entire workflow in code (load → clean → join → visualize → export) change your understanding of what you were doing in QGIS?
 - Where would automation provide the biggest benefit in your own work or research?
 
+## Your Research Findings
+
+After completing this week's analysis, summarize your findings:
+
+### Research Question
+"Which neighbourhoods have the highest incident density, and how can we automate the analysis we performed manually in QGIS?"
+
+### Key Findings
+Complete these based on your analysis:
+
+1. The neighbourhoods with highest incident density are: _________________________________
+2. The density range across all neighbourhoods: _____ to _____ per km²
+3. The spatial pattern I observed (clustered / dispersed / random): _________________________________
+4. Compared to my Week 3 QGIS analysis, the results were: _________________________________
+
+### Methodology
+- **Data sources:** Neighbourhood polygons + incident points (NYC sample or custom data)
+- **Key parameters:** Spatial join predicate: "within", density = count / area_km2
+- **Tools used:** GeoPandas (`sjoin`, `groupby`, `merge`), Matplotlib for visualization
+
+### Week 3 ↔ Week 8 Comparison
+
+| Aspect | QGIS (Week 3) | Python (Week 8) |
+|--------|---------------|-----------------|
+| Data loading | Add Layer dialog | `gpd.read_file()` |
+| Field cleaning | Rename manually | `.rename(columns=str.lower)` |
+| Spatial join | Join attributes by location | `gpd.sjoin()` |
+| Aggregation | Statistics by categories | `.groupby().size()` |
+| Density calculation | Field Calculator | Direct column assignment |
+| Reproducibility | Project file, manual steps | Notebook, fully scripted |
+
+### If this were your capstone
+- What other incident types would you analyze?
+- How would you combine this with Week 3's disadvantage analysis?
+- What research question would you ask?
+
 ## Support materials
 
 - Slides: [Week 08 lecture deck](../slides/index.md)
 - Lecture notes: [Week 8 · Vector Automation Concepts](../lectures/week08-vector-theory.md)
+- QGIS equivalent: [Week 3 · Mapping Socioeconomic Disadvantage](week03.md)
 - GeoPandas documentation: [geopandas.org/en/stable](https://geopandas.org/en/stable/)
 - Dataset checklist: [Week 8 items](../reference/data-download-checklist.md)
 - Spatial joins guide: [GeoPandas merging data tutorial](https://geopandas.org/en/stable/docs/user_guide/mergingdata.html)
@@ -320,4 +363,7 @@ Take 15-20 minutes to answer these questions in your [Week 8 reflection](../refe
 
 ## Coming up next week
 
-Week 9 shifts focus from vector to raster: you'll work with satellite imagery and continuous surfaces. You'll learn Python tools for raster analysis (Rasterio), calculate vegetation indices like NDVI, and perform change detection. The same reproducibility principles apply, but the data structure changes from discrete features to continuous grids.
+Week 9 shifts from vectors to rasters with a **flood risk assessment** using Python. You'll access cloud-hosted elevation data from Planetary Computer, calculate terrain derivatives (slope, aspect, hillshade), and classify flood risk zones—the same analysis you did in QGIS during Week 4, now automated and reproducible.
+
+!!! tip "Week 4 ↔ Week 9 connection"
+    In Week 4, you performed flood risk analysis manually in QGIS. In Week 9, you'll automate the same analysis in Python—the same parallel as Week 3 ↔ Week 8 for vector analysis.

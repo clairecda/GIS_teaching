@@ -1,15 +1,22 @@
-# Week 9 · Raster & Remote Sensing in Python
+# Week 9 · Flood Risk Assessment in Python
 
-Satellite imagery opens a window to environmental change at scales impossible to observe from the ground. This week, you'll process real satellite data using Python to detect changes in vegetation health, land use, or environmental disturbance. You'll move beyond QGIS's raster tools to write reproducible code that handles multispectral imagery, calculates vegetation indices like NDVI, and quantifies change across administrative boundaries. These techniques form the foundation of environmental monitoring, climate research, and disaster response workflows used by organizations worldwide.
+## Research Question
+
+> **"Which areas in the Hawkesbury-Nepean region are at elevated flood risk based on terrain characteristics?"**
+
+This week, you'll automate the flood risk assessment you performed manually in QGIS during Week 4. By writing code to replicate the workflow, you'll understand how professionals process terrain data at scale and build reproducible analysis pipelines.
+
+The Hawkesbury-Nepean region west of Sydney experienced devastating floods in 2022. While professional flood modelling uses complex hydrological simulations, terrain analysis provides a first approximation of flood-prone areas based on elevation and slope.
 
 ## What you'll learn
 
 By the end of this week, you'll be able to:
 
-1. Load and inspect satellite imagery (Sentinel-2 or Landsat) using Rasterio and understand raster metadata (bands, resolution, CRS, nodata values).
-2. Clip large rasters to your area of interest and perform band math to calculate spectral indices like NDVI (Normalized Difference Vegetation Index).
-3. Detect environmental change by comparing before/after imagery and quantifying differences.
-4. Calculate zonal statistics to summarize change metrics per administrative boundary (SA2, LGA, watershed) and export results for reporting.
+1. Access cloud-hosted elevation data using the Planetary Computer STAC API—no manual downloads required.
+2. Calculate terrain derivatives (slope, aspect, hillshade) using NumPy and rasterio.
+3. Build a weighted flood risk index combining multiple terrain factors.
+4. Apply zonal statistics to summarize risk by administrative boundary (SA2).
+5. Create publication-ready visualizations and export analysis results.
 
 ## Before you start
 
@@ -23,7 +30,7 @@ By the end of this week, you'll be able to:
 
 **Using Colab?** Run this cell first to install GIS packages:
 ```python
-!pip install geopandas rasterio rasterstats osmnx contextily folium -q
+!pip install geopandas rasterio rioxarray pystac-client planetary-computer rasterstats contextily folium -q
 ```
 
 ### 2. Confirm your environment works
@@ -34,552 +41,466 @@ By the end of this week, you'll be able to:
 
 === "Local (Anaconda)"
     - Activate your conda environment: `conda activate intro-gis`
-    - Check Rasterio imports: `python -c "import rasterio; print('✅ Ready!')"`
+    - Check imports: `python -c "import rioxarray; print('✅ Ready!')"`
     - If you see errors, review [Python Setup Guide](../onboarding/04-python-setup.md)
 
-### 3. Download datasets
+### 3. No manual download needed!
 
-- [ ] Follow the [Downloading datasets](../onboarding/03-download-data.md) guide for Week 9
-- [ ] You need:
-  - Sentinel-2 or Landsat imagery (before/after images)
-  - Area of interest boundary polygon
-  - Zone boundaries for statistics (optional)
-- [ ] Save to `intro-gis/data/processed/week09/`
-  - `sentinel_before.tif`
-  - `sentinel_after.tif`
-  - `aoi.geojson`
-  - `zones.geojson`
+Unlike previous weeks, you don't need to download any data manually. The notebook:
 
-**Alternative:** If satellite data is too large, your instructor may provide pre-processed sample data.
+- Fetches elevation data from [Planetary Computer's Copernicus DEM](https://planetarycomputer.microsoft.com/dataset/cop-dem-glo-30)
+- Downloads SA2 boundaries from the ABS automatically
+- Creates all derived layers programmatically
+
+If the API is unavailable, the notebook falls back to synthetic terrain data so you can still complete the workflow.
 
 ### 4. Review the lecture
 
-- [ ] Read: [Week 9 · Remote Sensing Change Detection](../lectures/week09-remote-sensing.md) for essential background on spectral bands and indices
+- [ ] Read: [Week 9 · Elevation & Surface Modelling](../lectures/week09-remote-sensing.md)
+- [ ] Review: [Week 4 · QGIS Flood Risk Assessment](week04.md) (this week automates that workflow)
 
-!!! tip "Memory management heads up"
-    Satellite imagery files can be large (100MB - several GB). You'll learn techniques to work efficiently with big rasters—clipping early, reading only needed bands, and using windowed reading. Don't try to load entire scenes into memory at once!
+!!! tip "Week 4 ↔ Week 9 connection"
+    In Week 4, you performed this analysis manually in QGIS. This week, you'll write code to do the same thing—but now you can process multiple study areas, adjust parameters programmatically, and create reproducible workflows.
 
 ## This week's activities
 
-### Activity 1: Understanding raster data in Python
+### Activity 1: Connect to cloud-hosted elevation data
 
-Before processing imagery, you need to understand how rasters are structured differently from vector data you've worked with so far.
+Instead of downloading large DEM files, you'll access elevation data directly from the cloud using the Planetary Computer STAC API.
 
 **Key concepts:**
 
-- **Bands**: Rasters can have multiple layers (bands) representing different wavelengths of light. Sentinel-2 has 13 bands, Landsat has 11.
-- **Resolution**: Pixel size (e.g., 10m means each pixel represents a 10m × 10m area on the ground)
-- **Nodata values**: Pixels outside the imagery extent or obscured by clouds are marked as nodata (often -9999, 0, or NaN)
-- **Affine transform**: Mathematical relationship between pixel coordinates (row, column) and real-world coordinates (X, Y)
+- **STAC** (SpatioTemporal Asset Catalog): A standard for organizing geospatial data in the cloud
+- **COG** (Cloud Optimized GeoTIFF): Rasters stored so you can read just the portion you need
+- **rioxarray**: Library that combines rasterio with xarray for convenient raster manipulation
 
 **Steps:**
 
-1. Open your Jupyter notebook and import core libraries:
+1. Import libraries and connect to Planetary Computer:
    ```python
-   from pathlib import Path
-   import rasterio
-   import numpy as np
-   import geopandas as gpd
-   import matplotlib.pyplot as plt
-   ```
+   import pystac_client
+   import planetary_computer
+   import rioxarray
 
-2. Load one of your satellite images and inspect its metadata:
-   ```python
-   with rasterio.open("data/processed/week09/sentinel_before.tif") as src:
-       print(f"Bands: {src.count}")
-       print(f"Width x Height: {src.width} x {src.height}")
-       print(f"CRS: {src.crs}")
-       print(f"Resolution: {src.res}")
-       print(f"Bounds: {src.bounds}")
-       print(f"Nodata value: {src.nodata}")
-   ```
-
-3. Read and visualize a single band:
-   ```python
-   with rasterio.open("data/processed/week09/sentinel_before.tif") as src:
-       band4 = src.read(4)  # Red band for Sentinel-2
-
-   plt.imshow(band4, cmap='gray')
-   plt.colorbar(label='Digital Number')
-   plt.title('Red band (Band 4)')
-   plt.show()
-   ```
-
-**Compare to QGIS:**
-In QGIS, you viewed raster properties through the Information panel and styled bands visually. In Python, you explicitly read metadata and array data. The benefit? You can programmatically process hundreds of rasters with the same code.
-
-!!! note "Band numbering"
-    Sentinel-2 bands: Band 4 = Red, Band 8 = NIR (Near-Infrared), Band 3 = Green, Band 2 = Blue
-    Landsat 8/9 bands: Band 4 = Red, Band 5 = NIR, Band 3 = Green, Band 2 = Blue
-    Check your dataset documentation—band numbers vary between sensors!
-
-### Activity 2: Loading and clipping satellite imagery
-
-Working with full satellite scenes is slow and memory-intensive. You'll clip rasters to your area of interest early in the workflow.
-
-**Steps:**
-
-1. Load your area of interest polygon (created in Week 3 or 8):
-   ```python
-   aoi = gpd.read_file("data/processed/week09/aoi.geojson")
-   aoi = aoi.to_crs("EPSG:32756")  # Match raster CRS (example: UTM Zone 56S)
-   ```
-
-2. Verify CRS alignment between your raster and vector:
-   ```python
-   with rasterio.open("data/processed/week09/sentinel_before.tif") as src:
-       print(f"Raster CRS: {src.crs}")
-   print(f"Vector CRS: {aoi.crs}")
-   # If they don't match, reproject the vector: aoi = aoi.to_crs(src.crs)
-   ```
-
-3. Clip the raster to your AOI using `rasterio.mask`:
-   ```python
-   from rasterio.mask import mask
-
-   def clip_raster(raster_path, shapes):
-       with rasterio.open(raster_path) as src:
-           out_image, out_transform = mask(src, shapes.geometry, crop=True)
-           out_meta = src.meta.copy()
-           out_meta.update({
-               "height": out_image.shape[1],
-               "width": out_image.shape[2],
-               "transform": out_transform
-           })
-       return out_image, out_meta
-
-   before_clip, before_meta = clip_raster(
-       "data/processed/week09/sentinel_before.tif",
-       aoi
+   catalog = pystac_client.Client.open(
+       "https://planetarycomputer.microsoft.com/api/stac/v1",
+       modifier=planetary_computer.sign_inplace
    )
    ```
 
-4. Save the clipped raster for faster future access:
+2. Define your study area (Hawkesbury-Nepean floodplain):
    ```python
-   with rasterio.open("data/processed/week09/before_clipped.tif", "w", **before_meta) as dst:
-       dst.write(before_clip)
+   # Bounding box: [west, south, east, north]
+   bbox = [150.65, -33.65, 150.85, -33.45]  # ~20km × 20km area
    ```
 
-5. Repeat for your "after" imagery
+3. Search for Copernicus DEM tiles:
+   ```python
+   search = catalog.search(
+       collections=["cop-dem-glo-30"],
+       bbox=bbox
+   )
+   items = list(search.items())
+   print(f"Found {len(items)} DEM tiles")
+   ```
 
-**Why clip early?**
-A full Sentinel-2 tile is 10,980 × 10,980 pixels (120 million pixels). Clipping to a city reduces this to perhaps 1,000 × 1,000 (1 million pixels)—100x faster to process!
+4. Read elevation data for your study area:
+   ```python
+   dem_url = items[0].assets["data"].href
+   dem = rioxarray.open_rasterio(dem_url).squeeze()
+   dem = dem.rio.clip_box(*bbox)
+   ```
 
-### Activity 3: Band math and NDVI calculation
+**QGIS ↔ Python comparison:**
 
-NDVI (Normalized Difference Vegetation Index) measures vegetation health by comparing red and near-infrared reflectance. Healthy vegetation reflects strongly in NIR but absorbs red light.
+| QGIS (Week 4) | Python (This week) |
+|---------------|--------------------|
+| Download from ELVIS portal | Fetch from Planetary Computer API |
+| Manual file management | Programmatic access |
+| One study area at a time | Script any bounding box |
 
-**The NDVI formula:**
-```
-NDVI = (NIR - Red) / (NIR + Red)
-```
+!!! note "Why cloud-hosted data?"
+    Traditional workflow: Download 500MB DEM → Extract → Load → Clip to study area.
+    Cloud workflow: Read only the 5MB covering your study area directly from the server.
+    For large-scale analysis (e.g., national flood mapping), this saves days of data preparation.
 
-NDVI values range from -1 to +1:
-- **-1 to 0**: Water, bare soil, clouds
-- **0 to 0.2**: Sparse vegetation, rock
-- **0.2 to 0.4**: Shrubs, grassland
-- **0.4 to 0.8**: Healthy vegetation, forests
-- **0.8 to 1**: Very dense vegetation
+### Activity 2: Calculate terrain derivatives
+
+Terrain derivatives like slope and aspect help identify flood-prone areas. You'll implement the same calculations QGIS performs internally.
 
 **Steps:**
 
-1. Extract Red and NIR bands from your clipped imagery:
+1. Calculate slope using NumPy gradient:
    ```python
-   # Sentinel-2: Band 4 = Red (index 3), Band 8 = NIR (index 7)
-   red = before_clip[3].astype(float)  # Convert to float for division
-   nir = before_clip[7].astype(float)
+   import numpy as np
+
+   # Get elevation as numpy array
+   elev = dem.values
+   res = dem.rio.resolution()[0]  # Pixel size in meters
+
+   # Calculate gradients
+   dy, dx = np.gradient(elev, res)
+   slope_rad = np.arctan(np.sqrt(dx**2 + dy**2))
+   slope_deg = np.degrees(slope_rad)
    ```
 
-2. Handle nodata values (critical step!):
+2. Calculate aspect (direction of steepest descent):
    ```python
-   # Replace nodata with NaN to avoid calculation errors
-   nodata_value = before_meta['nodata']
-   if nodata_value is not None:
-       red = np.where(red == nodata_value, np.nan, red)
-       nir = np.where(nir == nodata_value, np.nan, nir)
+   aspect_rad = np.arctan2(-dx, dy)
+   aspect_deg = np.degrees(aspect_rad) % 360
    ```
 
-3. Calculate NDVI:
+3. Calculate hillshade for visualization:
    ```python
-   # Add small epsilon to avoid division by zero
-   ndvi_before = (nir - red) / (nir + red + 1e-8)
+   azimuth = np.radians(315)  # Light from northwest
+   altitude = np.radians(45)  # Sun angle
 
-   # Clean up invalid values
-   ndvi_before = np.where(np.isfinite(ndvi_before), ndvi_before, np.nan)
+   hillshade = (
+       np.cos(altitude) * np.cos(slope_rad) +
+       np.sin(altitude) * np.sin(slope_rad) *
+       np.cos(azimuth - aspect_rad)
+   )
    ```
 
-4. Visualize NDVI with appropriate color scheme:
+4. Visualize your terrain analysis:
    ```python
-   plt.figure(figsize=(10, 8))
-   plt.imshow(ndvi_before, cmap='RdYlGn', vmin=-0.2, vmax=0.8)
-   plt.colorbar(label='NDVI', shrink=0.8)
-   plt.title('NDVI - Before')
-   plt.axis('off')
-   plt.show()
-   ```
+   fig, axes = plt.subplots(2, 2, figsize=(14, 12))
 
-5. Calculate summary statistics:
-   ```python
-   print(f"Mean NDVI: {np.nanmean(ndvi_before):.3f}")
-   print(f"Median NDVI: {np.nanmedian(ndvi_before):.3f}")
-   print(f"Std Dev: {np.nanstd(ndvi_before):.3f}")
-   print(f"Min: {np.nanmin(ndvi_before):.3f}, Max: {np.nanmax(ndvi_before):.3f}")
-   ```
+   axes[0, 0].imshow(elev, cmap='terrain')
+   axes[0, 0].set_title('Elevation (m)')
 
-6. Repeat for "after" imagery to create `ndvi_after`
+   axes[0, 1].imshow(slope_deg, cmap='YlOrRd', vmax=30)
+   axes[0, 1].set_title('Slope (degrees)')
 
-!!! tip "Other useful indices"
-    - **EVI** (Enhanced Vegetation Index): Improved version of NDVI, better for dense vegetation
-    - **NDWI** (Normalized Difference Water Index): Detects water bodies
-    - **NDBI** (Normalized Difference Built-up Index): Identifies urban areas
-    - **NBR** (Normalized Burn Ratio): Assesses wildfire damage
+   axes[1, 0].imshow(aspect_deg, cmap='twilight')
+   axes[1, 0].set_title('Aspect (degrees)')
 
-    Each uses different band combinations. The band math workflow is the same!
+   axes[1, 1].imshow(hillshade, cmap='gray')
+   axes[1, 1].set_title('Hillshade')
 
-### Activity 4: Change detection (before/after comparison)
-
-Now you'll quantify how vegetation health changed between your two time periods.
-
-**Steps:**
-
-1. Calculate NDVI difference:
-   ```python
-   ndvi_change = ndvi_after - ndvi_before
-   ```
-
-2. Visualize the change:
-   ```python
-   plt.figure(figsize=(12, 9))
-
-   # Use diverging colormap: red = loss, green = gain
-   im = plt.imshow(ndvi_change, cmap='RdYlGn', vmin=-0.3, vmax=0.3)
-   plt.colorbar(im, label='NDVI Change', shrink=0.8)
-   plt.title('Vegetation Change (After - Before)')
-   plt.axis('off')
-   plt.show()
-   ```
-
-3. Classify change into categories:
-   ```python
-   # Create change categories
-   change_categories = np.full(ndvi_change.shape, -9999, dtype=np.int8)
-   change_categories[ndvi_change < -0.15] = 1  # Major loss
-   change_categories[(ndvi_change >= -0.15) & (ndvi_change < -0.05)] = 2  # Moderate loss
-   change_categories[(ndvi_change >= -0.05) & (ndvi_change <= 0.05)] = 3  # No change
-   change_categories[(ndvi_change > 0.05) & (ndvi_change <= 0.15)] = 4  # Moderate gain
-   change_categories[ndvi_change > 0.15] = 5  # Major gain
-   change_categories[~np.isfinite(ndvi_change)] = -9999  # Nodata
-   ```
-
-4. Calculate area statistics:
-   ```python
-   pixel_area = before_meta['transform'][0] ** 2  # m² per pixel
-
-   # Count pixels in each category
-   major_loss_px = np.sum(change_categories == 1)
-   moderate_loss_px = np.sum(change_categories == 2)
-   no_change_px = np.sum(change_categories == 3)
-   moderate_gain_px = np.sum(change_categories == 4)
-   major_gain_px = np.sum(change_categories == 5)
-
-   # Convert to hectares
-   print(f"Major vegetation loss: {major_loss_px * pixel_area / 10000:.2f} ha")
-   print(f"Moderate vegetation loss: {moderate_loss_px * pixel_area / 10000:.2f} ha")
-   print(f"No significant change: {no_change_px * pixel_area / 10000:.2f} ha")
-   print(f"Moderate vegetation gain: {moderate_gain_px * pixel_area / 10000:.2f} ha")
-   print(f"Major vegetation gain: {major_gain_px * pixel_area / 10000:.2f} ha")
-   ```
-
-5. Create a side-by-side comparison:
-   ```python
-   fig, axes = plt.subplots(1, 3, figsize=(18, 6))
-
-   axes[0].imshow(ndvi_before, cmap='RdYlGn', vmin=-0.2, vmax=0.8)
-   axes[0].set_title('NDVI - Before')
-   axes[0].axis('off')
-
-   axes[1].imshow(ndvi_after, cmap='RdYlGn', vmin=-0.2, vmax=0.8)
-   axes[1].set_title('NDVI - After')
-   axes[1].axis('off')
-
-   im = axes[2].imshow(ndvi_change, cmap='RdYlGn', vmin=-0.3, vmax=0.3)
-   axes[2].set_title('NDVI Change')
-   axes[2].axis('off')
-
-   plt.colorbar(im, ax=axes[2], label='Change', shrink=0.8)
    plt.tight_layout()
-   plt.savefig('exports/week09_ndvi_change_comparison.png', dpi=300, bbox_inches='tight')
    plt.show()
    ```
 
-**Interpretation questions:**
-- What areas show the most vegetation loss? Can you identify the cause (urbanization, fire, drought)?
-- Are areas of gain clustered or scattered? (Might indicate reforestation or seasonal growth)
-- Do edges of the study area show artifacts? (Common with imagery mosaics)
+**QGIS ↔ Python comparison:**
 
-### Activity 5: Zonal statistics against boundaries
+| QGIS (Week 4) | Python (This week) |
+|---------------|--------------------|
+| Raster > Analysis > Slope | `np.gradient()` + `np.arctan()` |
+| Raster > Analysis > Hillshade | Custom formula with azimuth/altitude |
+| Visual styling in Layer Properties | `matplotlib` colormaps |
 
-Aggregate your pixel-level change data to administrative boundaries to answer questions like "Which council area lost the most vegetation?" or "Which watershed is most affected?"
+### Activity 3: Build flood risk classification
+
+Now you'll combine elevation and slope into a composite flood risk index—the same approach you used in Week 4's Raster Calculator.
+
+**Flood risk logic:**
+
+- **Low elevation** = higher risk (water accumulates)
+- **Flat slope** = higher risk (poor drainage)
 
 **Steps:**
 
-1. Load your boundary polygons (SA2, LGA, watersheds, etc.):
+1. Normalize elevation to 0-1 (inverted so low = high score):
    ```python
-   zones = gpd.read_file("data/processed/week09/zones.geojson")
-   zones = zones.to_crs(before_meta['crs'])  # Match raster CRS
+   elev_min, elev_max = np.nanmin(elev), np.nanmax(elev)
+   elev_score = 1 - (elev - elev_min) / (elev_max - elev_min)
    ```
 
-2. Calculate zonal statistics using `rasterstats`:
+2. Normalize slope to 0-1 (inverted so flat = high score):
+   ```python
+   slope_score = 1 - np.clip(slope_deg / 15, 0, 1)
+   ```
+
+3. Combine with weights (elevation 60%, slope 40%):
+   ```python
+   risk_index = 0.6 * elev_score + 0.4 * slope_score
+   ```
+
+4. Classify into risk zones:
+   ```python
+   risk_classes = np.zeros_like(risk_index)
+   risk_classes[risk_index < 0.3] = 1   # Low risk
+   risk_classes[(risk_index >= 0.3) & (risk_index < 0.5)] = 2  # Moderate
+   risk_classes[(risk_index >= 0.5) & (risk_index < 0.7)] = 3  # High
+   risk_classes[risk_index >= 0.7] = 4  # Very high risk
+   ```
+
+5. Visualize risk classification:
+   ```python
+   from matplotlib.colors import ListedColormap
+
+   colors = ['#2ecc71', '#f1c40f', '#e67e22', '#e74c3c']  # Green to Red
+   cmap = ListedColormap(colors)
+
+   plt.figure(figsize=(12, 10))
+   plt.imshow(risk_classes, cmap=cmap, vmin=1, vmax=4)
+   plt.colorbar(ticks=[1, 2, 3, 4], label='Risk Level')
+   plt.title('Flood Risk Classification\nHawkesbury-Nepean Region')
+   plt.show()
+   ```
+
+**QGIS ↔ Python comparison:**
+
+| QGIS (Week 4) | Python (This week) |
+|---------------|--------------------|
+| Multiple Raster Calculator steps | Single code block |
+| Manual formula entry | Parameterized functions |
+| One-off analysis | Reproducible script |
+
+### Activity 4: Zonal statistics by administrative boundary
+
+To answer our research question, we need to summarize risk by area. "What percentage of each SA2 is at high flood risk?"
+
+**Steps:**
+
+1. Download SA2 boundaries:
+   ```python
+   import geopandas as gpd
+
+   # NSW SA2 boundaries (simplified for this example)
+   sa2_url = "https://www.abs.gov.au/..."  # See notebook for full URL
+   sa2 = gpd.read_file(sa2_url)
+   sa2 = sa2.to_crs(dem.rio.crs)
+
+   # Clip to study area
+   sa2_clip = sa2.cx[bbox[0]:bbox[2], bbox[1]:bbox[3]]
+   ```
+
+2. Calculate zonal statistics:
    ```python
    from rasterstats import zonal_stats
 
-   # Calculate stats for NDVI change
    stats = zonal_stats(
-       zones,
-       ndvi_change,
-       affine=before_meta['transform'],
-       stats=['mean', 'median', 'min', 'max', 'std', 'count'],
+       sa2_clip,
+       risk_index,
+       affine=dem.rio.transform(),
+       stats=['mean', 'median', 'min', 'max', 'count'],
        nodata=np.nan
    )
 
-   # Add results to GeoDataFrame
-   zones_stats = zones.copy()
-   for key in stats[0].keys():
-       zones_stats[f'ndvi_{key}'] = [s[key] for s in stats]
+   sa2_clip['risk_mean'] = [s['mean'] for s in stats]
    ```
 
-3. Identify most affected areas:
+3. Calculate percentage at high risk:
    ```python
-   # Sort by mean change
-   zones_stats_sorted = zones_stats.sort_values('ndvi_mean')
+   high_risk_binary = (risk_classes >= 3).astype(float)
 
-   print("Top 5 areas with vegetation LOSS:")
-   print(zones_stats_sorted[['name', 'ndvi_mean']].head())
+   high_risk_stats = zonal_stats(
+       sa2_clip,
+       high_risk_binary,
+       affine=dem.rio.transform(),
+       stats=['mean'],
+       nodata=np.nan
+   )
 
-   print("\nTop 5 areas with vegetation GAIN:")
-   print(zones_stats_sorted[['name', 'ndvi_mean']].tail())
+   # Mean of binary = proportion; multiply by 100 for percentage
+   sa2_clip['pct_high_risk'] = [s['mean'] * 100 for s in high_risk_stats]
    ```
 
-4. Visualize zonal summary on a map:
+4. Identify highest-risk SA2s:
+   ```python
+   top_risk = sa2_clip.nlargest(5, 'pct_high_risk')
+   print("SA2s with highest proportion of high-risk land:")
+   print(top_risk[['SA2_NAME21', 'pct_high_risk']])
+   ```
+
+5. Create choropleth map:
    ```python
    fig, ax = plt.subplots(1, 1, figsize=(12, 10))
 
-   zones_stats.plot(
-       column='ndvi_mean',
-       cmap='RdYlGn',
+   sa2_clip.plot(
+       column='pct_high_risk',
+       cmap='Reds',
        legend=True,
        ax=ax,
        edgecolor='black',
-       linewidth=0.5,
-       vmin=-0.2,
-       vmax=0.2
+       linewidth=0.5
    )
 
-   ax.set_title('Mean NDVI Change by Zone', fontsize=16)
+   ax.set_title('Percentage of SA2 at High/Very High Flood Risk')
    ax.set_axis_off()
-   plt.tight_layout()
-   plt.savefig('exports/week09_zonal_change.png', dpi=300, bbox_inches='tight')
    plt.show()
    ```
 
-5. Calculate additional metrics (optional):
-   ```python
-   # Percentage of zone area with significant loss (NDVI drop > 0.1)
-   loss_threshold_stats = zonal_stats(
-       zones,
-       (ndvi_change < -0.1).astype(np.uint8),
-       affine=before_meta['transform'],
-       stats=['sum', 'count'],
-       nodata=0
-   )
+**QGIS ↔ Python comparison:**
 
-   zones_stats['pct_significant_loss'] = [
-       (s['sum'] / s['count'] * 100) if s['count'] > 0 else 0
-       for s in loss_threshold_stats
-   ]
+| QGIS (Week 4) | Python (This week) |
+|---------------|--------------------|
+| Processing > Zonal Statistics | `rasterstats.zonal_stats()` |
+| Style in Layer Properties | `geopandas.plot()` with colormap |
+| Manual legend | Automatic with matplotlib |
 
-   print("\nAreas with >20% significant vegetation loss:")
-   print(zones_stats[zones_stats['pct_significant_loss'] > 20][['name', 'pct_significant_loss']])
-   ```
+### Activity 5: Create publication-ready outputs
 
-!!! note "Statistical validity"
-    Zonal statistics are only meaningful when you have enough pixels per zone. A zone with only 5 pixels won't produce reliable statistics. Filter out zones with low pixel counts (`zones_stats[zones_stats['ndvi_count'] > 100]`).
-
-### Activity 6: Visualization and export
-
-Create publication-ready visualizations and export your results for reporting or further analysis.
+Compile your analysis into professional visualizations and export results.
 
 **Steps:**
 
-1. Create a comprehensive figure with multiple subplots:
+1. Create multi-panel summary figure:
    ```python
    fig = plt.figure(figsize=(16, 12))
 
-   # Raster change map
+   # Panel 1: Risk raster with hillshade
    ax1 = plt.subplot(2, 2, 1)
-   im1 = ax1.imshow(ndvi_change, cmap='RdYlGn', vmin=-0.3, vmax=0.3)
-   ax1.set_title('Pixel-level NDVI Change', fontsize=14)
+   ax1.imshow(hillshade, cmap='gray', alpha=0.5)
+   im1 = ax1.imshow(risk_classes, cmap=cmap, alpha=0.6, vmin=1, vmax=4)
+   ax1.set_title('Flood Risk Classification')
    ax1.axis('off')
-   plt.colorbar(im1, ax=ax1, shrink=0.8)
 
-   # Zonal summary map
+   # Panel 2: Choropleth by SA2
    ax2 = plt.subplot(2, 2, 2)
-   zones_stats.plot(column='ndvi_mean', cmap='RdYlGn', ax=ax2,
-                    legend=True, edgecolor='black', linewidth=0.5,
-                    vmin=-0.2, vmax=0.2)
-   ax2.set_title('Mean NDVI Change by Zone', fontsize=14)
-   ax2.set_axis_off()
+   sa2_clip.plot(column='pct_high_risk', cmap='Reds', ax=ax2,
+                 legend=True, edgecolor='black', linewidth=0.5)
+   ax2.set_title('% High Risk by SA2')
+   ax2.axis('off')
 
-   # Histogram of change values
+   # Panel 3: Elevation profile
    ax3 = plt.subplot(2, 2, 3)
-   ax3.hist(ndvi_change[np.isfinite(ndvi_change)].flatten(),
-            bins=50, color='steelblue', edgecolor='black', alpha=0.7)
-   ax3.axvline(0, color='red', linestyle='--', linewidth=2, label='No change')
-   ax3.set_xlabel('NDVI Change', fontsize=12)
-   ax3.set_ylabel('Pixel Count', fontsize=12)
-   ax3.set_title('Distribution of NDVI Change', fontsize=14)
+   ax3.hist(elev.flatten(), bins=50, color='steelblue', edgecolor='black')
+   ax3.axvline(30, color='red', linestyle='--', label='Flood threshold')
+   ax3.set_xlabel('Elevation (m)')
+   ax3.set_ylabel('Pixel Count')
+   ax3.set_title('Elevation Distribution')
    ax3.legend()
-   ax3.grid(alpha=0.3)
 
-   # Top zones bar chart
+   # Panel 4: Risk area summary
    ax4 = plt.subplot(2, 2, 4)
-   top_loss = zones_stats_sorted.head(5)
-   top_gain = zones_stats_sorted.tail(5)
-   combined = pd.concat([top_loss, top_gain])
-
-   colors = ['red' if x < 0 else 'green' for x in combined['ndvi_mean']]
-   ax4.barh(combined['name'], combined['ndvi_mean'], color=colors, alpha=0.7)
-   ax4.axvline(0, color='black', linewidth=1)
-   ax4.set_xlabel('Mean NDVI Change', fontsize=12)
-   ax4.set_title('Top 5 Loss/Gain Zones', fontsize=14)
-   ax4.grid(axis='x', alpha=0.3)
+   risk_labels = ['Low', 'Moderate', 'High', 'Very High']
+   risk_areas = [(risk_classes == i+1).sum() for i in range(4)]
+   ax4.bar(risk_labels, risk_areas, color=colors)
+   ax4.set_ylabel('Number of Pixels')
+   ax4.set_title('Area by Risk Category')
 
    plt.tight_layout()
-   plt.savefig('exports/week09_comprehensive_analysis.png', dpi=300, bbox_inches='tight')
+   plt.savefig('exports/week09_flood_risk_analysis.png', dpi=300)
    plt.show()
    ```
 
-2. Export the change raster as GeoTIFF:
+2. Export raster results:
    ```python
-   change_meta = before_meta.copy()
-   change_meta.update({
-       'count': 1,
-       'dtype': 'float32',
-       'nodata': -9999
-   })
-
-   with rasterio.open('data/processed/week09/ndvi_change.tif', 'w', **change_meta) as dst:
-       # Replace NaN with nodata value for export
-       ndvi_change_export = np.where(np.isfinite(ndvi_change), ndvi_change, -9999)
-       dst.write(ndvi_change_export.astype('float32'), 1)
+   # Save flood risk classification as GeoTIFF
+   risk_da = dem.copy(data=risk_classes)
+   risk_da.rio.to_raster('data/processed/week09/flood_risk_classes.tif')
    ```
 
-3. Export zonal statistics to CSV and GeoPackage:
+3. Export zonal statistics:
    ```python
-   # CSV for spreadsheet analysis
-   zones_stats[['name', 'ndvi_mean', 'ndvi_median', 'ndvi_std',
-                'pct_significant_loss']].to_csv(
-       'exports/week09_zonal_statistics.csv',
+   # CSV for reporting
+   sa2_clip[['SA2_NAME21', 'risk_mean', 'pct_high_risk']].to_csv(
+       'exports/week09_sa2_flood_risk.csv',
        index=False
    )
 
-   # GeoPackage for use in QGIS or Week 10
-   zones_stats.to_file(
-       'data/processed/week09/zones_change.gpkg',
-       driver='GPKG',
-       layer='ndvi_change_zones'
-   )
+   # GeoPackage for GIS use
+   sa2_clip.to_file('data/processed/week09/sa2_flood_risk.gpkg')
    ```
 
-4. Create a metadata file documenting your analysis:
-   ```python
-   metadata = f"""
-   NDVI Change Analysis Metadata
-   ==============================
+## Your Research Findings
 
-   Analysis Date: {pd.Timestamp.now().strftime('%Y-%m-%d')}
-   Study Area: {aoi['name'].iloc[0] if 'name' in aoi.columns else 'Custom AOI'}
+After completing this analysis, summarize your findings:
 
-   Imagery Sources:
-   - Before: [Source and date]
-   - After: [Source and date]
+### Research Question
+"Which areas in the Hawkesbury-Nepean region are at elevated flood risk based on terrain characteristics?"
 
-   Raster Details:
-   - CRS: {before_meta['crs']}
-   - Resolution: {before_meta['transform'][0]}m
-   - Extent: {before_meta['bounds']}
+### Key Findings
+Complete these based on your analysis:
 
-   NDVI Calculation:
-   - Formula: (NIR - Red) / (NIR + Red)
-   - Bands: Red = Band {4}, NIR = Band {8}  # Adjust for your sensor
+1. The areas with highest flood risk are: _________________________________
+2. Approximately ____% of the study area is classified as high or very high risk.
+3. The SA2(s) with the greatest proportion of high-risk land: _________________________________
+4. The elevation threshold where risk transitions from moderate to high: ____m
 
-   Summary Statistics:
-   - Mean change: {np.nanmean(ndvi_change):.4f}
-   - Median change: {np.nanmedian(ndvi_change):.4f}
-   - Std deviation: {np.nanstd(ndvi_change):.4f}
-   - Area analyzed: {np.sum(np.isfinite(ndvi_change)) * pixel_area / 10000:.2f} ha
+### Methodology
+- **Data source:** Copernicus DEM 30m (via Planetary Computer API)
+- **Key parameters:** Elevation weight: 60%, Slope weight: 40%, Slope threshold: 15°
+- **Tools used:** Python (rioxarray, NumPy, rasterstats, geopandas)
+- **Study area:** Hawkesbury-Nepean floodplain (~20km × 20km)
 
-   Zones Analyzed: {len(zones_stats)}
-   Zones with significant loss (>10% area): {len(zones_stats[zones_stats['pct_significant_loss'] > 10])}
+### Limitations
+This analysis does NOT capture:
 
-   Limitations:
-   - Cloud cover: [Assess and note]
-   - Seasonal effects: [Note if comparing different seasons]
-   - Sensor differences: [Note if using different satellites]
-   """
+- [ ] Proximity to rivers and waterways
+- [ ] Drainage infrastructure and stormwater systems
+- [ ] Soil permeability and groundwater levels
+- [ ] Historical flood extent data
+- [ ] Hydrological flow modelling
+- [ ] Climate change projections
 
-   with open('exports/week09_metadata.txt', 'w') as f:
-       f.write(metadata)
-   ```
+### Week 4 ↔ Week 9 Comparison
 
-!!! tip "Publishing your work"
-    These visualizations are publication-ready for reports, presentations, or web articles. Consider adding:
-    - North arrow and scale bar (use matplotlib's `annotate()` or cartopy)
-    - Inset map showing study area location
-    - Data source attribution in footer
-    - Clear legend with units
+| Aspect | QGIS (Week 4) | Python (Week 9) |
+|--------|---------------|-----------------|
+| Data access | Manual download from ELVIS | API fetch from Planetary Computer |
+| Slope calculation | Raster > Analysis > Slope | `np.gradient()` + `np.arctan()` |
+| Risk classification | Multiple Raster Calculator steps | Single code block |
+| Zonal statistics | Processing toolbox | `rasterstats` library |
+| Reproducibility | Project file, manual steps | Notebook, fully scripted |
+| Scalability | One area at a time | Loop over multiple areas |
 
-**Compare to QGIS:**
-In QGIS, you used the Raster Calculator for band math and Zonal Statistics tool for summaries. Python gives you more control over classification thresholds, batch processing multiple time periods, and creating complex multi-panel figures. For one-off analysis, QGIS is faster. For repeatable workflows or processing dozens of scenes, Python is essential.
+### If this were your capstone
+- How would you adapt this for your study area?
+- What additional data would strengthen the analysis?
+- Could you combine this with Week 5 crime data or Week 6 accessibility analysis?
+
+## Troubleshooting
+
+### API returns no results
+- **Check your bounding box:** Ensure coordinates are in [west, south, east, north] order
+- **Try a different area:** Some regions may have missing tiles
+- **Fallback:** The notebook includes synthetic data if the API is unavailable
+
+### Memory errors with large areas
+- **Reduce study area size:** Start with a 10km × 10km box
+- **Use chunked processing:** Process in tiles and merge results
+
+### CRS mismatch between raster and vector
+- **Always reproject vectors to match raster CRS:**
+  ```python
+  sa2 = sa2.to_crs(dem.rio.crs)
+  ```
+
+### Zonal statistics returns NaN
+- **Check overlap:** Ensure SA2 boundaries actually cover the raster extent
+- **Check nodata:** Make sure nodata values are properly set
 
 ## Support materials
 
 - Slides: [Week 09 lecture deck](../slides/index.md)
-- Lecture notes: [Remote Sensing Change Detection](../lectures/week09-remote-sensing.md)
-- Jupyter notebook: `resources/notebooks/week09_raster_remote_sensing.ipynb`
-- Rasterio documentation: [https://rasterio.readthedocs.io/](https://rasterio.readthedocs.io/)
-- Sentinel-2 band information: [ESA User Guide](https://sentinels.copernicus.eu/web/sentinel/user-guides/sentinel-2-msi/resolutions/spatial)
-- Landsat band information: [USGS Guide](https://www.usgs.gov/faqs/what-are-band-designations-landsat-satellites)
+- Lecture notes: [Elevation & Surface Modelling](../lectures/week09-remote-sensing.md)
+- QGIS workflow: [Week 4 · Flood Risk Assessment](week04.md)
+- Planetary Computer: [https://planetarycomputer.microsoft.com/](https://planetarycomputer.microsoft.com/)
+- rioxarray documentation: [https://corteva.github.io/rioxarray/](https://corteva.github.io/rioxarray/)
 - Dataset checklist: [Week 9 items](../reference/data-download-checklist.md)
 
 ## Reflect
 
 Take 10-15 minutes to answer these questions in your [Week 9 reflection](../reference/reflections.md#week-9--raster--remote-sensing):
 
-- What patterns did your NDVI analysis reveal? Were you surprised by what you found?
-- How did you decide on change thresholds (e.g., what counts as "significant" loss)? How might different thresholds change your conclusions?
-- What challenges did you encounter with nodata values, memory management, or band selection?
-- How confident are you in your results? What are potential sources of error (clouds, sensor calibration, seasonal differences)?
-- What additional data or context would help interpret your findings (precipitation data, land use maps, historical imagery)?
-- When would you use Python for raster analysis versus staying in QGIS?
+- How did your Python results compare to your Week 4 QGIS analysis? Were the high-risk areas the same?
+- What are the advantages of cloud-hosted data access vs. downloading files?
+- How did changing the weighting (60/40 for elevation/slope) affect your results?
+- What challenges did you encounter with the API, raster processing, or zonal statistics?
+- How could you extend this analysis for a capstone project?
 
 !!! note "Real-world applications"
     The techniques you learned this week are used daily by:
-    - Environmental agencies monitoring deforestation and wetland loss
-    - Agricultural scientists tracking crop health and yield prediction
-    - Climate researchers measuring glacier retreat and sea ice extent
-    - Disaster response teams assessing wildfire damage or flood impacts
-    - Urban planners analyzing green space changes over time
+
+    - Emergency services for evacuation planning and resource allocation
+    - Insurance companies for flood risk assessment and premium calculation
+    - Urban planners for development restrictions in flood-prone areas
+    - Climate scientists for modelling future flood scenarios
 
 ## What you'll submit
 
-- [ ] Jupyter notebook (`week09_raster_remote_sensing.ipynb`) with all cells executed and outputs visible
-- [ ] NDVI change raster: `data/processed/week09/ndvi_change.tif`
-- [ ] Zonal statistics: `exports/week09_zonal_statistics.csv` and `data/processed/week09/zones_change.gpkg`
-- [ ] Comprehensive analysis figure: `exports/week09_comprehensive_analysis.png`
-- [ ] Metadata documentation: `exports/week09_metadata.txt`
+- [ ] Jupyter notebook (`week09_raster_remote_sensing.ipynb`) with all cells executed
+- [ ] Flood risk raster: `data/processed/week09/flood_risk_classes.tif`
+- [ ] SA2 analysis: `data/processed/week09/sa2_flood_risk.gpkg`
+- [ ] Summary figure: `exports/week09_flood_risk_analysis.png`
+- [ ] Zonal statistics: `exports/week09_sa2_flood_risk.csv`
+- [ ] Completed "Your Research Findings" section
 - [ ] Your Week 9 reflection entry
 
 ## Coming up next week
 
-Week 10 shifts to network analysis in Python—calculating optimal routes, service areas, and accessibility metrics using NetworkX and OSMnx. You'll bring together the zonal statistics from this week with network-based accessibility analysis to identify communities that lack both green space AND easy transport access. Review your Week 6 QGIS network analysis to refresh the concepts.
+Week 10 shifts to network analysis in Python—calculating optimal routes, service areas, and accessibility metrics using NetworkX and OSMnx. You'll analyze which communities have poor access to emergency services, connecting the flood risk areas you identified this week with transport network analysis.

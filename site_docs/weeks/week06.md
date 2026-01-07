@@ -1,6 +1,12 @@
-# Week 6 · Public Health & Accessibility
+# Week 6 · Healthcare Accessibility Analysis
+
+## Research Question
+
+> **"Which communities have poor access to healthcare facilities, and how does this intersect with socioeconomic disadvantage?"**
 
 Access to healthcare isn't just about having facilities nearby—it's about whether people can actually reach them. This week, you'll use network analysis to measure healthcare accessibility, combining vulnerability indices with travel-time analysis to identify communities that face barriers to essential services. You'll learn techniques that apply equally to hospitals, vaccination clinics, food banks, or any other critical infrastructure.
+
+This analysis links directly to your Week 10 Python work, where you'll automate network accessibility calculations.
 
 ## What you'll learn
 
@@ -322,10 +328,55 @@ Next week you'll transition to Python. Start building good documentation habits 
 - **CRS mismatch:** Both layers must be in the same CRS
 - **Invalid geometries:** Run Fix Geometries on both layers first
 
+## Your Research Findings
+
+After completing this week's analysis, summarize your findings:
+
+### Research Question
+"Which communities have poor access to healthcare facilities, and how does this intersect with socioeconomic disadvantage?"
+
+### Key Findings
+Complete these based on your analysis:
+
+1. The communities with poorest access (>15 min drive) are: _________________________________
+2. Of these underserved areas, _____ are also high-disadvantage (SEIFA deciles 1-2).
+3. The total estimated population in accessibility gaps: _____ people
+4. The LGA(s) with worst overall coverage: _________________________________
+
+### Methodology
+- **Data sources:** Health facility locations from _____, Road network from OSM/_____, SEIFA from ABS
+- **Key parameters:** Travel speed: _____ km/h, Service area thresholds: 5/10/15 minutes, Cell size: _____m
+- **Tools used:** QNEAT3 Iso-Area, Count Points in Polygon, Difference, Field Calculator
+
+### Limitations
+This analysis does NOT capture:
+
+- [ ] Public transit access (drive-time only)
+- [ ] Walking access for non-drivers
+- [ ] Facility capacity and wait times
+- [ ] Insurance acceptance / out-of-pocket costs
+- [ ] Operating hours and appointment availability
+- [ ] Cultural and language barriers
+
+### QGIS ↔ Python comparison
+
+| QGIS (Week 6) | Python (Week 10) |
+|---------------|------------------|
+| QNEAT3 isochrones | NetworkX / OSMnx isochrones |
+| Manual overlay analysis | Automated intersection |
+| Interactive exploration | Batch processing |
+| Layout-based cartography | Matplotlib / Folium maps |
+
+### If this were your capstone
+- What other services would you analyze accessibility for?
+- How would you incorporate public transit or walking access?
+- What research question would you ask?
+
 ## Support materials
 
 - Slides: [Week 06 lecture deck](../slides/index.md)
 - Lecture notes: [Health Equity & Accessibility](../lectures/week06-health-theory.md)
+- Python equivalent: [Week 10 · Transport Networks](week10.md) (automates network analysis)
 - Plugin guide: [QNEAT3 documentation](https://root676.github.io/)
 - Dataset checklist: [Week 6 items](../reference/data-download-checklist.md)
 

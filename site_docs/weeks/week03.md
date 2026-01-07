@@ -1,15 +1,21 @@
-# Week 3 · Vector Analysis & Attribute Joins
+# Week 3 · Mapping Socioeconomic Disadvantage
 
-Boundaries shape how we understand social and economic patterns. The same data looks completely different when aggregated by suburb, municipality, or region. This week, you'll learn how administrative and statistical boundaries work, how to join tabular data to spatial layers, and how to think critically about the stories boundaries tell—and hide.
+## Research Question
+
+> **"Which areas have the highest socioeconomic disadvantage, and how does this pattern change when we aggregate to different geographic scales?"**
+
+Boundaries shape how we understand social and economic patterns. The same data looks completely different when aggregated by suburb, municipality, or region. This week, you'll join socioeconomic index data to statistical boundaries and explore how geographic choices affect the stories we tell about disadvantage.
+
+This is the same analysis you'll automate in Python during Week 8. By doing it manually first in QGIS, you'll understand exactly what each step accomplishes before writing code to replicate it.
 
 ## What you'll learn
 
 By the end of this week, you'll be able to:
 
-1. Explain the role of administrative and statistical boundaries in socio-economic analysis.
+1. Identify which areas have the highest socioeconomic disadvantage by joining index data to boundaries.
 2. Perform attribute joins between polygon boundaries (e.g., SA2/LGA) and tabular datasets (e.g., SEIFA, ACS).
-3. Aggregate and summarize data across geographic levels (count points in polygons, dissolve boundaries).
-4. Use the Field Calculator and selection tools to create derived indicators.
+3. Demonstrate how aggregating data to different geographic scales changes the patterns you see.
+4. Create derived indicators using the Field Calculator and critically interpret what they reveal—and hide.
 
 ## Before you start
 
@@ -366,11 +372,54 @@ Joins can fail silently. Always verify your results.
 - **Join prefix:** QGIS adds the source layer name as a prefix. You can rename after exporting to a permanent layer
 - **Too many fields:** After joining, export only the fields you need to keep the table clean
 
+## Your Research Findings
+
+After completing this week's analysis, summarize your findings:
+
+### Research Question
+"Which areas have the highest socioeconomic disadvantage, and how does this pattern change when we aggregate to different geographic scales?"
+
+### Key Findings
+Complete these based on your analysis:
+
+1. The SA2s with highest disadvantage (bottom decile) are: _________________________________
+2. When aggregated to SA3 level, the most disadvantaged region is: _________________________________
+3. I observed ______ (clustering / scattered distribution) of disadvantaged areas.
+4. The relationship between disadvantage and [urban/rural location, population density, or another variable] is: _________________________________
+
+### Methodology
+- **Data sources:** ABS SA2 boundaries (ASGS 2021), SEIFA IRSD scores
+- **Key parameters:** Classification method: _____, Number of classes: _____
+- **Tools used:** Attribute Join, Field Calculator, Aggregate/Dissolve
+
+### Limitations
+This analysis does NOT capture:
+
+- [ ] Change over time (single census snapshot only)
+- [ ] Variation within SA2 areas (could hide local pockets of disadvantage)
+- [ ] Why areas are disadvantaged (correlation vs causation)
+- [ ] How disadvantage relates to access to services
+
+### QGIS ↔ Python comparison
+
+| QGIS (Week 3) | Python (Week 8) |
+|---------------|-----------------|
+| Layer Properties > Joins | `geopandas.merge()` |
+| Field Calculator | `.assign()` with expressions |
+| Dissolve / Aggregate tool | `.dissolve(by='column')` |
+| Manual symbology | `geopandas.plot()` |
+
+### If this were your capstone
+- How would you adapt this for your study area?
+- What additional data would strengthen the analysis?
+- What research question would you ask?
+
 ## Support materials
 
 - Slides: [Week 03 lecture deck](../slides/index.md)
 - Reading: [Understanding administrative boundaries](../readings/week03-admin-boundaries.md)
 - Lecture notes: [Boundary Systems & Data Joins](../lectures/week03-boundaries.md)
+- Python equivalent: [Week 8 · Python Vector Workflows](week08.md) (automates this analysis)
 - Dataset checklist: [Week 3 items](../reference/data-download-checklist.md)
 - Reference: ABS correspondence files for boundary changes (link in lecture notes)
 
@@ -402,4 +451,7 @@ Take 10-15 minutes to answer these questions in your [Week 3 reflection](../refe
 
 ## Coming up next week
 
-Week 4 introduces raster and terrain analysis. You'll work with digital elevation models (DEMs) to create hillshades, calculate slopes, and identify areas vulnerable to flooding or landslides. This builds on your Week 3 boundary work—you'll overlay terrain products with socio-economic data to answer questions like "Which disadvantaged communities face the highest flood risk?" Download your DEM tiles (ELVIS for Australia or SRTM for other regions) before next session so you're ready to jump in.
+Week 4 shifts from vectors to rasters with a **flood risk assessment** of the Hawkesbury-Nepean region. You'll work with digital elevation models (DEMs) to calculate slope, identify low-lying areas, and classify flood risk zones. This builds on your Week 3 boundary work—you'll use zonal statistics to summarize flood risk by SA2, combining terrain analysis with the administrative boundaries you now understand.
+
+!!! tip "Week 4 ↔ Week 9 connection"
+    In Week 4, you'll do the flood risk analysis manually in QGIS. In Week 9, you'll automate the same analysis in Python—the same parallel as Week 3 ↔ Week 8 for vector analysis.
