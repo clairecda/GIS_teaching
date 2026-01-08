@@ -1,0 +1,4500 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="QGIS-first, Python-powered GIS course">
+      
+      
+        <meta name="author" content="Claire Boulange (and contributors)">
+      
+      
+      
+        <link rel="prev" href="../week02/">
+      
+      
+        <link rel="next" href="../week04/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Week 3 · Mapping Disadvantage - Introduction to GIS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#week-3-mapping-socioeconomic-disadvantage" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Introduction to GIS" class="md-header__button md-logo" aria-label="Introduction to GIS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Introduction to GIS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Week 3 · Mapping Disadvantage
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  
+  Welcome
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../slides/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Slides
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../onboarding/01-install-qgis/" class="md-tabs__link">
+          
+  
+  
+  Getting Ready
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../readings/" class="md-tabs__link">
+          
+  
+  
+  Background Reading
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../lectures/week01-fundamentals/" class="md-tabs__link">
+          
+  
+  
+  Lectures & Theory
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../week01/" class="md-tabs__link">
+          
+  
+  
+  Weekly Labs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../reference/data-inventory/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../reference/roadmap/" class="md-tabs__link">
+          
+  
+  
+  Appendices
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Introduction to GIS" class="md-nav__button md-logo" aria-label="Introduction to GIS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Introduction to GIS
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Welcome
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/how-to-use/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to use this course
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../slides/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Slides
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Ready
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Ready
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/01-install-qgis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Install QGIS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/02-workspace-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Set up your workspace
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/03-download-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Download datasets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/04-python-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Python setup (Week 7+)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Background Reading
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Background Reading
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../readings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../readings/week01-what-is-gis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. What is GIS?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../readings/week01-critical-gis-lens/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Seeing Assumptions in GIS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../readings/using-ai-effectively/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Using AI as a Learning Partner
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../readings/week01-capstone-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Your Capstone Project
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../readings/understanding-crs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Understanding CRS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../readings/week03-admin-boundaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Administrative Boundaries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../readings/week04-raster-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Raster Data Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../readings/week05-ethics-in-mapping/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Ethics in Spatial Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../readings/week07-python-for-gis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Python for GIS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../readings/spatial-statistics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Spatial Statistics & Regression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lectures & Theory
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lectures & Theory
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lectures/week01-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 1 · Foundations of GIS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lectures/week02-cartography/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 2 · Cartographic Conventions & Colour
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lectures/week03-boundaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 3 · Boundary Systems & Data Joins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lectures/week04-raster-theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 4 · Elevation & Surface Modelling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lectures/week05-crime-ethics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 5 · Ethics of Crime Mapping
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lectures/week06-health-theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 6 · Health Equity & Accessibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lectures/week07-reproducibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 7 · Reproducibility & Environments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lectures/week08-vector-theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 8 · Vector Automation Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lectures/week09-remote-sensing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 9 · Remote Sensing Change Detection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lectures/week10-network-theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 10 · Network Theory for Mobility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lectures/week11-storytelling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 11 · Narrative Map Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lectures/week12-capstone-theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 12 · Capstone Synthesis & Reflection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weekly Labs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Weekly Labs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 1 · QGIS Orientation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 2 · Symbology & Layouts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 3 · Mapping Disadvantage
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 3 · Mapping Disadvantage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#research-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Research Question
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What you'll learn
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before you start
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#this-weeks-activities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        This week's activities
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="This week&#39;s activities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#activity-0-one-place-many-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activity 0: One place, many maps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activity-1-understand-boundary-hierarchies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activity 1: Understand boundary hierarchies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activity-2-inspect-and-prepare-your-tabular-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activity 2: Inspect and prepare your tabular data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activity-3-perform-the-attribute-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activity 3: Perform the attribute join
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activity-4-create-derived-indicators-with-field-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activity 4: Create derived indicators with Field Calculator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activity-5-visualize-and-explore-spatial-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activity 5: Visualize and explore spatial patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activity-6-aggregate-and-summarize-by-geography" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activity 6: Aggregate and summarize by geography
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Activity 6: Aggregate and summarize by geography">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#part-a-count-points-in-polygons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part A: Count points in polygons
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-b-summarize-with-spatial-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part B: Summarize with spatial join
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-c-aggregate-to-roll-up-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part C: Aggregate to roll up boundaries
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activity-7-select-and-filter-by-attributes-or-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activity 7: Select and filter by attributes or location
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activity-8-quality-assurance-and-troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activity 8: Quality assurance and troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#join-shows-0-matched-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Join shows 0 matched features
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#join-shows-partial-matches-some-null-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Join shows partial matches (some NULL values)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#joined-fields-disappear-after-saving" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Joined fields disappear after saving
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#field-calculator-expression-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Field Calculator expression errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choropleth-map-looks-wrong-after-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choropleth map looks wrong after join
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attribute-table-shows-field-names-like-layer_field" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attribute table shows field names like "layer_field"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-research-findings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your Research Findings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Your Research Findings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#research-question_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Research Question
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-findings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Findings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methodology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methodology
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qgis-python-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QGIS ↔ Python comparison
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-this-were-your-capstone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        If this were your capstone
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support-materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Support materials
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reflect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reflect
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-submit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What you'll submit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coming-up-next-week" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coming up next week
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 4 · Flood Risk Assessment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 5 · Crime Hotspot Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 6 · Healthcare Accessibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 7 · Bridge to Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 8 · Python Vector Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 9 · Flood Risk (Python)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 10 · Transport Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 11 · Design & Storytelling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../week12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 12 · Capstone
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/data-inventory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dataset inventory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/data-download-checklist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data download checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QGIS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    QGIS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/qgis-quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart cheat sheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/toolbar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Toolbar reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/notebooks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notebooks (Weeks 7-10)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_4" id="__nav_7_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Map Design
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Map Design
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/layout-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Layout template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/color-palettes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Color palettes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/map-titles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Map titles guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/design-rubric/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design rubric
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/accessibility-checklist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accessibility checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_5" id="__nav_7_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capstone
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Capstone
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/project-checklist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/capstone-examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capstone examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/capstone-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Report template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/capstone-presentation-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentation template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_6" id="__nav_7_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Other
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Other
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/reflections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reflection prompts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendices
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Appendices
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/continuing-education/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Continuing your GIS journey
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/licensing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licensing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#research-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Research Question
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What you'll learn
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#before-you-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Before you start
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#this-weeks-activities" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        This week's activities
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="This week&#39;s activities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#activity-0-one-place-many-maps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activity 0: One place, many maps
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activity-1-understand-boundary-hierarchies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activity 1: Understand boundary hierarchies
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activity-2-inspect-and-prepare-your-tabular-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activity 2: Inspect and prepare your tabular data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activity-3-perform-the-attribute-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activity 3: Perform the attribute join
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activity-4-create-derived-indicators-with-field-calculator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activity 4: Create derived indicators with Field Calculator
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activity-5-visualize-and-explore-spatial-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activity 5: Visualize and explore spatial patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activity-6-aggregate-and-summarize-by-geography" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activity 6: Aggregate and summarize by geography
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Activity 6: Aggregate and summarize by geography">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#part-a-count-points-in-polygons" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part A: Count points in polygons
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-b-summarize-with-spatial-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part B: Summarize with spatial join
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#part-c-aggregate-to-roll-up-boundaries" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part C: Aggregate to roll up boundaries
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activity-7-select-and-filter-by-attributes-or-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activity 7: Select and filter by attributes or location
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activity-8-quality-assurance-and-troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Activity 8: Quality assurance and troubleshooting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#join-shows-0-matched-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Join shows 0 matched features
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#join-shows-partial-matches-some-null-values" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Join shows partial matches (some NULL values)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#joined-fields-disappear-after-saving" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Joined fields disappear after saving
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#field-calculator-expression-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Field Calculator expression errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choropleth-map-looks-wrong-after-join" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choropleth map looks wrong after join
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attribute-table-shows-field-names-like-layer_field" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Attribute table shows field names like "layer_field"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-research-findings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your Research Findings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Your Research Findings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#research-question_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Research Question
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-findings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Findings
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#methodology" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Methodology
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Limitations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qgis-python-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QGIS ↔ Python comparison
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-this-were-your-capstone" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        If this were your capstone
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#support-materials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Support materials
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reflect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reflect
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-youll-submit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What you'll submit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coming-up-next-week" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Coming up next week
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+<div id="password-overlay">
+  <div class="password-box">
+    <h2>Introduction to GIS</h2>
+    <p class="author">Developed by <strong>Dr Claire Boulange</strong></p>
+
+    <div class="notice">
+      <p>This course material is protected by copyright. Unauthorized copying, distribution, or reproduction of this content is strictly prohibited.</p>
+      <p>I'm an independent educator currently developing this curriculum. Universities or organizations interested in adopting this course or exploring teaching partnerships are welcome to <a href="mailto:claire.boulange@gmail.com">get in touch</a>.</p>
+    </div>
+
+    <div class="login-section">
+      <p>Enter the password provided by your facilitator</p>
+      <input type="password" id="password-input" placeholder="Password" autofocus>
+      <button onclick="checkPassword()">Enter</button>
+      <p id="error-msg">Incorrect password</p>
+    </div>
+  </div>
+</div>
+
+<div id="main-content">
+  
+                  
+
+
+
+<h1 id="week-3-mapping-socioeconomic-disadvantage">Week 3 · Mapping Socioeconomic Disadvantage<a class="headerlink" href="#week-3-mapping-socioeconomic-disadvantage" title="Permanent link">&para;</a></h1>
+<h2 id="research-question">Research Question<a class="headerlink" href="#research-question" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p><strong>"Which areas have the highest socioeconomic disadvantage, and how does this pattern change when we aggregate to different geographic scales?"</strong></p>
+</blockquote>
+<p>Boundaries shape how we understand social and economic patterns. The same data looks completely different when aggregated by suburb, municipality, or region. This week, you'll join socioeconomic index data to statistical boundaries and explore how geographic choices affect the stories we tell about disadvantage.</p>
+<p>This is the same analysis you'll automate in Python during Week 8. By doing it manually first in QGIS, you'll understand exactly what each step accomplishes before writing code to replicate it.</p>
+<h2 id="what-youll-learn">What you'll learn<a class="headerlink" href="#what-youll-learn" title="Permanent link">&para;</a></h2>
+<p>By the end of this week, you'll be able to:</p>
+<ol>
+<li>Identify which areas have the highest socioeconomic disadvantage by joining index data to boundaries.</li>
+<li>Perform attribute joins between polygon boundaries (e.g., SA2/LGA) and tabular datasets (e.g., SEIFA, ACS).</li>
+<li>Demonstrate how aggregating data to different geographic scales changes the patterns you see.</li>
+<li>Create derived indicators using the Field Calculator and critically interpret what they reveal—and hide.</li>
+</ol>
+<h2 id="before-you-start">Before you start<a class="headerlink" href="#before-you-start" title="Permanent link">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> Read: <a href="../../readings/week03-admin-boundaries/">Understanding administrative boundaries</a>—this provides essential context</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Review the lecture: <a href="../../lectures/week03-boundaries/">Boundary Systems &amp; Data Joins</a></li>
+<li class="task-list-item"><input type="checkbox" disabled/> Think of one question about boundary changes or data comparability to discuss in class</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Data downloads happen in class</p>
+<p>We'll download SA2 boundaries and SEIFA data together as the first activity. Your facilitator will guide you through the process.</p>
+</div>
+<h2 id="this-weeks-activities">This week's activities<a class="headerlink" href="#this-weeks-activities" title="Permanent link">&para;</a></h2>
+<h3 id="activity-0-one-place-many-maps">Activity 0: One place, many maps<a class="headerlink" href="#activity-0-one-place-many-maps" title="Permanent link">&para;</a></h3>
+<p>Before we start joining data, let's see how the same place looks completely different depending on what we map. This activity builds the critical lens you'll need for working with boundaries and socio-economic data.</p>
+<p><strong>The question:</strong> What stories can this place tell—and which ones become invisible with different data choices?</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>Choose a familiar area (your suburb, a place you've lived, or a well-known neighborhood)</li>
+<li>Load your SA2 layer and zoom to that area</li>
+<li>Create four different maps of the same place by styling different attributes:</li>
+</ol>
+<p><strong>Map A: Administrative identity</strong>
+   - Categorize by state or LGA name
+   - What official boundaries define this place?</p>
+<p><strong>Map B: Geographic hierarchy</strong>
+   - Categorize by SA3 or SA4 region
+   - Where does this place sit in the statistical hierarchy?</p>
+<p><strong>Map C: Population (if available)</strong>
+   - Graduated symbology by population or area
+   - Is this a dense urban area or sparse rural?</p>
+<p><strong>Map D: Your choice</strong>
+   - After completing Activity 3 (join), return here and map by SEIFA decile
+   - What socio-economic story does this place tell?</p>
+<ol>
+<li>For each map, note:</li>
+<li>What question does this map answer well?</li>
+<li>What does it hide or make invisible?</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">The point isn't that maps lie</p>
+<p>Maps don't lie—they answer specific questions. The skill is recognizing WHICH question each map answers, and what other questions become harder to ask. You'll return to Map D after joining SEIFA data.</p>
+</div>
+<p><strong>Reflection prompt:</strong> Each map shows the same geography but tells a different story. Which version feels most "true" to your experience of this place? Which could be misleading without context?</p>
+<h3 id="activity-1-understand-boundary-hierarchies">Activity 1: Understand boundary hierarchies<a class="headerlink" href="#activity-1-understand-boundary-hierarchies" title="Permanent link">&para;</a></h3>
+<p>Before joining data, you need to understand what your boundaries represent and how they relate to each other.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>Load your SA2 (or equivalent statistical area) shapefile</li>
+<li>Open the attribute table and explore the fields:</li>
+<li>What's the unique identifier? (e.g., <code>SA2_CODE_2021</code>)</li>
+<li>What parent geographies exist? (e.g., SA3, SA4, state codes)</li>
+<li>What metadata is included? (area, population counts, names)</li>
+<li>Compare boundary types:</li>
+<li><strong>Statistical boundaries</strong> (SA2, census tracts): designed for data collection and analysis</li>
+<li><strong>Administrative boundaries</strong> (LGA, municipalities): used for governance and service delivery</li>
+<li><strong>Postal areas</strong> (postcodes, ZIP codes): designed for mail delivery, not analysis</li>
+<li>Visualize the hierarchy:</li>
+<li>Color by a higher-level geography (e.g., SA3 or state)</li>
+<li>Notice how smaller areas nest within larger ones</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Why boundaries matter</p>
+<p>The boundary you choose affects your results. SA2 areas show local variation that disappears when aggregated to LGA level. Postcodes often cross meaningful boundaries and shouldn't be used for spatial analysis.</p>
+</div>
+<h3 id="activity-2-inspect-and-prepare-your-tabular-data">Activity 2: Inspect and prepare your tabular data<a class="headerlink" href="#activity-2-inspect-and-prepare-your-tabular-data" title="Permanent link">&para;</a></h3>
+<p>You'll join SEIFA (or equivalent socio-economic index) data to your boundaries. First, make sure the data is clean.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>Download your SEIFA (or ACS, deprivation index) CSV file</li>
+<li>Open it in a spreadsheet or text editor</li>
+<li>Check the structure:</li>
+<li>Does it have a geographic identifier that matches your shapefile? (e.g., <code>SA2_CODE_2021</code>)</li>
+<li>Are codes formatted consistently? (Watch for leading zeros: "00123" vs "123")</li>
+<li>What indicators are included? (IRSD, IRSAD, percentiles, etc.)</li>
+<li>Load into QGIS:</li>
+<li><code>Layer ▶ Add Layer ▶ Add Delimited Text Layer...</code></li>
+<li>Select your CSV file</li>
+<li><strong>Geometry definition:</strong> "No geometry (attribute only table)"</li>
+<li>Click Add</li>
+<li>Open the attribute table and verify:</li>
+<li>Geographic codes appear as text (not numbers—leading zeros matter!)</li>
+<li>No unexpected missing values</li>
+<li>Field names are clear</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Common pitfall: Leading zeros</p>
+<p>Geographic codes like "01234" often lose their leading zero when opened in Excel, becoming "1234". This breaks joins. Always treat codes as text/strings, not numbers.</p>
+</div>
+<h3 id="activity-3-perform-the-attribute-join">Activity 3: Perform the attribute join<a class="headerlink" href="#activity-3-perform-the-attribute-join" title="Permanent link">&para;</a></h3>
+<p>Now you'll link your socio-economic data to your spatial boundaries.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>Right-click your SA2 layer → <strong>Properties</strong> → <strong>Joins</strong> tab</li>
+<li>Click the <strong>+</strong> button to add a new join</li>
+<li>Configure the join:</li>
+<li><strong>Join layer:</strong> your SEIFA CSV layer</li>
+<li><strong>Join field:</strong> the geographic code in the CSV (e.g., <code>SA2_CODE_2021</code>)</li>
+<li><strong>Target field:</strong> the matching code in your shapefile (e.g., <code>SA2_CODE21</code>)</li>
+<li><strong>Joined fields:</strong> leave blank to include all, or select specific indicators</li>
+<li><strong>Custom field name prefix:</strong> optionally add "SEIFA_" to avoid field name collisions</li>
+<li>Click OK twice to close</li>
+<li>Open the attribute table of your SA2 layer—you should now see new columns from SEIFA</li>
+<li>Check a few rows to verify values look correct</li>
+</ol>
+<p><strong>Make the join permanent:</strong></p>
+<p>Joins are temporary by default. To save them:
+1. Right-click your SA2 layer → <strong>Export</strong> → <strong>Save Features As...</strong>
+2. Format: GeoPackage
+3. File name: <code>data/processed/week03/sa2_with_seifa.gpkg</code>
+4. Click OK</p>
+<div class="admonition tip">
+<p class="admonition-title">Why export?</p>
+<p>Exporting makes your join permanent and faster to work with. The joined layer is now a single file you can share or reuse without worrying about the original CSV.</p>
+</div>
+<h3 id="activity-4-create-derived-indicators-with-field-calculator">Activity 4: Create derived indicators with Field Calculator<a class="headerlink" href="#activity-4-create-derived-indicators-with-field-calculator" title="Permanent link">&para;</a></h3>
+<p>Raw index scores are useful, but you might want to create normalized rates, categories, or other calculations.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>Open the attribute table of your exported layer (from Activity 3)</li>
+<li>Open the Field Calculator (calculator icon in toolbar or Ctrl+I)</li>
+<li><strong>Example 1: Normalize by area</strong></li>
+<li>Create output field: <code>pop_density</code></li>
+<li>Output field type: Decimal (double)</li>
+<li>Expression: <code>"population" / ("area_sqkm")</code></li>
+<li>Click OK</li>
+<li><strong>Example 2: Categorize by decile</strong></li>
+<li>Create output field: <code>disadvantage_category</code></li>
+<li>Output field type: Text (string)</li>
+<li>Expression:
+     <div class="highlight"><pre><span></span><code>CASE
+  WHEN &quot;IRSD_decile&quot; &lt;= 2 THEN &#39;High disadvantage&#39;
+  WHEN &quot;IRSD_decile&quot; &lt;= 5 THEN &#39;Moderate disadvantage&#39;
+  WHEN &quot;IRSD_decile&quot; &lt;= 8 THEN &#39;Low disadvantage&#39;
+  ELSE &#39;Very low disadvantage&#39;
+END
+</code></pre></div></li>
+<li>Click OK</li>
+<li><strong>Example 3: Rate per 1,000 residents</strong></li>
+<li>Create output field: <code>rate_per_1000</code></li>
+<li>Expression: <code>("count_field" / "population") * 1000</code></li>
+</ol>
+<p><strong>Challenge:</strong> Create a field that flags areas in the bottom 20% for disadvantage AND top 20% for remoteness.</p>
+<h3 id="activity-5-visualize-and-explore-spatial-patterns">Activity 5: Visualize and explore spatial patterns<a class="headerlink" href="#activity-5-visualize-and-explore-spatial-patterns" title="Permanent link">&para;</a></h3>
+<p>Now that your data is joined, let's map it to see patterns.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>Apply graduated symbology to your disadvantage index:</li>
+<li>Layer Properties → Symbology → Graduated</li>
+<li>Value: <code>IRSD_score</code> (or your disadvantage indicator)</li>
+<li>Method: Natural Breaks (Jenks)</li>
+<li>Classes: 5</li>
+<li>Color ramp: choose a diverging or sequential palette</li>
+<li>Click OK</li>
+<li>Explore the map:</li>
+<li>Where are the most disadvantaged areas?</li>
+<li>Do you see spatial clusters or random distribution?</li>
+<li>Are patterns related to urban/rural divides?</li>
+<li>Try different classification methods (Quantile, Equal Interval)—how does the story change?</li>
+<li>Use the Identify tool to click on specific areas and read their values</li>
+</ol>
+<h3 id="activity-6-aggregate-and-summarize-by-geography">Activity 6: Aggregate and summarize by geography<a class="headerlink" href="#activity-6-aggregate-and-summarize-by-geography" title="Permanent link">&para;</a></h3>
+<p>One of the most powerful GIS operations is aggregating data from one geographic level to another. You might count points per polygon, sum values when combining areas, or roll up detailed data to a larger region.</p>
+<p><strong>Key tools:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>What it does</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Count Points in Polygon</strong></td>
+<td>Count features in each area</td>
+<td>Schools per LGA</td>
+</tr>
+<tr>
+<td><strong>Join attributes by location (summary)</strong></td>
+<td>Summarize any statistic spatially</td>
+<td>Sum population, mean income</td>
+</tr>
+<tr>
+<td><strong>Dissolve</strong></td>
+<td>Merge polygons + aggregate attributes</td>
+<td>Combine SA2s into SA3s with totals</td>
+</tr>
+</tbody>
+</table>
+<h4 id="part-a-count-points-in-polygons">Part A: Count points in polygons<a class="headerlink" href="#part-a-count-points-in-polygons" title="Permanent link">&para;</a></h4>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>Load a point layer (e.g., schools, health facilities, or cities from Week 2)</li>
+<li>Run the count tool:</li>
+<li><code>Vector ▶ Analysis Tools ▶ Count Points in Polygon</code></li>
+<li><strong>Polygons:</strong> your SA2 or LGA layer</li>
+<li><strong>Points:</strong> your point layer (e.g., schools)</li>
+<li><strong>Count field name:</strong> <code>facility_count</code></li>
+<li><strong>Output:</strong> save to <code>data/processed/week03/sa2_facility_count.gpkg</code></li>
+<li>Open the attribute table—each polygon now has a count field</li>
+<li>Style by the count field using graduated symbology</li>
+<li>Interpret: Which areas have the most/fewest facilities? Does this relate to population or disadvantage?</li>
+</ol>
+<h4 id="part-b-summarize-with-spatial-join">Part B: Summarize with spatial join<a class="headerlink" href="#part-b-summarize-with-spatial-join" title="Permanent link">&para;</a></h4>
+<p><strong>Steps:</strong></p>
+<ol>
+<li>Open the Processing Toolbox (<code>Processing ▶ Toolbox</code>)</li>
+<li>Search for "Join attributes by location (summary)"</li>
+<li>Configure:</li>
+<li><strong>Join to features in:</strong> your SA2 layer</li>
+<li><strong>By comparing to:</strong> your point layer</li>
+<li><strong>Geometric predicate:</strong> Intersects (or Contains)</li>
+<li><strong>Fields to summarise:</strong> select relevant fields (e.g., capacity, size)</li>
+<li><strong>Summaries to calculate:</strong> Count, Sum, Mean (select what makes sense)</li>
+<li><strong>Output:</strong> save to <code>data/processed/week03/sa2_with_summary.gpkg</code></li>
+<li>This is more flexible than Count Points—you can calculate multiple statistics at once</li>
+</ol>
+<h4 id="part-c-aggregate-to-roll-up-boundaries">Part C: Aggregate to roll up boundaries<a class="headerlink" href="#part-c-aggregate-to-roll-up-boundaries" title="Permanent link">&para;</a></h4>
+<p>Sometimes you need to roll up smaller areas into larger ones while calculating summary statistics. Let's start with a simple example using your Week 1 data, then apply it to boundaries.</p>
+<p><strong>Warm-up: Population by continent</strong></p>
+<p>Using your Natural Earth countries layer from Week 1:</p>
+<ol>
+<li>Open the Processing Toolbox (<code>Processing ▶ Toolbox</code>)</li>
+<li>Search for <strong>Aggregate</strong> (under Vector geometry)</li>
+<li>Configure:</li>
+<li><strong>Input layer:</strong> <code>ne_110m_admin_0_countries</code> (your countries layer)</li>
+<li><strong>Group by expression:</strong> <code>"CONTINENT"</code></li>
+<li><strong>Aggregates:</strong> Click <strong>...</strong> to configure:<ul>
+<li><code>CONTINENT</code> → First value</li>
+<li><code>POP_EST</code> → Sum</li>
+<li><code>GDP_MD</code> → Sum</li>
+<li><code>NAME</code> → Count (gives number of countries)</li>
+</ul>
+</li>
+<li><strong>Output:</strong> save to <code>data/processed/week03/continents_aggregated.gpkg</code></li>
+<li>Click <strong>Run</strong></li>
+<li>Open the result—you now have <strong>7 polygons</strong> (one per continent) with:</li>
+<li>Total population per continent</li>
+<li>Total GDP per continent</li>
+<li>Count of countries per continent</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">What just happened?</p>
+<p>You transformed ~177 country polygons into 7 continent polygons, with summarized statistics. This is the power of spatial aggregation—rolling up detailed data to answer bigger questions.</p>
+</div>
+<p><strong>Now apply to boundaries: SA2 → SA3</strong></p>
+<p>The same technique works for statistical boundaries:</p>
+<ol>
+<li><strong>Input layer:</strong> your SA2 layer (with joined SEIFA data)</li>
+<li><strong>Group by expression:</strong> <code>"SA3_CODE21"</code> (or <code>"LGA_CODE"</code> for LGA-level)</li>
+<li><strong>Aggregates:</strong></li>
+<li><code>SA3_NAME21</code> → First value (keeps one name per group)</li>
+<li><code>population</code> → Sum</li>
+<li><code>IRSD_score</code> → Mean</li>
+<li><code>AREASQKM</code> → Sum</li>
+<li><strong>Output:</strong> save to <code>data/processed/week03/sa3_aggregated.gpkg</code></li>
+<li>Compare the SA2 map to the SA3 map—what patterns become visible or invisible?</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Aggregate vs Dissolve</p>
+<p><strong>Aggregate</strong> (Processing Toolbox) is better for calculating statistics—it has a clear interface for choosing sum, mean, count, etc. <strong>Dissolve</strong> (Vector menu) is simpler but hides the statistics options. Use Aggregate when you need to summarize numeric fields.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Aggregation changes the story</p>
+<p>When you aggregate SA2 to SA3, you lose local variation. A disadvantaged pocket within an affluent SA3 becomes invisible. Always consider what level of detail your analysis question requires.</p>
+</div>
+<p><strong>Challenge:</strong> Calculate a facility-to-population ratio:</p>
+<ol>
+<li>Use Field Calculator on your count output</li>
+<li>Expression: <code>("facility_count" / "population") * 10000</code></li>
+<li>This gives facilities per 10,000 people—a fairer comparison than raw counts</li>
+</ol>
+<h3 id="activity-7-select-and-filter-by-attributes-or-location">Activity 7: Select and filter by attributes or location<a class="headerlink" href="#activity-7-select-and-filter-by-attributes-or-location" title="Permanent link">&para;</a></h3>
+<p>You'll often want to focus on a subset of areas that meet certain criteria.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><strong>Select by attribute:</strong></li>
+<li>Open attribute table → <strong>Select features using an expression</strong> (yellow button)</li>
+<li>Expression: <code>"IRSD_decile" &lt;= 2</code> (select most disadvantaged)</li>
+<li>Click Select Features</li>
+<li>Your map highlights selected areas in yellow</li>
+<li><strong>Select by location:</strong></li>
+<li><code>Vector ▶ Research Tools ▶ Select by Location...</code></li>
+<li>Select features from: SA2 layer</li>
+<li>That intersect: a custom boundary (e.g., Greater Sydney)</li>
+<li>Click Run</li>
+<li><strong>Save selection:</strong></li>
+<li>Right-click layer → <strong>Export</strong> → <strong>Save Selected Features As...</strong></li>
+<li>Save to <code>data/processed/week03/high_disadvantage_metro.gpkg</code></li>
+<li>Clear selection: Click <strong>Deselect All</strong> button or press Ctrl+Shift+A</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Combining criteria</p>
+<p>You can combine multiple criteria: <code>"IRSD_decile" &lt;= 2 AND "state" = 'NSW'</code> selects only disadvantaged areas in NSW.</p>
+</div>
+<h3 id="activity-8-quality-assurance-and-troubleshooting">Activity 8: Quality assurance and troubleshooting<a class="headerlink" href="#activity-8-quality-assurance-and-troubleshooting" title="Permanent link">&para;</a></h3>
+<p>Joins can fail silently. Always verify your results.</p>
+<p><strong>Steps:</strong></p>
+<ol>
+<li><strong>Check record counts:</strong></li>
+<li>Original SA2 layer: _____ features</li>
+<li>SEIFA CSV: _____ rows</li>
+<li>After join: _____ features (should match SA2 count)</li>
+<li><strong>Identify unmatched records:</strong></li>
+<li>Open attribute table</li>
+<li>Sort by a SEIFA field (e.g., <code>IRSD_score</code>)</li>
+<li>Look for NULL values—these are SA2 areas that didn't match</li>
+<li><strong>Common join issues:</strong></li>
+<li><strong>Mismatched codes:</strong> Check for leading zeros, extra spaces, different vintages</li>
+<li><strong>Wrong field type:</strong> Ensure both join fields are text/string</li>
+<li><strong>Different data years:</strong> 2021 boundaries don't match 2016 codes</li>
+<li><strong>Document your work:</strong></li>
+<li>Note which SA2 areas had no match (if any)</li>
+<li>Record assumptions (e.g., "Using 2021 boundaries with 2021 SEIFA")</li>
+<li>Save your notes in your Week 3 reflection</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Boundary correspondence files</p>
+<p>When boundaries change between census years, use correspondence files from ABS (Australia) or Census Bureau (US) to map old codes to new codes.</p>
+</div>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="join-shows-0-matched-features">Join shows 0 matched features<a class="headerlink" href="#join-shows-0-matched-features" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Field names don't match:</strong> Check exact spelling, case, and spaces in both layers</li>
+<li><strong>Data types differ:</strong> One field is text, the other is number. Convert using Field Calculator: <code>to_string("numeric_field")</code> or <code>to_int("text_field")</code></li>
+<li><strong>Leading zeros stripped:</strong> Excel often removes leading zeros from codes. Re-import CSV with the field formatted as text</li>
+<li><strong>Different vintages:</strong> 2016 census codes won't match 2021 boundary codes exactly</li>
+</ul>
+<h3 id="join-shows-partial-matches-some-null-values">Join shows partial matches (some NULL values)<a class="headerlink" href="#join-shows-partial-matches-some-null-values" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Spelling variations:</strong> "Sydney (City)" vs "City of Sydney" won't match</li>
+<li><strong>Extra spaces:</strong> Use <code>trim("field_name")</code> in Field Calculator to remove</li>
+<li><strong>Missing records:</strong> Some areas may genuinely have no data (e.g., unpopulated regions)</li>
+<li><strong>Check unmatched:</strong> After joining, filter for NULL values to see which records failed</li>
+</ul>
+<h3 id="joined-fields-disappear-after-saving">Joined fields disappear after saving<a class="headerlink" href="#joined-fields-disappear-after-saving" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Temporary join:</strong> By default, joins are stored in the project, not the layer. To make permanent:</li>
+<li>Right-click the joined layer → <strong>Export</strong> → <strong>Save Features As...</strong></li>
+<li>Save as GeoPackage to <code>data/processed/week03/</code></li>
+<li>Add the new permanent layer to your project</li>
+</ul>
+<h3 id="field-calculator-expression-errors">Field Calculator expression errors<a class="headerlink" href="#field-calculator-expression-errors" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Syntax error:</strong> Check quotes—field names use double quotes <code>"field"</code>, text values use single quotes <code>'value'</code></li>
+<li><strong>Division by zero:</strong> Wrap calculations in <code>CASE WHEN "population" &gt; 0 THEN ... ELSE 0 END</code></li>
+<li><strong>NULL values:</strong> Use <code>coalesce("field", 0)</code> to replace NULL with zero</li>
+</ul>
+<h3 id="choropleth-map-looks-wrong-after-join">Choropleth map looks wrong after join<a class="headerlink" href="#choropleth-map-looks-wrong-after-join" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Wrong field:</strong> Make sure you're mapping the joined field, not the original</li>
+<li><strong>NULL values showing:</strong> Set a default color for NULL/no data values in Symbology</li>
+<li><strong>Classification method:</strong> Try different methods (Quantile vs Natural Breaks) to see patterns</li>
+</ul>
+<h3 id="attribute-table-shows-field-names-like-layer_field">Attribute table shows field names like "layer_field"<a class="headerlink" href="#attribute-table-shows-field-names-like-layer_field" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Join prefix:</strong> QGIS adds the source layer name as a prefix. You can rename after exporting to a permanent layer</li>
+<li><strong>Too many fields:</strong> After joining, export only the fields you need to keep the table clean</li>
+</ul>
+<h2 id="your-research-findings">Your Research Findings<a class="headerlink" href="#your-research-findings" title="Permanent link">&para;</a></h2>
+<p>After completing this week's analysis, summarize your findings:</p>
+<h3 id="research-question_1">Research Question<a class="headerlink" href="#research-question_1" title="Permanent link">&para;</a></h3>
+<p>"Which areas have the highest socioeconomic disadvantage, and how does this pattern change when we aggregate to different geographic scales?"</p>
+<h3 id="key-findings">Key Findings<a class="headerlink" href="#key-findings" title="Permanent link">&para;</a></h3>
+<p>Complete these based on your analysis:</p>
+<ol>
+<li>The SA2s with highest disadvantage (bottom decile) are: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>_____</li>
+<li>When aggregated to SA3 level, the most disadvantaged region is: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>_____</li>
+<li>I observed ______ (clustering / scattered distribution) of disadvantaged areas.</li>
+<li>The relationship between disadvantage and [urban/rural location, population density, or another variable] is: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>_____</li>
+</ol>
+<h3 id="methodology">Methodology<a class="headerlink" href="#methodology" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Data sources:</strong> ABS SA2 boundaries (ASGS 2021), SEIFA IRSD scores</li>
+<li><strong>Key parameters:</strong> Classification method: <strong><em>_</em>, Number of classes: </strong>___</li>
+<li><strong>Tools used:</strong> Attribute Join, Field Calculator, Aggregate/Dissolve</li>
+</ul>
+<h3 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h3>
+<p>This analysis does NOT capture:</p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> Change over time (single census snapshot only)</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Variation within SA2 areas (could hide local pockets of disadvantage)</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Why areas are disadvantaged (correlation vs causation)</li>
+<li class="task-list-item"><input type="checkbox" disabled/> How disadvantage relates to access to services</li>
+</ul>
+<h3 id="qgis-python-comparison">QGIS ↔ Python comparison<a class="headerlink" href="#qgis-python-comparison" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>QGIS (Week 3)</th>
+<th>Python (Week 8)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Layer Properties &gt; Joins</td>
+<td><code>geopandas.merge()</code></td>
+</tr>
+<tr>
+<td>Field Calculator</td>
+<td><code>.assign()</code> with expressions</td>
+</tr>
+<tr>
+<td>Dissolve / Aggregate tool</td>
+<td><code>.dissolve(by='column')</code></td>
+</tr>
+<tr>
+<td>Manual symbology</td>
+<td><code>geopandas.plot()</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="if-this-were-your-capstone">If this were your capstone<a class="headerlink" href="#if-this-were-your-capstone" title="Permanent link">&para;</a></h3>
+<ul>
+<li>How would you adapt this for your study area?</li>
+<li>What additional data would strengthen the analysis?</li>
+<li>What research question would you ask?</li>
+</ul>
+<h2 id="support-materials">Support materials<a class="headerlink" href="#support-materials" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Slides: <a href="../../slides/">Week 03 lecture deck</a></li>
+<li>Reading: <a href="../../readings/week03-admin-boundaries/">Understanding administrative boundaries</a></li>
+<li>Lecture notes: <a href="../../lectures/week03-boundaries/">Boundary Systems &amp; Data Joins</a></li>
+<li>Python equivalent: <a href="../week08/">Week 8 · Python Vector Workflows</a> (automates this analysis)</li>
+<li>Dataset checklist: <a href="../../reference/data-download-checklist/">Week 3 items</a></li>
+<li>Reference: ABS correspondence files for boundary changes (link in lecture notes)</li>
+</ul>
+<h2 id="reflect">Reflect<a class="headerlink" href="#reflect" title="Permanent link">&para;</a></h2>
+<p>Take 10-15 minutes to answer these questions in your <a href="../../reference/reflections/#week-3--vector-analysis--joins">Week 3 reflection</a>:</p>
+<ul>
+<li>How do boundary choices affect the story your data tells? Compare what you see at SA2 vs LGA level.</li>
+<li>When you dissolved SA2 to a larger geography, what patterns became visible? What local detail was lost?</li>
+<li>What happens when boundaries change between census releases? How would you handle this in a longitudinal study?</li>
+<li>Did your join work perfectly, or did you have unmatched records? What might explain the mismatches?</li>
+<li>What spatial patterns did you observe in the socio-economic data? Were you surprised by anything?</li>
+<li>Which boundary level (SA2, LGA, postcode, etc.) makes sense for your emerging capstone ideas? Why?</li>
+</ul>
+<div class="admonition tip">
+<p class="admonition-title">Document your troubleshooting</p>
+<p>If you encountered join errors or data issues, write down what went wrong and how you solved it. These notes are incredibly valuable for future projects—and for helping classmates!</p>
+</div>
+<h2 id="what-youll-submit">What you'll submit<a class="headerlink" href="#what-youll-submit" title="Permanent link">&para;</a></h2>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> QGIS project file (<code>projects/week03_boundaries_joins.qgz</code>) with completed joins</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Joined boundary layer: <code>data/processed/week03/sa2_with_seifa.gpkg</code> (or equivalent)</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Aggregated output: <code>data/processed/week03/sa2_facility_count.gpkg</code> or dissolved layer</li>
+<li class="task-list-item"><input type="checkbox" disabled/> At least one derived indicator created with Field Calculator</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Exported map showing spatial patterns in socio-economic data</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Your Week 3 reflection entry</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Map submission requirements</p>
+<p>Your exported map <strong>must</strong> include: <strong>Title</strong>, <strong>Legend</strong>, <strong>Scale bar</strong>, and <strong>North arrow</strong>. Maps missing any of these elements will not be accepted. See <a href="../../reference/design-rubric/">Map Design Principles</a>.</p>
+</div>
+<h2 id="coming-up-next-week">Coming up next week<a class="headerlink" href="#coming-up-next-week" title="Permanent link">&para;</a></h2>
+<p>Week 4 shifts from vectors to rasters with a <strong>flood risk assessment</strong> of the Hawkesbury-Nepean region. You'll work with digital elevation models (DEMs) to calculate slope, identify low-lying areas, and classify flood risk zones. This builds on your Week 3 boundary work—you'll use zonal statistics to summarize flood risk by SA2, combining terrain analysis with the administrative boundaries you now understand.</p>
+<div class="admonition tip">
+<p class="admonition-title">Week 4 ↔ Week 9 connection</p>
+<p>In Week 4, you'll do the flood risk analysis manually in QGIS. In Week 9, you'll automate the same analysis in Python—the same parallel as Week 3 ↔ Week 8 for vector analysis.</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+</div>
+
+<script>
+const PASSWORD_HASH = '6a27409fe1a89e91583ec6da7b091431d9d3fb070ad0c699dc152699f53f6c7d';
+
+async function hashPassword(pwd) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(pwd);
+  const hash = await crypto.subtle.digest('SHA-256', data);
+  return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+async function checkPassword() {
+  const input = document.getElementById('password-input').value;
+  const hash = await hashPassword(input);
+
+  if (hash === PASSWORD_HASH) {
+    localStorage.setItem('course-auth', 'true');
+    showContent();
+  } else {
+    document.getElementById('error-msg').style.display = 'block';
+    document.getElementById('password-input').value = '';
+    document.getElementById('password-input').focus();
+  }
+}
+
+function showContent() {
+  document.getElementById('password-overlay').style.display = 'none';
+  document.getElementById('main-content').style.display = 'block';
+}
+
+// Check if already authenticated
+if (localStorage.getItem('course-auth') === 'true') {
+  showContent();
+}
+
+// Enter key support
+document.getElementById('password-input').addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') checkPassword();
+});
+</script>
+
+<style>
+#password-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #546e7a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+#main-content {
+  display: none;
+}
+
+.password-box {
+  background: white;
+  padding: 3rem;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 500px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.password-box h2 {
+  margin-top: 0;
+  color: #546e7a;
+}
+
+.author {
+  color: #546e7a;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.notice {
+  background: #f5f5f5;
+  padding: 1rem 1.25rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  text-align: left;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.notice p {
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+.notice a {
+  color: #546e7a;
+}
+
+.login-section {
+  border-top: 1px solid #eee;
+  padding-top: 1.5rem;
+}
+
+.login-section p {
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.password-box input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.password-box input:focus {
+  outline: none;
+  border-color: #546e7a;
+}
+
+.password-box button {
+  background: #546e7a;
+  color: white;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+
+.password-box button:hover {
+  background: #455a64;
+}
+
+#error-msg {
+  color: #d32f2f;
+  display: none;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+</style>
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/" target="_blank" rel="noopener" title="Source repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.expand", "navigation.sections", "navigation.top", "navigation.tabs", "toc.follow", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/external-links.js"></script>
+      
+    
+  </body>
+</html>

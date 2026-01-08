@@ -1,0 +1,4626 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="QGIS-first, Python-powered GIS course">
+      
+      
+        <meta name="author" content="Claire Boulange (and contributors)">
+      
+      
+      
+        <link rel="prev" href="../notebooks/">
+      
+      
+        <link rel="next" href="../color-palettes/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Layout template - Introduction to GIS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/custom.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#layout-template-guide" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Introduction to GIS" class="md-header__button md-logo" aria-label="Introduction to GIS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Introduction to GIS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Layout template
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="orange"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="orange"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  
+  Welcome
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../slides/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Slides
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../onboarding/01-install-qgis/" class="md-tabs__link">
+          
+  
+  
+  Getting Ready
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../readings/" class="md-tabs__link">
+          
+  
+  
+  Background Reading
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../lectures/week01-fundamentals/" class="md-tabs__link">
+          
+  
+  
+  Lectures & Theory
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../weeks/week01/" class="md-tabs__link">
+          
+  
+  
+  Weekly Labs
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../data-inventory/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../roadmap/" class="md-tabs__link">
+          
+  
+  
+  Appendices
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Introduction to GIS" class="md-nav__button md-logo" aria-label="Introduction to GIS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Introduction to GIS
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Welcome
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Welcome
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guide/how-to-use/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    How to use this course
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../slides/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Slides
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Ready
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Ready
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/01-install-qgis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Install QGIS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/02-workspace-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Set up your workspace
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/03-download-data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Download datasets
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../onboarding/04-python-setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Python setup (Week 7+)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Background Reading
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Background Reading
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../readings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../readings/week01-what-is-gis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. What is GIS?
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../readings/week01-critical-gis-lens/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Seeing Assumptions in GIS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../readings/using-ai-effectively/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Using AI as a Learning Partner
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../readings/week01-capstone-introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Your Capstone Project
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../readings/understanding-crs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Understanding CRS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../readings/week03-admin-boundaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Administrative Boundaries
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../readings/week04-raster-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Raster Data Basics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../readings/week05-ethics-in-mapping/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Ethics in Spatial Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../readings/week07-python-for-gis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Python for GIS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../readings/spatial-statistics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Spatial Statistics & Regression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lectures & Theory
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Lectures & Theory
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lectures/week01-fundamentals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 1 · Foundations of GIS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lectures/week02-cartography/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 2 · Cartographic Conventions & Colour
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lectures/week03-boundaries/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 3 · Boundary Systems & Data Joins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lectures/week04-raster-theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 4 · Elevation & Surface Modelling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lectures/week05-crime-ethics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 5 · Ethics of Crime Mapping
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lectures/week06-health-theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 6 · Health Equity & Accessibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lectures/week07-reproducibility/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 7 · Reproducibility & Environments
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lectures/week08-vector-theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 8 · Vector Automation Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lectures/week09-remote-sensing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 9 · Remote Sensing Change Detection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lectures/week10-network-theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 10 · Network Theory for Mobility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lectures/week11-storytelling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 11 · Narrative Map Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lectures/week12-capstone-theory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 12 · Capstone Synthesis & Reflection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Weekly Labs
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Weekly Labs
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../weeks/week01/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 1 · QGIS Orientation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../weeks/week02/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 2 · Symbology & Layouts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../weeks/week03/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 3 · Mapping Disadvantage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../weeks/week04/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 4 · Flood Risk Assessment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../weeks/week05/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 5 · Crime Hotspot Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../weeks/week06/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 6 · Healthcare Accessibility
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../weeks/week07/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 7 · Bridge to Python
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../weeks/week08/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 8 · Python Vector Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../weeks/week09/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 9 · Flood Risk (Python)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../weeks/week10/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 10 · Transport Networks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../weeks/week11/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 11 · Design & Storytelling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../weeks/week12/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Week 12 · Capstone
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Data
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-inventory/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dataset inventory
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-download-checklist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data download checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    QGIS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    QGIS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../qgis-quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart cheat sheet
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../toolbar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Toolbar reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Python
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../notebooks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notebooks (Weeks 7-10)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7_4" id="__nav_7_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Map Design
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Map Design
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Layout template
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Layout template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-layout-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is a layout template?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-1-creating-a-new-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 1: Creating a new layout
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 1: Creating a new layout">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-open-the-layout-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Open the Layout Manager
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-set-page-size-and-orientation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Set page size and orientation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2-setting-up-guides-and-margins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 2: Setting up guides and margins
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 2: Setting up guides and margins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-3-add-margin-guides-manually" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Add margin guides manually
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-add-column-guides-optional-but-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Add column guides (optional but recommended)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-3-adding-layout-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 3: Adding layout elements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 3: Adding layout elements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-5-add-the-main-map-frame" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Add the main map frame
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-add-a-legend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Add a legend
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-add-a-scale-bar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7: Add a scale bar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-8-add-a-north-arrow-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8: Add a north arrow (required)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-9-add-title-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 9: Add title text
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-10-add-creditsdata-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 10: Add credits/data sources
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-4-saving-as-a-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 4: Saving as a template
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 4: Saving as a template">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-11-save-the-template-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 11: Save the template file
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-5-using-your-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 5: Using your template
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 5: Using your template">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loading-a-template-for-a-new-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loading a template for a new map
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-the-map-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Updating the map content
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-text-placeholders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Updating text placeholders
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-the-legend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Updating the legend
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-6-template-variations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 6: Template variations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 6: Template variations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#portrait-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Portrait template
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparison template
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dashboard-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dashboard template
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference-layout-toolbar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick reference: Layout toolbar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-problems-and-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common problems and fixes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#export-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Export settings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Export settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-print-pdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For print (PDF)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-digitalweb-png" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For digital/web (PNG)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-presentations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For presentations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-template-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your template library
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../color-palettes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Color palettes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../map-titles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Map titles guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-rubric/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Design rubric
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../accessibility-checklist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accessibility checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_5" id="__nav_7_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capstone
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Capstone
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project-checklist/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project checklist
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone-examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Capstone examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Report template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../capstone-presentation-template/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Presentation template
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_6" id="__nav_7_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Other
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Other
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../reflections/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reflection prompts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Appendices
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Appendices
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../roadmap/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Course roadmap
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../continuing-education/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Continuing your GIS journey
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../licensing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Licensing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-a-layout-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is a layout template?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-1-creating-a-new-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 1: Creating a new layout
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 1: Creating a new layout">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-open-the-layout-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Open the Layout Manager
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-set-page-size-and-orientation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Set page size and orientation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2-setting-up-guides-and-margins" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 2: Setting up guides and margins
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 2: Setting up guides and margins">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-3-add-margin-guides-manually" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Add margin guides manually
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-add-column-guides-optional-but-recommended" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Add column guides (optional but recommended)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-3-adding-layout-elements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 3: Adding layout elements
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 3: Adding layout elements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-5-add-the-main-map-frame" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Add the main map frame
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-6-add-a-legend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Add a legend
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-7-add-a-scale-bar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7: Add a scale bar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-8-add-a-north-arrow-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8: Add a north arrow (required)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-9-add-title-text" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 9: Add title text
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-10-add-creditsdata-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 10: Add credits/data sources
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-4-saving-as-a-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 4: Saving as a template
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 4: Saving as a template">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-11-save-the-template-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 11: Save the template file
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-5-using-your-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 5: Using your template
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 5: Using your template">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#loading-a-template-for-a-new-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Loading a template for a new map
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-the-map-content" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Updating the map content
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-text-placeholders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Updating text placeholders
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-the-legend" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Updating the legend
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-6-template-variations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 6: Template variations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 6: Template variations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#portrait-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Portrait template
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparison-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparison template
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dashboard-template" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dashboard template
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-reference-layout-toolbar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick reference: Layout toolbar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-problems-and-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common problems and fixes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#export-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Export settings
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Export settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-print-pdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For print (PDF)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-digitalweb-png" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For digital/web (PNG)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-presentations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For presentations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-template-library" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Your template library
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Design checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#further-reading" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Further reading
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+<div id="password-overlay">
+  <div class="password-box">
+    <h2>Introduction to GIS</h2>
+    <p class="author">Developed by <strong>Dr Claire Boulange</strong></p>
+
+    <div class="notice">
+      <p>This course material is protected by copyright. Unauthorized copying, distribution, or reproduction of this content is strictly prohibited.</p>
+      <p>I'm an independent educator currently developing this curriculum. Universities or organizations interested in adopting this course or exploring teaching partnerships are welcome to <a href="mailto:claire.boulange@gmail.com">get in touch</a>.</p>
+    </div>
+
+    <div class="login-section">
+      <p>Enter the password provided by your facilitator</p>
+      <input type="password" id="password-input" placeholder="Password" autofocus>
+      <button onclick="checkPassword()">Enter</button>
+      <p id="error-msg">Incorrect password</p>
+    </div>
+  </div>
+</div>
+
+<div id="main-content">
+  
+                  
+
+
+
+<h1 id="layout-template-guide">Layout Template Guide<a class="headerlink" href="#layout-template-guide" title="Permanent link">&para;</a></h1>
+<p>This guide teaches you to create professional map layouts in QGIS and save them as reusable templates. You'll learn the exact steps to build a layout once, then use it for every map you make.</p>
+<hr />
+<h2 id="what-is-a-layout-template">What is a layout template?<a class="headerlink" href="#what-is-a-layout-template" title="Permanent link">&para;</a></h2>
+<p>A <strong>layout template</strong> (<code>.qpt</code> file) saves your page setup, placeholders, and design elements—but not your map data. Think of it like a magazine template: the grid, fonts, and positions are set, but new content goes in each issue.</p>
+<p><strong>Benefits of templates:</strong>
+- Consistent look across all your maps
+- Faster production (no rebuilding from scratch)
+- Professional appearance
+- Forces good design habits</p>
+<hr />
+<h2 id="part-1-creating-a-new-layout">Part 1: Creating a new layout<a class="headerlink" href="#part-1-creating-a-new-layout" title="Permanent link">&para;</a></h2>
+<h3 id="step-1-open-the-layout-manager">Step 1: Open the Layout Manager<a class="headerlink" href="#step-1-open-the-layout-manager" title="Permanent link">&para;</a></h3>
+<ol>
+<li>In QGIS, go to <strong>Project → Layout Manager</strong></li>
+<li>Click <strong>Create...</strong> (or the blank page icon)</li>
+<li>Name your layout descriptively: <code>A3_Landscape_Template</code></li>
+<li>Click <strong>OK</strong></li>
+</ol>
+<p>A new window opens—this is the <strong>Print Layout</strong> editor.</p>
+<h3 id="step-2-set-page-size-and-orientation">Step 2: Set page size and orientation<a class="headerlink" href="#step-2-set-page-size-and-orientation" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Right-click on the blank page → <strong>Page Properties</strong></li>
+<li>Or: <strong>Layout → Page Setup</strong></li>
+<li>In the <strong>Item Properties</strong> panel (right side), set:</li>
+<li><strong>Size:</strong> A3 (or A4 for smaller prints)</li>
+<li><strong>Orientation:</strong> Landscape</li>
+<li>Your page dimensions appear:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Paper Size</th>
+<th>Width</th>
+<th>Height</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A3 landscape</strong></td>
+<td>420 mm</td>
+<td>297 mm</td>
+</tr>
+<tr>
+<td><strong>A4 landscape</strong></td>
+<td>297 mm</td>
+<td>210 mm</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="part-2-setting-up-guides-and-margins">Part 2: Setting up guides and margins<a class="headerlink" href="#part-2-setting-up-guides-and-margins" title="Permanent link">&para;</a></h2>
+<p>Guides create invisible alignment lines. Professional designers never place elements randomly—they snap to guides.</p>
+<h3 id="step-3-add-margin-guides-manually">Step 3: Add margin guides manually<a class="headerlink" href="#step-3-add-margin-guides-manually" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Go to <strong>View → Manage Guides</strong></li>
+<li>You'll see two tabs: <strong>Horizontal Guides</strong> and <strong>Vertical Guides</strong></li>
+</ol>
+<p><strong>For A3 Landscape (420 × 297 mm) with 15mm margins:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Guide Type</th>
+<th>Click + and enter</th>
+<th>What it creates</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Horizontal</td>
+<td><code>15</code></td>
+<td>Top margin</td>
+</tr>
+<tr>
+<td>Horizontal</td>
+<td><code>277</code></td>
+<td>Bottom margin (297 − 20 for credits)</td>
+</tr>
+<tr>
+<td>Vertical</td>
+<td><code>15</code></td>
+<td>Left margin</td>
+</tr>
+<tr>
+<td>Vertical</td>
+<td><code>405</code></td>
+<td>Right margin (420 − 15)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Step-by-step:</strong></p>
+<ol>
+<li>In the Guides panel, make sure you're on the <strong>Horizontal Guides</strong> tab</li>
+<li>Click the <strong>+</strong> button</li>
+<li>Type <code>15</code> and press <strong>Enter</strong> — this creates your top margin line</li>
+<li>Click <strong>+</strong> again, type <code>277</code> and press <strong>Enter</strong> — bottom margin line</li>
+<li>Switch to the <strong>Vertical Guides</strong> tab</li>
+<li>Click <strong>+</strong>, type <code>15</code> — left margin</li>
+<li>Click <strong>+</strong>, type <code>405</code> — right margin</li>
+<li>Close the Guides panel</li>
+<li>Enable <strong>View → Show Guides</strong> and <strong>View → Snap to Guides</strong></li>
+</ol>
+<p>You'll see dashed lines marking your safe area.</p>
+<p><strong>For A4 Landscape (297 × 210 mm):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Guide Type</th>
+<th>Position</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Horizontal</td>
+<td>15 mm (top)</td>
+</tr>
+<tr>
+<td>Horizontal</td>
+<td>190 mm (bottom, with 20mm for credits)</td>
+</tr>
+<tr>
+<td>Vertical</td>
+<td>15 mm (left)</td>
+</tr>
+<tr>
+<td>Vertical</td>
+<td>282 mm (right)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="step-4-add-column-guides-optional-but-recommended">Step 4: Add column guides (optional but recommended)<a class="headerlink" href="#step-4-add-column-guides-optional-but-recommended" title="Permanent link">&para;</a></h3>
+<p>For a simple 3-zone layout (map + legend + margin):</p>
+<ol>
+<li>Add a vertical guide at <strong>280 mm</strong> — this separates the map area from the legend area</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Zone</th>
+<th>From</th>
+<th>To</th>
+<th>Width</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Left margin</td>
+<td>0</td>
+<td>15 mm</td>
+<td>15 mm</td>
+</tr>
+<tr>
+<td>Map area</td>
+<td>15 mm</td>
+<td>280 mm</td>
+<td>265 mm</td>
+</tr>
+<tr>
+<td>Legend area</td>
+<td>280 mm</td>
+<td>405 mm</td>
+<td>125 mm</td>
+</tr>
+<tr>
+<td>Right margin</td>
+<td>405 mm</td>
+<td>420 mm</td>
+<td>15 mm</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="part-3-adding-layout-elements">Part 3: Adding layout elements<a class="headerlink" href="#part-3-adding-layout-elements" title="Permanent link">&para;</a></h2>
+<p>Now add the components that appear on every map.</p>
+<h3 id="step-5-add-the-main-map-frame">Step 5: Add the main map frame<a class="headerlink" href="#step-5-add-the-main-map-frame" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Click <strong>Add Item → Add Map</strong> (or the map icon in toolbar)</li>
+<li>Draw a rectangle in the main area of your layout</li>
+<li>Position it precisely in <strong>Item Properties</strong>:</li>
+<li>
+<p><strong>Position and size:</strong></p>
+<ul>
+<li>X: 15 mm (left margin)</li>
+<li>Y: 15 mm (top margin)</li>
+<li>Width: 280 mm (leaves room for legend)</li>
+<li>Height: 247 mm (accounts for top/bottom margins)</li>
+</ul>
+</li>
+<li>
+<p>Set map behaviour:</p>
+</li>
+<li>Check <strong>Lock layers</strong> if you want specific layers visible</li>
+<li>Check <strong>Lock styles</strong> to preserve symbology</li>
+<li>Leave unchecked for flexible reuse</li>
+</ol>
+<p><strong>Tip:</strong> For templates, leave the map unlocked. When you reuse the template, click <strong>Set Map Extent to Match Main Canvas</strong> to show your current project.</p>
+<h3 id="step-6-add-a-legend">Step 6: Add a legend<a class="headerlink" href="#step-6-add-a-legend" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Click <strong>Add Item → Add Legend</strong></li>
+<li>Draw a rectangle to the right of the map frame</li>
+<li>In <strong>Item Properties</strong>:</li>
+<li><strong>Position:</strong> X: 305 mm, Y: 50 mm</li>
+<li>
+<p><strong>Width:</strong> ~100 mm</p>
+</li>
+<li>
+<p>Configure legend settings:</p>
+</li>
+<li>Uncheck <strong>Auto update</strong> (gives you control)</li>
+<li><strong>Title:</strong> Leave blank or add "Legend"</li>
+<li>
+<p><strong>Fonts:</strong></p>
+<ul>
+<li>Title: 12 pt bold</li>
+<li>Subgroup: 10 pt bold</li>
+<li>Item: 9 pt regular</li>
+</ul>
+</li>
+<li>
+<p>Styling:</p>
+</li>
+<li><strong>Columns:</strong> 1 (or 2 for many items)</li>
+<li><strong>Symbol width/height:</strong> 6 mm × 4 mm</li>
+<li><strong>Spacing:</strong> Item space 2 mm</li>
+</ol>
+<h3 id="step-7-add-a-scale-bar">Step 7: Add a scale bar<a class="headerlink" href="#step-7-add-a-scale-bar" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Click <strong>Add Item → Add Scale Bar</strong></li>
+<li>Draw below or beside the map</li>
+<li>In <strong>Item Properties</strong>:</li>
+<li><strong>Style:</strong> Single Box or Double Box</li>
+<li><strong>Units:</strong> Meters or Kilometers (match your CRS)</li>
+<li><strong>Segments:</strong> Left 0, Right 4</li>
+<li><strong>Fixed width:</strong> 50 mm (or 100 mm for A3)</li>
+<li><strong>Height:</strong> 3 mm</li>
+<li>
+<p><strong>Label:</strong> Every segment</p>
+</li>
+<li>
+<p>Position: bottom-left of map frame, inside the margin</p>
+</li>
+</ol>
+<h3 id="step-8-add-a-north-arrow-required">Step 8: Add a north arrow (required)<a class="headerlink" href="#step-8-add-a-north-arrow-required" title="Permanent link">&para;</a></h3>
+<div class="admonition danger">
+<p class="admonition-title">Every map needs a north arrow</p>
+<p>A map without a north arrow is incomplete and will not be accepted for submission. Viewers must never have to guess which way is north.</p>
+</div>
+<ol>
+<li>Click <strong>Add Item → Add North Arrow</strong></li>
+<li>Draw a small box (15 × 15 mm)</li>
+<li>In <strong>Item Properties</strong>:</li>
+<li>Choose a simple SVG arrow (avoid ornate compass roses)</li>
+<li>
+<p><strong>Rotation:</strong> Sync with map (for rotated maps)</p>
+</li>
+<li>
+<p>Position: top-right or bottom-right corner of map frame</p>
+</li>
+</ol>
+<p><strong>Style tips:</strong></p>
+<ul>
+<li>Keep it simple—a clean arrow is better than an ornate compass rose</li>
+<li>Size: 10-20mm, visible but not dominant</li>
+<li>Position consistently across all your maps (top-right or bottom-right)</li>
+</ul>
+<h3 id="step-9-add-title-text">Step 9: Add title text<a class="headerlink" href="#step-9-add-title-text" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Click <strong>Add Item → Add Label</strong></li>
+<li>Draw a text box at the top of your layout</li>
+<li>Enter placeholder text: <code>[MAP TITLE]</code></li>
+<li>In <strong>Item Properties</strong>:</li>
+<li><strong>Font:</strong> 24–32 pt, bold, sans-serif</li>
+<li><strong>Horizontal alignment:</strong> Left or Center</li>
+<li>
+<p><strong>Vertical alignment:</strong> Middle</p>
+</li>
+<li>
+<p>Add a subtitle label below:</p>
+</li>
+<li><strong>Font:</strong> 14 pt, regular</li>
+<li><strong>Text:</strong> <code>[Subtitle or date]</code></li>
+</ol>
+<h3 id="step-10-add-creditsdata-sources">Step 10: Add credits/data sources<a class="headerlink" href="#step-10-add-creditsdata-sources" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Add another label in the bottom margin</li>
+<li>Enter placeholder: <code>Data: [SOURCE, YEAR] | CRS: [EPSG CODE] | Author: [NAME]</code></li>
+<li>In <strong>Item Properties</strong>:</li>
+<li><strong>Font:</strong> 8–9 pt, regular</li>
+<li><strong>Color:</strong> Dark grey (#333333)</li>
+</ol>
+<hr />
+<h2 id="part-4-saving-as-a-template">Part 4: Saving as a template<a class="headerlink" href="#part-4-saving-as-a-template" title="Permanent link">&para;</a></h2>
+<h3 id="step-11-save-the-template-file">Step 11: Save the template file<a class="headerlink" href="#step-11-save-the-template-file" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Go to <strong>Layout → Save as Template...</strong></li>
+<li>Navigate to your templates folder (create one if needed):
+   <div class="highlight"><pre><span></span><code>intro-gis/
+└── templates/
+    └── A3_landscape_standard.qpt
+</code></pre></div></li>
+<li>Name it descriptively: <code>A3_landscape_standard.qpt</code></li>
+<li>Click <strong>Save</strong></li>
+</ol>
+<p>The <code>.qpt</code> file contains:
+- Page size and orientation
+- All layout items (map frame, legend, scale bar, text boxes)
+- Positions and styling
+- Guide positions</p>
+<p>It does <strong>not</strong> contain:
+- Your actual map data
+- Layer styles
+- Project settings</p>
+<hr />
+<h2 id="part-5-using-your-template">Part 5: Using your template<a class="headerlink" href="#part-5-using-your-template" title="Permanent link">&para;</a></h2>
+<h3 id="loading-a-template-for-a-new-map">Loading a template for a new map<a class="headerlink" href="#loading-a-template-for-a-new-map" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Open your QGIS project with the map you want to export</li>
+<li>Go to <strong>Project → Layout Manager</strong></li>
+<li>Click <strong>New from Template...</strong></li>
+<li>Browse to your <code>.qpt</code> file</li>
+<li>Name the new layout: <code>Week03_Choropleth_Map</code></li>
+<li>Click <strong>OK</strong></li>
+</ol>
+<h3 id="updating-the-map-content">Updating the map content<a class="headerlink" href="#updating-the-map-content" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Click on the <strong>map frame</strong> in your layout</li>
+<li>In <strong>Item Properties</strong>, click <strong>Set Map Extent to Match Main Canvas</strong></li>
+<li>Or: <strong>Update Preview</strong> to refresh</li>
+<li>If layers changed, click <strong>Refresh</strong> in the Items panel</li>
+</ol>
+<h3 id="updating-text-placeholders">Updating text placeholders<a class="headerlink" href="#updating-text-placeholders" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Click on each text label</li>
+<li>Replace placeholder text:</li>
+<li><code>[MAP TITLE]</code> → <code>Socioeconomic Disadvantage by SA2</code></li>
+<li><code>[Subtitle]</code> → <code>Greater Sydney, 2021</code></li>
+<li><code>[SOURCE, YEAR]</code> → <code>ABS Census 2021</code></li>
+<li><code>[EPSG CODE]</code> → <code>EPSG:7856</code></li>
+<li><code>[NAME]</code> → <code>Your Name</code></li>
+</ol>
+<h3 id="updating-the-legend">Updating the legend<a class="headerlink" href="#updating-the-legend" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Click on the legend</li>
+<li>In <strong>Item Properties</strong>, click <strong>Update All</strong> to pull current layers</li>
+<li>Remove unwanted items: select → click minus button</li>
+<li>Rename items: double-click to edit text</li>
+<li>Reorder: drag items up/down</li>
+</ol>
+<hr />
+<h2 id="part-6-template-variations">Part 6: Template variations<a class="headerlink" href="#part-6-template-variations" title="Permanent link">&para;</a></h2>
+<p>Create multiple templates for different purposes:</p>
+<h3 id="portrait-template">Portrait template<a class="headerlink" href="#portrait-template" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Size: A4 portrait (210 × 297 mm)</li>
+<li>Map frame: Top 2/3 of page</li>
+<li>Legend and text: Bottom 1/3</li>
+<li>Good for: Reports, single-page handouts</li>
+</ul>
+<h3 id="comparison-template">Comparison template<a class="headerlink" href="#comparison-template" title="Permanent link">&para;</a></h3>
+<p>Two map frames side by side with shared legend below. Good for: Before/after, two time periods.</p>
+<p><strong>Layout:</strong></p>
+<div class="highlight"><pre><span></span><code>┌─────────────────┬─────────────────┐
+│                 │                 │
+│    MAP 1        │    MAP 2        │
+│    (2016)       │    (2021)       │
+│                 │                 │
+├─────────────────┴─────────────────┤
+│           SHARED LEGEND           │
+└───────────────────────────────────┘
+</code></pre></div>
+<h3 id="dashboard-template">Dashboard template<a class="headerlink" href="#dashboard-template" title="Permanent link">&para;</a></h3>
+<p>Main map with inset maps and statistics. Good for: Executive summaries, presentations.</p>
+<p><strong>Layout:</strong></p>
+<div class="highlight"><pre><span></span><code>┌───────────────────────┬───────────┐
+│                       │  Legend   │
+│      MAIN MAP         ├───────────┤
+│                       │  Stats    │
+├───────────┬───────────┼───────────┤
+│  Inset 1  │  Inset 2  │  Notes    │
+└───────────┴───────────┴───────────┘
+</code></pre></div>
+<hr />
+<h2 id="quick-reference-layout-toolbar">Quick reference: Layout toolbar<a class="headerlink" href="#quick-reference-layout-toolbar" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Icon</th>
+<th>Tool</th>
+<th>Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img alt="Add Map" src="../../assets/icons/mLayoutItemMap.svg" style="width:24px" /></td>
+<td>Add Map</td>
+<td>—</td>
+</tr>
+<tr>
+<td><img alt="Add Legend" src="../../assets/icons/mLayoutItemLegend.svg" style="width:24px" /></td>
+<td>Add Legend</td>
+<td>—</td>
+</tr>
+<tr>
+<td><img alt="Add Scale Bar" src="../../assets/icons/mLayoutItemScaleBar.svg" style="width:24px" /></td>
+<td>Add Scale Bar</td>
+<td>—</td>
+</tr>
+<tr>
+<td><img alt="Add Arrow" src="../../assets/icons/mActionAddArrow.svg" style="width:24px" /></td>
+<td>Add North Arrow</td>
+<td>—</td>
+</tr>
+<tr>
+<td><img alt="Add Label" src="../../assets/icons/mLayoutItemLabel.svg" style="width:24px" /></td>
+<td>Add Label</td>
+<td>—</td>
+</tr>
+<tr>
+<td><img alt="Add Picture" src="../../assets/icons/mLayoutItemPicture.svg" style="width:24px" /></td>
+<td>Add Picture</td>
+<td>—</td>
+</tr>
+<tr>
+<td><img alt="Add Shape" src="../../assets/icons/mActionAddBasicShape.svg" style="width:24px" /></td>
+<td>Add Shape</td>
+<td>—</td>
+</tr>
+<tr>
+<td><img alt="Select" src="../../assets/icons/mActionSelect.svg" style="width:24px" /></td>
+<td>Select/Move</td>
+<td>V</td>
+</tr>
+<tr>
+<td><img alt="Pan" src="../../assets/icons/mActionPan.svg" style="width:24px" /></td>
+<td>Pan Layout</td>
+<td>P</td>
+</tr>
+<tr>
+<td><img alt="Zoom" src="../../assets/icons/mActionZoomIn.svg" style="width:24px" /></td>
+<td>Zoom</td>
+<td>Z</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="common-problems-and-fixes">Common problems and fixes<a class="headerlink" href="#common-problems-and-fixes" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Cause</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Map shows wrong area</td>
+<td>Extent not updated</td>
+<td>Click <strong>Set Map Extent to Match Main Canvas</strong></td>
+</tr>
+<tr>
+<td>Legend shows wrong layers</td>
+<td>Auto-update enabled</td>
+<td>Uncheck auto-update, manually select layers</td>
+</tr>
+<tr>
+<td>Scale bar shows wrong units</td>
+<td>CRS mismatch</td>
+<td>Check project CRS matches layout CRS</td>
+</tr>
+<tr>
+<td>Elements won't align</td>
+<td>Snapping off</td>
+<td>Enable <strong>View → Snap to Guides</strong></td>
+</tr>
+<tr>
+<td>Template loads empty</td>
+<td>Normal behaviour</td>
+<td>Map frames are placeholders—update extent</td>
+</tr>
+<tr>
+<td>Text cut off</td>
+<td>Box too small</td>
+<td>Resize label box or reduce font size</td>
+</tr>
+<tr>
+<td>Blurry export</td>
+<td>Low DPI</td>
+<td>Export at 300 DPI for print</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="export-settings">Export settings<a class="headerlink" href="#export-settings" title="Permanent link">&para;</a></h2>
+<h3 id="for-print-pdf">For print (PDF)<a class="headerlink" href="#for-print-pdf" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Resolution:</strong> 300 DPI</li>
+<li><strong>Format:</strong> PDF</li>
+<li><strong>Export → Export as PDF</strong></li>
+<li>Check: <strong>Print as raster</strong> if you have transparency issues</li>
+</ul>
+<h3 id="for-digitalweb-png">For digital/web (PNG)<a class="headerlink" href="#for-digitalweb-png" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Resolution:</strong> 150 DPI (or 96 for screen-only)</li>
+<li><strong>Format:</strong> PNG</li>
+<li><strong>Export → Export as Image</strong></li>
+<li>Choose PNG for transparency support</li>
+</ul>
+<h3 id="for-presentations">For presentations<a class="headerlink" href="#for-presentations" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Resolution:</strong> 150 DPI</li>
+<li><strong>Dimensions:</strong> 1920 × 1080 px (match your slides)</li>
+<li>Export to PNG, then insert in PowerPoint/Google Slides</li>
+</ul>
+<hr />
+<h2 id="your-template-library">Your template library<a class="headerlink" href="#your-template-library" title="Permanent link">&para;</a></h2>
+<p>Over the course, build these templates:</p>
+<ol>
+<li><strong>Week 2:</strong> <code>A3_landscape_standard.qpt</code> — Your main template</li>
+<li><strong>Week 4:</strong> <code>A3_terrain_with_hillshade.qpt</code> — For raster/elevation maps</li>
+<li><strong>Week 5:</strong> <code>A3_comparison_two_maps.qpt</code> — Side-by-side analysis</li>
+<li><strong>Capstone:</strong> Customize for your project's specific needs</li>
+</ol>
+<p>Save all templates in <code>intro-gis/templates/</code> so they're easy to find.</p>
+<hr />
+<h2 id="design-checklist">Design checklist<a class="headerlink" href="#design-checklist" title="Permanent link">&para;</a></h2>
+<p>Before exporting, verify:</p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> Map fills the frame appropriately (not too zoomed/too wide)</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Legend matches visible layers (no extras, nothing missing)</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Scale bar shows sensible numbers (not 17.3 km)</li>
+<li class="task-list-item"><input type="checkbox" disabled/> All placeholder text has been replaced</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Fonts are readable at intended size</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Elements align to guides</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Data source and date are credited</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Tested at 100% zoom—everything legible?</li>
+</ul>
+<hr />
+<h2 id="further-reading">Further reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../design-rubric/">Map Design Principles</a> — Visual hierarchy, balance, grids</li>
+<li><a href="../project-checklist/">Project Checklist</a> — Full quality control list</li>
+<li><a href="https://docs.qgis.org/latest/en/docs/user_manual/print_composer/index.html">QGIS Print Layout Documentation</a></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+</div>
+
+<script>
+const PASSWORD_HASH = '6a27409fe1a89e91583ec6da7b091431d9d3fb070ad0c699dc152699f53f6c7d';
+
+async function hashPassword(pwd) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(pwd);
+  const hash = await crypto.subtle.digest('SHA-256', data);
+  return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
+async function checkPassword() {
+  const input = document.getElementById('password-input').value;
+  const hash = await hashPassword(input);
+
+  if (hash === PASSWORD_HASH) {
+    localStorage.setItem('course-auth', 'true');
+    showContent();
+  } else {
+    document.getElementById('error-msg').style.display = 'block';
+    document.getElementById('password-input').value = '';
+    document.getElementById('password-input').focus();
+  }
+}
+
+function showContent() {
+  document.getElementById('password-overlay').style.display = 'none';
+  document.getElementById('main-content').style.display = 'block';
+}
+
+// Check if already authenticated
+if (localStorage.getItem('course-auth') === 'true') {
+  showContent();
+}
+
+// Enter key support
+document.getElementById('password-input').addEventListener('keypress', (e) => {
+  if (e.key === 'Enter') checkPassword();
+});
+</script>
+
+<style>
+#password-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #546e7a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+#main-content {
+  display: none;
+}
+
+.password-box {
+  background: white;
+  padding: 3rem;
+  border-radius: 8px;
+  text-align: center;
+  max-width: 500px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+
+.password-box h2 {
+  margin-top: 0;
+  color: #546e7a;
+}
+
+.author {
+  color: #546e7a;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.notice {
+  background: #f5f5f5;
+  padding: 1rem 1.25rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  text-align: left;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.notice p {
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+.notice a {
+  color: #546e7a;
+}
+
+.login-section {
+  border-top: 1px solid #eee;
+  padding-top: 1.5rem;
+}
+
+.login-section p {
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.password-box input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+.password-box input:focus {
+  outline: none;
+  border-color: #546e7a;
+}
+
+.password-box button {
+  background: #546e7a;
+  color: white;
+  padding: 0.75rem 2rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background 0.2s;
+}
+
+.password-box button:hover {
+  background: #455a64;
+}
+
+#error-msg {
+  color: #d32f2f;
+  display: none;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+</style>
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/" target="_blank" rel="noopener" title="Source repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.expand", "navigation.sections", "navigation.top", "navigation.tabs", "toc.follow", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../javascripts/external-links.js"></script>
+      
+    
+  </body>
+</html>
