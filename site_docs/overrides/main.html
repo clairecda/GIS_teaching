@@ -3,11 +3,20 @@
 {% block content %}
 <div id="password-overlay">
   <div class="password-box">
-    <h2>Course Access</h2>
-    <p>Enter the password provided by your facilitator</p>
-    <input type="password" id="password-input" placeholder="Password" autofocus>
-    <button onclick="checkPassword()">Enter</button>
-    <p id="error-msg">Incorrect password</p>
+    <h2>Introduction to GIS</h2>
+    <p class="author">Developed by <strong>Dr Claire Boulange</strong></p>
+
+    <div class="notice">
+      <p>This course material is protected by copyright. Unauthorized copying, distribution, or reproduction of this content is strictly prohibited.</p>
+      <p>I'm an independent educator currently developing this curriculum. Universities or organizations interested in adopting this course or exploring teaching partnerships are welcome to <a href="mailto:claire.boulange@gmail.com">get in touch</a>.</p>
+    </div>
+
+    <div class="login-section">
+      <p>Enter the password provided by your facilitator</p>
+      <input type="password" id="password-input" placeholder="Password" autofocus>
+      <button onclick="checkPassword()">Enter</button>
+      <p id="error-msg">Incorrect password</p>
+    </div>
   </div>
 </div>
 
@@ -78,7 +87,7 @@ document.getElementById('password-input').addEventListener('keypress', (e) => {
   padding: 3rem;
   border-radius: 8px;
   text-align: center;
-  max-width: 400px;
+  max-width: 500px;
   box-shadow: 0 4px 20px rgba(0,0,0,0.3);
 }
 
@@ -87,9 +96,39 @@ document.getElementById('password-input').addEventListener('keypress', (e) => {
   color: #546e7a;
 }
 
-.password-box p {
-  color: #666;
+.author {
+  color: #546e7a;
+  font-size: 1.1rem;
   margin-bottom: 1.5rem;
+}
+
+.notice {
+  background: #f5f5f5;
+  padding: 1rem 1.25rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  text-align: left;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.notice p {
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+.notice a {
+  color: #546e7a;
+}
+
+.login-section {
+  border-top: 1px solid #eee;
+  padding-top: 1.5rem;
+}
+
+.login-section p {
+  color: #666;
+  margin-bottom: 1rem;
 }
 
 .password-box input {
