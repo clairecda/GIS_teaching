@@ -6,6 +6,7 @@ docs_dir: site_docs
 
 theme:
   name: material
+  custom_dir: site_docs/overrides
   palette:
     - scheme: default
       primary: blue grey
